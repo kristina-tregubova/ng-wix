@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>Tournaments creator</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <script src="scripts/scripts.js" async></script>
+</head>
+
+<body class="main-page">
+    <header class="main-header">
+
+        <a class="main-header__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <nav class="cite-nav">
+            <ul>
+                <li><a href="create-tournos.html">New</a></li>
+                <li><a href="tournos-search.html">All tournaments</a></li>
+            </ul>
+        </nav>
+        <div class="profile-menu">
+            <ul>
+                <li><a>My profile</a></li>
+                <li><a>Profile setting</a></li>
+                <li><a>Log out</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main">
+        <h1 class="site-title title">
+            Tournaments
+        </h1>
+        <form class="search-form">
+            <div class="search-form__search">
+                <input type="search" name="search" placeholder="Search for tournaments">
+            </div>
+            <div class="search-form__filters">
+                <label class="search-form__my-games"> Show only my games
+                    <input type="checkbox" name="my-games">
+                </label>
+                <label class="search-form__favs"> Show favourtites
+                    <input type="checkbox" name="favs">
+                </label>
+                <label class="search-form__game-label">Game
+                    <select class="search-form__game-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Game1">
+                            Game1
+                        </option>
+                        <option value="Game2">
+                            Game2
+                        </option>
+                        <option value="Game3">
+                            Game3
+                        </option>
+                    </select>
+                </label>
+                <label class="search-form__game-label">Status
+                    <select class="search-form__status-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Pending">
+                            Pending
+                        </option>
+                        <option value="In progress">
+                            In progress
+                        </option>
+                        <option value="Complete">
+                            Complete
+                        </option>
+                    </select>
+                </label>
+            </div>
+        </form>
+
+        <section class="tournos-search-result">
+            <h2 hidden>
+                Tournaments list
+            </h2>
+            <ul class="tournos-list">
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Tournament picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="User picture">
+                            <p>{USER NAME}</p>
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIOANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-details.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Tournament picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="User picture">
+                            <p>{USER NAME}</p>
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIOANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-details.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Tournament picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="User picture">
+                            <p>{USER NAME}</p>
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIOANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-details.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Tournament picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="User picture">
+                            <p>{USER NAME}</p>
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIOANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-details.html">View details</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class=" main-footer">
+        <a class="main-footer__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <section class="main-footer__nav">
+            <h3>
+                Discover new
+            </h3>
+            <ul>
+                <li><a href="tournos-search.html">Search tournaments</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__login">
+            <h3>
+                Join {NAME}
+            </h3>
+            <ul>
+                <li><a href="auth.html">Log in</a></li>
+                <li><a href="auth.html">Sign up</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__social">
+            <h3>
+                Follow us!
+            </h3>
+            <ul>
+                <li><a href="facebook.com">
+                        <img src="" width="" height="" alt="Facebook link">
+                    </a></li>
+                <li><a href="instagram.com">
+                        <img src="" width="" height="" alt="Instagram link">
+                    </a></li>
+                <li><a href="vk.com">
+                        <img src="" width="" height="" alt="Vk link">
+                    </a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>
