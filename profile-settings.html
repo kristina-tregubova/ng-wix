@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>Tournaments creator</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <script src="scripts/scripts.js" async></script>
+</head>
+
+<body class="main-page">
+    <header class="main-header">
+
+        <a class="main-header__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <nav class="cite-nav">
+            <ul>
+                <li><a href="tourno-creation.html">New</a></li>
+                <li><a href="tournos-search.html">All tournaments</a></li>
+                <li><a href="players-search.html">All players</a></li>
+            </ul>
+        </nav>
+        <div class="profile-menu">
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+                <li><button class="profile-menu__item">Log out</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main profile-settings">
+        <h1 class="profile-settings__title">
+            Profile settings
+        </h1>
+        <form class="profile-settings__general">
+            <fieldset>
+                <label> Username
+                    <input type="text" name="username" value="Lilly Johnes">
+                </label>
+                <label> E-mail
+                    <input type="text" name="email" value="LillyJohnes@gmail.com">
+                </label>
+                <label> Country
+                    <select>
+                        <option value=""></option>
+                        <option value="usa" selected>USA</option>
+                        <option value="russia">Russia</option>
+                        <option value="germany">Germany</option>
+                        <option value="spain">Spain</option>
+                    </select>
+                </label>
+                <label> New avatar
+                    <input class="profile-settings__avatar" type="file" name="avatar">
+                </label>
+
+                <input type="submit" name="submit" value="Submit changes">
+            </fieldset>
+        </form>
+        <form class="profile-settings__password">
+            <fieldset>
+                <label> Change password
+                    <input type="password" name="old-pass">
+                </label>
+                <label> New password
+                    <input type="password" name="new-pass">
+                </label>
+                <input type="submit" name="submit" value="Set new password">
+            </fieldset>
+        </form>
+        <form class="profile-settings__homepage-options">
+            <fieldset>
+                <legend>Homepage options</legend>
+                <p>After login I want to see:</p>
+                <ul>
+                    <li>
+                        <label class="profile-settings__homepage-option"> only my tournaments
+                            <input type="radio" name="homepage-options" value="my-tournos" checked>
+                        </label>
+                    </li>
+                    <li>
+
+                        <label class="profile-settings__homepage-option"> all tournaments
+                            <input type="radio" name="homepage-options" value="all-tournos">
+                        </label>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </main>
+
+    <footer class=" main-footer">
+        <a class="main-footer__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <section class="main-footer__nav">
+            <h3>
+                Discover new
+            </h3>
+            <ul>
+                <li><a href="tournos-search.html">Search tournaments</a></li>
+                <li><a href="players-search.html">Search players</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__profile">
+            <h3>
+                Profile
+            </h3>
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__social">
+            <h3>
+                Follow us!
+            </h3>
+            <ul>
+                <li><a href="facebook.com">
+                        <img src="" width="" height="" alt="Facebook link">
+                    </a></li>
+                <li><a href="instagram.com">
+                        <img src="" width="" height="" alt="Instagram link">
+                    </a></li>
+                <li><a href="vk.com">
+                        <img src="" width="" height="" alt="Vk link">
+                    </a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>

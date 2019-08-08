@@ -34,96 +34,79 @@
     </header>
 
     <main class="main">
-        <h1 class="site-title title">
-            Tournaments
-        </h1>
-        <form class="search-form">
-            <div class="search-form__search">
-                <input type="search" name="search" placeholder="Search for tournaments">
+        <div class="profile-header">
+        </div>
+        <section class="player-profile">
+            <h1 hidden>
+                Player {NAME}'s profile
+            </h1>
+            <img class="player-profile__avatar profile-avatar" src="" width="" height="" alt="Tournament avatar">
+            <div class="player-profile__info">
+                <table>
+                    <tr>
+                        <th>Type:</th>
+                        <td>Team</td>
+                    </tr>
+                    <tr>
+                        <th>Name:</th>
+                        <td>Tigers</td>
+                    </tr>
+                    <tr>
+                        <th>Game:</th>
+                        <td>Basketball</td>
+                    </tr>
+                    <tr>
+                        <th>Points in total:</th>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <th>Games in total:</th>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <th>Country:</th>
+                        <td>Russia</td>
+                    </tr>
+                </table>
             </div>
-            <div class="search-form__filters">
-                <label class="search-form__my-games"> Show only my games
-                    <input type="checkbox" name="my-games">
-                </label>
-                <label class="search-form__favs"> Show favourtites
-                    <input type="checkbox" name="favs">
-                </label>
-                <label class="search-form__game-label">Game
-                    <select class="search-form__game-selector">
-                        <option value="All" selected>
-                            All
-                        </option>
-                        <option value="Game1">
-                            Game1
-                        </option>
-                        <option value="Game2">
-                            Game2
-                        </option>
-                        <option value="Game3">
-                            Game3
-                        </option>
-                    </select>
-                </label>
-                <label class="search-form__game-label">Status
-                    <select class="search-form__status-selector">
-                        <option value="All" selected>
-                            All
-                        </option>
-                        <option value="Pending">
-                            Pending
-                        </option>
-                        <option value="In progress">
-                            In progress
-                        </option>
-                        <option value="Complete">
-                            Complete
-                        </option>
-                    </select>
-                </label>
-            </div>
-        </form>
-
-        <section class="tournos-search-result">
-            <h2 hidden>
-                Tournaments list
+        </section>
+        <section class="player-profile__details">
+            <h2 class="title">
+                Team members
+            </h2>
+            <table>
+                <tr>
+                    <th>1.</th>
+                    <td>Bob</td>
+                    <td>Point guard</td>
+                </tr>
+                <tr>
+                    <th>2.</th>
+                    <td>Denis</td>
+                    <td>Shooting guard</td>
+                </tr>
+                <tr>
+                    <th>3.</th>
+                    <td>Steve</td>
+                    <td>Small forward</td>
+                </tr>
+                <tr>
+                    <th>4.</th>
+                    <td>Keith</td>
+                    <td>Power forward</td>
+                </tr>
+                <tr>
+                    <th>5.</th>
+                    <td>Li</td>
+                    <td>Center</td>
+                </tr>
+            </table>
+        </section>
+        <section class="player-profile__games-attended">
+            <h2 class="title">
+                Tournaments attended
             </h2>
             <ul class="tournos-list">
-                <li class="tournos-list__card">
-                    <div class="tournos-list__card-header">
-                        <img src="" width="" height="" alt="Game picture">
-                    </div>
-                    <div class="tournos-list__card-body">
-                        <div class="tournos-list__card-user">
-                            <img src="" width="" height="" alt="Tournament picture">
-                        </div>
-                        <ul class="tournos-list__card-info">
-                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                            <li class="tournos-list__card-info-dates">{DATES}</li>
-                        </ul>
-                    </div>
-                    <div class="tournos-list__card-btn btn">
-                        <a href="tourno-profile.html">View details</a>
-                    </div>
-                </li>
-                <li class="tournos-list__card">
-                    <div class="tournos-list__card-header">
-                        <img src="" width="" height="" alt="Game picture">
-                    </div>
-                    <div class="tournos-list__card-body">
-                        <div class="tournos-list__card-user">
-                            <img src="" width="" height="" alt="Tournament picture">
-                        </div>
-                        <ul class="tournos-list__card-info">
-                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                            <li class="tournos-list__card-info-dates">{DATES}</li>
-                        </ul>
-                    </div>
-                    <div class="tournos-list__card-btn btn">
-                        <a href="tourno-profile.html">View details</a>
-                    </div>
-                </li>
                 <li class="tournos-list__card">
                     <div class="tournos-list__card-header">
                         <img src="" width="" height="" alt="Game picture">
@@ -175,7 +158,7 @@
             </h3>
             <ul>
                 <li><a href="tournos-search.html">Search tournaments</a></li>
-                <li><a href="players-search.html">Search players</a></li>
+                <li><a href="players-search.html">Seach players</a></li>
             </ul>
         </section>
         <section class="main-footer__profile">

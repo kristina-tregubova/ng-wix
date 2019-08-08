@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>Tournaments creator</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <script src="scripts/scripts.js" async></script>
+</head>
+
+<body class="main-page">
+    <header class="main-header">
+
+        <a class="main-header__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <nav class="cite-nav">
+            <ul>
+                <li><a href="tourno-creation.html">New</a></li>
+                <li><a href="tournos-search.html">All tournaments</a></li>
+                <li><a href="players-search.html">All players</a></li>
+            </ul>
+        </nav>
+        <div class="profile-menu">
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+                <li><button class="profile-menu__item">Log out</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main">
+        <h1 class="site-title title">
+            Players
+        </h1>
+        <form class="search-form">
+            <div class="search-form__search">
+                <input type="search" name="search" placeholder="Search for players">
+            </div>
+            <div class="search-form__filters">
+                <label class="search-form__favs"> Show favourtites
+                    <input type="checkbox" name="favs">
+                </label>
+                <label class="search-form__game-label">Game
+                    <select class="search-form__game-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Game1">
+                            Game1
+                        </option>
+                        <option value="Game2">
+                            Game2
+                        </option>
+                        <option value="Game3">
+                            Game3
+                        </option>
+                    </select>
+                </label>
+                <label class="search-form__country-label">Country
+                    <select class="search-form__country-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Pending">
+                            Country1
+                        </option>
+                        <option value="In progress">
+                            Country2
+                        </option>
+                        <option value="Complete">
+                            Country3
+                        </option>
+                    </select>
+                </label>
+            </div>
+            <div class="search-form__sorting-source">
+                <button class="search-form__sorting-source-button search-form__sorting-source-button_active" type="button">Rating</button>
+                <button class="search-form__sorting-source-button" type="button">Date joined</button>
+            </div>
+            <div class="search-form__sorting-order">
+                <button class="arrow sorting__ascending sorting__arrow_active" type="button">
+                    <span hidden>Ascending</span>
+                </button>
+                <button class="arrow sorting__descending" type="button">
+                    <span hidden>Descending</span>
+                </button>
+            </div>
+        </form>
+
+        <section class="players-search-result">
+            <h2 hidden>
+                Players list
+            </h2>
+
+            <table class="">
+                <tr>
+                    <th>No.</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Game</th>
+                    <th>Points in total</th>
+                    <th>Games in total</th>
+                    <th>Country</th>
+                    <th><a href="player-profile.html">View details</a></th>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>Single player</td>
+                    <td>John White</td>
+                    <td>Tennis</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>Russia</td>
+                    <td><a href="player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Team</td>
+                    <td>Tigers</td>
+                    <td>Basketball</td>
+                    <td>12</td>
+                    <td>4</td>
+                    <td>Germany</td>
+                    <td><a href="player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Team</td>
+                    <td>Dolphins</td>
+                    <td>Water polo</td>
+                    <td>8</td>
+                    <td>2</td>
+                    <td>Ukraine</td>
+                    <td><a href="player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Single player</td>
+                    <td>Elle Black</td>
+                    <td>Chess</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>Spain</td>
+                    <td><a href="player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Team</td>
+                    <td>Cats</td>
+                    <td>Football</td>
+                    <td>14</td>
+                    <td>5</td>
+                    <td>Portugal</td>
+                    <td><a href="player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>6.</td>
+                    <td>Team</td>
+                    <td>Bulls</td>
+                    <td>DOTA2</td>
+                    <td>9</th>
+                    <td>4</td>
+                    <td>Russia</td>
+                    <td><a href="player-profile.html">View details</a></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <footer class=" main-footer">
+        <a class="main-footer__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <section class="main-footer__nav">
+            <h3>
+                Discover new
+            </h3>
+            <ul>
+                <li><a href="tournos-search.html">Search tournaments</a></li>
+                <li><a href="players-search.html">Search players</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__profile">
+            <h3>
+                Profile
+            </h3>
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__social">
+            <h3>
+                Follow us!
+            </h3>
+            <ul>
+                <li><a href="facebook.com">
+                        <img src="" width="" height="" alt="Facebook link">
+                    </a></li>
+                <li><a href="instagram.com">
+                        <img src="" width="" height="" alt="Instagram link">
+                    </a></li>
+                <li><a href="vk.com">
+                        <img src="" width="" height="" alt="Vk link">
+                    </a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>

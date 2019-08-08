@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>Tournaments creator</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <script src="scripts/scripts.js" async></script>
+</head>
+
+<body class="main-page">
+    <header class="main-header">
+
+        <a class="main-header__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <nav class="cite-nav">
+            <ul>
+                <li><a href="tourno-creation.html">New</a></li>
+                <li><a href="tournos-search.html">All tournaments</a></li>
+                <li><a href="players-search.html">All players</a></li>
+            </ul>
+        </nav>
+        <div class="profile-menu">
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+                <li><button class="profile-menu__item">Log out</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main">
+        <h1 class="main-title">
+            Create a new tournament
+        </h1>
+        <form class="tourno-creation">
+            <fieldset>
+                <legend>
+                    Basic information
+                </legend>
+                <label> Name
+                    <input type="text" name="name">
+                </label>
+                <label> Tournament type
+                        <select>
+                            <option value="singleelimination" selected>Single-elimination tournament</option>
+                            <option value="doubleelimination">Double-elimination tournament</option>
+                        </select>
+                    </label>
+                <label> Country
+                    <select>
+                        <option value=""></option>
+                        <option value="usa" selected>USA</option>
+                        <option value="russia">Russia</option>
+                        <option value="germany">Germany</option>
+                        <option value="spain">Spain</option>
+                    </select>
+                </label>
+                <label> Game
+                    <select>
+                        <option value="" selected></option>
+                        <option value="football">Football</option>
+                        <option value="basketball">Basketball</option>
+                        <option value="waterpolo">Water Polo</option>
+                        <option value="tennis">Tennis</option>
+                        <option value="counterstrike">Counter Strike</option>
+                        <option value="dota2">Dota 2</option>
+                        <option value="other">Other</option>
+                    </select>
+                </label>
+                <label> Player type
+                    <select>
+                        <option value="single" selected>Single player</option>
+                        <option value="team">Team</option>
+                    </select>
+                </label>
+                <label> Description
+                    <textarea></textarea>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Org information
+                </legend>
+                <label> Start date
+                    <input type="date" name="startdate">
+                </label>
+                <label> End date
+                    <input type="date" name="enddate">
+                </label>
+                <!-- <label> No. of players in total
+                    <input type="number" name="numberofplayers" min="4" max="24" step="2">
+                </label> -->
+                <label> No. of players pro game
+                    <select>
+                        <option value="2" selected>2</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+                <label> Entry Fee
+                    <input type="number" name="entryfee">
+                    <select>
+                        <option value="dollars" selected>$</option>
+                        <option value="rubles">₽</option>
+                    </select>
+                </label>
+                <label> Prize
+                    <input type="text" name="prize">
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    Add players
+                </legend>
+                <span>
+                    1.
+                </span>
+                <label> Name
+                    <input type="text" name="name">
+                </label>
+                <label> New avatar
+                    <input class="profile-settings__avatar" type="file" name="avatar">
+                </label>
+                <label> Role* (for single players)
+                    <input type="text" name="playersrole">
+                </label>
+                <fieldset>
+                    <legend>Add team members* (for teams)</legend>
+                    <input type="text" name="playersname">
+                    <input type="text" name="playersrole">
+                    <button name="addteammember">+</button>
+                </fieldset>
+                <span>
+                    2.
+                </span>
+                <label> Name
+                    <input type="text" name="name">
+                </label>
+                <label> New avatar
+                    <input class="profile-settings__avatar" type="file" name="avatar">
+                </label>
+                <label> Role* (for single players)
+                    <input type="text" name="playersrole">
+                </label>
+                <fieldset>
+                    <legend>Add team members* (for teams)</legend>
+                    <input type="text" name="playersname">
+                    <input type="text" name="playersrole">
+                    <button name="addteammember">+</button>
+                </fieldset>
+                <span>
+                    3.
+                </span>
+                <label> Name
+                    <input type="text" name="name">
+                </label>
+                <label> New avatar
+                    <input class="profile-settings__avatar" type="file" name="avatar">
+                </label>
+                <label> Role* (for single players)
+                    <input type="text" name="playersrole">
+                </label>
+                <fieldset>
+                    <legend>Add team members* (for teams)</legend>
+                    <input type="text" name="playersname">
+                    <input type="text" name="playersrole">
+                    <button name="addteammember">+</button>
+                </fieldset>
+                <span>
+                    4.
+                </span>
+                <label> Name
+                    <input type="text" name="name">
+                </label>
+                <label> New avatar
+                    <input class="profile-settings__avatar" type="file" name="avatar">
+                </label>
+                <label> Role* (for single players)
+                    <input type="text" name="playersrole">
+                </label>
+                <fieldset>
+                    <legend>Add team members* (for teams)</legend>
+                    <input type="text" name="playersname">
+                    <input type="text" name="playersrole">
+                    <button name="addteammember">+</button>
+                </fieldset>
+                <button name="addplayer">+</button>
+            </fieldset>
+            <input type="submit" name="submit" value="Create tournament">
+        </form>
+    </main>
+
+    <footer class=" main-footer">
+        <a class="main-footer__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <section class="main-footer__nav">
+            <h3>
+                Discover new
+            </h3>
+            <ul>
+                <li><a href="tournos-search.html">Search tournaments</a></li>
+                <li><a href="players-search.html">Search players</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__profile">
+            <h3>
+                Profile
+            </h3>
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__social">
+            <h3>
+                Follow us!
+            </h3>
+            <ul>
+                <li><a href="facebook.com">
+                        <img src="" width="" height="" alt="Facebook link">
+                    </a></li>
+                <li><a href="instagram.com">
+                        <img src="" width="" height="" alt="Instagram link">
+                    </a></li>
+                <li><a href="vk.com">
+                        <img src="" width="" height="" alt="Vk link">
+                    </a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>

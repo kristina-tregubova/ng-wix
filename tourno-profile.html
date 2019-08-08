@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <title>Tournaments creator</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <script src="scripts/scripts.js" async></script>
+</head>
+
+<body class="main-page">
+    <header class="main-header">
+
+        <a class="main-header__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <nav class="cite-nav">
+            <ul>
+                <li><a href="tourno-creation.html">New</a></li>
+                <li><a href="tournos-search.html">All tournaments</a></li>
+                <li><a href="players-search.html">All players</a></li>
+            </ul>
+        </nav>
+        <div class="profile-menu">
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+                <li><button class="profile-menu__item">Log out</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="profile-header">
+        </div>
+        <section class="tourno-profile">
+            <h1 hidden>
+                Tournament {NAME} profile
+            </h1>
+            <img class="tourno-profile__avatar profile-avatar" src="" width="" height="" alt="Tournament avatar">
+            <div class="tourno-profile__info">
+                <table>
+                    <tr>
+                        <th>Name:</th>
+                        <td>Annual game of School 546</td>
+                    </tr>
+                    <tr>
+                        <th>Game:</th>
+                        <td>Basketball</td>
+                    </tr>
+                    <tr>
+                        <th>Start date:</th>
+                        <td>12.05.2019</td>
+                    </tr>
+                    <tr>
+                        <th>End date:</th>
+                        <td>29.05.2019</td>
+                    </tr>
+                    <tr>
+                        <th>Participants:</th>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <th>Country:</th>
+                        <td>Russia</td>
+                    </tr>
+                    <tr>
+                        <th>Entry fee:</th>
+                        <td> - </td>
+                    </tr>
+                    <tr>
+                        <th>Prize:</th>
+                        <td>2020 Schoolarship</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section class="tourno-profile__details">
+            <div class="tourno-profile__details-tabs">
+                <div class="tourno-profile__details-tab">
+                    <h3 class="tourno-profile__details-tab-btn">
+                        Bracket
+                    </h3>
+                    <div class="tourno-profile__details-tab-content">
+                        {GAME BRACKET HERE}
+                    </div>
+                </div>
+                <div class="tourno-profile__details-tab">
+                    <h3 class="ftourno-profile__details-tab-btn">
+                        Chart
+                    </h3>
+                    <div class="tourno-profile__details-tab-content">
+                        Chart of games played, players and points gained
+                        <div class="game-played">
+                            <!-- <h4 class="games-played__title">
+                                Game 1
+                            </h4> -->
+                            <table class="chart">
+                                <thead>
+                                    <tr>
+                                        <th>Game</th>
+                                        <th>Participant</th>
+                                        <th>Points gained</th>
+                                        <th>Can attend next game</th>
+                                        <th>Winner</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            John
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Steve
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Vanya
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Pete
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            Jack
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Sean
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Bob
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Li
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            John
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Steve
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Jack
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Sean
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            Steve
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            -
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                            Sean
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                        <td>
+                                            Yes
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tourno-profile__details-tab">
+                    <h3 class="ftourno-profile__details-tab-btn">
+                        Comments*
+                    </h3>
+                    <div class="tourno-profile__details-tab-content">
+
+                    </div>
+                </div>
+                <div class="tourno-profile__details-tab">
+                    <h3 class="tourno-profile__details-tab-btn">
+                        Settings
+                    </h3>
+                    <div class="tourno-profile__details-tab-content">
+                        Some form to edit tourno info (take it from tourno creation page)
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class=" main-footer">
+        <a class="main-footer__logo">
+            <img src="" width="" height="" alt="Logo image">
+        </a>
+
+        <section class="main-footer__nav">
+            <h3>
+                Discover new
+            </h3>
+            <ul>
+                <li><a href="tournos-search.html">Search tournaments</a></li>
+                <li><a href="players-search.html">Search players</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__profile">
+            <h3>
+                Profile
+            </h3>
+            <ul>
+                <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
+                <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+            </ul>
+        </section>
+        <section class="main-footer__social">
+            <h3>
+                Follow us!
+            </h3>
+            <ul>
+                <li><a href="facebook.com">
+                        <img src="" width="" height="" alt="Facebook link">
+                    </a></li>
+                <li><a href="instagram.com">
+                        <img src="" width="" height="" alt="Instagram link">
+                    </a></li>
+                <li><a href="vk.com">
+                        <img src="" width="" height="" alt="Vk link">
+                    </a></li>
+            </ul>
+        </section>
+    </footer>
+</body>
+
+</html>
