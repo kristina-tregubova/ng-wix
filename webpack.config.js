@@ -1,31 +1,42 @@
-import GhPagesWebpackPlugin from 'gh-pages-webpack-plugin';
+const autoprefixer = require('autoprefixer');
 
-export default [{
-    entry: './styles/app.scss',
+module.exports = [{
+    entry: './app.scss',
     output: {
       // This is necessary for webpack to compile
       // But we never use style-bundle.js
       filename: 'style-bundle.js',
     },
-    plugins: [
-        new GhPagesWebpackPlugin({
-            path: './public',
-        })
-    ],
+    resolve: {
+        alias: {
+          'img': resolve('./img')
+        }
+      },
     module: {
       rules: [
         {
           test: /\.scss$/,
           use: [
             {
-              loader: 'file-loader',
-              options: {
+                loader: 'file-loader',
+                options: {
                 name: 'bundle.css',
-              },
+                },
             },
             { loader: 'extract-loader' },
             { loader: 'css-loader' },
-            { loader: 'sass-loader' },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: () => [autoprefixer()]
+                }
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    includePaths: ['./node_modules']
+                }
+            },
           ]
         }
       ]

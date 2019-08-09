@@ -1,3 +1,9 @@
+@import "@material/button/mdc-button.scss";
+@import "@material/tab-bar/mdc-tab-bar.scss";
+@import "@material/tab-scroller/mdc-tab-scroller.scss";
+@import "@material/tab-indicator/mdc-tab-indicator.scss";
+@import "@material/tab/mdc-tab.scss";
+
 html,
 body {
   background-color: #303841;
@@ -75,6 +81,15 @@ h6 {
   justify-content: space-between;
   flex-wrap: wrap;
   border-bottom: 1px solid #3a4750;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+}
+
+.main-header__logo {
+  margin-top: 8px;
+  margin-left: 10px;
 }
 
 .site-nav ul {
@@ -84,8 +99,13 @@ h6 {
   flex-grow: 1;
 }
 
-.site-nav li {
-  padding-left: 20px;
+.site-nav__tab {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding-bottom: 20px;
+  @include mdc-tab-text-label-color(#fff);
+  @include mdc-tab-states-color(#fff);
+  @include mdc-tab-indicator-underline-color(#ebc000);
 }
 
 .container-center {
@@ -94,9 +114,52 @@ h6 {
   padding: 0 10px;
 }
 
+
+
+
+
 .main {
   margin-bottom: 35px;
 }
+
+// .landing > .main {
+//   background-image: url("img/background-pic.jpg");
+// }
+
+.landing > .main section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.promo__title {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.promo__btn {
+  margin-bottom: 70px;
+}
+
+.btn {
+  font-weight: 700;
+  @include mdc-button-outline-color(#ebc000);
+  @include mdc-button-ink-color(#fff);
+  @include mdc-states(#fff);
+}
+
+.highlighted-btn {
+  font-weight: 700;
+  @include mdc-button-container-fill-color(#ebc000);
+  @include mdc-button-ink-color(#303841);
+  @include mdc-states(#fff);
+}
+
+
+
 
 .tournos-list {
   display: grid;

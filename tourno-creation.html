@@ -15,16 +15,53 @@
     <header class="main-header">
 
         <a class="main-header__logo" href="index.html">
-            <img src="" width="" height="" alt="Logo image">
+            <img src="img/image2vector.svg" width="120px" height="60px" alt="Logo image">
         </a>
 
         <nav class="site-nav">
-            <ul>
-                <li><a href="tourno-creation.html">New</a></li>
-                <li><a href="tournos-search.html">All tournaments</a></li>
-                <li><a href="players-search.html">All players</a></li>
-            </ul>
-        </nav>
+
+                <div class="mdc-tab-bar" role="tablist">
+                    <div class="mdc-tab-scroller">
+                        <div class="mdc-tab-scroller__scroll-area">
+                            <div class="mdc-tab-scroller__scroll-content">
+                                <a class="mdc-tab mdc-tab--active site-nav__tab" href="auth.html" role="tab" aria-selected="true"
+                                    tabindex="0">
+                                    <span class="mdc-tab__content">
+                                        <span class="mdc-tab__text-label">Create new</span>
+                                    </span>
+                                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                        <span
+                                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                    </span>
+                                    <span class="mdc-tab__ripple"></span>
+                                </a>
+                                <a class="mdc-tab mdc-tab--active site-nav__tab" href="tournos-search.html" role="tab"
+                                    aria-selected="true" tabindex="0">
+                                    <span class="mdc-tab__content">
+                                        <span class="mdc-tab__text-label">All tournaments</span>
+                                    </span>
+                                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                        <span
+                                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                    </span>
+                                    <span class="mdc-tab__ripple"></span>
+                                </a>
+                                <a class="mdc-tab mdc-tab--active site-nav__tab" href="players-search.html" role="tab"
+                                    aria-selected="true" tabindex="0">
+                                    <span class="mdc-tab__content">
+                                        <span class="mdc-tab__text-label">All players</span>
+                                    </span>
+                                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                        <span
+                                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                    </span>
+                                    <span class="mdc-tab__ripple"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         <div class="profile-menu">
             <ul>
                 <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
