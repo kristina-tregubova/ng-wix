@@ -6,7 +6,7 @@ import {MDCTabScroller} from '@material/tab-scroller';
 import {MDCRipple} from '@material/ripple';
 import {MDCMenu} from '@material/menu';
 
-const menuBtn = document.querySelector('.menu-btn');
+const menuBtn = document.querySelector('.main-header .menu-btn');
 const menu = new MDCMenu(document.querySelector('.mdc-menu'));
 menu.open = false;
 const iconButtonRipple = new MDCRipple(document.querySelector('.mdc-icon-button'));
@@ -32,16 +32,18 @@ document.body.addEventListener("scroll", function() {
 
 document.addEventListener('click', function(e) {
 
-    const menuBtnClicked = e.target.closest('.menu-btn');
-    menuBtn.classList.toggle('open-menu');
+    const menuBtnClicked = e.target.closest('.main-header .menu-btn');
 
-    if (menuBtn.classList.contains("open-menu")) {
+    if (!menuBtn.classList.contains("open-menu")) {
         menu.open = true;
+        menuBtn.classList.add('open-menu');
     } else {
         menu.open = false; 
+        menuBtn.classList.remove('open-menu');
     }
 
     if(e.target !== menuBtn && menuBtn.classList.contains("open-menu")) {
         menuBtn.classList.remove('open-menu');
+        menu.open = false; 
     }
 })

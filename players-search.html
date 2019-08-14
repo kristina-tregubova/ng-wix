@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WiX</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans Pro:700|Open+Sans:400" rel="stylesheet" />
@@ -26,8 +26,8 @@
                 <div class="mdc-tab-scroller">
                     <div class="mdc-tab-scroller__scroll-area">
                         <div class="mdc-tab-scroller__scroll-content">
-                            <a class="mdc-tab mdc-tab--active site-nav__tab tab " href="auth.html" role="tab" aria-selected="true"
-                                tabindex="0">
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab " href="tourno-creation.html" role="tab"
+                                aria-selected="true" tabindex="0">
                                 <span class="mdc-tab__content">
                                     <span class="mdc-tab__text-label">Create new</span>
                                 </span>
@@ -72,32 +72,37 @@
             </ul>
         </div>
         <nav class="site-nav-min">
-                <div class="menu-anchor mdc-menu-surface--anchor">
+            <div class="menu-anchor mdc-menu-surface--anchor">
                 <button class="menu-btn material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
                 <div class="mdc-menu mdc-menu-surface">
                     <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
                         <li>
                             <ul class="mdc-menu__selection-group">
                                 <li class="mdc-list-item" role="menuitem">
-                                    <span class="mdc-list-item__text"><a href="auth.html">Create New</a></span>
+                                    <span class="mdc-list-item__text"><a href="tourno-creation.html">Create
+                                            New</a></span>
                                 </li>
                                 <li class="mdc-list-item" role="menuitem">
-                                    <span class="mdc-list-item__text"><a href="tournos-search.html">All Tournaments</a></span>
+                                    <span class="mdc-list-item__text"><a href="tournos-search.html">All
+                                            Tournaments</a></span>
                                 </li>
                                 <li class="mdc-list-item" role="menuitem">
-                                    <span class="mdc-list-item__text"><a href="players-search.html">All Players</a></span>
+                                    <span class="mdc-list-item__text"><a href="players-search.html">All
+                                            Players</a></span>
                                 </li>
                                 <li class="mdc-list-divider" role="separator"></li>
                                 <li class="mdc-list-item" role="menuitem">
-                                    <span class="mdc-list-item__text"><a href="player-profile.html">My Profile</a></span>
+                                    <span class="mdc-list-item__text"><a href="player-profile.html">My
+                                            Profile</a></span>
                                 </li>
                                 <li class="mdc-list-item" role="menuitem">
-                                    <span class="mdc-list-item__text"><a href="profile-settings.html">Profile Settings</a></span>
+                                    <span class="mdc-list-item__text"><a href="profile-settings.html">Profile
+                                            Settings</a></span>
                                 </li>
                             </ul>
                 </div>
             </div>
-            </nav>
+        </nav>
     </header>
 
     <main class="main container-center">
@@ -146,7 +151,8 @@
                 </label>
             </div>
             <div class="search-form__sorting-source">
-                <button class="search-form__sorting-source-button search-form__sorting-source-button_active" type="button">Rating</button>
+                <button class="search-form__sorting-source-button search-form__sorting-source-button_active"
+                    type="button">Rating</button>
                 <button class="search-form__sorting-source-button" type="button">Date joined</button>
             </div>
             <div class="search-form__sorting-order">
@@ -239,34 +245,37 @@
         </section>
     </main>
 
-    <footer class="main-footer">
-            <div class="container-center">
+    <footer class=" main-footer regular-wrapper">
+        <div class="container-center">
+            <div class="footer-top">
                 <a class="main-footer__logo">
-                    <img src="" width="" height="" alt="Logo image">
+                    <img src="img/image2vector.svg" alt="Logo image">
                 </a>
-    
+            </div>
+
+            <div class="footer-middle">
                 <section class="main-footer__nav">
-                    <h3>
+                    <h4>
                         Discover new
-                    </h3>
+                    </h4>
                     <ul>
                         <li><a href="tournos-search.html">Search tournaments</a></li>
-                        <li><a href="players-search.html">Seach players</a></li>
+                        <li><a href="players-search.html">Search players</a></li>
                     </ul>
                 </section>
                 <section class="main-footer__profile">
-                    <h3>
-                        Profile
-                    </h3>
+                    <h4>
+                        Join WiX
+                    </h4>
                     <ul>
-                        <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
-                        <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
+                        <li><a href="auth.html">Log in</a></li>
+                        <li><a href="auth.html">Sign up</a></li>
                     </ul>
                 </section>
                 <section class="main-footer__social">
-                    <h3>
+                    <h4>
                         Follow us!
-                    </h3>
+                    </h4>
                     <ul>
                         <li><a href="facebook.com">
                                 <img src="" width="" height="" alt="Facebook link">
@@ -280,7 +289,18 @@
                     </ul>
                 </section>
             </div>
-        </footer>
+            <div class="footer-bottom">
+                <section> Icons made by
+                    <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</span>
+                        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is
+                        licensed
+                        by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                            target="_blank">CC 3.0 BY</a>
+                </section>
+            </div>
+
+        </div>
+    </footer>
 </body>
 
 </html>
