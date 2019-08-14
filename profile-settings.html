@@ -5,10 +5,12 @@
 
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
-    <title>Tournaments creator</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>WiX</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans Pro:700|Open+Sans:400" rel="stylesheet" />
     <link href="bundle.css" rel="stylesheet">
-    <script src="scripts/scripts.js" async></script>
+    <script src="bundle.js" async></script>
 </head>
 
 <body class="main-page">
@@ -20,55 +22,82 @@
 
         <nav class="site-nav">
 
-                <div class="mdc-tab-bar" role="tablist">
-                    <div class="mdc-tab-scroller">
-                        <div class="mdc-tab-scroller__scroll-area">
-                            <div class="mdc-tab-scroller__scroll-content">
-                                <a class="mdc-tab mdc-tab--active site-nav__tab" href="auth.html" role="tab" aria-selected="true"
-                                    tabindex="0">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label">Create new</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                                        <span
-                                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </a>
-                                <a class="mdc-tab mdc-tab--active site-nav__tab" href="tournos-search.html" role="tab"
-                                    aria-selected="true" tabindex="0">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label">All tournaments</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                                        <span
-                                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </a>
-                                <a class="mdc-tab mdc-tab--active site-nav__tab" href="players-search.html" role="tab"
-                                    aria-selected="true" tabindex="0">
-                                    <span class="mdc-tab__content">
-                                        <span class="mdc-tab__text-label">All players</span>
-                                    </span>
-                                    <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                                        <span
-                                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                    </span>
-                                    <span class="mdc-tab__ripple"></span>
-                                </a>
-                            </div>
+            <div class="mdc-tab-bar" role="tablist">
+                <div class="mdc-tab-scroller">
+                    <div class="mdc-tab-scroller__scroll-area">
+                        <div class="mdc-tab-scroller__scroll-content">
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab " href="auth.html" role="tab" aria-selected="true"
+                                tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">Create new</span>
+                                </span>
+                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab " href="tournos-search.html" role="tab"
+                                aria-selected="false" tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">All tournaments</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab " href="players-search.html" role="tab"
+                                aria-selected="false" tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">All players</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </nav>
-        <div class="profile-menu">
+            </div>
+        </nav>
+        <div class="profile-menu" hidden>
             <ul>
                 <li><a class="profile-menu__item" href="player-profile.html">My profile</a></li>
                 <li><a class="profile-menu__item" href="profile-settings.html">Profile setting</a></li>
                 <li><button class="profile-menu__item">Log out</button></li>
             </ul>
         </div>
+        <nav class="site-nav-min">
+                <div class="menu-anchor mdc-menu-surface--anchor">
+                <button class="menu-btn material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                <div class="mdc-menu mdc-menu-surface">
+                    <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                        <li>
+                            <ul class="mdc-menu__selection-group">
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="auth.html">Create New</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="tournos-search.html">All Tournaments</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="players-search.html">All Players</a></span>
+                                </li>
+                                <li class="mdc-list-divider" role="separator"></li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="player-profile.html">My Profile</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="profile-settings.html">Profile Settings</a></span>
+                                </li>
+                            </ul>
+                </div>
+            </div>
+            </nav>
     </header>
 
     <main class="main container-center">
