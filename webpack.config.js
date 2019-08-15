@@ -1,9 +1,24 @@
 const autoprefixer = require('autoprefixer');
+const path = require('path');
 
 module.exports = [{
-    entry: ['./app.scss', './app.js'],
+    devServer: {
+        writeToDisk: true
+      },
+    entry: {
+        "css": './src/app.scss', 
+        "a": './src/app.js',
+        "b": './src/app/auth/auth.js',
+        "c": './src/app/player-profile/player-profile.js',
+        "d": './src/app/players-search/players-search.js',
+        "e": './src/app/profile-settings/profile-settings.js',
+        "f": './src/app/tourno-creation/tourno-creation.js',
+        "g": './src/app/tourno-profile/tourno-profile.js',
+        "h": './src/app/tournos-search/tournos-search.js'
+    },
     output: {
-      filename: 'bundle.js',
+        path: path.join(__dirname, "dist"),
+        filename: "[name].bundle.js"
     },
     module: {
         rules: [
@@ -13,7 +28,7 @@ module.exports = [{
                     {
                         loader: 'file-loader',
                         options: {
-                        name: 'bundle.css',
+                            name: 'bundle.css',
                         },
                     },
                     { loader: 'extract-loader' },
@@ -42,7 +57,7 @@ module.exports = [{
 
             {
                 test: /\.(jpe?g|png|gif|svg)$/i, 
-                loader: "file-loader?name=img/[name].[ext]"
+                loader: "file-loader?name=img/[name].[ext]",
             }
         ],
     },

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WiX</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans Pro:700|Open+Sans:400" rel="stylesheet" />
+    <link href="players-search.css" rel="stylesheet">
+    <script src="../../../dist/d.bundle.js" async></script>
+</head>
+
+<body class="main-page">
+    <header class="main-header">
+
+        <a class="main-header__logo" href="../../index.html">
+            <img src="img/image2vector.svg" width="120px" height="60px" alt="Logo image">
+        </a>
+
+        <nav class="site-nav">
+
+            <div class="mdc-tab-bar" role="tablist">
+                <div class="mdc-tab-scroller">
+                    <div class="mdc-tab-scroller__scroll-area">
+                        <div class="mdc-tab-scroller__scroll-content">
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab "
+                                href="../tourno-creation/tourno-creation.html" role="tab" aria-selected="true"
+                                tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">Create new</span>
+                                </span>
+                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab "
+                                href="../tournos-search/tournos-search.html" role="tab" aria-selected="false"
+                                tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">All tournaments</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab "
+                                href="../players-search/players-search.html" role="tab" aria-selected="false"
+                                tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">All players</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="site-nav-min">
+            <div class="menu-anchor mdc-menu-surface--anchor">
+                <button class="menu-btn material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                <div class="mdc-menu mdc-menu-surface">
+                    <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                        <li>
+                            <ul class="mdc-menu__selection-group">
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a
+                                            href="../tourno-creation/tourno-creation.html">Create
+                                            New</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a
+                                            href="../tournos-search/tournos-search.html">All
+                                            Tournaments</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a
+                                            href="../players-search/players-search.html">All
+                                            Players</a></span>
+                                </li>
+                                <li class="mdc-list-divider" role="separator"></li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="../player-profile/player-profile.html">My
+                                            Profile</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a
+                                            href="../profile-settings/profile-settings.html">Profile
+                                            Settings</a></span>
+                                </li>
+                                <li class="mdc-list-divider" role="separator"></li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text">Log Out</span>
+                                </li>
+                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main container-center">
+        <h1 class="site-title title">
+            Players
+        </h1>
+        <form class="search-form">
+            <div class="search-form__search">
+                <input type="search" name="search" placeholder="Search for players">
+            </div>
+            <div class="search-form__filters">
+                <label class="search-form__favs"> Show favourtites
+                    <input type="checkbox" name="favs">
+                </label>
+                <label class="search-form__game-label">Game
+                    <select class="search-form__game-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Game1">
+                            Game1
+                        </option>
+                        <option value="Game2">
+                            Game2
+                        </option>
+                        <option value="Game3">
+                            Game3
+                        </option>
+                    </select>
+                </label>
+                <label class="search-form__country-label">Country
+                    <select class="search-form__country-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Pending">
+                            Country1
+                        </option>
+                        <option value="In progress">
+                            Country2
+                        </option>
+                        <option value="Complete">
+                            Country3
+                        </option>
+                    </select>
+                </label>
+            </div>
+            <div class="search-form__sorting-source">
+                <button class="search-form__sorting-source-button search-form__sorting-source-button_active"
+                    type="button">Rating</button>
+                <button class="search-form__sorting-source-button" type="button">Date joined</button>
+            </div>
+            <div class="search-form__sorting-order">
+                <button class="arrow sorting__ascending sorting__arrow_active" type="button">
+                    <span hidden>Ascending</span>
+                </button>
+                <button class="arrow sorting__descending" type="button">
+                    <span hidden>Descending</span>
+                </button>
+            </div>
+        </form>
+
+        <section class="players-search-result">
+            <h2 hidden>
+                Players list
+            </h2>
+
+            <table class="">
+                <tr>
+                    <th>No.</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Game</th>
+                    <th>Points in total</th>
+                    <th>Games in total</th>
+                    <th>Country</th>
+                    <th><a href="../player-profile/player-profile.html">View details</a></th>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>Single player</td>
+                    <td>John White</td>
+                    <td>Tennis</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>Russia</td>
+                    <td><a href="../player-profile/player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Team</td>
+                    <td>Tigers</td>
+                    <td>Basketball</td>
+                    <td>12</td>
+                    <td>4</td>
+                    <td>Germany</td>
+                    <td><a href="../player-profile/player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Team</td>
+                    <td>Dolphins</td>
+                    <td>Water polo</td>
+                    <td>8</td>
+                    <td>2</td>
+                    <td>Ukraine</td>
+                    <td><a href="../player-profile/player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Single player</td>
+                    <td>Elle Black</td>
+                    <td>Chess</td>
+                    <td>6</td>
+                    <td>5</td>
+                    <td>Spain</td>
+                    <td><a href="../player-profile/player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Team</td>
+                    <td>Cats</td>
+                    <td>Football</td>
+                    <td>14</td>
+                    <td>5</td>
+                    <td>Portugal</td>
+                    <td><a href="../player-profile/player-profile.html">View details</a></td>
+                </tr>
+                <tr>
+                    <td>6.</td>
+                    <td>Team</td>
+                    <td>Bulls</td>
+                    <td>DOTA2</td>
+                    <td>9</th>
+                    <td>4</td>
+                    <td>Russia</td>
+                    <td><a href="../player-profile/player-profile.html">View details</a></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <footer class=" main-footer regular-wrapper">
+            <div class="container-center">
+                <div class="footer-top">
+                    <a class="main-footer__logo" href="../../index.html">
+                        <img src="img/image2vector.svg" alt="Logo image">
+                    </a>
+                </div>
+    
+                <div class="footer-middle">
+                    <section class="main-footer__nav">
+                        <h4>
+                            Discover new
+                        </h4>
+                        <ul>
+                            <li><a href="../../app/tournos-search/tournos-search.html">Search tournaments</a></li>
+                            <li><a href="../../app/players-search/players-search.html">Search players</a></li>
+                        </ul>
+                    </section>
+                    <section class="main-footer__profile">
+                        <h4>
+                            Join WiX
+                        </h4>
+                        <ul>
+                            <li><a href="../../app/auth/auth.html">Log in</a></li>
+                            <li><a href="../../app/auth/auth.html">Sign up</a></li>
+                        </ul>
+                    </section>
+                    <section class="main-footer__social">
+                        <h4>
+                            Follow us!
+                        </h4>
+                        <ul>
+                            <li><a href="facebook.com">
+                                    <img src="" width="" height="" alt="Facebook link">
+                                </a></li>
+                            <li><a href="instagram.com">
+                                    <img src="" width="" height="" alt="Instagram link">
+                                </a></li>
+                            <li><a href="vk.com">
+                                    <img src="" width="" height="" alt="Vk link">
+                                </a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="footer-bottom">
+                    <section> Icons made by
+                        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</span>
+                            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is
+                            licensed
+                            by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                                target="_blank">CC 3.0 BY</a>
+                    </section>
+                </div>
+    
+            </div>
+        </footer>
+</body>
+
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WiX</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans Pro:700|Open+Sans:400" rel="stylesheet" />
+    <link href="tournos-search.css" rel="stylesheet">
+    <script src="../../../dist/h.bundle.js" async></script>
+</head>
+
+<body class="main-page">
+    <header class="main-header">
+
+        <a class="main-header__logo" href="../../index.html">
+            <img src="img/image2vector.svg" width="120px" height="60px" alt="Logo image">
+        </a>
+
+        <nav class="site-nav">
+
+            <div class="mdc-tab-bar" role="tablist">
+                <div class="mdc-tab-scroller">
+                    <div class="mdc-tab-scroller__scroll-area">
+                        <div class="mdc-tab-scroller__scroll-content">
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab " href="../tourno-creation/tourno-creation.html" role="tab"
+                                aria-selected="true" tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">Create new</span>
+                                </span>
+                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab "
+                                href="../tournos-search/tournos-search.html" role="tab" aria-selected="false"
+                                tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">All tournaments</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                            <a class="mdc-tab mdc-tab--active site-nav__tab tab "
+                                href="../players-search/players-search.html" role="tab" aria-selected="false"
+                                tabindex="0">
+                                <span class="mdc-tab__content">
+                                    <span class="mdc-tab__text-label">All players</span>
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <nav class="site-nav-min">
+            <div class="menu-anchor mdc-menu-surface--anchor">
+                <button class="menu-btn material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                <div class="mdc-menu mdc-menu-surface">
+                    <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                        <li>
+                            <ul class="mdc-menu__selection-group">
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="../tourno-creation/tourno-creation.html">Create
+                                            New</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="../tournos-search/tournos-search.html">All
+                                            Tournaments</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="../players-search/players-search.html">All
+                                            Players</a></span>
+                                </li>
+                                <li class="mdc-list-divider" role="separator"></li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="../player-profile/player-profile.html">My
+                                            Profile</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="../profile-settings/profile-settings.html">Profile
+                                            Settings</a></span>
+                                </li>
+                                <li class="mdc-list-divider" role="separator"></li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text">Log Out</span>
+                                </li>
+                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main container-center">
+        <h1 class="site-title title">
+            Tournaments
+        </h1>
+        <form class="search-form">
+            <div class="search-form__search">
+                <input type="search" name="search" placeholder="Search for tournaments">
+            </div>
+            <div class="search-form__filters">
+                <label class="search-form__my-games"> Show only my games
+                    <input type="checkbox" name="my-games">
+                </label>
+                <label class="search-form__favs"> Show favourtites
+                    <input type="checkbox" name="favs">
+                </label>
+                <label class="search-form__game-label">Game
+                    <select class="search-form__game-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Game1">
+                            Game1
+                        </option>
+                        <option value="Game2">
+                            Game2
+                        </option>
+                        <option value="Game3">
+                            Game3
+                        </option>
+                    </select>
+                </label>
+                <label class="search-form__game-label">Status
+                    <select class="search-form__status-selector">
+                        <option value="All" selected>
+                            All
+                        </option>
+                        <option value="Pending">
+                            Pending
+                        </option>
+                        <option value="In progress">
+                            In progress
+                        </option>
+                        <option value="Complete">
+                            Complete
+                        </option>
+                    </select>
+                </label>
+            </div>
+        </form>
+
+        <section class="tournos-search-result">
+            <h2 hidden>
+                Tournaments list
+            </h2>
+            <ul class="tournos-list">
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Game picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="Tournament picture">
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-profile.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Game picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="Tournament picture">
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-profile.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Game picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="Tournament picture">
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-profile.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Game picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="Tournament picture">
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-profile.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Game picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="Tournament picture">
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-profile.html">View details</a>
+                    </div>
+                </li>
+                <li class="tournos-list__card">
+                    <div class="tournos-list__card-header">
+                        <img src="" width="" height="" alt="Game picture">
+                    </div>
+                    <div class="tournos-list__card-body">
+                        <div class="tournos-list__card-user">
+                            <img src="" width="" height="" alt="Tournament picture">
+                        </div>
+                        <ul class="tournos-list__card-info">
+                            <li class="tournos-list__card-info-game">{GAME NAME}</li>
+                            <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
+                            <li class="tournos-list__card-info-dates">{DATES}</li>
+                        </ul>
+                    </div>
+                    <div class="tournos-list__card-btn btn">
+                        <a href="tourno-profile.html">View details</a>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class=" main-footer regular-wrapper">
+            <div class="container-center">
+                <div class="footer-top">
+                    <a class="main-footer__logo" href="../../index.html">
+                        <img src="img/image2vector.svg" alt="Logo image">
+                    </a>
+                </div>
+    
+                <div class="footer-middle">
+                    <section class="main-footer__nav">
+                        <h4>
+                            Discover new
+                        </h4>
+                        <ul>
+                            <li><a href="../../app/tournos-search/tournos-search.html">Search tournaments</a></li>
+                            <li><a href="../../app/players-search/players-search.html">Search players</a></li>
+                        </ul>
+                    </section>
+                    <section class="main-footer__profile">
+                        <h4>
+                            Join WiX
+                        </h4>
+                        <ul>
+                            <li><a href="../../app/auth/auth.html">Log in</a></li>
+                            <li><a href="../../app/auth/auth.html">Sign up</a></li>
+                        </ul>
+                    </section>
+                    <section class="main-footer__social">
+                        <h4>
+                            Follow us!
+                        </h4>
+                        <ul>
+                            <li><a href="facebook.com">
+                                    <img src="" width="" height="" alt="Facebook link">
+                                </a></li>
+                            <li><a href="instagram.com">
+                                    <img src="" width="" height="" alt="Instagram link">
+                                </a></li>
+                            <li><a href="vk.com">
+                                    <img src="" width="" height="" alt="Vk link">
+                                </a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="footer-bottom">
+                    <section> Icons made by
+                        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</span>
+                            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is
+                            licensed
+                            by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                                target="_blank">CC 3.0 BY</a>
+                    </section>
+                </div>
+    
+            </div>
+        </footer>
+</body>
+
+</html>
