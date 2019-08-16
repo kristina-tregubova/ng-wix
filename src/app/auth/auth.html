@@ -8,227 +8,268 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WiX</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans Pro:700|Open+Sans:400" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300, 400, 500, 700|Open+Sans:400, 600, 700"
+        rel="stylesheet" />
     <link href="auth.css" rel="stylesheet">
     <script src="../../../dist/b.bundle.js" async></script>
 </head>
 
 <body class="main-page">
-        <header class="main-header-no-min">
+    <header class="main-header-no-min">
 
-                <a class="main-header__logo" href="../../index.html">
-                    <img src="../../img/image2vector.svg" alt="Logo image">
-                </a>
-        
-                <nav class="site-nav-no-min">
-                    <ul>
-                        <li><a class="mdc-button mdc-button--outlined btn" href="../tournos-search/tournos-search.html">Search tournaments</a>
-                        </li>
-                        <li><a class="mdc-button mdc-button--outlined btn" href="../players-search/players-search.html">Search players</a>
-                        </li>
-                        <li><a class="mdc-button mdc-button--unelevated highlighted-btn" href="../auth/auth.html">Sign in</a></li>
-                    </ul>
-                </nav>
-        
-                <nav class="site-nav-min">
-                    <div class="menu-anchor mdc-menu-surface--anchor">
-                        <button class="menu-btn material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
-                        <div class="mdc-menu mdc-menu-surface">
-                            <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                                <li>
-                                    <ul class="mdc-menu__selection-group">
-                                        <li class="mdc-list-item" role="menuitem">
-                                            <span class="mdc-list-item__text"><a href="../tournos-search/tournos-search.html">All
-                                                    Tournaments</a></span>
-                                        </li>
-                                        <li class="mdc-list-item" role="menuitem">
-                                            <span class="mdc-list-item__text"><a href="../players-search/players-search.html">All
-                                                    Players</a></span>
-                                        </li>
-                                        <li class="mdc-list-divider" role="separator"></li>
-                                        <li class="mdc-list-item" role="menuitem">
-                                            <span class="mdc-list-item__text"><a href="../auth/auth.html">Sign in</a></span>
-                                        </li>
-                                    </ul>
+        <a class="main-header__logo" href="../../index.html">
+            <img src="../../img/image2vector.svg" alt="Logo image">
+        </a>
+
+        <nav class="site-nav-no-min">
+            <ul>
+                <li><a class="mdc-button mdc-button--outlined btn" href="../tournos-search/tournos-search.html">Search
+                        tournaments</a>
+                </li>
+                <li><a class="mdc-button mdc-button--outlined btn" href="../players-search/players-search.html">Search
+                        players</a>
+                </li>
+                <li><a class="mdc-button mdc-button--unelevated highlighted-btn" href="../auth/auth.html">Sign in</a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="site-nav-min">
+            <div class="menu-anchor mdc-menu-surface--anchor">
+                <button class="menu-btn material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                <div class="mdc-menu mdc-menu-surface">
+                    <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+                        <li>
+                            <ul class="mdc-menu__selection-group">
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a
+                                            href="../tournos-search/tournos-search.html">All
+                                            Tournaments</a></span>
+                                </li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a
+                                            href="../players-search/players-search.html">All
+                                            Players</a></span>
+                                </li>
+                                <li class="mdc-list-divider" role="separator"></li>
+                                <li class="mdc-list-item" role="menuitem">
+                                    <span class="mdc-list-item__text"><a href="../auth/auth.html">Sign in</a></span>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class="regular-wrapper">
+            <div class="container-center">
+                <section class="login-form">
+                    <div class="login-form__tabs mdc-tab-bar" role="tablist">
+                        <div class="tabs-area mdc-tab-scroller">
+                            <div class="mdc-tab-scroller__scroll-area">
+                                <div class="mdc-tab-scroller__scroll-content">
+                                    <button class="login-form__tab tab mdc-tab mdc-tab--active" role="tab"
+                                        aria-selected="true" tabindex="0">
+                                        <span class="login-form__tab-description mdc-tab__content">
+                                            Log in
+                                        </span>
+                                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                            <span
+                                                class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+                                    <button class="login-form__tab tab mdc-tab" role="tab" aria-selected="false"
+                                        tabindex="0">
+                                        <span class="login-form__tab-description mdc-tab__content">
+                                            Sign up
+                                        </span>
+                                        <span class="mdc-tab-indicator">
+                                            <span
+                                                class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                        </span>
+                                        <span class="mdc-tab__ripple"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="login-form__tab log-in-tab">
+                            <h4 class="title">
+                                Already have an account? Please, log in
+                            </h4>
+
+                            <div class="login-form__social-buttons">
+                                <a href="#" class="social-button facebook-connect"> <span>Login with
+                                        Facebook</span></a>
+                                <a href="#" class="social-button google-connect"> <span>Login with Google</span></a>
+                            </div>
+
+                            <form class="login-form__login" autocomplete="off">
+
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">person</i>
+                                    <input class="mdc-text-field__input" id="text-field-name-input" autocomplete="off">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="text-field-name-input"
+                                        class="mdc-floating-label mdc-floating-label--float-above">E-mail or
+                                        username</label>
+                                </div>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                    <input type="password" class="mdc-text-field__input" id="text-field-pass-input"
+                                        autocomplete="off">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="text-field-pass-input"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                                </div>
+
+
+                                <button type="submit" name="submit"
+                                    class="mdc-button mdc-button--outlined login-form__btn btn highlighted-btn">Log
+                                    in</button>
+
+                            </form>
+                        </div>
+
+                        <div class="login-form__tab sign-up-tab">
+                            <h4 class="title">
+                                Want to join us? Let's sign up!
+                            </h4>
+
+                            <div class="login-form__social-buttons">
+                                <a href="#" class="social-button facebook-connect"> <span>Sign up with
+                                        Facebook</span></a>
+                                <a href="#" class="social-button google-connect"> <span>Sign up with Google</span></a>
+                            </div>
+
+                            <form class="login-form__signup" autocomplete="off">
+
+
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">person</i>
+                                    <input class="mdc-text-field__input" id="text-field-username-input"
+                                        autocomplete="off">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="text-field-username-input"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Choose your
+                                        username</label>
+                                </div>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">email</i>
+                                    <input class="mdc-text-field__input" id="text-field-email-input" autocomplete="off">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="text-field-email-input"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Put your e-mail
+                                        address</label>
+                                </div>
+
+                                <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                                    <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                                    <i class="mdc-select__dropdown-icon"></i>
+                                    <select class="mdc-select__native-control">
+                                        <option value="" disabled selected></option>
+                                        <option value="rus">
+                                            Russia
+                                        </option>
+                                        <option value="ua">
+                                            USA
+                                        </option>
+                                        <option value="de">
+                                            Germany
+                                        </option>
+                                    </select>
+                                    <label class="mdc-floating-label mdc-floating-label--float-above">Country</label>
+                                    <div class="mdc-line-ripple"></div>
+                                </div>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                    <input type="password" class="mdc-text-field__input" id="pw1" required minlength=8
+                                        autocomplete="off">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="pw1"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                                </div>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                    <input type="password" class="mdc-text-field__input" id="pw2" required minlength=8
+                                        autocomplete="off">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="pw2"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                                </div>
+
+                                <button type="submit" name="submit"
+                                    class="mdc-button mdc-button--outlined login-form__btn btn highlighted-btn">Sign
+                                    Up</button>
+
+                            </form>
                         </div>
                     </div>
-                </nav>
-            </header>
-
-    <main class="main container-center">
-        <section class="login-form">
-            <div class="login-form__tabs">
-                <div class="login-form__tab">
-                    <h2 class="title">
-                        Already have an account? Please, log in
-                    </h2>
-                    <form class="login-form__login" autocomplete="off">
-                        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">person</i>
-                            <input class="mdc-text-field__input" id="text-field-username-input">
-                            <div class="mdc-notched-outline">
-                                <div class="mdc-notched-outline__leading"></div>
-                                <div class="mdc-notched-outline__notch">
-                                    <label for="text-field-username-input" class="mdc-floating-label">E-mail or
-                                        username</label>
-                                </div>
-                                <div class="mdc-notched-outline__trailing"></div>
-                            </div>
-                        </div>
-                        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                            <input type="password" id="pw" class="mdc-text-field__input" required minlength=8>
-                            <div class="mdc-notched-outline">
-                                <div class="mdc-notched-outline__leading"></div>
-                                <div class="mdc-notched-outline__notch">
-                                    <label for="pw" class="mdc-floating-label">Password</label>
-                                </div>
-                                <div class="mdc-notched-outline__trailing"></div>
-                            </div>
-                        </div>
-                        <input type="submit" name="submit" placeholder="Sign up"
-                            class="mdc-button mdc-button--unelevated promo__btn btn highlighted-btn">
-
-                    </form>
-                </div>
-                <div class="login-form__tab">
-                    <h2 class="title">
-                        Want to join us? Let's sign up!
-                    </h2>
-                    <form class="login-form__signup" autocomplete="off">
-                        <p>Some login modules for logging in via social networks here</p>
-
-                        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">person</i>
-                            <input class="mdc-text-field__input" id="text-field-name-input">
-                            <div class="mdc-notched-outline">
-                                <div class="mdc-notched-outline__leading"></div>
-                                <div class="mdc-notched-outline__notch">
-                                    <label for="text-field-name-input" class="mdc-floating-label">Choose your
-                                        username</label>
-                                </div>
-                                <div class="mdc-notched-outline__trailing"></div>
-                            </div>
-                        </div>
-                        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">email</i>
-                            <input class="mdc-text-field__input" id="text-field-email-input">
-                            <div class="mdc-notched-outline">
-                                <div class="mdc-notched-outline__leading"></div>
-                                <div class="mdc-notched-outline__notch">
-                                    <label for="text-field-email-input" class="mdc-floating-label">Put your e-mail
-                                        addres</label>
-                                </div>
-                                <div class="mdc-notched-outline__trailing"></div>
-                            </div>
-                        </div>
-                        <div class="mdc-select">
-                            <i class="mdc-select__dropdown-icon"></i>
-                            <select class="mdc-select__native-control">
-                                <option value="" disabled selected></option>
-                                <option value="grains">
-                                    Russia
-                                </option>
-                                <option value="vegetables">
-                                    USA
-                                </option>
-                                <option value="fruit">
-                                    Germany
-                                </option>
-                            </select>
-                            <label class="mdc-floating-label">Country</label>
-                            <div class="mdc-line-ripple"></div>
-                        </div>
-                        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                            <input type="password" id="pw1" class="mdc-text-field__input" required minlength=8>
-                            <div class="mdc-notched-outline">
-                                <div class="mdc-notched-outline__leading"></div>
-                                <div class="mdc-notched-outline__notch">
-                                    <label for="pw1" class="mdc-floating-label">Password</label>
-                                </div>
-                                <div class="mdc-notched-outline__trailing"></div>
-                            </div>
-                        </div>
-                        <div class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                                <input type="password" id="pw2" class="mdc-text-field__input" required minlength=8>
-                                <div class="mdc-notched-outline">
-                                    <div class="mdc-notched-outline__leading"></div>
-                                    <div class="mdc-notched-outline__notch">
-                                        <label for="pw2" class="mdc-floating-label">Password</label>
-                                    </div>
-                                    <div class="mdc-notched-outline__trailing"></div>
-                                </div>
-                        </div>
-                        <input type="submit" name="submit" placeholder="Sign up"
-                            class="mdc-button mdc-button--unelevated promo__btn btn highlighted-btn">
-
-                    </form>
-                </div>
+                </section>
             </div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer class=" main-footer regular-wrapper">
-            <div class="container-center">
-                <div class="footer-top">
-                    <a class="main-footer__logo" href="../../index.html">
-                        <img src="../../img/image2vector.svg" alt="Logo image">
-                    </a>
-                </div>
-    
-                <div class="footer-middle">
-                    <section class="main-footer__nav">
-                        <h4>
-                            Discover new
-                        </h4>
-                        <ul>
-                            <li><a href="../tournos-search/tournos-search.html">Search tournaments</a></li>
-                            <li><a href="../players-search/players-search.html">Search players</a></li>
-                        </ul>
-                    </section>
-                    <section class="main-footer__profile">
-                        <h4>
-                            Join WiX
-                        </h4>
-                        <ul>
-                            <li><a href="../auth/auth.html">Log in</a></li>
-                            <li><a href="../auth/auth.html">Sign up</a></li>
-                        </ul>
-                    </section>
-                    <section class="main-footer__social">
-                        <h4>
-                            Follow us!
-                        </h4>
-                        <ul>
-                            <li><a href="facebook.com">
-                                    <img src="" width="" height="" alt="Facebook link">
-                                </a></li>
-                            <li><a href="instagram.com">
-                                    <img src="" width="" height="" alt="Instagram link">
-                                </a></li>
-                            <li><a href="vk.com">
-                                    <img src="" width="" height="" alt="Vk link">
-                                </a></li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="footer-bottom">
-                    <section> Icons made by
-                        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</span>
-                            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is
-                            licensed
-                            by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
-                                target="_blank">CC 3.0 BY</a>
-                    </section>
-                </div>
-    
+        <div class="container-center">
+            <div class="footer-top">
+                <a class="main-footer__logo" href="../../index.html">
+                    <img src="../../img/image2vector.svg" alt="Logo image">
+                </a>
             </div>
-        </footer>
+
+            <div class="footer-middle">
+                <section class="main-footer__nav">
+                    <h4>
+                        Discover new
+                    </h4>
+                    <ul>
+                        <li><a href="../tournos-search/tournos-search.html">Search tournaments</a></li>
+                        <li><a href="../players-search/players-search.html">Search players</a></li>
+                    </ul>
+                </section>
+                <section class="main-footer__profile">
+                    <h4>
+                        Join WiX
+                    </h4>
+                    <ul>
+                        <li><a href="../auth/auth.html">Log in</a></li>
+                        <li><a href="../auth/auth.html">Sign up</a></li>
+                    </ul>
+                </section>
+                <section class="main-footer__social">
+                    <h4>
+                        Follow us!
+                    </h4>
+                    <ul>
+                        <li><a href="facebook.com">
+                                <img src="" width="" height="" alt="Facebook link">
+                            </a></li>
+                        <li><a href="instagram.com">
+                                <img src="" width="" height="" alt="Instagram link">
+                            </a></li>
+                        <li><a href="vk.com">
+                                <img src="" width="" height="" alt="Vk link">
+                            </a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="footer-bottom">
+                <section> Icons made by
+                    <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</span>
+                        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is
+                        licensed
+                        by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                            target="_blank">CC 3.0 BY</a>
+                </section>
+            </div>
+
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -9,6 +9,9 @@
 @import "@material/menu/mdc-menu.scss";
 @import "@material/textfield/mdc-text-field.scss";
 @import "@material/select/mdc-select.scss";
+@import "@material/floating-label/mdc-floating-label.scss";
+@import "@material/notched-outline/mdc-notched-outline.scss";
+@import "@material/textfield/icon/mdc-text-field-icon.scss";
 
 // GENERAL
 html {
@@ -24,8 +27,8 @@ body {
 }
 html,
 body {
-  background-image: linear-gradient(60deg, #212931 0%, #485563 100%);
-  font-family: Open Sans, Helvetica, sans-serif;
+  background-image: linear-gradient(60deg, #303841 0%, #444d57 100%);
+  font-family: Roboto, Helvetica, sans-serif;
   color: #ffffff;
   font-size: 15px;
   font-style: normal;
@@ -52,50 +55,60 @@ li {
   list-style: none;
 }
 
+input:-webkit-autofill,
+.my-class:-webkit-autofill {
+    -webkit-transition-delay: 9999999s;
+}
+
 h1 {
-  font-family: Source Sans Pro;
+  font-family: Open Sans, Helvetica, sans-serif;
   font-size: 3.5em;
   line-height: 5rem;
   font-weight: 700;
 }
 
 h2 {
-  font-family: Source Sans Pro;
+  font-family: Open Sans, Helvetica, sans-serif;
   font-size: 3em;
   line-height: 5rem;
   font-weight: 700;
 }
 
 h3 {
-  font-family: Source Sans Pro;
+  font-family: Open Sans, Helvetica, sans-serif;
   font-size: 1.8em;
   line-height: 5rem;
   font-weight: 700;
 }
 
 h4 {
-  font-family: Source Sans Pro;
+  font-family: Open Sans, Helvetica, sans-serif;
   font-size: 1.5em;
   font-weight: 700;
 }
 
 h5 {
-  font-family: Source Sans Pro;
+  font-family: Open Sans, Helvetica, sans-serif;
   font-size: 1.3em;
   font-weight: 700;
 }
 
 h6 {
-  font-family: Source Sans Pro;
+  font-family: Open Sans, Helvetica, sans-serif;
   font-size: 1.2em;
   font-weight: 700;
 }
 
 .btn {
   font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.15);
   @include mdc-button-outline-color(#ebc000);
   @include mdc-button-ink-color(#fff);
   @include mdc-states(#fff);
+}
+
+.btn:hover{
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .highlighted-btn {
@@ -106,13 +119,57 @@ h6 {
 }
 
 .tab {
+  font-weight: 700;
   margin-left: 20px;
   color: #fff;
+  border-bottom: 1px solid #30384178;
   @include mdc-tab-ink-color(#fff);
   @include mdc-tab-text-label-color(#fff);
   @include mdc-tab-states-color(#fff);
   @include mdc-tab-indicator-underline-color(#ebc000);
 }
+
+.tab:first-of-type {
+  margin-left: 0;
+}
+
+// .form-input {
+//   @include mdc-text-field-caret-color(#ebc000);
+//   @include mdc-text-field-fill-color(#ffffff27);
+//   @include mdc-text-field-hover-outline-color(#ebc000);
+//   @include mdc-text-field-focused-outline-color(#ebc000);
+//   @include mdc-text-field-outline-color(#21262c);
+//   @include mdc-text-field-label-color(#21262c);
+//   @include mdc-text-field-ink-color(#fff);
+//   @include mdc-floating-label-float-position(20, 20, 1)
+// }
+
+.form-input {
+  @include mdc-text-field-caret-color(#ebc000);
+  @include mdc-text-field-fill-color(rgba(255, 255, 255, 0.17));
+  @include mdc-text-field-label-color(rgba(255, 255, 255, 0.6));
+  @include mdc-text-field-ink-color(#fff);
+  @include mdc-text-field-bottom-line-color(#30384178);
+  @include mdc-text-field-hover-bottom-line-color(#ebc000);
+  @include mdc-text-field-line-ripple-color(#ebc000);
+}
+
+.form-selector {
+  @include mdc-select-container-fill-color(#ffffff27);
+  @include mdc-select-bottom-line-color(#30384178);
+  @include mdc-select-focused-bottom-line-color(#ebc000);
+  @include mdc-select-hover-bottom-line-color(#ebc000);
+  @include mdc-select-label-color(rgba(255, 255, 255, 0.8));
+  @include mdc-select-focused-label-color(rgba(255, 255, 255, 0.6));
+  @include mdc-select-ink-color(#fff);
+}
+
+
+
+
+// .foo-text-field.mdc-text-field--invalid {
+//   @include mdc-text-field-outline-color(#cc5959);
+// }
 
 //GENERAL-main
 
@@ -189,11 +246,11 @@ h6 {
   @include mdc-button-container-fill-color(#ebc000);
   @include mdc-button-ink-color(#303841);
   border-radius: 50%;
-  margin: 0 auto;;
+  margin: 0 auto;
 }
 
 .menu-anchor {
-  padding-top: 5%;
+  padding-top: 7%;
   padding-left: 150px;
 }
 
@@ -261,7 +318,10 @@ h6 {
   height: auto;
   z-index: 1;
   position: relative;
-  background-image: linear-gradient(60deg, #212931 0%, #485563 100%);
+}
+
+.parallax-wrapper + .regular-wrapper {
+  background-image: linear-gradient(60deg, #303841 0%, #444d57 100%);
 }
 
 .parallax-wrapper {
@@ -363,13 +423,7 @@ h6 {
   padding-bottom: 10%;
 }
 
-// TOURNOS-SEARCH.html
-.tournos-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
-  align-items: stretch;
-}
+
 
 //GENERAL-media quieries
 
@@ -419,7 +473,7 @@ h6 {
   }
 
   .container-center {
-    max-width: 100vw;
+    max-width: 95vw;
     padding: 0;
   }
 

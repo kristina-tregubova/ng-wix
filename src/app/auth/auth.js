@@ -9,7 +9,7 @@ import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
 
 
-//for shrinked header (mobile)
+// for shrinked header (mobile)
     const menuBtn = document.querySelector('.menu-btn');
     const menu = new MDCMenu(document.querySelector('.mdc-menu'));
     menu.open = false;
@@ -31,13 +31,16 @@ import {MDCSelect} from '@material/select';
         
     });
 
-// const tab = new MDCTab(document.querySelector('.mdc-tab'));
-// const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
-// const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
-// const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller'));
+// for form tabs
+const tab = new MDCTab(document.querySelector('.mdc-tab'));
+const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
+const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
+const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller'));
 
-//select menu
-const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+// for form fields
+
+// const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+// const floatingLabel = new MDCFloatingLabel(document.querySelector('.mdc-floating-label'));
 const select = new MDCSelect(document.querySelector('.mdc-select'));
 
 select.listen('MDCSelect:change', () => {
