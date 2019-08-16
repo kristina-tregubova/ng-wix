@@ -42,7 +42,3 @@ const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller
 // const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 // const floatingLabel = new MDCFloatingLabel(document.querySelector('.mdc-floating-label'));
 const select = new MDCSelect(document.querySelector('.mdc-select'));
-
-select.listen('MDCSelect:change', () => {
-  alert(`Selected option at index ${select.selectedIndex} with value "${select.value}"`);
-});

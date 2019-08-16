@@ -5,8 +5,12 @@ import {MDCTabBar} from '@material/tab-bar';
 import {MDCTabScroller} from '@material/tab-scroller';
 import {MDCRipple} from '@material/ripple';
 import {MDCMenu} from '@material/menu';
+import {MDCFormField} from '@material/form-field';
+import {MDCCheckbox} from '@material/checkbox';
 import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
+
+
 
 
 //for shrinked header (not on index and auth)
@@ -46,12 +50,21 @@ import {MDCSelect} from '@material/select';
         
     }, { capture: false, passive: true});
 
-
+    // tabs for header
 const tab = new MDCTab(document.querySelector('.mdc-tab'));
 const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller'));
 
+// search and filters
+const select = new MDCSelect(document.querySelector('.mdc-select'));
+const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
+const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+formField.input = checkbox;
 
-
+// cards
+const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+  return new MDCRipple(el);
+});
 

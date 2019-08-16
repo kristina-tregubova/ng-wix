@@ -12,6 +12,9 @@
 @import "@material/floating-label/mdc-floating-label.scss";
 @import "@material/notched-outline/mdc-notched-outline.scss";
 @import "@material/textfield/icon/mdc-text-field-icon.scss";
+@import "@material/form-field/mdc-form-field.scss";
+@import "@material/checkbox/mdc-checkbox.scss";
+@import "@material/card/mdc-card.scss";
 
 // GENERAL
 html {
@@ -122,7 +125,7 @@ h6 {
   font-weight: 700;
   margin-left: 20px;
   color: #fff;
-  border-bottom: 1px solid #30384178;
+  border-bottom: 1px solid rgba(48, 56, 65, 0.8);
   @include mdc-tab-ink-color(#fff);
   @include mdc-tab-text-label-color(#fff);
   @include mdc-tab-states-color(#fff);
@@ -144,19 +147,30 @@ h6 {
 //   @include mdc-floating-label-float-position(20, 20, 1)
 // }
 
-.form-input {
+.form-input,
+.search-input  {
+  border-radius: 5px;
   @include mdc-text-field-caret-color(#ebc000);
-  @include mdc-text-field-fill-color(rgba(255, 255, 255, 0.17));
+  @include mdc-text-field-fill-color(rgba(255, 255, 255, 0.2));
   @include mdc-text-field-label-color(rgba(255, 255, 255, 0.6));
   @include mdc-text-field-ink-color(#fff);
-  @include mdc-text-field-bottom-line-color(#30384178);
+  @include mdc-text-field-bottom-line-color(rgba(48, 56, 65, 0.8));
   @include mdc-text-field-hover-bottom-line-color(#ebc000);
   @include mdc-text-field-line-ripple-color(#ebc000);
 }
 
+.search-input {
+  @include mdc-text-field-hover-outline-color(#ebc000);
+  @include mdc-text-field-focused-outline-color(#ebc000);
+}
+
+.search-input::placeholder{
+  opacity: 0.5;
+}
+
 .form-selector {
-  @include mdc-select-container-fill-color(#ffffff27);
-  @include mdc-select-bottom-line-color(#30384178);
+  @include mdc-select-container-fill-color(rgba(255, 255, 255, 0.2));
+  @include mdc-select-bottom-line-color(rgba(48, 56, 65, 0.8));
   @include mdc-select-focused-bottom-line-color(#ebc000);
   @include mdc-select-hover-bottom-line-color(#ebc000);
   @include mdc-select-label-color(rgba(255, 255, 255, 0.8));
@@ -164,8 +178,17 @@ h6 {
   @include mdc-select-ink-color(#fff);
 }
 
+.checkbox {
+  @include mdc-checkbox-container-colors(#303841, rgba(255, 255, 255, 0.2),#ebc000, #ebc000, );
+  @include mdc-checkbox-ink-color(#fff);
+  @include mdc-checkbox-focus-indicator-color(#ebc000);
+  @include mdc-checkbox-touch-dimension(#ebc000);
+}
 
-
+//to change label color
+.mdc-form-field {
+  color: #fff;
+}
 
 // .foo-text-field.mdc-text-field--invalid {
 //   @include mdc-text-field-outline-color(#cc5959);
@@ -203,7 +226,7 @@ h6 {
 
 .main-header.scrolled,
 .main-header-no-min {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .main-header__logo img {
@@ -256,7 +279,7 @@ h6 {
 
 .site-nav-min .mdc-menu-surface {
   margin-top: 58px;
-  @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.5));
+  @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.4));
 }
 .site-nav-min .mdc-list {
   @include mdc-menu-surface-ink-color(#fff);
@@ -473,7 +496,7 @@ h6 {
   }
 
   .container-center {
-    max-width: 95vw;
+    max-width: 90vw;
     padding: 0;
   }
 

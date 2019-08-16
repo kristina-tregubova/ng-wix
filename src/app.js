@@ -9,6 +9,7 @@ import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
 
 
+
 //for shrinked header (not on index and auth)
     const menuBtn = document.querySelector('.menu-btn');
     const menu = new MDCMenu(document.querySelector('.mdc-menu'));
