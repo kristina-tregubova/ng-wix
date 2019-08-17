@@ -33,7 +33,7 @@ import {MDCSelect} from '@material/select';
 
     // shrink header by scroll
     document.body.addEventListener("scroll", function() {
-        if (document.querySelector(".main-header") && document.documentElement.clientWidth > 760 && document.body.scrollTop >= 50 || document.documentElement.scrollTop > 50) {
+        if (document.querySelector(".main-header") && document.documentElement.clientWidth > 760 && Math.round(document.body.scrollTop) >= 50 || Math.round(document.documentElement.scrollTop) >= 50) {
             document.querySelector(".main-header").classList.add('scrolled');
             document.querySelector('.site-nav').style.display = 'none';
             document.querySelector('.site-nav-min').style.display = 'block';

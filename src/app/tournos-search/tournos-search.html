@@ -173,6 +173,27 @@
                                 <option value="hockey">
                                     Hockey
                                 </option>
+                                <option value="rugby">
+                                    Rugby
+                                </option>
+                                <option value="tennis">
+                                    Tennis
+                                </option>
+                                <option value="chess">
+                                    Chess
+                                </option>
+                                <option value="csgo">
+                                    CS:Go
+                                </option>
+                                <option value="dota2">
+                                    Dota2
+                                </option>
+                                <option value="lol">
+                                    League of Legends
+                                </option>
+                                <option value="pubg">
+                                    PUBG
+                                </option>
                             </select>
                             <label class="mdc-floating-label mdc-floating-label--float-above">Game</label>
                             <div class="mdc-line-ripple"></div>
@@ -203,138 +224,298 @@
                     <h2 hidden>
                         Tournaments list
                     </h2>
-                    <ul class="tournos-list">
-                        <div class="mdc-card demo-card">
-                            <div class="mdc-card__primary-action demo-card__primary-action" tabindex="0">
-                                <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
-                                    style="background-image: url(&quot;https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg&quot;);">
-                                </div>
-                                <div class="demo-card__primary">
-                                    <p class="demo-card__title mdc-typography mdc-typography--headline6">Our Changing
-                                        Planet</p>
-                                    <p class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">by Kurt
-                                        Wagner</p>
-                                </div>
-                                <div class="demo-card__secondary mdc-typography mdc-typography--body2">Visit ten places
-                                    on our planet that are undergoing the biggest changes today.</div>
+                    <div class="tournos-list">
+
+                        <div class="grid-card tournos-list__card mdc-card">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                style="background-image: url(&quot;../../img/games-wp/rugby.jpg&quot;);">
                             </div>
-                            <div class="mdc-card__actions">
+                            <p class="grid-card__title">
+                                Regionals 2019
+                            </p>
+                            <div class="grid-card__info">
+                                <ul>
+                                    <li class="grid-card__info-game">
+                                        <i class="material-icons" title="Game">videogame_asset</i>
+                                        <span>Rugby</span>
+                                    </li>
+                                    <li class="grid-card__info-participants">
+                                        <i class="material-icons" title="No. of participants">group</i>
+                                        <span><span>12</span> participants</span>
+                                    </li>
+                                    <li class="grid-card__info-end-date">
+                                        <i class="material-icons" title="End date of tournament">calendar_today</i>
+                                        <span>12 September 2019</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="grid-card__actions mdc-card__actions">
                                 <div class="mdc-card__action-buttons">
-                                    <button class="mdc-button mdc-card__action mdc-card__action--button">Read</button>
                                     <button
-                                        class="mdc-button mdc-card__action mdc-card__action--button">Bookmark</button>
+                                        class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button">View
+                                        Details</button>
+                                </div>
+                                <div class="mdc-card__action-icons">
+                                    <button
+                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
+                                        <i
+                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <li class="tournos-list__card">
-                            <div class="tournos-list__card-header">
-                                <img src="" width="" height="" alt="Game picture">
+
+                        <div class="grid-card tournos-list__card mdc-card">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                style="background-image: url(&quot;../../img/games-wp/lol.jpg&quot;);">
                             </div>
-                            <div class="tournos-list__card-body">
-                                <div class="tournos-list__card-user">
-                                    <img src="" width="" height="" alt="Tournament picture">
-                                </div>
-                                <ul class="tournos-list__card-info">
-                                    <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                                    <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                                    <li class="tournos-list__card-info-dates">{DATES}</li>
+                            <p class="grid-card__title">
+
+                                LEAGUE OF LEGENDS TOURNAMENT
+                            </p>
+                            <div class="grid-card__info">
+                                <ul>
+                                    <li class="grid-card__info-game">
+                                        <i class="material-icons" title="Game">videogame_asset</i>
+                                        <span>League of Legends</span>
+                                    </li>
+                                    <li class="grid-card__info-participants">
+                                        <i class="material-icons" title="No. of participants">group</i>
+                                        <span><span>6</span> participants</span>
+                                    </li>
+                                    <li class="grid-card__info-end-date">
+                                        <i class="material-icons" title="End date of tournament">calendar_today</i>
+                                        <span>19 August 2019</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="tournos-list__card-btn btn">
-                                <a href="../tourno-profile/tourno-profile.html">View details</a>
-                            </div>
-                        </li>
-                        <li class="tournos-list__card">
-                            <div class="tournos-list__card-header">
-                                <img src="" width="" height="" alt="Game picture">
-                            </div>
-                            <div class="tournos-list__card-body">
-                                <div class="tournos-list__card-user">
-                                    <img src="" width="" height="" alt="Tournament picture">
+
+                            <div class="grid-card__actions mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <button
+                                        class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button">View
+                                        Details</button>
                                 </div>
-                                <ul class="tournos-list__card-info">
-                                    <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                                    <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                                    <li class="tournos-list__card-info-dates">{DATES}</li>
+                                <div class="mdc-card__action-icons">
+                                    <button
+                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
+                                        <i
+                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-card tournos-list__card mdc-card">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                style="background-image: url(&quot;../../img/games-wp/football.jpg&quot;);">
+                            </div>
+                            <p class="grid-card__title">
+                                ROTTERDAM 2019
+                            </p>
+                            <div class="grid-card__info">
+                                <ul>
+                                    <li class="grid-card__info-game">
+                                        <i class="material-icons" title="Game">videogame_asset</i>
+                                        <span>Football</span>
+                                    </li>
+                                    <li class="grid-card__info-participants">
+                                        <i class="material-icons" title="No. of participants">group</i>
+                                        <span><span>22</span> participants</span>
+                                    </li>
+                                    <li class="grid-card__info-end-date">
+                                        <i class="material-icons" title="End date of tournament">calendar_today</i>
+                                        <span>05 October 2019</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="tournos-list__card-btn btn">
-                                <a href="../tourno-profile/tourno-profile.html">View details</a>
-                            </div>
-                        </li>
-                        <li class="tournos-list__card">
-                            <div class="tournos-list__card-header">
-                                <img src="" width="" height="" alt="Game picture">
-                            </div>
-                            <div class="tournos-list__card-body">
-                                <div class="tournos-list__card-user">
-                                    <img src="" width="" height="" alt="Tournament picture">
+
+                            <div class="grid-card__actions mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <button
+                                        class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button">View
+                                        Details</button>
                                 </div>
-                                <ul class="tournos-list__card-info">
-                                    <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                                    <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                                    <li class="tournos-list__card-info-dates">{DATES}</li>
+                                <div class="mdc-card__action-icons">
+                                    <button
+                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
+                                        <i
+                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-card tournos-list__card mdc-card">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                style="background-image: url(&quot;../../img/games-wp/dota2.jpg&quot;);">
+                            </div>
+                            <p class="grid-card__title">
+                                LAPASAN DOTA2 SK TOURNAMENT
+                            </p>
+                            <div class="grid-card__info">
+                                <ul>
+                                    <li class="grid-card__info-game">
+                                        <i class="material-icons" title="Game">videogame_asset</i>
+                                        <span>DOTA 2</span>
+                                    </li>
+                                    <li class="grid-card__info-participants">
+                                        <i class="material-icons" title="No. of participants">group</i>
+                                        <span><span>4</span> participants</span>
+                                    </li>
+                                    <li class="grid-card__info-end-date">
+                                        <i class="material-icons" title="End date of tournament">calendar_today</i>
+                                        <span>29 August 2019</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="tournos-list__card-btn btn">
-                                <a href="../tourno-profile/tourno-profile.html">View details</a>
-                            </div>
-                        </li>
-                        <li class="tournos-list__card">
-                            <div class="tournos-list__card-header">
-                                <img src="" width="" height="" alt="Game picture">
-                            </div>
-                            <div class="tournos-list__card-body">
-                                <div class="tournos-list__card-user">
-                                    <img src="" width="" height="" alt="Tournament picture">
+
+                            <div class="grid-card__actions mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <button
+                                        class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button">View
+                                        Details</button>
                                 </div>
-                                <ul class="tournos-list__card-info">
-                                    <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                                    <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                                    <li class="tournos-list__card-info-dates">{DATES}</li>
+                                <div class="mdc-card__action-icons">
+                                    <button
+                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
+                                        <i
+                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-card tournos-list__card mdc-card">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                style="background-image: url(&quot;../../img/games-wp/tennis.jpg&quot;);">
+                            </div>
+                            <p class="grid-card__title">
+                                Summer Games Washington High School
+                            </p>
+                            <div class="grid-card__info">
+                                <ul>
+                                    <li class="grid-card__info-game">
+                                        <i class="material-icons" title="Game">videogame_asset</i>
+                                        <span>Tennis</span>
+                                    </li>
+                                    <li class="grid-card__info-participants">
+                                        <i class="material-icons" title="No. of participants">group</i>
+                                        <span><span>8</span> participants</span>
+                                    </li>
+                                    <li class="grid-card__info-end-date">
+                                        <i class="material-icons" title="End date of tournament">calendar_today</i>
+                                        <span>16 September 2019</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="tournos-list__card-btn btn">
-                                <a href="../tourno-profile/tourno-profile.html">View details</a>
-                            </div>
-                        </li>
-                        <li class="tournos-list__card">
-                            <div class="tournos-list__card-header">
-                                <img src="" width="" height="" alt="Game picture">
-                            </div>
-                            <div class="tournos-list__card-body">
-                                <div class="tournos-list__card-user">
-                                    <img src="" width="" height="" alt="Tournament picture">
+
+                            <div class="grid-card__actions mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <button
+                                        class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button">View
+                                        Details</button>
                                 </div>
-                                <ul class="tournos-list__card-info">
-                                    <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                                    <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                                    <li class="tournos-list__card-info-dates">{DATES}</li>
+                                <div class="mdc-card__action-icons">
+                                    <button
+                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
+                                        <i
+                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-card tournos-list__card mdc-card">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                style="background-image: url(&quot;../../img/games-wp/basketball.jpg&quot;);">
+                            </div>
+                            <p class="grid-card__title">
+                                Basketball Pro League 2020
+                            </p>
+                            <div class="grid-card__info">
+                                <ul>
+                                    <li class="grid-card__info-game">
+                                        <i class="material-icons" title="Game">videogame_asset</i>
+                                        <span>Basketball</span>
+                                    </li>
+                                    <li class="grid-card__info-participants">
+                                        <i class="material-icons" title="No. of participants">group</i>
+                                        <span><span>15</span> participants</span>
+                                    </li>
+                                    <li class="grid-card__info-end-date">
+                                        <i class="material-icons" title="End date of tournament">calendar_today</i>
+                                        <span>01 May 2020</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="tournos-list__card-btn btn">
-                                <a href="../tourno-profile/tourno-profile.html">View details</a>
-                            </div>
-                        </li>
-                        <li class="tournos-list__card">
-                            <div class="tournos-list__card-header">
-                                <img src="" width="" height="" alt="Game picture">
-                            </div>
-                            <div class="tournos-list__card-body">
-                                <div class="tournos-list__card-user">
-                                    <img src="" width="" height="" alt="Tournament picture">
+
+                            <div class="grid-card__actions mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <button
+                                        class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button">View
+                                        Details</button>
                                 </div>
-                                <ul class="tournos-list__card-info">
-                                    <li class="tournos-list__card-info-game">{GAME NAME}</li>
-                                    <li class="tournos-list__card-info-participants">{NO OF PARTICIPANTS}</li>
-                                    <li class="tournos-list__card-info-dates">{DATES}</li>
+                                <div class="mdc-card__action-icons">
+                                    <button
+                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
+                                        <i
+                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-card tournos-list__card mdc-card">
+                            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                                style="background-image: url(&quot;../../img/games-wp/chess.jpg&quot;);">
+                            </div>
+                            <p class="grid-card__title">
+                                Chess Rush Online Tour
+                            </p>
+                            <div class="grid-card__info">
+                                <ul>
+                                    <li class="grid-card__info-game">
+                                        <i class="material-icons" title="Game">videogame_asset</i>
+                                        <span>Chess</span>
+                                    </li>
+                                    <li class="grid-card__info-participants">
+                                        <i class="material-icons" title="No. of participants">group</i>
+                                        <span><span>9</span> participants</span>
+                                    </li>
+                                    <li class="grid-card__info-end-date">
+                                        <i class="material-icons" title="End date of tournament">calendar_today</i>
+                                        <span>06 September 2019</span>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="tournos-list__card-btn btn">
-                                <a href="../tourno-profile/tourno-profile.html">View details</a>
+
+                            <div class="grid-card__actions mdc-card__actions">
+                                <div class="mdc-card__action-buttons">
+                                    <button
+                                        class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button">View
+                                        Details</button>
+                                </div>
+                                <div class="mdc-card__action-icons">
+                                    <button
+                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
+                                        <i
+                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                    </button>
+                                </div>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </section>
             </div>
     </main>

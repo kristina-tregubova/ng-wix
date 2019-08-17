@@ -3591,7 +3591,7 @@ a.mdc-list-item {
   /* @alternate */
   background-color: var(--mdc-theme-secondary, #018786); }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-u5c7ff9eb {
+@-webkit-keyframes mdc-checkbox-fade-in-background-ud2f3308d {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -3603,7 +3603,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-secondary, #018786); } }
 
-@keyframes mdc-checkbox-fade-in-background-u5c7ff9eb {
+@keyframes mdc-checkbox-fade-in-background-ud2f3308d {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -3615,7 +3615,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-secondary, #018786); } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-u5c7ff9eb {
+@-webkit-keyframes mdc-checkbox-fade-out-background-ud2f3308d {
   0%,
   80% {
     border-color: #018786;
@@ -3628,7 +3628,7 @@ a.mdc-list-item {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; } }
 
-@keyframes mdc-checkbox-fade-out-background-u5c7ff9eb {
+@keyframes mdc-checkbox-fade-out-background-ud2f3308d {
   0%,
   80% {
     border-color: #018786;
@@ -3642,12 +3642,12 @@ a.mdc-list-item {
     background-color: transparent; } }
 
 .mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-in-background-u5c7ff9eb;
-          animation-name: mdc-checkbox-fade-in-background-u5c7ff9eb; }
+  -webkit-animation-name: mdc-checkbox-fade-in-background-ud2f3308d;
+          animation-name: mdc-checkbox-fade-in-background-ud2f3308d; }
 
 .mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-out-background-u5c7ff9eb;
-          animation-name: mdc-checkbox-fade-out-background-u5c7ff9eb; }
+  -webkit-animation-name: mdc-checkbox-fade-out-background-ud2f3308d;
+          animation-name: mdc-checkbox-fade-out-background-ud2f3308d; }
 
 .mdc-checkbox__checkmark {
   color: #fff; }
@@ -4151,7 +4151,7 @@ body {
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
-  line-height: 2.2rem;
+  line-height: 2rem;
   margin-bottom: 1.5rem;
   margin: 0;
   padding: 0; }
@@ -4250,6 +4250,30 @@ h6 {
     opacity: 0.24; }
   .highlighted-btn.mdc-ripple-upgraded {
     --mdc-ripple-fg-opacity: 0.24; }
+
+.icon-toggle-button {
+  color: #303841; }
+  .icon-toggle-button::before, .icon-toggle-button::after {
+    background-color: #303841; }
+  .icon-toggle-button:hover::before {
+    opacity: 0.04; }
+  .icon-toggle-button:not(.mdc-ripple-upgraded):focus::before, .icon-toggle-button.mdc-ripple-upgraded--background-focused::before {
+    transition-duration: 75ms;
+    opacity: 0.12; }
+  .icon-toggle-button:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .icon-toggle-button:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0.12; }
+  .icon-toggle-button.mdc-ripple-upgraded {
+    --mdc-ripple-fg-opacity: 0.12; }
+  .icon-toggle-button:not(.mdc-ripple-upgraded)::after {
+    transition: opacity 150ms linear; }
+  .icon-toggle-button:not(.mdc-ripple-upgraded):active::after {
+    transition-duration: 75ms;
+    opacity: 0; }
+  .icon-toggle-button.mdc-ripple-upgraded {
+    --mdc-ripple-fg-opacity: 0; }
 
 .tab {
   font-weight: 700;
@@ -4383,7 +4407,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-ufc9b854e {
+@-webkit-keyframes mdc-checkbox-fade-in-background-u2de0499d {
   0% {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); }
@@ -4391,7 +4415,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; } }
 
-@keyframes mdc-checkbox-fade-in-background-ufc9b854e {
+@keyframes mdc-checkbox-fade-in-background-u2de0499d {
   0% {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); }
@@ -4399,7 +4423,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-ufc9b854e {
+@-webkit-keyframes mdc-checkbox-fade-out-background-u2de0499d {
   0%,
   80% {
     border-color: #ebc000;
@@ -4408,7 +4432,7 @@ h6 {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); } }
 
-@keyframes mdc-checkbox-fade-out-background-ufc9b854e {
+@keyframes mdc-checkbox-fade-out-background-u2de0499d {
   0%,
   80% {
     border-color: #ebc000;
@@ -4417,15 +4441,15 @@ h6 {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); } }
   .checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-    -webkit-animation-name: mdc-checkbox-fade-in-background-ufc9b854e;
-            animation-name: mdc-checkbox-fade-in-background-ufc9b854e; }
+    -webkit-animation-name: mdc-checkbox-fade-in-background-u2de0499d;
+            animation-name: mdc-checkbox-fade-in-background-u2de0499d; }
   .checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-    -webkit-animation-name: mdc-checkbox-fade-out-background-ufc9b854e;
-            animation-name: mdc-checkbox-fade-out-background-ufc9b854e; }
+    -webkit-animation-name: mdc-checkbox-fade-out-background-u2de0499d;
+            animation-name: mdc-checkbox-fade-out-background-u2de0499d; }
   .checkbox .mdc-checkbox__checkmark {
-    color: #fff; }
+    color: #303841; }
   .checkbox .mdc-checkbox__mixedmark {
-    border-color: #fff; }
+    border-color: #303841; }
   .checkbox .mdc-checkbox__native-control:checked ~ .mdc-checkbox__background::before,
   .checkbox .mdc-checkbox__native-control:indeterminate ~ .mdc-checkbox__background::before {
     background-color: #ebc000; }
@@ -4465,6 +4489,41 @@ h6 {
 
 .mdc-form-field {
   color: #fff; }
+
+.grid-card {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.1); }
+
+.grid-card__title,
+.grid-card__info,
+.grid-card__actions {
+  padding: 0 3%; }
+
+.grid-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  -webkit-margin-before: 0.9rem;
+          margin-block-start: 0.9rem;
+  -webkit-margin-after: 0.7rem;
+          margin-block-end: 0.7rem; }
+
+.grid-card__info {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  margin-bottom: 4%;
+  margin-top: auto; }
+
+.grid-card__info ul {
+  padding: 0;
+  margin: 0; }
+
+.grid-card__info i {
+  font-size: 16px;
+  color: #303841;
+  padding-right: 2%; }
+
+.grid-card__actions {
+  margin-bottom: 3%; }
 
 .main-header,
 .main-header-no-min {
@@ -4533,7 +4592,7 @@ h6 {
   color: #fff; }
 
 .main-footer {
-  border-top: 1px solid #3a4750; }
+  border-top: 1px solid rgba(48, 56, 65, 0.8); }
 
 .main-footer a:hover {
   text-decoration: underline;
@@ -4625,7 +4684,7 @@ h6 {
   margin-bottom: 70px; }
 
 .features {
-  border-bottom: 1px solid #3a4750; }
+  border-bottom: 1px solid rgba(48, 56, 65, 0.8); }
 
 .features__title {
   padding-top: 40px;
@@ -4652,7 +4711,7 @@ h6 {
   background-image: url(img/011-winning-2.svg); }
 
 .tourno-types {
-  border-bottom: 1px solid #3a4750;
+  border-bottom: 1px solid rgba(48, 56, 65, 0.8);
   padding-bottom: 10%; }
 
 .popular-games {
