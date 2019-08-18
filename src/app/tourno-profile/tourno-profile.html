@@ -18,6 +18,7 @@
     <header class="main-header">
 
         <a class="main-header__logo" href="../../index.html">
+            <img src="../../img/avatars/flaming.svg" width="100px" height="50px">
             <img src="../../img/image2vector.svg" width="120px" height="60px" alt="Logo image">
         </a>
 
@@ -114,19 +115,24 @@
     </header>
 
     <main class="main">
+        <h1 hidden>
+            Tournament {NAME} profile
+        </h1>
         <div class="background-container mdc-card__media"
             style="background-image: url(&quot;../../img/games-wp/football.jpg&quot;);"></div>
         <div class="regular-wrapper">
-            <div class="container-center">
-
-                <div class="profile-header">
+            <div class="tourno-profile__header">
+                <div class="container-center">
+                    <div class="tourno-profile__pic">
+                        <img src="../../img/avatars/avatar.svg" alt="pic">
+                    </div>
+                    <h2 class="tourno-profile__header-title">
+                        Annual game of School 546
+                    </h2>
                 </div>
+            </div>
+            <div class="container-center">
                 <section class="tourno-profile__info">
-
-                    <h1 hidden>
-                        Tournament {NAME} profile
-                    </h1>
-
                     <div class="tourno-profile__info-item">
                         <i class="material-icons" title="Game">assistant_photo</i>
                         <label for="name">Name: </label>
@@ -217,9 +223,9 @@
                             </div>
                         </div>
                         <div class="tourno-profile__details-tab">
-                            <h3 class="ftourno-profile__details-tab-btn">
+                            <h2 class="ftourno-profile__details-tab-btn">
                                 Chart
-                            </h3>
+                            </h2>
                             <div class="tourno-profile__details-tab-content">
                                 Chart of games played, players and points gained
                                 <div class="game-played">

@@ -10,6 +10,43 @@
   background-position: 0 30%;
 }
 
+.tourno-profile__header {
+    padding: 2vh 0 2vh;
+    margin: 0;
+    height: 12vh;
+    background-color: #272d3542;
+  }
+
+.tourno-profile__header h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-left: 19vh;
+    margin-top: 0;
+  }
+
+.tourno-profile__header .container-center {
+  flex-direction: row;
+  position: relative;
+  height: 100%;
+}
+
+.tourno-profile__pic {
+    margin-left: 4%;
+    margin-top: 1%;
+    position: absolute;
+    top: -5vh;
+    left: 0;
+  }
+  
+  .tourno-profile__pic img {
+    padding: 10px;
+    width: auto;
+    height: 9vh;
+    border-radius: 50%;
+    border: 3px solid #ebc000;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
 .tourno-profile__info {
   display: flex;
   flex-direction: column;
@@ -32,11 +69,11 @@
 }
 
 .tourno-profile__info-item label {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .chart {
-    width: 100%;
+  width: 100%;
 }
 
 @media screen and (max-width: 1200px) {
@@ -56,6 +93,11 @@
 @media screen and (max-width: 980px) {
   .main .container-center {
     width: 90vw;
+  }
+
+  .tourno-profile__header h2 {
+    font-size: 2.2rem;
+    line-height: 3.8rem;
   }
 
   .tourno-profile__info {

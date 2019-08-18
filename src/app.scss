@@ -66,14 +66,14 @@ input:-webkit-autofill,
 
 h1 {
   font-family: Open Sans, Helvetica, sans-serif;
-  font-size: 3.5em;
+  font-size: 3.3em;
   line-height: 5rem;
   font-weight: 700;
 }
 
 h2 {
   font-family: Open Sans, Helvetica, sans-serif;
-  font-size: 3em;
+  font-size: 2.8em;
   line-height: 5rem;
   font-weight: 700;
 }
@@ -254,7 +254,6 @@ h6 {
   @include mdc-data-table-fill-color(rgb(97, 103, 110));
   @include mdc-data-table-divider-color(#303841);
   @include mdc-data-table-row-height(43px);
-  
 }
 
 .chart th,
@@ -300,6 +299,10 @@ h6 {
   width: 120px;
   height: 75px;
   margin-left: 10px;
+}
+
+.main-header__logo img:last-of-type {
+  margin-left: -20px;
 }
 
 .main-header.scrolled .main-header__logo img{
@@ -526,39 +529,39 @@ h6 {
 
 @media screen and (max-width: 760px) {
   h1 {
-    font-size: 3.8em;
+    font-size: 3.6em;
     font-weight: 600;
-    line-height: 7rem;
+    line-height: 5rem;
     margin-bottom: 2rem;
   }
   h2 {
-    font-size: 3.3em;
+    font-size: 2.9em;
     font-weight: 600;
-    line-height: 5rem;
+    line-height: 4.5rem;
     margin-bottom: 2rem;
   }
   h3 {
-    font-size: 2.6em;
+    font-size: 2.4em;
     font-weight: 600;
-    line-height: 5rem;
+    line-height: 4.5rem;
     margin-bottom: 2rem;
   }
   h4 {
-    font-size: 2.3em;
+    font-size: 2.2em;
     font-weight: 600;
-    line-height: 5rem;
+    line-height: 4.5rem;
     margin-bottom: 2rem;
   }
   h5 {
-    font-size: 1.8em;
+    font-size: 1.6em;
     font-weight: 600;
-    line-height: 2.5rem;
+    line-height: 2.4rem;
     margin-bottom: 1.5rem;
   }
   h6 {
     font-size: 1.3em;
     font-weight: 600;
-    line-height: 2.5rem;
+    line-height: 2.4rem;
     margin-bottom: 1.5rem;
   }
   html,
