@@ -5,8 +5,7 @@ import {MDCTabBar} from '@material/tab-bar';
 import {MDCTabScroller} from '@material/tab-scroller';
 import {MDCRipple} from '@material/ripple';
 import {MDCMenu} from '@material/menu';
-import {MDCTextField} from '@material/textfield';
-import {MDCSelect} from '@material/select';
+import {MDCDataTable} from '@material/data-table';
 
 
 //for shrinked header (not on index and auth)
@@ -51,6 +50,9 @@ const tab = new MDCTab(document.querySelector('.mdc-tab'));
 const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller'));
+
+// participants table
+const dataTable = new MDCDataTable(document.querySelector('.mdc-data-table'));
 
 
 

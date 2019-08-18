@@ -1,1 +1,64 @@
 @import "../../../dist/bundle.css";
+
+.background-container {
+  height: 30vh;
+  width: 100vw;
+  /* margin-top: -1vh; */
+}
+
+.mdc-card__media {
+  background-position: 0 30%;
+}
+
+.tourno-profile__info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  max-width: 85%;
+}
+
+.tourno-profile__info-item .form-input {
+  width: 80%;
+  float: right;
+  margin-bottom: 0.5%;
+  height: 40px;
+  max-width: 500px;
+  padding-bottom: 8px;
+}
+
+.tourno-profile__info-item i {
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+.tourno-profile__info-item label {
+    font-weight: 600;
+}
+
+.chart {
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .main .container-center {
+    width: 75vw;
+  }
+
+  .tourno-profile__info {
+    max-width: 90%;
+  }
+
+  .tourno-profile__info-item .form-input {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .main .container-center {
+    width: 90vw;
+  }
+
+  .tourno-profile__info {
+    max-width: 90%;
+  }
+}

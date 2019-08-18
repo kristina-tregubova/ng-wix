@@ -15,6 +15,7 @@
 @import "@material/form-field/mdc-form-field.scss";
 @import "@material/checkbox/mdc-checkbox.scss";
 @import "@material/card/mdc-card.scss";
+@import "@material/data-table/mdc-data-table.scss";
 
 // GENERAL
 html {
@@ -164,6 +165,10 @@ h6 {
   @include mdc-text-field-line-ripple-color(#ebc000);
 }
 
+.form-input.mdc-text-field--disabled {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .search-input {
   @include mdc-text-field-hover-outline-color(#ebc000);
   @include mdc-text-field-focused-outline-color(#ebc000);
@@ -175,12 +180,16 @@ h6 {
 
 .form-selector {
   @include mdc-select-container-fill-color(rgba(255, 255, 255, 0.2));
+  @include mdc-select-hover-bottom-line-color(#ebc000);
   @include mdc-select-bottom-line-color(rgba(48, 56, 65, 0.8));
   @include mdc-select-focused-bottom-line-color(#ebc000);
-  @include mdc-select-hover-bottom-line-color(#ebc000);
   @include mdc-select-label-color(rgba(255, 255, 255, 0.8));
   @include mdc-select-focused-label-color(rgba(255, 255, 255, 0.6));
   @include mdc-select-ink-color(#fff);
+}
+
+.form-selector:hover {
+  border-bottom: 1px solid #ebc000;
 }
 
 .checkbox {
@@ -198,6 +207,11 @@ h6 {
 .grid-card {
   color: rgba(255, 255, 255, 0.7);
   @include mdc-card-fill-color(rgba(255, 255, 255, 0.1));
+  border-radius: 10px;
+}
+
+.grid-card:hover {
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .2);
 }
 
 .grid-card__title,
@@ -233,6 +247,26 @@ h6 {
 
 .grid-card__actions {
   margin-bottom: 3%;
+}
+
+.chart {
+  color: #fff;
+  @include mdc-data-table-fill-color(rgb(97, 103, 110));
+  @include mdc-data-table-divider-color(#303841);
+  @include mdc-data-table-row-height(43px);
+  
+}
+
+.chart th,
+.chart td {
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.chart th {
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 //GENERAL-main
@@ -364,7 +398,7 @@ h6 {
 
 //GENERAL-containers
 .container-center {
-  max-width: 60vw;
+  width: 65vw;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -391,7 +425,7 @@ h6 {
 .parallax-wrapper::before {
   content: "";
   margin: 0;
-  width: 100vw;;
+  width: 100vw;
   height: 102vh;
   top: 0;
   left: 0; 
@@ -483,6 +517,13 @@ h6 {
 
 //GENERAL-media quieries
 
+@media screen and (max-width: 960px) {
+  .container-center {
+    width: 75vw;
+    padding: 0;
+  }
+}
+
 @media screen and (max-width: 760px) {
   h1 {
     font-size: 3.8em;
@@ -529,7 +570,7 @@ h6 {
   }
 
   .container-center {
-    max-width: 90vw;
+    width: 90vw;
     padding: 0;
   }
 
@@ -564,4 +605,54 @@ h6 {
     display: block;
   }
 
+}
+
+@media screen and (max-width: 550px) {
+  h1 {
+    font-size: 2.5em;
+    font-weight: 600;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-size: 2.3em;
+    font-weight: 600;
+    line-height: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  h3 {
+    font-size: 2.0em;
+    font-weight: 600;
+    line-height: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  h4 {
+    font-size: 1.8em;
+    font-weight: 600;
+    line-height: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  h5 {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1.5rem;
+    margin-bottom: 1.3rem;
+  }
+  h6 {
+    font-size: 1.3em;
+    font-weight: 600;
+    line-height: 1.5rem;
+    margin-bottom: 1.3rem;
+  }
+  html,
+  body {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .container-center {
+    width: 95vw;
+  }
 }

@@ -114,15 +114,15 @@
   .main .container-center {
     width: 75vw;
   }
+}
 
-  @media screen and (max-width: 550px) {
-    .social-button {
-      width: 100%;
-      padding-left: 30%;
-    }
+@media screen and (max-width: 550px) {
+  .social-button {
+    width: 100%;
+    padding-left: 30%;
+  }
 
-    .main .container-center {
-      width: 90vw;
-    }
+  .main .container-center {
+    width: 90vw;
   }
 }
