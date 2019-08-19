@@ -10,27 +10,27 @@
   background-position: 0 30%;
 }
 
-.players-profile__header {
+.player-profile__header {
   padding: 2vh 0 2vh;
   margin: 0;
   height: 12vh;
   background-color: #272d3542;
 }
 
-.players-profile__header h2 {
+.player-profile__header h2 {
   font-size: 2.4rem;
   font-weight: 800;
   margin-left: 19vh;
   margin-top: 0;
 }
 
-.players-profile__header .container-center {
+.player-profile__header .container-center {
   flex-direction: row;
   position: relative;
   height: 100%;
 }
 
-.players-profile__userpic {
+.player-profile__userpic {
   margin-left: 4%;
   margin-top: 1%;
   position: absolute;
@@ -38,13 +38,13 @@
   left: 0;
 }
 
-.players-profile__userpic img {
+.player-profile__userpic img {
   padding: 10px;
   width: auto;
   height: 9vh;
   border-radius: 50%;
   border: 3px solid #ebc000;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .player-profile__info {
@@ -91,12 +91,31 @@
     width: 90vw;
   }
 
-  .players-profile__header h2 {
+  .player-profile__header h2 {
     font-size: 2.2rem;
     line-height: 3.8rem;
   }
 
-  .playerprofile__info {
-    max-width: 90%;
+  .player-profile__info {
+    max-width: 100%;
+  }
+
+  .player-profile__info-item .form-input {
+    max-width: 75%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+
+  .player-profile__header h2 {
+    font-size: 1.8rem;
+    line-height: 3.5rem;
+  }
+  .player-profile__info-item label {
+    display: none;
+  }
+
+  .player-profile__info-item .form-input {
+    max-width: 85%;
   }
 }

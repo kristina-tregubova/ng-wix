@@ -16,6 +16,7 @@
 @import "@material/checkbox/mdc-checkbox.scss";
 @import "@material/card/mdc-card.scss";
 @import "@material/data-table/mdc-data-table.scss";
+@import "@material/textfield/character-counter/mdc-text-field-character-counter.scss";
 
 // GENERAL
 html {
@@ -154,7 +155,8 @@ h6 {
 // }
 
 .form-input,
-.search-input  {
+.search-input,
+.textarea  {
   border-radius: 5px;
   @include mdc-text-field-caret-color(#ebc000);
   @include mdc-text-field-fill-color(rgba(255, 255, 255, 0.2));
@@ -268,6 +270,12 @@ h6 {
   font-weight: 600;
 }
 
+.textarea {
+  @include mdc-text-field-textarea-fill-color(rgba(255, 255, 255, 0.2));
+  @include mdc-text-field-textarea-stroke-color(rgba(255, 255, 255, 0.8));
+  @include mdc-text-field-hover-outline-color(#ebc000);
+}
+
 //GENERAL-main
 
 
@@ -279,7 +287,7 @@ h6 {
   // width: 100vw;
   // height: auto;
   margin-top: -1px;
-  padding: 0 20px;
+  padding: 0 20px 0 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -343,7 +351,7 @@ h6 {
 }
 
 .menu-anchor {
-  padding-top: 7%;
+  padding-top: 5%;
   padding-left: 150px;
 }
 

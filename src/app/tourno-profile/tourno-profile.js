@@ -6,6 +6,8 @@ import {MDCTabScroller} from '@material/tab-scroller';
 import {MDCRipple} from '@material/ripple';
 import {MDCMenu} from '@material/menu';
 import {MDCDataTable} from '@material/data-table';
+import {MDCTextField} from '@material/textfield';
+import {MDCTextFieldCharacterCounter} from '@material/textfield/character-counter';
 
 
 //for shrinked header (not on index and auth)
@@ -46,14 +48,25 @@ import {MDCDataTable} from '@material/data-table';
     }, { capture: false, passive: true});
 
 
-const tab = new MDCTab(document.querySelector('.mdc-tab'));
-const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
-const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
-const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller'));
+document.querySelectorAll('.mdc-tab').forEach((tab) => {
+    new MDCTab(tab);
+})
+document.querySelectorAll('.mdc-tab-indicator').forEach((tabInd) => {
+    new MDCTabIndicator(tabInd);
+})
+
+document.querySelectorAll('.mdc-tab-bar').forEach((tabBar) => {
+    new MDCTabBar(tabBar);
+})
+document.querySelectorAll('.mdc-tab-scroller').forEach((tabScroller) => {
+    new MDCTabScroller(tabScroller);
+})
 
 // participants table
 const dataTable = new MDCDataTable(document.querySelector('.mdc-data-table'));
 
+//comments
+const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
 
 
 
