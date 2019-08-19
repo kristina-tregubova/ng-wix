@@ -47,11 +47,11 @@
 }
 
 .grid-card {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    height: 10vh;
-    position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 10vh;
+  position: relative;
 }
 
 .players-info__userpic {
@@ -80,19 +80,35 @@
 
 .grid-card__info {
   min-width: 12%;
-  margin: auto 3% auto 10%;
+  margin: auto 0 auto 4%;
   padding: 0;
 }
 
-.grid-card__info:nth-of-type(3) {
-  margin-left: 3%;
+.grid-card__info:nth-of-type(2) {
+  margin-left: auto;
+}
+
+.players-info__points,
+.players-info__games {
+  display: flex;
+  flex-direction: column;
+}
+
+.players-info__points-label,
+.players-info__games-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.players-info__points-value,
+.players-info__games-value {
+  padding-left: 15%;
+  font-size: 1.1rem;
 }
 
 .grid-card__actions {
-  margin-left: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: 5%;
+  margin: 0 3% 0 auto;
+  padding: 0;
 }
 
 .mdc-card__actions a {
@@ -109,17 +125,14 @@
 
   .form-selector {
     width: 48%;
+    margin-bottom: 1%;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .main .container-center {
     width: 90vw;
     padding: 0;
-  }
-
-  .players-list {
-    grid-template-columns: 1fr;
   }
 
   .search-form__search,
@@ -132,9 +145,25 @@
     width: 100%;
   }
 
-  @media screen and (max-width: 700px) {
-    .players-list {
-      grid-template-columns: 1fr;
-    }
+  .grid-card__title {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .grid-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .grid-card__info:nth-of-type(2) {
+    margin-left: 0;
+  }
+
+  .grid-card__title,
+  .grid-card__info,
+  .grid-card__actions {
+    padding: 0 3%;
   }
 }
