@@ -1,1 +1,11 @@
 @import "../../../dist/bundle.css";
+
+.tourno-creation__step {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.form-selector .demo {
+    width: 400px;
+}

@@ -22,6 +22,7 @@
 html {
   overflow: hidden;
 }
+
 body {
   height: 100vh;
   perspective: 1px;
@@ -30,6 +31,7 @@ body {
   overflow-y: auto;
   box-sizing: border-box;
 }
+
 html,
 body {
   background-image: linear-gradient(60deg, #303841 0%, #444d57 100%);
@@ -62,7 +64,7 @@ li {
 
 input:-webkit-autofill,
 .my-class:-webkit-autofill {
-    -webkit-transition-delay: 9999999s;
+  -webkit-transition-delay: 9999999s;
 }
 
 h1 {
@@ -112,7 +114,7 @@ h6 {
   @include mdc-states(#fff);
 }
 
-.btn:hover{
+.btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -156,7 +158,7 @@ h6 {
 
 .form-input,
 .search-input,
-.textarea  {
+.textarea {
   border-radius: 5px;
   @include mdc-text-field-caret-color(#ebc000);
   @include mdc-text-field-fill-color(rgba(255, 255, 255, 0.2));
@@ -176,7 +178,7 @@ h6 {
   @include mdc-text-field-focused-outline-color(#ebc000);
 }
 
-.search-input::placeholder{
+.search-input::placeholder {
   opacity: 0.5;
 }
 
@@ -190,12 +192,20 @@ h6 {
   @include mdc-select-ink-color(#fff);
 }
 
+.form-selector option {
+  background-color: rgb(97, 103, 110);
+}
+
 .form-selector:hover {
   border-bottom: 1px solid #ebc000;
 }
 
+.mdc-select--focused .mdc-select__dropdown-icon {
+  background: url("data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20opacity%3D%220.54%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E") no-repeat center;
+}
+
 .checkbox {
-  @include mdc-checkbox-container-colors(#303841, rgba(255, 255, 255, 0.2),#ebc000, #ebc000, );
+  @include mdc-checkbox-container-colors(#303841, rgba(255, 255, 255, 0.2), #ebc000, #ebc000, );
   @include mdc-checkbox-ink-color(#303841);
   @include mdc-checkbox-focus-indicator-color(#ebc000);
   @include mdc-checkbox-touch-dimension(#ebc000);
@@ -313,7 +323,7 @@ h6 {
   margin-left: -20px;
 }
 
-.main-header.scrolled .main-header__logo img{
+.main-header.scrolled .main-header__logo img {
   width: 110px;
   height: 60px;
 }
@@ -359,6 +369,7 @@ h6 {
   margin-top: 58px;
   @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.4));
 }
+
 .site-nav-min .mdc-list {
   @include mdc-menu-surface-ink-color(#fff);
 }
@@ -421,7 +432,7 @@ h6 {
   position: relative;
 }
 
-.parallax-wrapper + .regular-wrapper {
+.parallax-wrapper+.regular-wrapper {
   background-image: linear-gradient(60deg, #303841 0%, #444d57 100%);
 }
 
@@ -439,8 +450,8 @@ h6 {
   width: 100vw;
   height: 102vh;
   top: 0;
-  left: 0; 
-  position:absolute;
+  left: 0;
+  position: absolute;
   z-index: -1;
   transform: translateZ(-1px) scale(2.3);
   background-image: url("img/kolleen-gladden-ij5_qCBpIVY-unsplash.jpg");
@@ -456,8 +467,8 @@ h6 {
 //   background-image: url("img/background-pic.jpg");
 // }
 
-.landing > .main section, 
-.promo > .container-center {
+.landing>.main section,
+.promo>.container-center {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -542,36 +553,42 @@ h6 {
     line-height: 5rem;
     margin-bottom: 2rem;
   }
+
   h2 {
     font-size: 2.9em;
     font-weight: 600;
     line-height: 4.5rem;
     margin-bottom: 2rem;
   }
+
   h3 {
     font-size: 2.4em;
     font-weight: 600;
     line-height: 4.5rem;
     margin-bottom: 2rem;
   }
+
   h4 {
     font-size: 2.2em;
     font-weight: 600;
     line-height: 4.5rem;
     margin-bottom: 2rem;
   }
+
   h5 {
     font-size: 1.6em;
     font-weight: 600;
     line-height: 2.4rem;
     margin-bottom: 1.5rem;
   }
+
   h6 {
     font-size: 1.3em;
     font-weight: 600;
     line-height: 2.4rem;
     margin-bottom: 1.5rem;
   }
+
   html,
   body {
     font-size: 16px;
@@ -601,7 +618,7 @@ h6 {
   .main-header {
     background-color: rgba(0, 0, 0, 0.4);
   }
-  
+
   .main-header .main-header__logo img {
     width: 110px;
     height: 60px;
@@ -625,36 +642,42 @@ h6 {
     line-height: 4rem;
     margin-bottom: 1.5rem;
   }
+
   h2 {
     font-size: 2.3em;
     font-weight: 600;
     line-height: 4rem;
     margin-bottom: 1.5rem;
   }
+
   h3 {
     font-size: 2.0em;
     font-weight: 600;
     line-height: 3rem;
     margin-bottom: 1.5rem;
   }
+
   h4 {
     font-size: 1.8em;
     font-weight: 600;
     line-height: 3rem;
     margin-bottom: 1.5rem;
   }
+
   h5 {
     font-size: 1.5em;
     font-weight: 600;
     line-height: 1.5rem;
     margin-bottom: 1.3rem;
   }
+
   h6 {
     font-size: 1.3em;
     font-weight: 600;
     line-height: 1.5rem;
     margin-bottom: 1.3rem;
   }
+
   html,
   body {
     font-size: 16px;

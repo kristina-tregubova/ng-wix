@@ -1,7 +1,8 @@
 @import "../../../dist/bundle.css";
 
 .main .container-center {
-  width: 50vw;
+  /* width: 50vw; */
+  max-width: 760px;
 }
 
 .login-form {
@@ -20,21 +21,20 @@
 }
 
 .social-button {
-  font-size: 0.8rem;
   background-position: 25px 0px;
   color: rgb(255, 255, 255);
   cursor: pointer;
   display: inline-block;
   height: 50px;
   line-height: 50px;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   margin-bottom: 3%;
-  padding-left: 9%;
+  padding-left: 0;
   font-weight: 700;
 }
 
@@ -43,7 +43,7 @@
   background: rgba(60, 90, 154, 0.85)
     url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook-white.svg?sanitize=true")
     no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
-  width: 40%;
+  width: 47%;
 }
 
 .facebook-connect span {
@@ -59,8 +59,8 @@
   background: rgba(220, 74, 61, 0.85)
     url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/google-plus-white.png")
     no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
-  width: 35%;
-  padding-left: 13%;
+  width: 47%;
+  padding-left: 0;
 }
 
 .google-connect span {
@@ -105,10 +105,19 @@
   margin-top: 20px;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1200px) {
+
   .social-button {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .social-button {
+    font-size: 1rem;
+    text-align: center;
     width: 100%;
-    padding-left: 30%;
   }
 
   .main .container-center {
@@ -116,11 +125,13 @@
   }
 }
 
-@media screen and (max-width: 550px) {
-  .social-button {
-    width: 100%;
-    padding-left: 30%;
+@media screen and (max-width: 670px) {
+  .login-form__tab .title {
+    font-size: 1.7rem;
   }
+}
+
+@media screen and (max-width: 550px) {
 
   .main .container-center {
     width: 90vw;

@@ -119,81 +119,154 @@
             Create a new tournament
         </h1>
         <form class="tourno-creation">
-            <fieldset>
+            <div class="tourno-creation__step">
                 <legend>
                     Basic information
                 </legend>
-                <label> Name
-                    <input type="text" name="name">
-                </label>
+                <label for="text-field-name-input" class="">Name</label>
+                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                    <i class="material-icons mdc-text-field__icon">person</i>
+                    <input class="mdc-text-field__input" id="text-field-name-input" required>
+                    <div class="mdc-line-ripple"></div>
+                </div>
                 <label> Tournament type
-                    <select>
-                        <option value="singleelimination" selected>Single-elimination tournament</option>
-                        <option value="doubleelimination">Double-elimination tournament</option>
-                    </select>
+                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                        <i class="mdc-select__dropdown-icon"></i>
+                        <select class="mdc-select__native-control">
+                            <option value="singleelimination" selected>Single-elimination tournament</option>
+                            <option value="doubleelimination">Double-elimination tournament</option>
+                        </select>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
                 <label> Country
-                    <select>
-                        <option value=""></option>
-                        <option value="usa" selected>USA</option>
-                        <option value="russia">Russia</option>
-                        <option value="germany">Germany</option>
-                        <option value="spain">Spain</option>
-                    </select>
+                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                        <i class="mdc-select__dropdown-icon"></i>
+                        <select class="mdc-select__native-control" required>
+                            <option value="rus">
+                                Russia
+                            </option>
+                            <option value="ua">
+                                USA
+                            </option>
+                            <option value="de">
+                                Germany
+                            </option>
+                        </select>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
                 <label> Game
-                    <select>
-                        <option value="" selected></option>
-                        <option value="football">Football</option>
-                        <option value="basketball">Basketball</option>
-                        <option value="waterpolo">Water Polo</option>
-                        <option value="tennis">Tennis</option>
-                        <option value="counterstrike">Counter Strike</option>
-                        <option value="dota2">Dota 2</option>
-                        <option value="other">Other</option>
-                    </select>
+                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                        <i class="mdc-select__dropdown-icon"></i>
+                        <select class="mdc-select__native-control" required>
+                            <option value="" selected></option>
+                            <option value="football">Football</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="rugby">Rugby</option>
+                            <option value="baseball">Baseball</option>
+                            <option value="hockey">Hockey</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="chess">Chess</option>
+                            <option value="counterstrike">CS:Go</option>
+                            <option value="dota2">DOTA 2</option>
+                            <option value="fifa">FIFA</option>
+                            <option value="pubg">PUBG</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
-                <label> Player type
-                    <select>
-                        <option value="single" selected>Single player</option>
-                        <option value="team">Team</option>
-                    </select>
+
+                <label> Player
+                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                        <i class="mdc-select__dropdown-icon"></i>
+                        <select class="mdc-select__native-control" required>
+                            <option value="rus">
+                                Single
+                            </option>
+                            <option value="ua">
+                                Team
+                            </option>
+                        </select>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
-                <label> Description
-                    <textarea></textarea>
+
+                <label> Add a description
+                    <div class="textarea mdc-text-field mdc-text-field--textarea">
+                        <textarea id="textarea" class="mdc-text-field__input" rows="8" cols="40"
+                            placeholder="Type some comment here"></textarea>
+                        <div class="mdc-notched-outline">
+                            <div class="mdc-notched-outline__leading"></div>
+                            <div class="mdc-notched-outline__notch">
+                            </div>
+                            <div class="mdc-notched-outline__trailing"></div>
+                        </div>
+                    </div>
                 </label>
-            </fieldset>
-            <fieldset>
+            </div>
+
+            <div class="tourno-creation__step">
                 <legend>
                     Org information
                 </legend>
+
                 <label> Start date
-                    <input type="date" name="startdate">
+                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                        <i class="material-icons mdc-text-field__icon">person</i>
+                        <input type="date" class="mdc-text-field__input" id="text-field-startdate-input" required>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
+
                 <label> End date
-                    <input type="date" name="enddate">
+                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                        <i class="material-icons mdc-text-field__icon">person</i>
+                        <input type="date" class="mdc-text-field__input" id="text-field-enddate-input" required>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
                 <!-- <label> No. of players in total
                     <input type="number" name="numberofplayers" min="4" max="24" step="2">
                 </label> -->
-                <label> No. of players pro game
+                <!-- <label> No. of players pro game
                     <select>
                         <option value="2" selected>2</option>
                         <option value="4">4</option>
                     </select>
-                </label>
+                </label> -->
                 <label> Entry Fee
-                    <input type="number" name="entryfee">
-                    <select>
-                        <option value="dollars" selected>$</option>
-                        <option value="rubles">₽</option>
-                    </select>
+                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                        <i class="material-icons mdc-text-field__icon">person</i>
+                        <input class="mdc-text-field__input" id="text-field-name-input" required>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
+                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                        <i class="mdc-select__dropdown-icon"></i>
+                        <select class="mdc-select__native-control">
+                            <option value="singleelimination" selected>Single-elimination tournament</option>
+                            <option value="doubleelimination">Double-elimination tournament</option>
+                        </select>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
+
                 <label> Prize
-                    <input type="text" name="prize">
+                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                        <i class="material-icons mdc-text-field__icon">person</i>
+                        <input class="mdc-text-field__input" id="text-field-name-input" required>
+                        <div class="mdc-line-ripple"></div>
+                    </div>
                 </label>
-            </fieldset>
-            <fieldset>
+            </div>
+
+            <div class="tourno-creation__step">
                 <legend>
                     Add players
                 </legend>
@@ -270,7 +343,8 @@
                     <button name="addteammember">+</button>
                 </fieldset>
                 <button name="addplayer">+</button>
-            </fieldset>
+            </div>
+
             <input type="submit" name="submit" value="Create tournament">
         </form>
     </main>

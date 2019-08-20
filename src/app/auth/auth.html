@@ -18,7 +18,8 @@
     <header class="main-header-no-min">
 
         <a class="main-header__logo" href="../../index.html">
-            <img src="../../img/image2vector.svg" alt="Logo image">
+            <img src="../../img/avatars/flaming.svg" width="100px" height="50px">
+            <img src="../../img/image2vector.svg" width="120px" height="60px" alt="Logo image">
         </a>
 
         <nav class="site-nav-no-min">
@@ -108,25 +109,41 @@
                                 <a href="#" class="social-button google-connect"> <span>Login with Google</span></a>
                             </div>
 
-                            <form class="login-form__login" autocomplete="off">
+                            <form class="login-form__login">
 
-                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                                    style="display: none;">
                                     <i class="material-icons mdc-text-field__icon">person</i>
-                                    <input class="mdc-text-field__input" id="text-field-name-input" autocomplete="off">
+                                    <input class="mdc-text-field__input" id="text-field-name-input">
                                     <div class="mdc-line-ripple"></div>
                                     <label for="text-field-name-input"
                                         class="mdc-floating-label mdc-floating-label--float-above">E-mail or
                                         username</label>
                                 </div>
+
                                 <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                                    <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                                    <input type="password" class="mdc-text-field__input" id="text-field-pass-input"
-                                        autocomplete="off">
+                                    <i class="material-icons mdc-text-field__icon">person</i>
+                                    <input class="mdc-text-field__input" id="text-field-name-input2">
                                     <div class="mdc-line-ripple"></div>
-                                    <label for="text-field-pass-input"
-                                        class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                                    <label for="text-field-name-input2"
+                                        class="mdc-floating-label mdc-floating-label--float-above">E-mail or
+                                        username</label>
                                 </div>
 
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                                    style="display: none;">
+                                    <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                    <input type="password" class="mdc-text-field__input">
+                                    <div class="mdc-line-ripple"></div>
+                                </div>
+
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                    <input type="password" class="mdc-text-field__input" id="text-field-pass2-input">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="text-field-pass2-input"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                                </div>
 
                                 <button type="submit" name="submit"
                                     class="mdc-button mdc-button--outlined login-form__btn btn highlighted-btn">Log
@@ -146,21 +163,29 @@
                                 <a href="#" class="social-button google-connect"> <span>Sign up with Google</span></a>
                             </div>
 
-                            <form class="login-form__signup" autocomplete="off">
+                            <form class="login-form__signup">
 
-
-                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                                    style="display: none;">
                                     <i class="material-icons mdc-text-field__icon">person</i>
-                                    <input class="mdc-text-field__input" id="text-field-username-input"
-                                        autocomplete="off">
+                                    <input class="mdc-text-field__input" id="text-field-username--input">
                                     <div class="mdc-line-ripple"></div>
                                     <label for="text-field-username-input"
                                         class="mdc-floating-label mdc-floating-label--float-above">Choose your
                                         username</label>
                                 </div>
+
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">person</i>
+                                    <input class="mdc-text-field__input" id="text-field-username-input2" required>
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="text-field-username-input2"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Choose your
+                                        username</label>
+                                </div>
                                 <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
                                     <i class="material-icons mdc-text-field__icon">email</i>
-                                    <input class="mdc-text-field__input" id="text-field-email-input" autocomplete="off">
+                                    <input class="mdc-text-field__input" id="text-field-email-input" required>
                                     <div class="mdc-line-ripple"></div>
                                     <label for="text-field-email-input"
                                         class="mdc-floating-label mdc-floating-label--float-above">Put your e-mail
@@ -170,7 +195,7 @@
                                 <div class="form-selector mdc-select mdc-select--with-leading-icon">
                                     <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
                                     <i class="mdc-select__dropdown-icon"></i>
-                                    <select class="mdc-select__native-control">
+                                    <select class="mdc-select__native-control" required>
                                         <option value="" disabled selected></option>
                                         <option value="rus">
                                             Russia
@@ -185,18 +210,26 @@
                                     <label class="mdc-floating-label mdc-floating-label--float-above">Country</label>
                                     <div class="mdc-line-ripple"></div>
                                 </div>
+
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                                    style="display: none;">
+                                    <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                    <input type="password" class="mdc-text-field__input" id="fake-pass">
+                                    <div class="mdc-line-ripple"></div>
+                                    <label for="fake-pass"
+                                        class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                                </div>
+
                                 <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
                                     <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                                    <input type="password" class="mdc-text-field__input" id="pw1" required minlength=8
-                                        autocomplete="off">
+                                    <input type="password" class="mdc-text-field__input" id="pw1" required minlength=8>
                                     <div class="mdc-line-ripple"></div>
                                     <label for="pw1"
                                         class="mdc-floating-label mdc-floating-label--float-above">Password</label>
                                 </div>
                                 <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
                                     <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                                    <input type="password" class="mdc-text-field__input" id="pw2" required minlength=8
-                                        autocomplete="off">
+                                    <input type="password" class="mdc-text-field__input" id="pw2" required minlength=8>
                                     <div class="mdc-line-ripple"></div>
                                     <label for="pw2"
                                         class="mdc-floating-label mdc-floating-label--float-above">Password</label>

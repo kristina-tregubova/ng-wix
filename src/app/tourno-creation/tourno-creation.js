@@ -11,8 +11,7 @@ import {MDCSelect} from '@material/select';
 
 //for shrinked header (not on index and auth)
     const menuBtn = document.querySelector('.menu-btn');
-    const menu = new MDCMenu(document.querySelector('.mdc-menu'));
-    menu.open = false;
+    const menu = new MDCMenu(document.querySelector('header .mdc-menu'));
     const iconButtonRipple = new MDCRipple(document.querySelector('.mdc-icon-button')); 
     iconButtonRipple.unbounded = true;
     
@@ -52,6 +51,14 @@ const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indica
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller'));
 
+// for form fields
 
+// const textField = new MDCTextField(document.querySelector('.mdc-text-field'));
+// const floatingLabel = new MDCFloatingLabel(document.querySelector('.mdc-floating-label'));
+const select = new MDCSelect(document.querySelector('.mdc-select'));
+// document.querySelectorAll('main .mdc-menu').forEach((selectorMenu) => {
+//     new MDCMenu(selectorMenu);
+// })
+const menuSelector = new MDCMenu(document.querySelector('main .mdc-menu'));
 
 
