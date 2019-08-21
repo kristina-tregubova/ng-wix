@@ -1448,7 +1448,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mat
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! C:\\Users\\ktikhono\\angular_tsystems\\node_modules\\webpack-dev-server\\client\\index.js?http://localhost */\"./node_modules/webpack-dev-server/client/index.js?http://localhost\");\nmodule.exports = __webpack_require__(/*! ./src/app/players-search/players-search.js */\"./src/app/players-search/players-search.js\");\n\n\n//# sourceURL=webpack:///multi_(webpack)-dev-server/client?");
+eval("__webpack_require__(/*! /Users/macbook/WebstormProjects/angular_tsystems/node_modules/webpack-dev-server/client/index.js?http://localhost */\"./node_modules/webpack-dev-server/client/index.js?http://localhost\");\nmodule.exports = __webpack_require__(/*! ./src/app/players-search/players-search.js */\"./src/app/players-search/players-search.js\");\n\n\n//# sourceURL=webpack:///multi_(webpack)-dev-server/client?");
 
 /***/ })
 

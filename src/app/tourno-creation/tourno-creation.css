@@ -1,20 +1,69 @@
 @import "../../../dist/bundle.css";
 
-.tourno-creation__step {
-    width: 60vw;
+.main .container-center {
+    width: 90%;
     max-width: 960px;
+    margin-bottom: 5%;
+}
+
+.tourno-creation__step {
+    padding: 0 10% 3% 5%;
+    margin-bottom: 5%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "header"
     "content";
+    background-color: #272d3542;
 }
 
 .tourno-creation__step-title {
     grid-area: header;
+    border-bottom: 1px solid rgba(97, 103, 110, 0.5);
 }
 
 .tourno-creation__step-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 8px;
     grid-area: content;
 }
 
+.tourno-creation__step-content_add-player {
+    grid-template-columns: 1fr;
+}
+
+.add-player {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+    grid-column-gap: 2%;
+}
+
+input[type="file"].mdc-text-field__input {
+    padding-left: 10px;
+    padding-right: 0;
+}
+
+.add-player-btn {
+    margin: 2% auto 0 auto;
+}
+
+.tourno-creation__submit-btn {
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+
+    .tourno-creation__step-content {
+        grid-template-columns: 1fr;
+    }
+
+    .add-player {
+        grid-template-columns: 1fr 2fr;
+        grid-row-gap: 8px;
+    }
+
+    .tourno-creation__submit-btn {
+        width: 100%;
+    }
+}
