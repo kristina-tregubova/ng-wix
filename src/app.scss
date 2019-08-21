@@ -208,7 +208,8 @@ h6 {
 }
 
 .mdc-select--focused .mdc-select__dropdown-icon {
-  background: url("data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20opacity%3D%220.54%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E") no-repeat center;
+  background: url("data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20opacity%3D%220.54%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E")
+    no-repeat center;
 }
 
 .other-chosen-input-field {
@@ -216,7 +217,12 @@ h6 {
 }
 
 .checkbox {
-  @include mdc-checkbox-container-colors(#303841, rgba(255, 255, 255, 0.2), #ebc000, #ebc000, );
+  @include mdc-checkbox-container-colors(
+    #303841,
+    rgba(255, 255, 255, 0.2),
+    #ebc000,
+    #ebc000
+  );
   @include mdc-checkbox-ink-color(#303841);
   @include mdc-checkbox-focus-indicator-color(#ebc000);
   @include mdc-checkbox-touch-dimension(#ebc000);
@@ -234,7 +240,7 @@ h6 {
 }
 
 .grid-card:hover {
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .2);
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
 }
 
 .grid-card__title,
@@ -297,17 +303,15 @@ h6 {
   @include mdc-text-field-hover-outline-color(#ebc000);
 }
 
-.mdc-radio {
+.radio-btn {
   @include mdc-radio-ink-color(#ebc000);
-  @include mdc-radio-unchecked-stroke-color(#303841);
+  @include mdc-radio-unchecked-stroke-color(#242a31);
   @include mdc-radio-checked-stroke-color(#ebc000);
 }
 
 //GENERAL-main
 
-
 // GENERAL-header
-
 
 .main-header,
 .main-header-no-min {
@@ -318,7 +322,6 @@ h6 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap;
   z-index: 5;
   position: sticky;
   top: 0;
@@ -327,7 +330,7 @@ h6 {
 
 .main-header.scrolled,
 .main-header-no-min {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .main-header__logo img {
@@ -371,25 +374,22 @@ h6 {
 }
 
 .menu-btn {
-  margin: 0 auto;
-}
-
-.menu-anchor {
-  padding-top: 5%;
-  padding-left: 150px;
+  margin-top: 25%;
+  margin-left: 10%;
 }
 
 .site-nav-min .mdc-menu-surface {
-  margin-top: 58px;
-  @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.4));
+  margin-top: 20%;
+  @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.5));
 }
 
 .site-nav-min .mdc-list {
   @include mdc-menu-surface-ink-color(#fff);
 }
 
-
-
+.mdc-list-divider {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
 
 //GENERAL-footer
 .main-footer {
@@ -402,6 +402,7 @@ h6 {
 }
 
 .main-footer .container-center {
+  width: 55vw;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -446,7 +447,7 @@ h6 {
   position: relative;
 }
 
-.parallax-wrapper+.regular-wrapper {
+.parallax-wrapper + .regular-wrapper {
   background-image: linear-gradient(60deg, #303841 0%, #444d57 100%);
 }
 
@@ -481,8 +482,8 @@ h6 {
 //   background-image: url("img/background-pic.jpg");
 // }
 
-.landing>.main section,
-.promo>.container-center {
+.landing > .main section,
+.promo > .container-center {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -548,8 +549,6 @@ h6 {
 .popular-games {
   padding-bottom: 10%;
 }
-
-
 
 //GENERAL-media quieries
 
@@ -629,11 +628,14 @@ h6 {
     background-image: url("./img/kolleen-gladden-ij5_qCBpIVY-unsplash.jpg");
   }
 
-  .main-header {
-    background-color: rgba(0, 0, 0, 0.4);
+  .main-header,
+  .main-header.scrolled,
+  .main-header-no-min  {
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
-  .main-header .main-header__logo img {
+  .main-header .main-header__logo img,
+  .main-header-no-min .main-header__logo img {
     width: 110px;
     height: 60px;
   }
@@ -647,6 +649,18 @@ h6 {
     display: block;
   }
 
+  .site-nav-min .mdc-menu-surface,
+  .site-nav-no-min .mdc-menu-surface {
+    width: 100vw;
+    margin-top: 20%;
+    @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.8));
+  }
+
+  .mdc-menu__selection-group {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -665,7 +679,7 @@ h6 {
   }
 
   h3 {
-    font-size: 2.0em;
+    font-size: 2em;
     font-weight: 600;
     line-height: 3rem;
     margin-bottom: 1.5rem;
