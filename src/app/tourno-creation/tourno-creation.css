@@ -49,7 +49,8 @@ input[type="file"].mdc-text-field__input {
 }
 
 .tourno-creation__submit-btn {
-    width: 100%;
+    width: 40%;
+    margin-left: 60%;
 }
 
 @media screen and (max-width: 600px) {
