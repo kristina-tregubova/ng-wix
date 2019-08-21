@@ -72,7 +72,8 @@
 
         <nav class="site-nav-min">
             <div class="menu-anchor mdc-menu-surface--anchor">
-                <button class="menu-btn material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+                <button
+                    class="menu-btn btn_round material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
                 <div class="mdc-menu mdc-menu-surface">
                     <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
                         <li>
@@ -115,86 +116,118 @@
     </header>
 
     <main class="main container-center">
-        <h1 class="main-title">
+        <h2 class="main-title">
             Create a new tournament
-        </h1>
+        </h2>
         <form class="tourno-creation">
             <div class="tourno-creation__step">
-                <legend>
+                <h3 class="tourno-creation__step-title">
                     Basic information
-                </legend>
-                <label for="text-field-name-input" class="">Name</label>
-                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                    <i class="material-icons mdc-text-field__icon">person</i>
-                    <input class="mdc-text-field__input" id="text-field-name-input" required>
-                    <div class="mdc-line-ripple"></div>
-                </div>
-                <label> Tournament type
-                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
-                        <i class="mdc-select__dropdown-icon"></i>
-                        <select class="mdc-select__native-control">
-                            <option value="singleelimination" selected>Single-elimination tournament</option>
-                            <option value="doubleelimination">Double-elimination tournament</option>
-                        </select>
+                </h3>
+                <div class="tourno-creation__step-content">
+                    <label for="text-field-name-input">Name</label>
+                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                        <i class="material-icons mdc-text-field__icon">person</i>
+                        <input class="mdc-text-field__input" required>
                         <div class="mdc-line-ripple"></div>
                     </div>
-                </label>
-                <label> Country
-                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
-                        <i class="mdc-select__dropdown-icon"></i>
-                        <select class="mdc-select__native-control" required>
-                            <option value="rus">
-                                Russia
-                            </option>
-                            <option value="ua">
-                                USA
-                            </option>
-                            <option value="de">
-                                Germany
-                            </option>
-                        </select>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </label>
-                <label> Game
-                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
-                        <i class="mdc-select__dropdown-icon"></i>
-                        <select class="mdc-select__native-control" required>
-                            <option value="" selected></option>
-                            <option value="football">Football</option>
-                            <option value="basketball">Basketball</option>
-                            <option value="rugby">Rugby</option>
-                            <option value="baseball">Baseball</option>
-                            <option value="hockey">Hockey</option>
-                            <option value="tennis">Tennis</option>
-                            <option value="chess">Chess</option>
-                            <option value="counterstrike">CS:Go</option>
-                            <option value="dota2">DOTA 2</option>
-                            <option value="fifa">FIFA</option>
-                            <option value="pubg">PUBG</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </label>
 
-                <label> Player
-                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
-                        <i class="mdc-select__dropdown-icon"></i>
-                        <select class="mdc-select__native-control" required>
-                            <option value="rus">
-                                Single
-                            </option>
-                            <option value="ua">
-                                Team
-                            </option>
-                        </select>
-                        <div class="mdc-line-ripple"></div>
+                    <label for="tourno-type-checkboxes"> Tournament type </label>
+                    <div id="tourno-type-checkboxes">
+                        <div class="mdc-form-field">
+                            <div class="mdc-radio">
+                                <input class="mdc-radio__native-control" type="radio" name="tourno-type"
+                                    id="tourno-type1" checked required>
+                                <div class="mdc-radio__background">
+                                    <div class="mdc-radio__outer-circle" selected></div>
+                                    <div class="mdc-radio__inner-circle"></div>
+                                </div>
+                            </div>
+                            <label for="tourno-type1"> Single-elimination tournament </label>
+                        </div>
+                        <div class="mdc-form-field">
+                            <div class="mdc-radio">
+                                <input class="mdc-radio__native-control" type="radio" name="tourno-type"
+                                    id="tourno-type2" checked required>
+                                <div class="mdc-radio__background">
+                                    <div class="mdc-radio__outer-circle" selected></div>
+                                    <div class="mdc-radio__inner-circle"></div>
+                                </div>
+                            </div>
+                            <label for="tourno-type2"> Double-elimination tournament </label>
+                        </div>
                     </div>
+                    <label> Country
+                        <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                            <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                            <i class="mdc-select__dropdown-icon"></i>
+                            <select class="mdc-select__native-control" required>
+                                <option value="rus">
+                                    Russia
+                                </option>
+                                <option value="ua">
+                                    USA
+                                </option>
+                                <option value="de">
+                                    Germany
+                                </option>
+                            </select>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                    </label>
+                    <label> Game
+                        <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                            <i class="material-icons mdc-select__icon" tabindex="0" role="button">videogame_asset</i>
+                            <i class="mdc-select__dropdown-icon"></i>
+                            <select class="mdc-select__native-control" required>
+                                <option value="" selected></option>
+                                <option value="football">Football</option>
+                                <option value="basketball">Basketball</option>
+                                <option value="rugby">Rugby</option>
+                                <option value="baseball">Baseball</option>
+                                <option value="hockey">Hockey</option>
+                                <option value="tennis">Tennis</option>
+                                <option value="chess">Chess</option>
+                                <option value="counterstrike">CS:Go</option>
+                                <option value="dota2">DOTA 2</option>
+                                <option value="fifa">FIFA</option>
+                                <option value="pubg">PUBG</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                        <div
+                            class="other-chosen-input-field form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">videogame_asset</i>
+                            <input class="mdc-text-field__input" required>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                    </label>
+
+                    <label> Player
+                        <div class="mdc-form-field">
+                            <div class="mdc-radio">
+                                <input class="mdc-radio__native-control" type="radio" name="player-type"
+                                    id="player-type1" checked required>
+                                <div class="mdc-radio__background">
+                                    <div class="mdc-radio__outer-circle" selected></div>
+                                    <div class="mdc-radio__inner-circle"></div>
+                                </div>
+                            </div>
+                            <label for="player-type1"> Single </label>
+                        </div>
+                        <div class="mdc-form-field">
+                            <div class="mdc-radio">
+                                <input class="mdc-radio__native-control" type="radio" name="player-type"
+                                    id="player-type2" checked required>
+                                <div class="mdc-radio__background">
+                                    <div class="mdc-radio__outer-circle" selected></div>
+                                    <div class="mdc-radio__inner-circle"></div>
+                                </div>
+                            </div>
+                            <label for="player-type2"> Team </label>
+                        </div>
+                </div>
                 </label>
 
                 <label> Add a description
@@ -212,140 +245,93 @@
             </div>
 
             <div class="tourno-creation__step">
-                <legend>
+                <h3 class="tourno-creation__step-title">
                     Org information
-                </legend>
+                </h3>
 
-                <label> Start date
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">person</i>
-                        <input type="date" class="mdc-text-field__input" id="text-field-startdate-input" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </label>
+                <div class="tourno-creation__step-content">
+                    <label> Start date
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">today</i>
+                            <input type="date" class="mdc-text-field__input" required>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                    </label>
 
-                <label> End date
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">person</i>
-                        <input type="date" class="mdc-text-field__input" id="text-field-enddate-input" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </label>
-                <!-- <label> No. of players in total
-                    <input type="number" name="numberofplayers" min="4" max="24" step="2">
-                </label> -->
-                <!-- <label> No. of players pro game
-                    <select>
-                        <option value="2" selected>2</option>
-                        <option value="4">4</option>
-                    </select>
-                </label> -->
-                <label> Entry Fee
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">person</i>
-                        <input class="mdc-text-field__input" id="text-field-name-input" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
-                        <i class="mdc-select__dropdown-icon"></i>
-                        <select class="mdc-select__native-control">
-                            <option value="singleelimination" selected>Single-elimination tournament</option>
-                            <option value="doubleelimination">Double-elimination tournament</option>
-                        </select>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </label>
+                    <label> End date
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">today</i>
+                            <input type="date" class="mdc-text-field__input" required>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                    </label>
+                    <label> Entry Fee
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">person</i>
+                            <input class="mdc-text-field__input" required>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+                    </label>
 
-                <label> Prize
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">person</i>
-                        <input class="mdc-text-field__input" id="text-field-name-input" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </label>
+                    <label> Prize
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">stars</i>
+                            <input class="mdc-text-field__input" required>
+                            <div class="mdc-line-ripple"></div>git 
+                        </div>
+                    </label>
+                </div>
             </div>
 
             <div class="tourno-creation__step">
-                <legend>
-                    Add players
-                </legend>
-                <span>
-                    1.
-                </span>
-                <label> Name
-                    <input type="text" name="name">
-                </label>
-                <label> New avatar
-                    <input class="profile-settings__avatar" type="file" name="avatar">
-                </label>
-                <label> Role* (for single players)
-                    <input type="text" name="playersrole">
-                </label>
-                <fieldset>
-                    <legend>Add team members* (for teams)</legend>
-                    <input type="text" name="playersname">
-                    <input type="text" name="playersrole">
-                    <button name="addteammember">+</button>
-                </fieldset>
-                <span>
-                    2.
-                </span>
-                <label> Name
-                    <input type="text" name="name">
-                </label>
-                <label> New avatar
-                    <input class="profile-settings__avatar" type="file" name="avatar">
-                </label>
-                <label> Role* (for single players)
-                    <input type="text" name="playersrole">
-                </label>
-                <fieldset>
-                    <legend>Add team members* (for teams)</legend>
-                    <input type="text" name="playersname">
-                    <input type="text" name="playersrole">
-                    <button name="addteammember">+</button>
-                </fieldset>
-                <span>
-                    3.
-                </span>
-                <label> Name
-                    <input type="text" name="name">
-                </label>
-                <label> New avatar
-                    <input class="profile-settings__avatar" type="file" name="avatar">
-                </label>
-                <label> Role* (for single players)
-                    <input type="text" name="playersrole">
-                </label>
-                <fieldset>
-                    <legend>Add team members* (for teams)</legend>
-                    <input type="text" name="playersname">
-                    <input type="text" name="playersrole">
-                    <button name="addteammember">+</button>
-                </fieldset>
-                <span>
-                    4.
-                </span>
-                <label> Name
-                    <input type="text" name="name">
-                </label>
-                <label> New avatar
-                    <input class="profile-settings__avatar" type="file" name="avatar">
-                </label>
-                <label> Role* (for single players)
-                    <input type="text" name="playersrole">
-                </label>
-                <fieldset>
-                    <legend>Add team members* (for teams)</legend>
-                    <input type="text" name="playersname">
-                    <input type="text" name="playersrole">
-                    <button name="addteammember">+</button>
-                </fieldset>
-                <button name="addplayer">+</button>
-            </div>
 
-            <input type="submit" name="submit" value="Create tournament">
+                <h3 class="tourno-creation__step-title">
+                    Add players
+                </h3>
+                <div class="tourno-creation__step-content">
+                    <div class="add-player">
+                        <span>
+                            1.
+                        </span>
+                        <label> Name
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">person</i>
+                                <input class="mdc-text-field__input" required>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </label>
+                        <label> Add avatar
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <input type="file" class="mdc-text-field__input">
+                            </div>
+                        </label>
+                    </div>
+                    <div class="add-player">
+                        <span>
+                            2.
+                        </span>
+                        <label> Name
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">person</i>
+                                <input class="mdc-text-field__input" required>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </label>
+                        <label> Add avatar
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <input type="file" class="mdc-text-field__input">
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <button class="menu-btn btn_round material-icons mdc-icon-button">add</button>
+
+                </div>
+            </div>
+            <button type="submit" name="submit" class="mdc-button mdc-button--outlined btn highlighted-btn">Create a
+                tournament
+            </button>
         </form>
     </main>
 

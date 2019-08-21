@@ -7,6 +7,8 @@ import {MDCRipple} from '@material/ripple';
 import {MDCMenu} from '@material/menu';
 import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
+import {MDCFormField} from '@material/form-field';
+import {MDCRadio} from '@material/radio';
 
 
 //for shrinked header (not on index and auth)
@@ -59,6 +61,8 @@ const select = new MDCSelect(document.querySelector('.mdc-select'));
 // document.querySelectorAll('main .mdc-menu').forEach((selectorMenu) => {
 //     new MDCMenu(selectorMenu);
 // })
-const menuSelector = new MDCMenu(document.querySelector('main .mdc-menu'));
+const radio = new MDCRadio(document.querySelector('.mdc-radio'));
+const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+formField.input = radio;
 
 

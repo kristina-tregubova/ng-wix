@@ -1,11 +1,20 @@
 @import "../../../dist/bundle.css";
 
 .tourno-creation__step {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    width: 60vw;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "content";
 }
 
-.form-selector .demo {
-    width: 400px;
+.tourno-creation__step-title {
+    grid-area: header;
 }
+
+.tourno-creation__step-content {
+    grid-area: content;
+}
+
