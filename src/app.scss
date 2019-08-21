@@ -297,6 +297,12 @@ h6 {
   @include mdc-text-field-hover-outline-color(#ebc000);
 }
 
+.mdc-radio {
+  @include mdc-radio-ink-color(#ebc000);
+  @include mdc-radio-unchecked-stroke-color(#303841);
+  @include mdc-radio-checked-stroke-color(#ebc000);
+}
+
 //GENERAL-main
 
 
