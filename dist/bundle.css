@@ -2923,7 +2923,7 @@ a.mdc-list-item {
       /* @noflip */
       right: auto; }
     .mdc-select--focused .mdc-select__dropdown-icon {
-      background: url("data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%23262c33%22%20fill-rule%3D%22evenodd%22%20opacity%3D%221%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E") no-repeat center; }
+      background: url("data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%236200ee%22%20fill-rule%3D%22evenodd%22%20opacity%3D%221%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E") no-repeat center; }
     .mdc-select--activated .mdc-select__dropdown-icon {
       transform: rotate(180deg) translateY(-5px);
       transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3591,7 +3591,7 @@ a.mdc-list-item {
   /* @alternate */
   background-color: var(--mdc-theme-secondary, #018786); }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-u3d0346f1 {
+@-webkit-keyframes mdc-checkbox-fade-in-background-ub2146019 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -3603,7 +3603,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-secondary, #018786); } }
 
-@keyframes mdc-checkbox-fade-in-background-u3d0346f1 {
+@keyframes mdc-checkbox-fade-in-background-ub2146019 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -3615,7 +3615,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-secondary, #018786); } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-u3d0346f1 {
+@-webkit-keyframes mdc-checkbox-fade-out-background-ub2146019 {
   0%,
   80% {
     border-color: #018786;
@@ -3628,7 +3628,7 @@ a.mdc-list-item {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; } }
 
-@keyframes mdc-checkbox-fade-out-background-u3d0346f1 {
+@keyframes mdc-checkbox-fade-out-background-ub2146019 {
   0%,
   80% {
     border-color: #018786;
@@ -3642,12 +3642,12 @@ a.mdc-list-item {
     background-color: transparent; } }
 
 .mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-in-background-u3d0346f1;
-          animation-name: mdc-checkbox-fade-in-background-u3d0346f1; }
+  -webkit-animation-name: mdc-checkbox-fade-in-background-ub2146019;
+          animation-name: mdc-checkbox-fade-in-background-ub2146019; }
 
 .mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-out-background-u3d0346f1;
-          animation-name: mdc-checkbox-fade-out-background-u3d0346f1; }
+  -webkit-animation-name: mdc-checkbox-fade-out-background-ub2146019;
+          animation-name: mdc-checkbox-fade-out-background-ub2146019; }
 
 .mdc-checkbox__checkmark {
   color: #fff; }
@@ -4292,7 +4292,7 @@ a.mdc-list-item {
   /* @alternate */
   background-color: var(--mdc-theme-primary, #6200ee); }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-ueb758f3d {
+@-webkit-keyframes mdc-checkbox-fade-in-background-u7db57078 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -4304,7 +4304,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-primary, #6200ee); } }
 
-@keyframes mdc-checkbox-fade-in-background-ueb758f3d {
+@keyframes mdc-checkbox-fade-in-background-u7db57078 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -4316,7 +4316,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-primary, #6200ee); } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-ueb758f3d {
+@-webkit-keyframes mdc-checkbox-fade-out-background-u7db57078 {
   0%,
   80% {
     border-color: #6200ee;
@@ -4329,7 +4329,7 @@ a.mdc-list-item {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; } }
 
-@keyframes mdc-checkbox-fade-out-background-ueb758f3d {
+@keyframes mdc-checkbox-fade-out-background-u7db57078 {
   0%,
   80% {
     border-color: #6200ee;
@@ -4345,14 +4345,14 @@ a.mdc-list-item {
 .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-in-background-ueb758f3d;
-          animation-name: mdc-checkbox-fade-in-background-ueb758f3d; }
+  -webkit-animation-name: mdc-checkbox-fade-in-background-u7db57078;
+          animation-name: mdc-checkbox-fade-in-background-u7db57078; }
 
 .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-out-background-ueb758f3d;
-          animation-name: mdc-checkbox-fade-out-background-ueb758f3d; }
+  -webkit-animation-name: mdc-checkbox-fade-out-background-u7db57078;
+          animation-name: mdc-checkbox-fade-out-background-u7db57078; }
 
 .mdc-text-field-character-counter {
   font-family: Roboto, sans-serif;
@@ -4885,7 +4885,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-u3a6d6e11 {
+@-webkit-keyframes mdc-checkbox-fade-in-background-u2986601e {
   0% {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); }
@@ -4893,7 +4893,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; } }
 
-@keyframes mdc-checkbox-fade-in-background-u3a6d6e11 {
+@keyframes mdc-checkbox-fade-in-background-u2986601e {
   0% {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); }
@@ -4901,7 +4901,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-u3a6d6e11 {
+@-webkit-keyframes mdc-checkbox-fade-out-background-u2986601e {
   0%,
   80% {
     border-color: #ebc000;
@@ -4910,7 +4910,7 @@ h6 {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); } }
 
-@keyframes mdc-checkbox-fade-out-background-u3a6d6e11 {
+@keyframes mdc-checkbox-fade-out-background-u2986601e {
   0%,
   80% {
     border-color: #ebc000;
@@ -4919,11 +4919,11 @@ h6 {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); } }
   .checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-    -webkit-animation-name: mdc-checkbox-fade-in-background-u3a6d6e11;
-            animation-name: mdc-checkbox-fade-in-background-u3a6d6e11; }
+    -webkit-animation-name: mdc-checkbox-fade-in-background-u2986601e;
+            animation-name: mdc-checkbox-fade-in-background-u2986601e; }
   .checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-    -webkit-animation-name: mdc-checkbox-fade-out-background-u3a6d6e11;
-            animation-name: mdc-checkbox-fade-out-background-u3a6d6e11; }
+    -webkit-animation-name: mdc-checkbox-fade-out-background-u2986601e;
+            animation-name: mdc-checkbox-fade-out-background-u2986601e; }
   .checkbox .mdc-checkbox__checkmark {
     color: #303841; }
   .checkbox .mdc-checkbox__mixedmark {
@@ -5127,25 +5127,88 @@ h6 {
   flex-wrap: wrap;
   justify-content: space-between; }
 
+.footer-top {
+  margin-bottom: 3%; }
+
 .main-footer__logo img {
   width: 110px;
   height: 65px;
   margin-top: 10px; }
 
+.main-footer__logo img:last-of-type {
+  margin-left: -20px; }
+
 .footer-middle {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-bottom: 5%; }
 
 .footer-middle ul {
   padding: 0 0 40px; }
 
+.main-footer__social ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.main-footer__social a {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin-right: 3px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #212a3a; }
+
+.main-footer__vk-social-btn {
+  font-size: inherit;
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  content: '';
+  background: url(img/icon-vk.svg) no-repeat center; }
+
+.main-footer__vk-social-btn:hover {
+  background-color: #4c75a3; }
+
+.main-footer__fb-social-btn {
+  font-size: inherit;
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  content: '';
+  background: url(img/icon-fb.svg) no-repeat center; }
+
+.main-footer__fb-social-btn:hover {
+  background-color: #3b5998; }
+
+.main-footer__insta-social-btn {
+  font-size: inherit;
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  content: '';
+  background: url(img/icon-insta.svg) no-repeat center; }
+
+.main-footer__insta-social-btn:hover {
+  background-color: #fcb045; }
+
 .footer-bottom {
+  display: flex;
+  justify-content: space-between;
   color: #c7c7c7;
   font-size: 0.8rem;
   font-style: italic;
-  padding-bottom: 10px; }
+  padding-bottom: 3%; }
+
+.footer-bottom__authority {
+  font-weight: 700; }
 
 .container-center {
   width: 65vw;
@@ -5183,67 +5246,24 @@ h6 {
 .promo__parallax {
   margin-top: -100px; }
 
-.landing > .main section,
-.promo > .container-center {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  text-align: center; }
-
-.promo {
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto 0;
-  padding: 12% 0 15%;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px; }
-
-.promo__title {
-  margin-top: 3%;
-  margin-bottom: 5%; }
-
-.promo__btn {
-  margin-bottom: 70px; }
-
-.features {
-  border-bottom: 1px solid rgba(48, 56, 65, 0.8); }
-
-.features__title {
-  padding-top: 40px;
-  padding-bottom: 30px; }
-
-.features__tab {
-  color: #fff; }
-
-.features__tab-content {
-  padding: 5% 40% 10% 10%;
-  position: relative;
-  text-align: left; }
-
-.features__tab-content-1::after {
-  position: absolute;
-  content: "";
-  margin-left: 15px;
-  width: 150px;
-  height: 150px;
-  top: 7%;
-  right: 12%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url(img/011-winning-2.svg); }
-
-.tourno-types {
-  border-bottom: 1px solid rgba(48, 56, 65, 0.8);
-  padding-bottom: 10%; }
-
-.popular-games {
-  padding-bottom: 10%; }
-
 @media screen and (max-width: 960px) {
+  .main .container-center,
+  .main-footer .container-center,
   .container-center {
     width: 75vw;
-    padding: 0; } }
+    padding: 0; }
+  .main-footer__nav,
+  .main-footer__profile {
+    display: none; }
+  .main-footer__social {
+    margin: 0 auto; }
+  .main-footer__social h4 {
+    display: none; }
+  .footer-bottom {
+    flex-direction: column; }
+  .footer-bottom__authority,
+  .footer-bottom__credits {
+    margin: 0 auto; } }
 
 @media screen and (max-width: 760px) {
   h1 {
@@ -5282,6 +5302,8 @@ h6 {
     font-weight: 400;
     line-height: 2rem;
     margin-bottom: 1rem; }
+  .main .container-center,
+  .main-footer .container-center,
   .container-center {
     width: 90vw;
     padding: 0; }
@@ -5354,5 +5376,64 @@ h6 {
     font-weight: 400;
     line-height: 1.3rem;
     margin-bottom: 1rem; }
+  .main .container-center,
+  .main-footer .container-center,
   .container-center {
     width: 95vw; } }
+
+.landing > .main section,
+.promo > .container-center {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center; }
+
+.promo {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto 0;
+  padding: 12% 0 15%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px; }
+
+.promo__title {
+  margin-top: 3%;
+  margin-bottom: 5%; }
+
+.promo__btn {
+  margin-bottom: 70px; }
+
+.features {
+  border-bottom: 1px solid rgba(48, 56, 65, 0.8); }
+
+.features__title {
+  padding-top: 40px;
+  padding-bottom: 30px; }
+
+.features__tab {
+  color: #fff; }
+
+.features__tab-content {
+  padding: 5% 40% 10% 10%;
+  position: relative;
+  text-align: left; }
+
+.features__tab-content-1::after {
+  position: absolute;
+  content: "";
+  margin-left: 15px;
+  width: 150px;
+  height: 150px;
+  top: 7%;
+  right: 12%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(img/011-winning-2.svg); }
+
+.tourno-types {
+  border-bottom: 1px solid rgba(48, 56, 65, 0.8);
+  padding-bottom: 10%; }
+
+.popular-games {
+  padding-bottom: 10%; }
