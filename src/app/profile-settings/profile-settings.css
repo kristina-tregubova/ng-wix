@@ -29,10 +29,6 @@
     grid-area: content;
 }
 
-.profile-settings__step-content_add-player {
-    grid-template-columns: 1fr;
-}
-
 input[type="file"].mdc-text-field__input {
     padding-left: 10px;
     padding-right: 0;
@@ -52,11 +48,6 @@ input[type="file"].mdc-text-field__input {
 
     .profile-settings__step-content {
         grid-template-columns: 1fr;
-    }
-
-    .add-player {
-        grid-template-columns: 1fr 2fr;
-        grid-row-gap: 8px;
     }
 
     .profile-settings__submit-btn {
