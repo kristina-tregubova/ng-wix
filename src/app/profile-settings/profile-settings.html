@@ -115,75 +115,160 @@
         </nav>
     </header>
 
-    <main class="main container-center">
-        <div class="profile-settings">
-            <h1 class="profile-settings__title">
-                Profile settings
-            </h1>
-            <form class="profile-settings__general">
-                <fieldset>
-                    <label> Username
-                        <input type="text" name="username" value="Lilly Johnes">
-                    </label>
-                    <label> E-mail
-                        <input type="text" name="email" value="LillyJohnes@gmail.com">
-                    </label>
-                    <label> Country
-                        <select>
-                            <option value=""></option>
-                            <option value="usa" selected>USA</option>
-                            <option value="russia">Russia</option>
-                            <option value="germany">Germany</option>
-                            <option value="spain">Spain</option>
-                        </select>
-                    </label>
-                    <label> New avatar
-                        <input class="profile-settings__avatar" type="file" name="avatar">
-                    </label>
+    <main class="main">
+        <div class="regular-wrapper">
+            <div class="container-center">
+                <h2 class="main-title">
+                    Profile settings
+                </h2>
+                <form class="profile-settings profile-settings__personal-info">
+                    <div class="profile-settings__step">
+                        <h3 class="profile-settings__step-title">
+                            Personal information
+                        </h3>
+                        <div class="profile-settings__step-content">
 
-                    <input type="submit" name="submit" value="Submit changes">
-                </fieldset>
-            </form>
-            <form class="profile-settings__password">
-                <fieldset>
-                    <label> Change password
-                        <input type="password" name="old-pass">
-                    </label>
-                    <label> New password
-                        <input type="password" name="new-pass">
-                    </label>
-                    <input type="submit" name="submit" value="Set new password">
-                </fieldset>
-            </form>
-            <form class="profile-settings__homepage-options">
-                <fieldset>
-                    <legend>Homepage options</legend>
-                    <p>After login I want to see:</p>
-                    <ul>
-                        <li>
-                            <label class="profile-settings__homepage-option"> only my tournaments
-                                <input type="radio" name="homepage-options" value="my-tournos" checked>
-                            </label>
-                        </li>
-                        <li>
+                            <label for="username-input2">Userame:</label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">person</i>
+                                <input type="text" class="mdc-text-field__input" id="username-input2" value="John Doe">
+                                <div class="mdc-line-ripple"></div>
+                            </div>
 
-                            <label class="profile-settings__homepage-option"> all tournaments
-                                <input type="radio" name="homepage-options" value="all-tournos">
-                            </label>
-                        </li>
-                    </ul>
-                </fieldset>
-            </form>
+                            <label for="email-input">Email:</label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">person</i>
+                                <input type="email" class="mdc-text-field__input" id="email-input"
+                                    value="JohnDoe@gmail.com">
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+                            <label for="country-selector"> Country: </label>
+                            <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                                <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                                <i class="mdc-select__dropdown-icon"></i>
+                                <select class="mdc-select__native-control" id="country-selector">
+                                    <option value="rus">
+                                        Russia
+                                    </option>
+                                    <option value="ua" selected>
+                                        USA
+                                    </option>
+                                    <option value="de">
+                                        Germany
+                                    </option>
+                                </select>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+                            <label for="add-avatar"> Change avatar: </label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <input type="file" class="mdc-text-field__input" id="add-avatar">
+                            </div>
+
+
+                        </div><button type="submit" name="submit"
+                            class="profile-settings__submit-btn mdc-button mdc-button--outlined btn highlighted-btn">Submit
+                            changes
+                        </button>
+                    </div>
+                </form>
+
+                <form class="profile-settings profile-settings__password-management">
+                    <div class="profile-settings__step">
+                        <h3 class="profile-settings__step-title">
+                            Password management
+                        </h3>
+                        <div class="profile-settings__step-content">
+
+                            <label for="fake-pass" style="display: none;">Password</label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                                style="display: none;">
+                                <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                <input type="password" class="mdc-text-field__input" id="fake-pass">
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+                            <label for="old-pass">Old password:</label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                <input type="password" class="mdc-text-field__input" id="old-pass">
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+                            <label for="new-pass1">New password:</label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                <input type="password" class="mdc-text-field__input" id="new-pass1">
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+                            <label for="new-pass2">Repeat new password:</label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                                <input type="password" class="mdc-text-field__input" id="new-pass2">
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+
+                        </div><button type="submit" name="submit"
+                            class="profile-settings__submit-btn mdc-button mdc-button--outlined btn highlighted-btn">Submit
+                            changes
+                        </button>
+                    </div>
+                </form>
+
+                <form class="profile-settings profile-settings__homepage-options">
+                    <div class="profile-settings__step">
+
+                        <h3 class="profile-settings__step-title">
+                            Homepage options
+                        </h3>
+
+                        <div class="profile-settings__step-content profile-settings__step-content_add-player">
+
+                            <label for="homepage-checkboxes"> After login I want to see: </label>
+                            <div id="homepage-checkboxes">
+                                <div class="mdc-form-field">
+                                    <div class="radio-btn mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" name="homepage-checkbox"
+                                            id="only-mine" checked>
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle" selected></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="only-mine"> Only my tournaments </label>
+                                </div>
+                                <div class="mdc-form-field">
+                                    <div class="radio-btn mdc-radio">
+                                        <input class="mdc-radio__native-control" type="radio" name="homepage-checkbox"
+                                            id="all" checked required>
+                                        <div class="mdc-radio__background">
+                                            <div class="mdc-radio__outer-circle" selected></div>
+                                            <div class="mdc-radio__inner-circle"></div>
+                                        </div>
+                                    </div>
+                                    <label for="all"> All tournaments </label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" name="submit"
+                            class="profile-settings__submit-btn mdc-button mdc-button--outlined btn highlighted-btn">Submit
+                            changes
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-
     </main>
 
     <footer class=" main-footer regular-wrapper">
         <div class="container-center">
             <div class="footer-top">
                 <a class="main-footer__logo">
-                    <img src="./img/avatars/flaming.svg" width="100px" height="50px" alt="Logo image">
-                    <img src="img/image2vector.svg" alt="Logo image">
+                    <img src="../../img/avatars/flaming.svg" width="100px" height="50px" alt="Logo image">
+                    <img src="../../img/image2vector.svg" alt="Logo image">
                 </a>
             </div>
 
@@ -193,17 +278,19 @@
                         Discover new
                     </h4>
                     <ul>
+                        <li><a href="../tourno-creation/tourno-creation.html">New Tournament</a></span></li>
                         <li><a href="../../app/tournos-search/tournos-search.html">Search tournaments</a></li>
                         <li><a href="../../app/players-search/players-search.html">Search players</a></li>
                     </ul>
                 </section>
                 <section class="main-footer__profile">
                     <h4>
-                        Join WiX
+                        Your WiX
                     </h4>
                     <ul>
-                        <li><a href="../../app/auth/auth.html">Log in</a></li>
-                        <li><a href="../../app/auth/auth.html">Sign up</a></li>
+                        <li><a href="../player-profile/player-profile.html">My Profile</a></li>
+                        <li><a href="../profile-settings/profile-settings.html">Profile Settings</a></li>
+                        <li><span>Log Out</span></li>
                     </ul>
                 </section>
                 <section class="main-footer__social">
@@ -229,10 +316,9 @@
                             target="_blank">CC 3.0 BY</a>
                 </section>
                 <section class="footer-bottom__authority">
-                         2019 WiX, with 💛 from St. Ptersburg
+                    2019 WiX, with 💛 from St. Ptersburg
                 </section>
             </div>
-
         </div>
     </footer>
 </body>
