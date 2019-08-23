@@ -52,5 +52,19 @@ input[type="file"].mdc-text-field__input {
 
     .profile-settings__submit-btn {
         width: 100%;
+        margin-left: 0;
+        margin-top: 5%;
     }
+}
+
+@media screen and (max-width: 450px) {
+
+    .profile-settings__step-content {
+        grid-row-gap: 15px;
+    }
+
+    .profile-settings__submit-btn {
+        margin-top: 7%;
+    }
+
 }

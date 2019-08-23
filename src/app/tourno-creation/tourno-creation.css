@@ -51,6 +51,7 @@ input[type="file"].mdc-text-field__input {
 .tourno-creation__submit-btn {
     width: 40%;
     margin-left: 60%;
+    margin-bottom: 8%;
 }
 
 @media screen and (max-width: 600px) {
@@ -66,5 +67,18 @@ input[type="file"].mdc-text-field__input {
 
     .tourno-creation__submit-btn {
         width: 100%;
+        margin-left: 0;
     }
+}
+
+@media screen and (max-width: 450px) {
+
+    .tourno-creation__step-content {
+        grid-row-gap: 15px;
+    }
+
+    .tourno-creation__submit-btn {
+        margin-top: 7%;
+    }
+
 }
