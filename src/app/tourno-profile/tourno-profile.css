@@ -100,6 +100,37 @@
   width: 30%;
 }
 
+.tourno-profile__title {
+  border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+}
+
+.tourno-profile__settings-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-row-gap: 8px;
+  grid-area: content;
+}
+
+.tourno-profile__settings-content-add-player {
+  grid-template-columns: 1fr;
+}
+ 
+.add-player {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-column-gap: 2%;
+}
+
+.add-player-btn {
+  margin: 2% auto 0 auto;
+}
+
+.tourno-profile__settings-submit-btn {
+  width: 40%;
+  margin-left: 60%;
+  margin-top: 3%;
+}
+
 @media screen and (max-width: 1200px) {
   .main .container-center {
     width: 75vw;
@@ -155,4 +186,32 @@
   .tourno-profile__info-item .form-input {
     max-width: 85%;
   }
+
+  .tourno-profile__settings-content {
+    grid-template-columns: 1fr;
+  }
+
+
+  .add-player {
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 8px;
+  }
+
+  .tourno-profile__settings-submit-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .tourno-profile__settings-content {
+    grid-row-gap: 15px;
+  }
+
+  ..tourno-profile__settings-submit-btn {
+    margin-top: 7%;
+  }
+
 }

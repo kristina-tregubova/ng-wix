@@ -8,7 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WiX</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300, 400, 500, 700|Montserrat:400,500,600,700,800&display=swap&subset=cyrillic" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:300, 400, 500, 700|Montserrat:400,500,600,700,800&display=swap&subset=cyrillic"
+        rel="stylesheet" />
     <link href="tourno-profile.css" rel="stylesheet">
     <script src="../../../dist/g.bundle.js" async></script>
 </head>
@@ -271,6 +273,9 @@
                     </div>
 
                     <div class="tourno-profile__bracket">
+                        <h3 class="tourno-profile__title">
+                            Tournament bracket
+                        </h3>
 
                         <div class="tourno-profile__bracket-content">
                             {GAME BRACKET HERE}
@@ -278,7 +283,9 @@
                     </div>
 
                     <div class="tourno-profile__chart">
-
+                        <h3 class="tourno-profile__title">
+                            Game chart
+                        </h3>
                         <div class="tourno-profile__chart-content">
                             <div class="game-played">
                                 <div class="chart mdc-data-table">
@@ -439,6 +446,10 @@
 
                     <div class="tourno-profile__comments">
 
+                        <h3 class="tourno-profile__title">
+                            Leave a comment
+                        </h3>
+
                         <div class="textarea mdc-text-field mdc-text-field--textarea">
                             <textarea id="textarea" class="mdc-text-field__input" rows="8" cols="40"
                                 placeholder="Type some comment here"></textarea>
@@ -458,75 +469,131 @@
                     </div>
 
                     <div class="tourno-profile__settings">
-                        <div class="tourno-profile__settings-content">
-                            Some form to edit tourno info (take it from tourno creation page)
-                        </div>
-                    </div>
+                        <h3 class="tourno-profile__title">
+                            Edit tournament info
+                        </h3>
+                        <form class="tourno-profile__settings-content">
+                            <label for="start-date"> Start date: </label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">today</i>
+                                <input type="date" class="mdc-text-field__input" id="start-date" required>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
 
+                            <label for="end-date"> End date: </label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">today</i>
+                                <input type="date" class="mdc-text-field__input" id="end-date" required>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+                            <label for="entry-fee"> Entry Fee: </label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">person</i>
+                                <input class="mdc-text-field__input" id="entry-fee" required>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+
+                            <label for="prize"> Prize: </label>
+                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                <i class="material-icons mdc-text-field__icon">stars</i>
+                                <input class="mdc-text-field__input" id="prize" required>
+                                <div class="mdc-line-ripple"></div>
+                            </div>
+                        </form>
+
+
+                        <h3 class="tourno-profile__title">
+                            Add players
+                        </h3>
+
+                        <form class="tourno-profile__settings-content tourno-profile__settings-content-add-player">
+                            <div class="add-player">
+                                <label for="player-name-1">
+                                    <span class="add-player__value">1.</span>
+                                    Name: </label>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">person</i>
+                                    <input class="mdc-text-field__input" id="player-name-1" required>
+                                    <div class="mdc-line-ripple"></div>
+                                </div>
+                                <label for="add-avatar-1"> Add avatar: </label>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <input type="file" class="mdc-text-field__input" id="add-avatar-1">
+                                </div>
+                            </div>
+
+                            <button class="add-player-btn btn_round material-icons mdc-icon-button">add</button>
+
+                            <button type="submit" name="submit"
+                                class="tourno-profile__settings-submit-btn mdc-button mdc-button--outlined btn">Save
+                                changes
+                            </button>
+                        </form>
+                    </div>
                 </section>
             </div>
         </div>
-
     </main>
 
     <footer class=" main-footer regular-wrapper">
-            <div class="container-center">
-                <div class="footer-top">
-                    <a class="main-footer__logo">
-                        <img src="../../img/avatars/flaming.svg" width="100px" height="50px" alt="Logo image">
-                        <img src="../../img/image2vector.svg" alt="Logo image">
-                    </a>
-                </div>
-    
-                <div class="footer-middle">
-                    <section class="main-footer__nav">
-                        <h4>
-                            Discover new
-                        </h4>
-                        <ul>
-                            <li><a href="../tourno-creation/tourno-creation.html">New Tournament</a></span></li>
-                            <li><a href="../../app/tournos-search/tournos-search.html">Search tournaments</a></li>
-                            <li><a href="../../app/players-search/players-search.html">Search players</a></li>
-                        </ul>
-                    </section>
-                    <section class="main-footer__profile">
-                        <h4>
-                            Your WiX
-                        </h4>
-                        <ul>
-                            <li><a href="../player-profile/player-profile.html">My Profile</a></li>
-                            <li><a href="../profile-settings/profile-settings.html">Profile Settings</a></li>
-                            <li><span>Log Out</span></li>
-                        </ul>
-                    </section>
-                    <section class="main-footer__social">
-                        <h4>
-                            Follow us!
-                        </h4>
-                        <ul>
-                            <li><a class="main-footer__fb-social-btn" href="facebook.com">
-                                </a></li>
-                            <li><a class="main-footer__insta-social-btn" href="instagram.com">
-                                </a></li>
-                            <li><a class="main-footer__vk-social-btn" href="vk.com">
-                                </a></li>
-                        </ul>
-                    </section>
-                </div>
-                <div class="footer-bottom">
-                    <section class="footer-bottom__credits"> Icons made by
-                        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</span>
-                            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is
-                            licensed
-                            by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
-                                target="_blank">CC 3.0 BY</a>
-                    </section>
-                    <section class="footer-bottom__authority">
-                             2019 WiX, with 💛 from St.Petersburg
-                    </section>
-                </div>
+        <div class="container-center">
+            <div class="footer-top">
+                <a class="main-footer__logo">
+                    <img src="../../img/avatars/flaming.svg" width="100px" height="50px" alt="Logo image">
+                    <img src="../../img/image2vector.svg" alt="Logo image">
+                </a>
             </div>
-        </footer>
+
+            <div class="footer-middle">
+                <section class="main-footer__nav">
+                    <h4>
+                        Discover new
+                    </h4>
+                    <ul>
+                        <li><a href="../tourno-creation/tourno-creation.html">New Tournament</a></span></li>
+                        <li><a href="../../app/tournos-search/tournos-search.html">Search tournaments</a></li>
+                        <li><a href="../../app/players-search/players-search.html">Search players</a></li>
+                    </ul>
+                </section>
+                <section class="main-footer__profile">
+                    <h4>
+                        Your WiX
+                    </h4>
+                    <ul>
+                        <li><a href="../player-profile/player-profile.html">My Profile</a></li>
+                        <li><a href="../profile-settings/profile-settings.html">Profile Settings</a></li>
+                        <li><span>Log Out</span></li>
+                    </ul>
+                </section>
+                <section class="main-footer__social">
+                    <h4>
+                        Follow us!
+                    </h4>
+                    <ul>
+                        <li><a class="main-footer__fb-social-btn" href="facebook.com">
+                            </a></li>
+                        <li><a class="main-footer__insta-social-btn" href="instagram.com">
+                            </a></li>
+                        <li><a class="main-footer__vk-social-btn" href="vk.com">
+                            </a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="footer-bottom">
+                <section class="footer-bottom__credits"> Icons made by
+                    <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</span>
+                        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is
+                        licensed
+                        by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+                            target="_blank">CC 3.0 BY</a>
+                </section>
+                <section class="footer-bottom__authority">
+                    2019 WiX, with 💛 from St.Petersburg
+                </section>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
