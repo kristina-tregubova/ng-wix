@@ -35,7 +35,7 @@ body {
 
 html,
 body {
-  background-image: linear-gradient(60deg, #303841 0%, #444d57 100%);
+  background-image: linear-gradient(60deg, #24292f 0%, #333941 100%);
   font-family: Roboto, Helvetica, sans-serif;
   color: #ffffff;
   font-size: 15px;
@@ -66,10 +66,6 @@ li {
 input:-webkit-autofill,
 .my-class:-webkit-autofill {
   -webkit-transition-delay: 9999999s;
-}
-
-*:hover {
-  transition-duration: 1s !important;
 }
 
 h1 {
@@ -128,7 +124,7 @@ h6 {
 .btn {
   font-weight: 700;
   background-color: rgba(0, 0, 0, 0.15);
-  @include mdc-button-outline-color(#ebc000);
+  @include mdc-button-outline-color(#fbd132);
   @include mdc-button-ink-color(#fff);
   @include mdc-states(#fff);
 }
@@ -138,20 +134,20 @@ h6 {
 }
 
 .btn_round {
-  @include mdc-button-container-fill-color(#ebc000);
-  @include mdc-button-ink-color(#303841);
+  @include mdc-button-container-fill-color(#fbd132);
+  @include mdc-button-ink-color(#24292f);
   border-radius: 50%;
 }
 
 .highlighted-btn {
   font-weight: 700;
-  @include mdc-button-container-fill-color(#ebc000);
-  @include mdc-button-ink-color(#303841);
+  @include mdc-button-container-fill-color(#fbd132);
+  @include mdc-button-ink-color(#24292f);
   @include mdc-states(#fff);
 }
 
 .icon-toggle-button {
-  @include mdc-icon-button-ink-color(#303841);
+  @include mdc-icon-button-ink-color(#24292f);
   @include mdc-states-press-opacity(0);
 }
 
@@ -163,7 +159,7 @@ h6 {
   @include mdc-tab-ink-color(#fff);
   @include mdc-tab-text-label-color(#fff);
   @include mdc-tab-states-color(#fff);
-  @include mdc-tab-indicator-underline-color(#ebc000);
+  @include mdc-tab-indicator-underline-color(#fbd132);
 }
 
 .tab:first-of-type {
@@ -171,10 +167,10 @@ h6 {
 }
 
 // .form-input {
-//   @include mdc-text-field-caret-color(#ebc000);
+//   @include mdc-text-field-caret-color(#FBD132);
 //   @include mdc-text-field-fill-color(#ffffff27);
-//   @include mdc-text-field-hover-outline-color(#ebc000);
-//   @include mdc-text-field-focused-outline-color(#ebc000);
+//   @include mdc-text-field-hover-outline-color(#FBD132);
+//   @include mdc-text-field-focused-outline-color(#FBD132);
 //   @include mdc-text-field-outline-color(#21262c);
 //   @include mdc-text-field-label-color(#21262c);
 //   @include mdc-text-field-ink-color(#fff);
@@ -185,22 +181,22 @@ h6 {
 .search-input,
 .textarea {
   border-radius: 5px;
-  @include mdc-text-field-caret-color(#ebc000);
-  @include mdc-text-field-fill-color(rgba(255, 255, 255, 0.2));
+  @include mdc-text-field-caret-color(#fbd132);
+  @include mdc-text-field-fill-color(#61676e);
   @include mdc-text-field-label-color(rgba(255, 255, 255, 0.6));
   @include mdc-text-field-ink-color(#fff);
   @include mdc-text-field-bottom-line-color(rgba(48, 56, 65, 0.8));
-  @include mdc-text-field-hover-bottom-line-color(#ebc000);
-  @include mdc-text-field-line-ripple-color(#ebc000);
+  @include mdc-text-field-hover-bottom-line-color(#fbd132);
+  @include mdc-text-field-line-ripple-color(#fbd132);
 }
 
 .form-input.mdc-text-field--disabled {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #61676e;
 }
 
 .search-input {
-  @include mdc-text-field-hover-outline-color(#ebc000);
-  @include mdc-text-field-focused-outline-color(#ebc000);
+  @include mdc-text-field-hover-outline-color(#fbd132);
+  @include mdc-text-field-focused-outline-color(#fbd132);
 }
 
 .search-input::placeholder {
@@ -208,10 +204,10 @@ h6 {
 }
 
 .form-selector {
-  @include mdc-select-container-fill-color(rgba(255, 255, 255, 0.2));
-  @include mdc-select-hover-bottom-line-color(#ebc000);
+  @include mdc-select-container-fill-color(#61676e);
+  @include mdc-select-hover-bottom-line-color(#fbd132);
   @include mdc-select-bottom-line-color(rgba(48, 56, 65, 0.8));
-  @include mdc-select-focused-bottom-line-color(#ebc000);
+  @include mdc-select-focused-bottom-line-color(#fbd132);
   @include mdc-select-label-color(rgba(255, 255, 255, 0.8));
   @include mdc-select-focused-label-color(rgba(255, 255, 255, 0.6));
   @include mdc-select-ink-color(#fff);
@@ -222,7 +218,7 @@ h6 {
 }
 
 .form-selector:hover {
-  border-bottom: 1px solid #ebc000;
+  border-bottom: 1px solid #fbd132;
 }
 
 .mdc-select--focused .mdc-select__dropdown-icon {
@@ -236,14 +232,14 @@ h6 {
 
 .checkbox {
   @include mdc-checkbox-container-colors(
-    #303841,
+    #24292f,
     rgba(255, 255, 255, 0.2),
-    #ebc000,
-    #ebc000
+    #fbd132,
+    #fbd132
   );
-  @include mdc-checkbox-ink-color(#303841);
-  @include mdc-checkbox-focus-indicator-color(#ebc000);
-  @include mdc-checkbox-touch-dimension(#ebc000);
+  @include mdc-checkbox-ink-color(#24292f);
+  @include mdc-checkbox-focus-indicator-color(#fbd132);
+  @include mdc-checkbox-touch-dimension(#fbd132);
 }
 
 //to change label color
@@ -253,7 +249,7 @@ h6 {
 
 .grid-card {
   color: #f0f2f2;
-  @include mdc-card-fill-color(rgba(255, 255, 255, 0.1));
+  @include mdc-card-fill-color(#4d5359);
   border-radius: 10px;
 }
 
@@ -288,7 +284,7 @@ h6 {
 
 .grid-card__info i {
   font-size: 16px;
-  color: #303841;
+  color: #24292f;
   padding-right: 2%;
 }
 
@@ -299,7 +295,7 @@ h6 {
 .chart {
   color: #fff;
   @include mdc-data-table-fill-color(rgb(97, 103, 110));
-  @include mdc-data-table-divider-color(#303841);
+  @include mdc-data-table-divider-color(#24292f);
   @include mdc-data-table-row-height(43px);
 }
 
@@ -316,15 +312,15 @@ h6 {
 }
 
 .textarea {
-  @include mdc-text-field-textarea-fill-color(rgba(255, 255, 255, 0.2));
+  @include mdc-text-field-textarea-fill-color(#61676e);
   @include mdc-text-field-textarea-stroke-color(rgba(255, 255, 255, 0.8));
-  @include mdc-text-field-hover-outline-color(#ebc000);
+  @include mdc-text-field-hover-outline-color(#fbd132);
 }
 
 .radio-btn {
-  @include mdc-radio-ink-color(#ebc000);
+  @include mdc-radio-ink-color(#fbd132);
   @include mdc-radio-unchecked-stroke-color(#242a31);
-  @include mdc-radio-checked-stroke-color(#ebc000);
+  @include mdc-radio-checked-stroke-color(#fbd132);
 }
 
 // _______________________________________________________________________________
@@ -356,7 +352,7 @@ h6 {
               flex-direction: row;
               color: #fff;
               border-left: 0.25rem solid #858585;
-              background: rgba(255, 255, 255, 0.2);
+              background: #61676e;
               width: 14rem;
               height: 3rem;
               box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
@@ -376,8 +372,8 @@ h6 {
               }
             }
             .participant.winner {
-              color: #ebc000;
-              border-color: #ebc000;
+              color: #fbd132;
+              border-color: #fbd132;
             }
             .participant.loser {
               color: #dc563f;
@@ -388,20 +384,20 @@ h6 {
       }
       > div.connector.filled {
         .line {
-          border-color: #ebc000;
+          border-color: #fbd132;
         }
       }
       > div.connector.filled.bottom {
         .merger {
           &:after {
-            border-color: #ebc000;
+            border-color: #fbd132;
           }
         }
       }
       > div.connector.filled.top {
         .merger {
           &:before {
-            border-color: #ebc000;
+            border-color: #fbd132;
           }
         }
       }
@@ -501,8 +497,6 @@ h6 {
 
 .main-header,
 .main-header-no-min {
-  // width: 100vw;
-  // height: auto;
   margin-top: -1px;
   padding: 0 20px 0 0;
   display: flex;
@@ -513,17 +507,18 @@ h6 {
   position: sticky;
   top: 0;
   transition: 0.3s;
-}
-
-.main-header.scrolled,
-.main-header-no-min {
-  background-color: #22272ed2;
+  background-color: #262b31;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 .main-header__logo img {
   width: 120px;
   height: 75px;
   margin-left: 10px;
+}
+
+.main-header__logo {
+  cursor: pointer;
 }
 
 .main-header__logo img:last-of-type {
@@ -550,6 +545,7 @@ h6 {
 .site-nav li,
 .site-nav-no-min li {
   margin-left: 20px;
+  border-bottom: none;
 }
 
 .site-nav__tab {
@@ -567,7 +563,7 @@ h6 {
 
 .site-nav-min .mdc-menu-surface {
   margin-top: 20%;
-  @include mdc-menu-surface-fill-color(#262c34d8);
+  @include mdc-menu-surface-fill-color(#262b31);
 }
 
 .site-nav-min .mdc-list {
@@ -581,12 +577,13 @@ h6 {
 //GENERAL-footer
 
 .main-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  background: #262b31;
 }
 
 .main-footer a:hover {
   text-decoration: underline;
-  color: #ebc000;
+  color: #fbd132;
 }
 
 .main-footer .container-center {
@@ -599,6 +596,11 @@ h6 {
 
 .footer-top {
   margin-bottom: 3%;
+}
+
+.footer-top a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .main-footer__logo img {
@@ -642,7 +644,7 @@ h6 {
   text-align: center;
 
   border-radius: 50%;
-  background-color: #212a3a;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .main-footer__vk-social-btn {
@@ -732,7 +734,7 @@ h6 {
 }
 
 .parallax-wrapper + .regular-wrapper {
-  background-image: linear-gradient(60deg, #303841 0%, #444d57 100%);
+  background-image: linear-gradient(60deg, #24292f 0%, #333941 100%);
 }
 
 .parallax-wrapper {
@@ -822,12 +824,6 @@ h6 {
     padding: 0;
   }
 
-  .main-header,
-  .main-header.scrolled,
-  .main-header-no-min {
-    background-color: #22272ed2;
-  }
-
   .main-header .main-header__logo img,
   .main-header-no-min .main-header__logo img {
     width: 110px;
@@ -847,7 +843,6 @@ h6 {
   .site-nav-no-min .mdc-menu-surface {
     width: 100vw;
     margin-top: 20%;
-    @include mdc-menu-surface-fill-color(#262c34);
   }
 
   .mdc-menu__selection-group {
@@ -993,8 +988,8 @@ h6 {
 .features {
   padding: 5% 0;
   background-color: #fff;
-  color: #303841;
-  border-top: 8px solid #ebc000;
+  color: #24292f;
+  border-top: 8px solid #fbd132;
 }
 
 .features__title {
@@ -1065,7 +1060,7 @@ h6 {
   background-image: url("./img/running-people-bg.jpg");
   background-size: cover;
   align-items: stretch !important;
-  border-top: 8px solid #ebc000;
+  border-top: 8px solid #fbd132;
 }
 
 .community.parallax-wrapper {
@@ -1075,9 +1070,9 @@ h6 {
 .community-shadow {
   background-image: linear-gradient(
     50deg,
-    #303841 0%,
-    #303841da 60%,
-    #30384163 100%
+    #24292f 0%,
+    #24292fda 60%,
+    #24292f63 100%
   );
   padding: 10% 60% 15% 8%;
   text-align: left;
@@ -1095,9 +1090,9 @@ h6 {
 .registration {
   position: relative;
   background-color: #fff;
-  color: #303841;
+  color: #24292f;
   align-items: stretch !important;
-  border-top: 8px solid #ebc000;
+  border-top: 8px solid #fbd132;
   padding: 8% 10% 10% 55%;
 }
 
@@ -1126,8 +1121,8 @@ h6 {
 }
 
 .popular-games {
-  border-top: 8px solid #ebc000;
-  border-bottom: 8px solid #ebc000;
+  border-top: 8px solid #fbd132;
+  border-bottom: 8px solid #fbd132;
 }
 
 @media screen and (min-width: 1700px) {
@@ -1278,7 +1273,7 @@ $text-offset: $a-height - 90;
           color: #fff;
           text-decoration: none;
           font-family: Open Sans, sans-serif;
-          background: #30384179;
+          background: #24292f79;
 
           transition: all 200ms ease;
 

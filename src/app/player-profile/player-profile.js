@@ -6,6 +6,7 @@ import {MDCTabScroller} from '@material/tab-scroller';
 import {MDCRipple} from '@material/ripple';
 import {MDCMenu} from '@material/menu';
 import {MDCDataTable} from '@material/data-table';
+import { MDCIconButtonToggle } from '@material/icon-button';
 
 
 //for shrinked header 
@@ -55,3 +56,14 @@ const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller
 // participants table
 const dataTable = new MDCDataTable(document.querySelector('.mdc-data-table'));
 
+
+// card toggle btn   
+document.querySelectorAll('.icon-toggle-button').forEach((btn) => {
+    new MDCIconButtonToggle(btn);
+})
+
+//card
+const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+  return new MDCRipple(el);
+});

@@ -14,7 +14,7 @@
   padding: 2vh 0 2vh;
   margin: 0;
   height: 12vh;
-  background-color: #272d3542;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .player-profile__header h2 {
@@ -43,7 +43,7 @@
   width: auto;
   height: 9vh;
   border-radius: 50%;
-  border: 3px solid #ebc000;
+  border: 3px solid #FBD132;
   background-color: rgba(255, 255, 255, 0.8);
 }
 

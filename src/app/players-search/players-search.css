@@ -1,7 +1,8 @@
 @import "../../../dist/bundle.css";
 
 .main .container-center {
-  width: 70vw;
+  width: 75vw;
+  max-width: 900px;
 }
 
 .search-form {
@@ -46,75 +47,105 @@
   margin-bottom: 10%;
 }
 
+.sorting-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+.sorting-header div div {
+  position: relative;
+}
+
+.up {
+  position: absolute;
+  top: 0;
+  right: -25px;
+  font-size: 20px;
+}
+
+.down{
+  position: absolute;
+  top: 7px;
+  right: -25px;
+  font-size: 20px;
+}
+
 .grid-card {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  height: 10vh;
+  align-items: center;
+  height: 9vh;
+  max-height: 75px;
+  min-height: 55px;
   position: relative;
 }
 
 .players-info__userpic {
-  margin-left: 4%;
-  margin-top: 1%;
+  margin: auto 0 auto 0.5%;
+  width: 9vw;
+  height: 95%;
+  max-width: 85px;
 }
 
 .players-info__userpic img {
-  width: 7vh;
-  height: 7vh;
-  border-radius: 50%;
-  border: 1px solid #ebc000;
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
   background-color: rgba(255, 255, 255, 0.5);
-}
-
-.mdc-card__action-icons {
-  flex-grow: 0;
+  margin: auto 0;
 }
 
 .grid-card__title {
-  font-size: 1.3rem;
+  font-size: 1.1em;
+  line-height: 1.3em;
+  margin: 0;
   margin-left: 3%;
   margin-right: 1%;
   padding: 0;
 }
 
+.grid-card__title i {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  padding-right: 5px;
+}
+
 .grid-card__info {
-  min-width: 10%;
+  min-width: 8%;
   max-width: 15%;
-  margin: auto 0 auto 4%;
+  margin: auto 0.5%;
   padding: 0;
+  text-align: center;
+}
+
+.grid-card__info:nth-of-type(2),
+.grid-card__info:nth-of-type(3) {
+  min-width: 12%;
 }
 
 .grid-card__info:nth-of-type(2) {
   margin-left: auto;
 }
 
-.players-info__points,
-.players-info__games {
-  display: flex;
-  flex-direction: column;
-}
-
-.players-info__points-label,
-.players-info__games-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.players-info__points-value,
-.players-info__games-value {
-  padding-left: 15%;
-  font-size: 1.1rem;
-}
-
 .grid-card__actions {
-  margin: 0 3%;
+  margin: 0;
   padding: 0;
 }
+/* .mdc-icon-button {
+  width: 35px;
+  height: 48px;
+} */
 
-.mdc-card__actions a {
-  min-width: 118px;
-}
 
 @media screen and (max-width: 1200px) {
   .search-form__selectors {
@@ -130,12 +161,32 @@
   }
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 900px) {
   .main .container-center {
     width: 90vw;
     padding: 0;
   }
 
+  .grid-card__info {
+    font-size: 0.9em;
+  }
+
+  .grid-card__title {
+    font-size: 1em;
+  }
+
+  .grid-card__info:nth-of-type(4),
+  .grid-card__info:nth-of-type(5),
+  .grid-card__info:nth-of-type(6) {
+    min-width: 6%;
+  }
+
+  .players-info__userpic {
+    width: 10vw;
+  }
+}
+
+@media screen and (max-width: 650px) {
   .search-form__search,
   .search-form__checkboxes,
   .search-form__selectors,
@@ -146,59 +197,4 @@
     width: 100%;
   }
 
-  .grid-card__title {
-    font-size: 1.1rem;
-  }
-}
-
-@media screen and (max-width: 900px) {
-
-  .grid-card {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas:
-      "userpic title title"
-      "info-1 info-2 info-3"
-      "view-details-btn view-details-btn favourite-btn";
-      height: auto;
-  }
-
-  .players-info__userpic img {
-    width: 13vh;
-    height: 13vh;
-    margin-top: 2%;
-    grid-area: "userpic";
-  }
-
-  .grid-card__title {
-    grid-area: "title";
-  }
-
-  .grid-card__info:nth-of-type(2) {
-    margin-left: 0;
-    grid-area: "info-1";
-  }
-
-  .grid-card__info:nth-of-type(3) {
-    grid-area: "info-2";
-  }
-
-  .grid-card__info:nth-of-type(4) {
-    grid-area: "info-3";
-  }
-
-  .grid-card__actions div:nth-of-type(1) {
-    grid-area: "view-details-btn";
-  }
-
-  .grid-card__actions div:nth-of-type(2) {
-    grid-area: "favourite-btn";
-  }
-
-  .grid-card__title,
-  .grid-card__info,
-  .grid-card__actions {
-    padding: 0 3%;
-  }
 }

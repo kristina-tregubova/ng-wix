@@ -7,6 +7,10 @@ import {MDCRipple} from '@material/ripple';
 import {MDCMenu} from '@material/menu';
 import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
+import { MDCIconButtonToggle } from '@material/icon-button';
+import {MDCCheckbox} from '@material/checkbox';
+import {MDCFormField} from '@material/form-field';
+
 
 
 //for shrinked header (not on index and auth)
@@ -51,6 +55,24 @@ const tab = new MDCTab(document.querySelector('.mdc-tab'));
 const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 const tabScroller = new MDCTabScroller(document.querySelector('.mdc-tab-scroller'));
+
+
+// search and filters
+const select = new MDCSelect(document.querySelector('.mdc-select'));
+const checkbox = new MDCCheckbox(document.querySelector('.mdc-checkbox'));
+const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
+formField.input = checkbox;
+
+// card toggle btn   
+document.querySelectorAll('.icon-toggle-button').forEach((btn) => {
+    new MDCIconButtonToggle(btn);
+})
+
+//card
+const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+  return new MDCRipple(el);
+});
 
 
 

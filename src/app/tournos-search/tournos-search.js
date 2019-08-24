@@ -69,9 +69,10 @@ const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
   return new MDCRipple(el);
 });
 
-    // card toggle btn   
-    document.querySelectorAll('.icon-toggle-button').forEach((btn) => {
-        new MDCIconButtonToggle(btn);
-    })
-    
+// card toggle btn   
+document.querySelectorAll('.icon-toggle-button').forEach((btn) => {
+    new MDCIconButtonToggle(btn);
+})
+
+
 
