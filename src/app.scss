@@ -255,6 +255,9 @@ h6 {
 
 .grid-card:hover {
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition-duration: 0.5s;
+  z-index: 4;
 }
 
 .grid-card__title,
