@@ -252,7 +252,7 @@ h6 {
 }
 
 .grid-card {
-  color: rgba(255, 255, 255, 0.7);
+  color: #f0f2f2;
   @include mdc-card-fill-color(rgba(255, 255, 255, 0.1));
   border-radius: 10px;
 }
@@ -327,6 +327,173 @@ h6 {
   @include mdc-radio-checked-stroke-color(#ebc000);
 }
 
+// _______________________________________________________________________________
+// BRACKET
+
+.bracket {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  font-size: 0;
+  .round {
+    display: inline-block;
+    vertical-align: middle;
+    .winners {
+      > div {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      > div.matchups {
+        .matchup {
+          &:last-child {
+            margin-bottom: 0 !important;
+          }
+          .participants {
+            border-radius: 0.25rem;
+            overflow: hidden;
+            .participant {
+              display: flex;
+              flex-direction: row;
+              color: #fff;
+              border-left: 0.25rem solid #858585;
+              background: rgba(255, 255, 255, 0.2);
+              width: 14rem;
+              height: 3rem;
+              box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+              &:not(:last-child) {
+                border-bottom: thin solid #f0f2f2;
+              }
+              .name {
+                margin: 0 1.25rem;
+                line-height: 3;
+                font-size: 1rem;
+              }
+              .result {
+                margin-right: 1.25rem;
+                margin-left: auto;
+                line-height: 3;
+                font-size: 1rem;
+              }
+            }
+            .participant.winner {
+              color: #ebc000;
+              border-color: #ebc000;
+            }
+            .participant.loser {
+              color: #dc563f;
+              border-color: #dc563f;
+            }
+          }
+        }
+      }
+      > div.connector.filled {
+        .line {
+          border-color: #ebc000;
+        }
+      }
+      > div.connector.filled.bottom {
+        .merger {
+          &:after {
+            border-color: #ebc000;
+          }
+        }
+      }
+      > div.connector.filled.top {
+        .merger {
+          &:before {
+            border-color: #ebc000;
+          }
+        }
+      }
+      > div.connector {
+        .line {
+          box-sizing: border-box;
+          width: 2rem;
+          display: inline-block;
+          vertical-align: top;
+          border-bottom: thin solid #c0c0c8;
+          height: 4rem;
+        }
+        .merger {
+          box-sizing: border-box;
+          width: 2rem;
+          display: inline-block;
+          vertical-align: top;
+          position: relative;
+          height: 8rem;
+          &:before {
+            content: "";
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50%;
+            border: 0 solid;
+            border-color: #c0c0c8;
+            border-right-width: thin;
+            border-top-width: thin;
+          }
+          &:after {
+            content: "";
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            height: 50%;
+            border: 0 solid;
+            border-color: #c0c0c8;
+            border-right-width: thin;
+            border-bottom-width: thin;
+          }
+        }
+      }
+    }
+  }
+  .round.quarterfinals {
+    .winners {
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      .matchups {
+        .matchup {
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+  .round.semifinals {
+    .winners {
+      .matchups {
+        .matchup {
+          &:not(:last-child) {
+            margin-bottom: 10rem;
+          }
+        }
+      }
+      .connector {
+        .merger {
+          height: 16rem;
+        }
+        .line {
+          height: 8rem;
+        }
+      }
+    }
+  }
+  .round.finals {
+    .winners {
+      .connector {
+        .merger {
+          height: 3rem;
+        }
+        .line {
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
 // ________________________________________________________________________________
 //GENERAL-main
 
@@ -350,7 +517,7 @@ h6 {
 
 .main-header.scrolled,
 .main-header-no-min {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #22272ed2;
 }
 
 .main-header__logo img {
@@ -400,7 +567,7 @@ h6 {
 
 .site-nav-min .mdc-menu-surface {
   margin-top: 20%;
-  @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.5));
+  @include mdc-menu-surface-fill-color(#262c34d8);
 }
 
 .site-nav-min .mdc-list {
@@ -658,7 +825,7 @@ h6 {
   .main-header,
   .main-header.scrolled,
   .main-header-no-min {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #22272ed2;
   }
 
   .main-header .main-header__logo img,
@@ -680,7 +847,7 @@ h6 {
   .site-nav-no-min .mdc-menu-surface {
     width: 100vw;
     margin-top: 20%;
-    @include mdc-menu-surface-fill-color(rgba(0, 0, 0, 0.8));
+    @include mdc-menu-surface-fill-color(#262c34);
   }
 
   .mdc-menu__selection-group {
@@ -776,6 +943,12 @@ h6 {
   .main-footer .container-center,
   .container-center {
     width: 95vw;
+  }
+
+  .main-header .main-header__logo img,
+  .main-header-no-min .main-header__logo img {
+    width: 90px;
+    height: 60px;
   }
 }
 
@@ -1039,7 +1212,7 @@ h6 {
     top: 2%;
   }
 
-  .registration {  
+  .registration {
     padding: 55% 5% 10% 5%;
   }
 
@@ -1187,7 +1360,7 @@ $text-offset: $a-height - 90;
       width: 60%;
 
       a {
-        background: rgba(0, 0, 0, 0.0);
+        background: rgba(0, 0, 0, 0);
 
         * {
           opacity: 1;
@@ -1209,7 +1382,7 @@ $text-offset: $a-height - 90;
       width: 60% !important;
 
       a {
-        background: rgba(0, 0, 0, 0.0);
+        background: rgba(0, 0, 0, 0);
 
         * {
           opacity: 1 !important;

@@ -3591,7 +3591,7 @@ a.mdc-list-item {
   /* @alternate */
   background-color: var(--mdc-theme-secondary, #018786); }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-u737ebc94 {
+@-webkit-keyframes mdc-checkbox-fade-in-background-u7890ac24 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -3603,7 +3603,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-secondary, #018786); } }
 
-@keyframes mdc-checkbox-fade-in-background-u737ebc94 {
+@keyframes mdc-checkbox-fade-in-background-u7890ac24 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -3615,7 +3615,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-secondary, #018786); } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-u737ebc94 {
+@-webkit-keyframes mdc-checkbox-fade-out-background-u7890ac24 {
   0%,
   80% {
     border-color: #018786;
@@ -3628,7 +3628,7 @@ a.mdc-list-item {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; } }
 
-@keyframes mdc-checkbox-fade-out-background-u737ebc94 {
+@keyframes mdc-checkbox-fade-out-background-u7890ac24 {
   0%,
   80% {
     border-color: #018786;
@@ -3642,12 +3642,12 @@ a.mdc-list-item {
     background-color: transparent; } }
 
 .mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-in-background-u737ebc94;
-          animation-name: mdc-checkbox-fade-in-background-u737ebc94; }
+  -webkit-animation-name: mdc-checkbox-fade-in-background-u7890ac24;
+          animation-name: mdc-checkbox-fade-in-background-u7890ac24; }
 
 .mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-out-background-u737ebc94;
-          animation-name: mdc-checkbox-fade-out-background-u737ebc94; }
+  -webkit-animation-name: mdc-checkbox-fade-out-background-u7890ac24;
+          animation-name: mdc-checkbox-fade-out-background-u7890ac24; }
 
 .mdc-checkbox__checkmark {
   color: #fff; }
@@ -4292,7 +4292,7 @@ a.mdc-list-item {
   /* @alternate */
   background-color: var(--mdc-theme-primary, #6200ee); }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-ucb31b6ca {
+@-webkit-keyframes mdc-checkbox-fade-in-background-uc4bbfc52 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -4304,7 +4304,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-primary, #6200ee); } }
 
-@keyframes mdc-checkbox-fade-in-background-ucb31b6ca {
+@keyframes mdc-checkbox-fade-in-background-uc4bbfc52 {
   0% {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; }
@@ -4316,7 +4316,7 @@ a.mdc-list-item {
     /* @alternate */
     background-color: var(--mdc-theme-primary, #6200ee); } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-ucb31b6ca {
+@-webkit-keyframes mdc-checkbox-fade-out-background-uc4bbfc52 {
   0%,
   80% {
     border-color: #6200ee;
@@ -4329,7 +4329,7 @@ a.mdc-list-item {
     border-color: rgba(0, 0, 0, 0.54);
     background-color: transparent; } }
 
-@keyframes mdc-checkbox-fade-out-background-ucb31b6ca {
+@keyframes mdc-checkbox-fade-out-background-uc4bbfc52 {
   0%,
   80% {
     border-color: #6200ee;
@@ -4345,14 +4345,14 @@ a.mdc-list-item {
 .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-in-background-ucb31b6ca;
-          animation-name: mdc-checkbox-fade-in-background-ucb31b6ca; }
+  -webkit-animation-name: mdc-checkbox-fade-in-background-uc4bbfc52;
+          animation-name: mdc-checkbox-fade-in-background-uc4bbfc52; }
 
 .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .mdc-data-table__header-row-checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background,
 .mdc-data-table__row-checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-  -webkit-animation-name: mdc-checkbox-fade-out-background-ucb31b6ca;
-          animation-name: mdc-checkbox-fade-out-background-ucb31b6ca; }
+  -webkit-animation-name: mdc-checkbox-fade-out-background-uc4bbfc52;
+          animation-name: mdc-checkbox-fade-out-background-uc4bbfc52; }
 
 .mdc-text-field-character-counter {
   font-family: Roboto, sans-serif;
@@ -4904,7 +4904,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; }
 
-@-webkit-keyframes mdc-checkbox-fade-in-background-u866158f2 {
+@-webkit-keyframes mdc-checkbox-fade-in-background-u72137231 {
   0% {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); }
@@ -4912,7 +4912,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; } }
 
-@keyframes mdc-checkbox-fade-in-background-u866158f2 {
+@keyframes mdc-checkbox-fade-in-background-u72137231 {
   0% {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); }
@@ -4920,7 +4920,7 @@ h6 {
     border-color: #ebc000;
     background-color: #ebc000; } }
 
-@-webkit-keyframes mdc-checkbox-fade-out-background-u866158f2 {
+@-webkit-keyframes mdc-checkbox-fade-out-background-u72137231 {
   0%,
   80% {
     border-color: #ebc000;
@@ -4929,7 +4929,7 @@ h6 {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); } }
 
-@keyframes mdc-checkbox-fade-out-background-u866158f2 {
+@keyframes mdc-checkbox-fade-out-background-u72137231 {
   0%,
   80% {
     border-color: #ebc000;
@@ -4938,11 +4938,11 @@ h6 {
     border-color: #303841;
     background-color: rgba(255, 255, 255, 0.2); } }
   .checkbox.mdc-checkbox--anim-unchecked-checked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .checkbox.mdc-checkbox--anim-unchecked-indeterminate .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-    -webkit-animation-name: mdc-checkbox-fade-in-background-u866158f2;
-            animation-name: mdc-checkbox-fade-in-background-u866158f2; }
+    -webkit-animation-name: mdc-checkbox-fade-in-background-u72137231;
+            animation-name: mdc-checkbox-fade-in-background-u72137231; }
   .checkbox.mdc-checkbox--anim-checked-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background, .checkbox.mdc-checkbox--anim-indeterminate-unchecked .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background {
-    -webkit-animation-name: mdc-checkbox-fade-out-background-u866158f2;
-            animation-name: mdc-checkbox-fade-out-background-u866158f2; }
+    -webkit-animation-name: mdc-checkbox-fade-out-background-u72137231;
+            animation-name: mdc-checkbox-fade-out-background-u72137231; }
   .checkbox .mdc-checkbox__checkmark {
     color: #303841; }
   .checkbox .mdc-checkbox__mixedmark {
@@ -4988,7 +4988,7 @@ h6 {
   color: #fff; }
 
 .grid-card {
-  color: rgba(255, 255, 255, 0.7);
+  color: #f0f2f2;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px; }
 
@@ -5069,6 +5069,103 @@ h6 {
 .radio-btn .mdc-radio__native-control:enabled:checked + .mdc-radio__background .mdc-radio__outer-circle {
   border-color: #ebc000; }
 
+.bracket {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  font-size: 0; }
+  .bracket .round {
+    display: inline-block;
+    vertical-align: middle; }
+    .bracket .round .winners > div {
+      display: inline-block;
+      vertical-align: middle; }
+    .bracket .round .winners > div.matchups .matchup:last-child {
+      margin-bottom: 0 !important; }
+    .bracket .round .winners > div.matchups .matchup .participants {
+      border-radius: 0.25rem;
+      overflow: hidden; }
+      .bracket .round .winners > div.matchups .matchup .participants .participant {
+        display: flex;
+        flex-direction: row;
+        color: #fff;
+        border-left: 0.25rem solid #858585;
+        background: rgba(255, 255, 255, 0.2);
+        width: 14rem;
+        height: 3rem;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12); }
+        .bracket .round .winners > div.matchups .matchup .participants .participant:not(:last-child) {
+          border-bottom: thin solid #f0f2f2; }
+        .bracket .round .winners > div.matchups .matchup .participants .participant .name {
+          margin: 0 1.25rem;
+          line-height: 3;
+          font-size: 1rem; }
+        .bracket .round .winners > div.matchups .matchup .participants .participant .result {
+          margin-right: 1.25rem;
+          margin-left: auto;
+          line-height: 3;
+          font-size: 1rem; }
+      .bracket .round .winners > div.matchups .matchup .participants .participant.winner {
+        color: #ebc000;
+        border-color: #ebc000; }
+      .bracket .round .winners > div.matchups .matchup .participants .participant.loser {
+        color: #dc563f;
+        border-color: #dc563f; }
+    .bracket .round .winners > div.connector.filled .line {
+      border-color: #ebc000; }
+    .bracket .round .winners > div.connector.filled.bottom .merger:after {
+      border-color: #ebc000; }
+    .bracket .round .winners > div.connector.filled.top .merger:before {
+      border-color: #ebc000; }
+    .bracket .round .winners > div.connector .line {
+      box-sizing: border-box;
+      width: 2rem;
+      display: inline-block;
+      vertical-align: top;
+      border-bottom: thin solid #c0c0c8;
+      height: 4rem; }
+    .bracket .round .winners > div.connector .merger {
+      box-sizing: border-box;
+      width: 2rem;
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      height: 8rem; }
+      .bracket .round .winners > div.connector .merger:before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 50%;
+        border: 0 solid;
+        border-color: #c0c0c8;
+        border-right-width: thin;
+        border-top-width: thin; }
+      .bracket .round .winners > div.connector .merger:after {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 50%;
+        border: 0 solid;
+        border-color: #c0c0c8;
+        border-right-width: thin;
+        border-bottom-width: thin; }
+  .bracket .round.quarterfinals .winners:not(:last-child) {
+    margin-bottom: 2rem; }
+  .bracket .round.quarterfinals .winners .matchups .matchup:not(:last-child) {
+    margin-bottom: 2rem; }
+  .bracket .round.semifinals .winners .matchups .matchup:not(:last-child) {
+    margin-bottom: 10rem; }
+  .bracket .round.semifinals .winners .connector .merger {
+    height: 16rem; }
+  .bracket .round.semifinals .winners .connector .line {
+    height: 8rem; }
+  .bracket .round.finals .winners .connector .merger {
+    height: 3rem; }
+  .bracket .round.finals .winners .connector .line {
+    height: 1.5rem; }
+
 .main-header,
 .main-header-no-min {
   margin-top: -1px;
@@ -5085,7 +5182,7 @@ h6 {
 
 .main-header.scrolled,
 .main-header-no-min {
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: #22272ed2; }
 
 .main-header__logo img {
   width: 120px;
@@ -5125,7 +5222,7 @@ h6 {
 
 .site-nav-min .mdc-menu-surface {
   margin-top: 20%;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: #262c34d8; }
 
 .site-nav-min .mdc-list {
   color: #fff; }
@@ -5311,7 +5408,7 @@ h6 {
   .main-header,
   .main-header.scrolled,
   .main-header-no-min {
-    background-color: rgba(0, 0, 0, 0.7); }
+    background-color: #22272ed2; }
   .main-header .main-header__logo img,
   .main-header-no-min .main-header__logo img {
     width: 110px;
@@ -5325,7 +5422,7 @@ h6 {
   .site-nav-no-min .mdc-menu-surface {
     width: 100vw;
     margin-top: 20%;
-    background-color: rgba(0, 0, 0, 0.8); }
+    background-color: #262c34; }
   .mdc-menu__selection-group {
     display: flex;
     flex-direction: column;
@@ -5388,7 +5485,11 @@ h6 {
   .main .container-center,
   .main-footer .container-center,
   .container-center {
-    width: 95vw; } }
+    width: 95vw; }
+  .main-header .main-header__logo img,
+  .main-header-no-min .main-header__logo img {
+    width: 90px;
+    height: 60px; } }
 
 .landing > .main section,
 .promo > .container-center {
