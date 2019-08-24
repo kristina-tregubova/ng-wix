@@ -59,21 +59,23 @@
   display: flex;
   flex-direction: column;
   margin: 6% 0 10%;
-  max-width: 85%;
+}
+
+.tourno-profile__info-item {
+  display: grid;
+  grid-template-columns: 4% 16% 80%;
+  grid-template-rows: auto;
+  grid-row-gap: 2%;
+  grid-column-gap: 1%;
+  margin-bottom: 1%;
 }
 
 .tourno-profile__info-item .form-input {
-  width: 80%;
-  float: right;
-  margin-bottom: 0.5%;
   height: 40px;
-  max-width: 500px;
-  padding-bottom: 8px;
 }
 
 .tourno-profile__info-item i {
   font-size: 20px;
-  padding-right: 5px;
 }
 
 .tourno-profile__info-item label {
@@ -140,9 +142,6 @@
     max-width: 90%;
   }
 
-  .tourno-profile__info-item .form-input {
-    max-width: 85%;
-  }
 }
 
 @media screen and (max-width: 980px) {
@@ -159,10 +158,6 @@
     max-width: 100%;
   }
 
-  .tourno-profile__info-item .form-input {
-    max-width: 75%;
-  }
-
   .tourno-profile__comments .textarea {
     width: 100%;
   }
@@ -177,20 +172,23 @@
   .tourno-profile__header h2 {
     font-size: 1.8rem;
     line-height: 3.5rem;
+    margin-left: 0;
+    padding-top: 10vh;
+    margin-top: 0;
   }
 
   .tourno-profile__info-item label {
     display: none;
   }
 
-  .tourno-profile__info-item .form-input {
-    max-width: 85%;
+  .tourno-profile__info-item {
+    grid-template-columns: 5% 90%;
+    grid-column-gap: 4%;
   }
 
   .tourno-profile__settings-content {
     grid-template-columns: 1fr;
   }
-
 
   .add-player {
     grid-template-columns: 1fr 2fr;
@@ -210,7 +208,7 @@
     grid-row-gap: 15px;
   }
 
-  ..tourno-profile__settings-submit-btn {
+  .tourno-profile__settings-submit-btn {
     margin-top: 7%;
   }
 

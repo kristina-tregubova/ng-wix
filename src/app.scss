@@ -1251,8 +1251,10 @@ $text-offset: $a-height - 90;
 }
 
 @media screen and (max-width: 600px) {
-  li:nth-child(5),
-  li:nth-child(6) {
-    display: none;
+  .accordion {
+    li:nth-child(5),
+    li:nth-child(6) {
+      display: none;
+    }
   }
 }
