@@ -1,84 +1,124 @@
 @import "../../../dist/bundle.css";
+@import "../players-search/players-search.css";
 
 .main .container-center {
-    width: 90%;
-    max-width: 960px;
-    margin-bottom: 5%;
+  width: 90%;
+  max-width: 960px;
+  margin-bottom: 5%;
 }
 
 .tourno-creation__step {
-    padding: 0 10% 3% 5%;
-    margin-bottom: 5%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
+  padding: 0 10% 3% 5%;
+  margin-bottom: 5%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
     "header"
     "content";
-    background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .tourno-creation__step-title {
-    grid-area: header;
-    border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+  grid-area: header;
+  border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+}
+
+.tourno-creation__step-subtitle:nth-of-type(2) {
+  margin-bottom: 0;
 }
 
 .tourno-creation__step-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-row-gap: 8px;
-    grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-row-gap: 8px;
+  grid-area: content;
 }
 
 .tourno-creation__step-content_add-player {
-    grid-template-columns: 1fr;
+  grid-template-columns: 1fr;
 }
 
-.add-player {
+.added-players.players-list {
+  display: grid;
+  grid-template-columns: 93% 7%;
+  margin-bottom: 5%;
+}
+
+.grid-card:hover {
+  transform: none;
+}
+
+.delete-player-btn {
+  align-self: center;
+}
+
+.add-player-mode-switcher {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 5% 0;
+}
+
+.add-new {
+  display: none;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.add-from-list .players-list {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 2fr;
-    grid-column-gap: 2%;
-}
-
-input[type="file"].mdc-text-field__input {
-    padding-left: 10px;
-    padding-right: 0;
+    grid-template-columns: 93% 7%;
 }
 
 .add-player-btn {
-    margin: 2% auto 0 auto;
+  margin: 2% auto 0 auto;
+}
+
+.add-player {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-column-gap: 2%;
+  margin-bottom: 2%;
+}
+
+input[type="file"].mdc-text-field__input {
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+.add-player-btn {
+  margin: 2% auto 0 auto;
 }
 
 .tourno-creation__submit-btn {
-    width: 40%;
-    margin-left: 60%;
-    margin-bottom: 8%;
+  width: 40%;
+  margin-left: 60%;
+  margin-bottom: 8%;
 }
 
 @media screen and (max-width: 600px) {
+  .tourno-creation__step-content {
+    grid-template-columns: 1fr;
+  }
 
-    .tourno-creation__step-content {
-        grid-template-columns: 1fr;
-    }
+  .add-player {
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 8px;
+    margin-bottom: 0;
+  }
 
-    .add-player {
-        grid-template-columns: 1fr 2fr;
-        grid-row-gap: 8px;
-    }
-
-    .tourno-creation__submit-btn {
-        width: 100%;
-        margin-left: 0;
-    }
+  .tourno-creation__submit-btn {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 @media screen and (max-width: 450px) {
+  .tourno-creation__step-content {
+    grid-row-gap: 15px;
+  }
 
-    .tourno-creation__step-content {
-        grid-row-gap: 15px;
-    }
-
-    .tourno-creation__submit-btn {
-        margin-top: 7%;
-    }
-
+  .tourno-creation__submit-btn {
+    margin-top: 7%;
+  }
 }

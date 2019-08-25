@@ -1,4 +1,5 @@
 @import "../../../dist/bundle.css";
+@import "../players-search/players-search.css";
 
 .background-container {
   height: 30vh;
@@ -46,6 +47,7 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
+
 .tourno-profile__bracket,
 .tourno-profile__chart,
 .tourno-profile__comments,
@@ -55,7 +57,7 @@
   margin: 6% auto 10%;
 }
 
-.tourno-profile__info {
+.tourno-profile > .tourno-profile__info {
   display: flex;
   flex-direction: column;
   margin: 6% 0 10%;
@@ -106,11 +108,31 @@
   border-bottom: 1px solid rgba(97, 103, 110, 0.5);
 }
 
+
+.tourno-profile__settings-step {
+  margin-bottom: 10%;
+background-color: rgba(0, 0, 0, 0.05);
+  padding: 0 10% 3% 5%;
+}
+
+.tourno-profile__desscription {
+  margin: 0;
+}
+
 .tourno-profile__settings-content {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-row-gap: 8px;
   grid-area: content;
+}
+
+.players-list {
+  display: grid;
+  grid-template-columns: 93% 7%;
+}
+
+.delete-player-btn {
+  align-self: center;
 }
 
 .tourno-profile__settings-content-add-player {
@@ -127,11 +149,13 @@
   margin: 2% auto 0 auto;
 }
 
+.delete-tourno-btn,
 .tourno-profile__settings-submit-btn {
   width: 40%;
   margin-left: 60%;
   margin-top: 3%;
 }
+
 
 @media screen and (max-width: 1200px) {
   .main .container-center {
@@ -195,6 +219,7 @@
     grid-row-gap: 8px;
   }
 
+  .delete-tourno-btn,
   .tourno-profile__settings-submit-btn {
     width: 100%;
     margin-left: 0;
@@ -208,6 +233,7 @@
     grid-row-gap: 15px;
   }
 
+  .delete-tourno-btn,
   .tourno-profile__settings-submit-btn {
     margin-top: 7%;
   }

@@ -9,6 +9,7 @@ import {MDCTextField} from '@material/textfield';
 import {MDCSelect} from '@material/select';
 import {MDCFormField} from '@material/form-field';
 import {MDCRadio} from '@material/radio';
+import {MDCSwitch} from '@material/switch';
 
 
 //for shrinked header (not on index and auth)
@@ -64,5 +65,24 @@ const select = new MDCSelect(document.querySelector('.mdc-select'));
 const radio = new MDCRadio(document.querySelector('.mdc-radio'));
 const formField = new MDCFormField(document.querySelector('.mdc-form-field'));
 formField.input = radio;
+const switchControl = new MDCSwitch(document.querySelector('.mdc-switch'));
+
+//switcher logic
+
+document.body.addEventListener('click', function(e) {
+
+    const menuBtnClicked = e.target.closest('.add-player-mode-switcher');
+    const switcher = document.querySelector('.add-player-mode-switcher .mdc-switch');
+    const switcherWasOn = switcher.classList.contains('mdc-switch--checked')
+
+    if (menuBtnClicked && !switcherWasOn) {
+        document.querySelector('.add-from-list').style.display = 'none';
+        document.querySelector('.add-new').style.display = 'flex';
+    } else if (menuBtnClicked && switcherWasOn) {
+        document.querySelector('.add-new').style.display = 'none';
+        document.querySelector('.add-from-list').style.display = 'block';
+    }
+    
+});
 
 

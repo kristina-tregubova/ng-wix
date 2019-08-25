@@ -200,7 +200,7 @@
             <div class="container-center">
                 <section class="tourno-profile">
 
-                    <div class="tourno-profile__info">
+                    <section class="tourno-profile__info">
                         <div class="tourno-profile__info-item">
                             <i class="material-icons" title="Game">videogame_asset</i>
                             <label for="game">Game: </label>
@@ -270,9 +270,9 @@
                                 <div class="mdc-line-ripple"></div>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="tourno-profile__bracket">
+                    <section class="tourno-profile__bracket">
                         <h3 class="tourno-profile__title">
                             Tournament bracket
                         </h3>
@@ -400,9 +400,9 @@
                                 </section>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="tourno-profile__chart">
+                    <section class="tourno-profile__chart">
                         <h3 class="tourno-profile__title">
                             Game chart
                         </h3>
@@ -562,9 +562,9 @@
                             </div>
 
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="tourno-profile__comments">
+                    <section class="tourno-profile__comments">
 
                         <h3 class="tourno-profile__title">
                             Leave a comment
@@ -586,71 +586,292 @@
                         <div class="tourno-profile__details-tab-content">
 
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="tourno-profile__settings">
-                        <h3 class="tourno-profile__title">
-                            Edit tournament info
-                        </h3>
-                        <form class="tourno-profile__settings-content">
-                            <label for="start-date"> Start date: </label>
-                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                                <i class="material-icons mdc-text-field__icon">today</i>
-                                <input type="date" class="mdc-text-field__input" id="start-date" required>
-                                <div class="mdc-line-ripple"></div>
-                            </div>
+                    <section class="tourno-profile__settings">
 
-                            <label for="end-date"> End date: </label>
-                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                                <i class="material-icons mdc-text-field__icon">today</i>
-                                <input type="date" class="mdc-text-field__input" id="end-date" required>
-                                <div class="mdc-line-ripple"></div>
-                            </div>
-
-                            <label for="entry-fee"> Entry Fee: </label>
-                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                                <i class="material-icons mdc-text-field__icon">person</i>
-                                <input class="mdc-text-field__input" id="entry-fee" required>
-                                <div class="mdc-line-ripple"></div>
-                            </div>
-
-                            <label for="prize"> Prize: </label>
-                            <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                                <i class="material-icons mdc-text-field__icon">stars</i>
-                                <input class="mdc-text-field__input" id="prize" required>
-                                <div class="mdc-line-ripple"></div>
-                            </div>
-                        </form>
-
-
-                        <h3 class="tourno-profile__title">
-                            Add players
-                        </h3>
-
-                        <form class="tourno-profile__settings-content tourno-profile__settings-content-add-player">
-                            <div class="add-player">
-                                <label for="player-name-1">
-                                    <span class="add-player__value">1.</span>
-                                    Name: </label>
+                        <div class="tourno-profile__settings-step">
+                            <h3 class="tourno-profile__title">
+                                Edit tournament info
+                            </h3>
+                            <form class="tourno-profile__settings-content">
+                                <label for="start-date"> Start date: </label>
                                 <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                                    <i class="material-icons mdc-text-field__icon">person</i>
-                                    <input class="mdc-text-field__input" id="player-name-1" required>
+                                    <i class="material-icons mdc-text-field__icon">today</i>
+                                    <input type="date" class="mdc-text-field__input" id="start-date" required>
                                     <div class="mdc-line-ripple"></div>
                                 </div>
-                                <label for="add-avatar-1"> Add avatar: </label>
+
+                                <label for="end-date"> End date: </label>
                                 <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                                    <input type="file" class="mdc-text-field__input" id="add-avatar-1">
+                                    <i class="material-icons mdc-text-field__icon">today</i>
+                                    <input type="date" class="mdc-text-field__input" id="end-date" required>
+                                    <div class="mdc-line-ripple"></div>
                                 </div>
+
+                                <label for="entry-fee"> Entry Fee: </label>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">person</i>
+                                    <input class="mdc-text-field__input" id="entry-fee" required>
+                                    <div class="mdc-line-ripple"></div>
+                                </div>
+
+                                <label for="prize"> Prize: </label>
+                                <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                    <i class="material-icons mdc-text-field__icon">stars</i>
+                                    <input class="mdc-text-field__input" id="prize" required>
+                                    <div class="mdc-line-ripple"></div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tourno-profile__settings-step">
+                            <h3 class="tourno-profile__title">
+                                Players management
+                            </h3>
+
+                            <h4 class="tourno-profile__sub-title">
+                                Current players
+                            </h4>
+
+                            <div class="tourno-profile__settings-content already-existing-players players-list">
+                                <div class="grid-card players-list__card mdc-card" role="row">
+
+                                    <div class="players-info players-info__userpic" role="cell">
+                                        <img src="../../img/avatars/avatar.svg" alt="userpic">
+                                    </div>
+                                    <p class="grid-card__title" role="cell">
+                                        <i class="material-icons" title="Team">person</i>
+                                        Sandra Evans
+                                    </p>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__game" role="cell">
+                                            <span>Basketball</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__country" role="cell">
+                                            <span>Spain</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <p class="players-info players-info__points" role="cell">
+                                            <span class="players-info__points-value">89</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="grid-card__info">
+                                        <p class="players-info players-info__games" role="cell">
+                                            <span class="players-info__games-value">26</span>
+                                        </p>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__games-won" role="cell">
+                                            <span>5</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="grid-card__actions mdc-card__actions">
+
+                                        <div class="mdc-card__action-icons">
+                                            <button
+                                                class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                aria-pressed="false" aria-label="Add to favourites"
+                                                title="Add to favourites">
+                                                <i
+                                                    class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                                <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                            </button>
+                                            <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                href="../player-profile/player-profile.html">
+                                                <i class="material-icons">
+                                                    chevron_right
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+                                    <i class="material-icons">
+                                        clear
+                                    </i>
+                                </button>
+
+                                <div class="grid-card players-list__card mdc-card" role="row">
+
+                                    <div class="players-info players-info__userpic" role="cell">
+                                        <img src="../../img/avatars/avatar.svg" alt="userpic">
+                                    </div>
+                                    <p class="grid-card__title" role="cell">
+                                        <i class="material-icons" title="Team">person</i>
+                                        Steve
+                                    </p>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__game" role="cell">
+                                            <span>Basketball</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__country" role="cell">
+                                            <span>Russia</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <p class="players-info players-info__points" role="cell">
+                                            <span class="players-info__points-value">105</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="grid-card__info">
+                                        <p class="players-info players-info__games" role="cell">
+                                            <span class="players-info__games-value">34</span>
+                                        </p>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__games-won" role="cell">
+                                            <span>5</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="grid-card__actions mdc-card__actions">
+
+                                        <div class="mdc-card__action-icons">
+                                            <button
+                                                class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                aria-pressed="false" aria-label="Add to favourites"
+                                                title="Add to favourites">
+                                                <i
+                                                    class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                                <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                            </button>
+                                            <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                href="../player-profile/player-profile.html">
+                                                <i class="material-icons">
+                                                    chevron_right
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+                                    <i class="material-icons">
+                                        clear
+                                    </i>
+                                </button>
+
+                                <div class="grid-card players-list__card mdc-card" role="row">
+
+                                    <div class="players-info players-info__userpic" role="cell">
+                                        <img src="../../img/avatars/avatar.svg" alt="userpic">
+                                    </div>
+                                    <p class="grid-card__title" role="cell">
+                                        <i class="material-icons" title="Team">person</i>
+                                        Lilly Adams
+                                    </p>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__game" role="cell">
+                                            <span>Basketball</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__country" role="cell">
+                                            <span>Germany</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <p class="players-info players-info__points" role="cell">
+                                            <span class="players-info__points-value">5</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="grid-card__info">
+                                        <p class="players-info players-info__games" role="cell">
+                                            <span class="players-info__games-value">1</span>
+                                        </p>
+                                    </div>
+                                    <div class="grid-card__info">
+                                        <div class="players-info players-info__games-won" role="cell">
+                                            <span>5</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="grid-card__actions mdc-card__actions">
+                                        <div class="mdc-card__action-icons">
+                                            <button
+                                                class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                aria-pressed="false" aria-label="Add to favourites"
+                                                title="Add to favourites">
+                                                <i
+                                                    class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                                <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                            </button>
+                                            <a class="mdc-icon-button mdc-card__action"
+                                                href="../player-profile/player-profile.html">
+                                                <i class="material-icons">
+                                                    chevron_right
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button
+                                    class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+                                    <i class="material-icons">
+                                        clear
+                                    </i>
+                                </button>
                             </div>
 
-                            <button class="add-player-btn btn_round material-icons mdc-icon-button">add</button>
+                            <h4 class="tourno-profile__sub-title">
+                                Add players
+                            </h4>
+                            <form class="tourno-profile__settings-content tourno-profile__settings-content-add-player">
+                                <div class="add-player">
+                                    <label for="player-name-1">
+                                        <span class="add-player__value">1.</span>
+                                        Name: </label>
+                                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                        <i class="material-icons mdc-text-field__icon">person</i>
+                                        <input class="mdc-text-field__input" id="player-name-1" required>
+                                        <div class="mdc-line-ripple"></div>
+                                    </div>
+                                    <label for="add-avatar-1"> Add avatar: </label>
+                                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                                        <input type="file" class="mdc-text-field__input" id="add-avatar-1">
+                                    </div>
+                                </div>
 
-                            <button type="submit" name="submit"
-                                class="tourno-profile__settings-submit-btn mdc-button mdc-button--outlined btn">Save
-                                changes
+                                <button class="add-player-btn btn_round material-icons mdc-icon-button">add</button>
+
+                                <button type="submit" name="submit"
+                                    class="tourno-profile__settings-submit-btn mdc-button mdc-button--outlined btn">Save
+                                    changes
+                                </button>
+                            </form>
+                        </div>
+
+                        <div class="tourno-profile__settings-step">
+                            <h3 class="tourno-profile__title">
+                                Delete tournament
+                            </h3>
+                            <p class="tourno-profile__desscription">
+                                Once you delete your account, there is no going back. Please be certain.
+                            </p>
+
+                            <button
+                                class="delete-tourno-btn btn hightlighted-btn btn_delete mdc-button mdc-button--unelevated">
+                                Delete this tournament
                             </button>
-                        </form>
-                    </div>
+                        </div>
+                    </section>
                 </section>
             </div>
         </div>

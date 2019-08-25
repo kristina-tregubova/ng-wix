@@ -18,6 +18,7 @@
 @import "@material/data-table/mdc-data-table.scss";
 @import "@material/textfield/character-counter/mdc-text-field-character-counter.scss";
 @import "@material/radio/mdc-radio.scss";
+@import "@material/switch/mdc-switch.scss";
 
 // GENERAL
 html {
@@ -49,7 +50,6 @@ body {
 }
 
 a {
-  /* text-decoration: none; */
   color: #ffffff;
   text-decoration: none;
 }
@@ -137,6 +137,22 @@ h6 {
   @include mdc-button-container-fill-color(#fbd132);
   @include mdc-button-ink-color(#24292f);
   border-radius: 50%;
+}
+
+.btn_delete {
+  @include mdc-button-container-fill-color(#f84636);
+}
+
+.icon-btn_delete {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+.btn_delete i {
+  font-size: 18px;
+  padding-bottom: 15px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .highlighted-btn {
@@ -324,6 +340,12 @@ h6 {
   @include mdc-radio-ink-color(#fbd132);
   @include mdc-radio-unchecked-stroke-color(#242a31);
   @include mdc-radio-checked-stroke-color(#fbd132);
+}
+
+.mode-switcher .mdc-switch {
+  @include mdc-switch-toggled-on-color(#fbd132);
+  @include mdc-switch-toggled-off-color(#fbd132);
+  margin: 0 2%;
 }
 
 // _______________________________________________________________________________
@@ -551,8 +573,15 @@ h6 {
   border-bottom: none;
 }
 
-.site-nav__tab {
-  margin-top: 20px;
+.main-header .mdc-tab-bar,
+.main-header-no-min .mdc-tab-bar,
+.main-header .mdc-tab-scroller,
+.main-header-no-min .mdc-tab-scroller,
+.main-header .mdc-tab-scroller__scroll-area,
+.main-header-no-min .mdc-tab-scroller__scroll-area,
+.main-header .mdc-tab-bar a,
+.main-header-no-min .mdc-tab-bar a {
+  height: 100%
 }
 
 .site-nav-min {
@@ -1186,8 +1215,6 @@ h6 {
 }
 
 @media screen and (max-width: 500px) {
-
-
   .features__list {
     font-size: 1.3em;
     line-height: 2em;
