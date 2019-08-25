@@ -3,7 +3,7 @@
 
 .main .container-center {
   width: 90%;
-  max-width: 960px;
+  max-width: 1200px;
   margin-bottom: 5%;
 }
 
@@ -90,7 +90,6 @@
 .add-from-list .row {
   display: grid;
   grid-template-columns: 93% 7%;
-  margin-bottom: 5%;
   align-items: center;
   grid-column-gap: 3%;
 }

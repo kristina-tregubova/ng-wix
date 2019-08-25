@@ -2,6 +2,7 @@
 
 .main .container-center {
   width: 70vw;
+  max-width: 1200px;
 }
 
 .search-form {

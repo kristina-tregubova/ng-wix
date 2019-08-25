@@ -1224,14 +1224,6 @@ h6 {
   border-bottom: 8px solid #fbd132;
 }
 
-@media screen and (min-width: 1700px) {
-  // .promo__btn {
-  //   font-size: 1.5rem;
-  //   height: 4.5vh;
-  //   padding: 0 2vw;
-  // }
-}
-
 @media screen and (max-width: 1200px) {
   .landing .container-center {
     width: 80vw;
@@ -1319,6 +1311,13 @@ h6 {
 
   .registration__title {
     margin: 0;
+  }
+
+  .landing > .main .popular-games {
+    display: none;
+  }
+  .landing > .main .registration {
+    border-bottom: 8px solid #fbd132;
   }
 }
 
