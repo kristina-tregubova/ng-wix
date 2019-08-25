@@ -517,19 +517,17 @@ h6 {
       }
     }
   }
-  
 }
 
 @media screen and (max-width: 795px) {
-  
   .bracket {
     display: grid;
 
     section.round {
       .round-title {
-      display: block;
-      font-size: 1.5rem;
-    }
+        display: block;
+        font-size: 1.5rem;
+      }
       div.winners {
         div.matchups {
           width: 100%;
@@ -547,7 +545,7 @@ h6 {
                 width: 100%;
                 border-bottom: none !important;
               }
-              div.participant:not(:first-child){
+              div.participant:not(:first-child) {
                 margin-left: 2%;
               }
             }
@@ -564,7 +562,6 @@ h6 {
       margin-bottom: 8%;
     }
   }
-
 }
 
 // ________________________________________________________________________________
@@ -1179,6 +1176,7 @@ h6 {
 
 .community__btns {
   padding: 0;
+  max-width: 750px;
 }
 
 .community__btns a {
@@ -1217,11 +1215,22 @@ h6 {
 
 .registration__btn {
   width: 100%;
+  max-width: 700px;
 }
 
 .popular-games {
   border-top: 8px solid #fbd132;
   border-bottom: 8px solid #fbd132;
+}
+
+@media screen and (min-width: 1400px) {
+  .registration {
+    padding: 8% 15% 10% 55%;
+  }
+
+  .registration::before {
+    left: 20%;
+  }
 }
 
 @media screen and (max-width: 1200px) {
