@@ -248,12 +248,12 @@ h6 {
 
 .checkbox {
   @include mdc-checkbox-container-colors(
-    #24292f,
+    #fbd132,
     rgba(255, 255, 255, 0.2),
     #fbd132,
     #fbd132
   );
-  @include mdc-checkbox-ink-color(#24292f);
+  @include mdc-checkbox-ink-color(#4d5359);
   @include mdc-checkbox-focus-indicator-color(#fbd132);
   @include mdc-checkbox-touch-dimension(#fbd132);
 }
@@ -338,7 +338,7 @@ h6 {
 
 .radio-btn {
   @include mdc-radio-ink-color(#fbd132);
-  @include mdc-radio-unchecked-stroke-color(#242a31);
+  @include mdc-radio-unchecked-stroke-color(#fbd132);
   @include mdc-radio-checked-stroke-color(#fbd132);
 }
 
