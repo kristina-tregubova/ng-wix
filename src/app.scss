@@ -771,42 +771,42 @@ h6 {
 
 @media screen and (max-width: 795px) {
   h1 {
-    font-size: 3.6em;
+    font-size: 2.8em;
     font-weight: 600;
-    line-height: 5rem;
+    line-height: 3.5rem;
     margin-bottom: 2rem;
   }
 
   h2 {
-    font-size: 2.9em;
+    font-size: 2.5em;
     font-weight: 600;
-    line-height: 4.5rem;
+    line-height: 3.5rem;
     margin-bottom: 2rem;
   }
 
   h3 {
-    font-size: 2.4em;
+    font-size: 2.2em;
     font-weight: 600;
-    line-height: 4.5rem;
+    line-height: 3rem;
     margin-bottom: 2rem;
   }
 
   h4 {
-    font-size: 2.2em;
+    font-size: 1.9em;
     font-weight: 600;
-    line-height: 4.5rem;
+    line-height: 3rem;
     margin-bottom: 2rem;
   }
 
   h5 {
-    font-size: 1.6em;
+    font-size: 1.5em;
     font-weight: 600;
     line-height: 2.4rem;
     margin-bottom: 1.5rem;
   }
 
   h6 {
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 600;
     line-height: 2.4rem;
     margin-bottom: 1.5rem;
@@ -1077,7 +1077,7 @@ h6 {
     #24292fda 60%,
     #24292f63 100%
   );
-  padding: 10% 60% 15% 8%;
+  padding: 10% 50% 15% 8%;
   text-align: left;
 }
 
@@ -1166,17 +1166,6 @@ h6 {
 }
 
 @media screen and (max-width: 795px) {
-  .features__list {
-    font-size: 1.2em;
-  }
-
-  .registration__sub-title {
-    font-size: 2em;
-    line-height: 3.5rem;
-  }
-}
-
-@media screen and (max-width: 600px) {
   .promo__title {
     font-size: 3em;
     line-height: 1.5em;
@@ -1187,8 +1176,21 @@ h6 {
   }
 
   .features__list {
-    font-size: 1.6em;
-    line-height: 2.2em;
+    font-size: 1.2em;
+  }
+
+  .registration__sub-title {
+    font-size: 2em;
+    line-height: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+
+  .features__list {
+    font-size: 1.3em;
+    line-height: 2em;
     flex-direction: column;
   }
 
