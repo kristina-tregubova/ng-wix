@@ -132,9 +132,9 @@
 }
 
 .players-info__userpic {
-  margin: auto 0 auto 0.5%;
+  margin: auto 0;
   width: 9vw;
-  height: 95%;
+  height: 100%;
   max-width: 85px;
 }
 
@@ -250,6 +250,10 @@
 }
 
 @media screen and (max-width: 650px) {
+  .main .container-center {
+    width: 95vw;
+  }
+  
   .search-form__search,
   .search-form__checkboxes,
   .search-form__selectors,
@@ -260,6 +264,13 @@
     width: 100%;
   }
 
+  .sorting-header__games-won,
+  .grid-card__info:nth-of-type(6) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
   .grid-card {
     display: grid;
     grid-template-columns: 30% 50% 20%;
@@ -285,6 +296,7 @@
     grid-area: pic;
     width: 25vw;
     height: 12vh;
+    margin: 0;
   }
 
   .grid-card__title {
