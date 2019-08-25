@@ -12,8 +12,8 @@
 
 .player-profile__header {
   padding: 2vh 0 2vh;
-  margin: 0;
-  height: 12vh;
+  margin-bottom: 30px;
+  height: 9vh;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -47,19 +47,27 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.player-profile__info {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5%;
-  max-width: 85%;
+.title {
+  border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+}
+
+.player-profile__info,
+.player-profile__details,
+.player-profile__games-attended {
+  margin-bottom: 10%;
+}
+
+.player-profile__info-item {
+  display: grid;
+  grid-template-columns: 4% 16% 80%;
+  grid-template-rows: auto;
+  grid-row-gap: 2%;
+  grid-column-gap: 1%;
+  margin-bottom: 1%;
 }
 
 .player-profile__info-item .form-input {
-  width: 75%;
-  float: right;
-  margin-bottom: 0.5%;
   height: 40px;
-  max-width: 500px;
 }
 
 .player-profile__info-item i {
@@ -80,9 +88,6 @@
     max-width: 90%;
   }
 
-  .player-profile__info-item .form-input {
-    max-width: 90%;
-  }
 }
 
 @media screen and (max-width: 980px) {
@@ -95,13 +100,6 @@
     line-height: 3.8rem;
   }
 
-  .player-profile__info {
-    max-width: 100%;
-  }
-
-  .player-profile__info-item .form-input {
-    max-width: 75%;
-  }
 }
 
 @media screen and (max-width: 560px) {
@@ -113,8 +111,9 @@
   .player-profile__info-item label {
     display: none;
   }
-
-  .player-profile__info-item .form-input {
-    max-width: 85%;
+  .player-profile__info-item {
+    grid-template-columns: 5% 90%;
+    grid-column-gap: 4%;
   }
+
 }

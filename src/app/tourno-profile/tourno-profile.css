@@ -1,5 +1,6 @@
 @import "../../../dist/bundle.css";
 @import "../players-search/players-search.css";
+@import "../tourno-creation/tourno-creation.css";
 
 .background-container {
   height: 30vh;
