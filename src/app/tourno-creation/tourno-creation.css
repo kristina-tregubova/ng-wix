@@ -23,7 +23,7 @@
   border-bottom: 1px solid rgba(97, 103, 110, 0.5);
 }
 
-.tourno-creation__step-subtitle:nth-of-type(2) {
+.tourno-creation__step-subtitle {
   margin-bottom: 0;
 }
 
@@ -32,6 +32,11 @@
   grid-template-columns: 1fr 2fr;
   grid-row-gap: 8px;
   grid-area: content;
+}
+
+.seed-randomly-checkbox label {
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .tourno-creation__step-content_add-player {
