@@ -167,6 +167,9 @@
                                 <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
                                 <i class="mdc-select__dropdown-icon"></i>
                                 <select class="mdc-select__native-control" id="country-selector" required>
+                                    <option value="none">
+                                        
+                                    </option>
                                     <option value="rus">
                                         Russia
                                     </option>
@@ -195,7 +198,7 @@
                                     role="button">videogame_asset</i>
                                 <i class="mdc-select__dropdown-icon"></i>
                                 <select class="mdc-select__native-control" id="game-selector" required>
-                                    <option value="" selected></option>
+                                    <option value=""></option>
                                     <option value="football">Football</option>
                                     <option value="basketball">Basketball</option>
                                     <option value="rugby">Rugby</option>
@@ -332,120 +335,142 @@
                             </div>
 
                             <div class="added-players players-list">
-                                <div class="grid-card players-list__card mdc-card" role="row">
+                                <div class="row">
+                                    <div class="grid-card players-list__card mdc-card" role="row">
 
-                                    <div class="players-info players-info__userpic" role="cell">
-                                        <img src="../../img/avatars/avatar.svg" alt="userpic">
-                                    </div>
-                                    <p class="grid-card__title" role="cell">
-                                        <i class="material-icons" title="Team">person</i>
-                                        Sandra Evans
-                                    </p>
-                                    <div class="grid-card__info">
-                                        <div class="players-info players-info__game" role="cell">
-                                            <span>Basketball</span>
+                                        <div class="players-info players-info__userpic" role="cell">
+                                            <img src="../../img/avatars/avatar.svg" alt="userpic">
                                         </div>
-                                    </div>
-                                    <div class="grid-card__info">
-                                        <div class="players-info players-info__country" role="cell">
-                                            <span>Spain</span>
-                                        </div>
-                                    </div>
-                                    <div class="grid-card__info">
-                                        <p class="players-info players-info__points" role="cell">
-                                            <span class="players-info__points-value">0</span>
+                                        <p class="grid-card__title" role="cell">
+                                            <i class="material-icons" title="Team">person</i>
+                                            Sandra Evans
                                         </p>
-                                    </div>
+                                        <div class="grid-card__info">
+                                            <div class="players-info players-info__game" role="cell">
+                                                <span>Basketball</span>
+                                            </div>
+                                        </div>
+                                        <div class="grid-card__info">
+                                            <div class="players-info players-info__country" role="cell">
+                                                <span>Spain</span>
+                                            </div>
+                                        </div>
+                                        <div class="grid-card__info">
+                                            <p class="players-info players-info__points" role="cell">
+                                                <span class="players-info__points-value">0</span>
+                                            </p>
+                                        </div>
 
-                                    <div class="grid-card__info">
-                                        <p class="players-info players-info__games" role="cell">
-                                            <span class="players-info__games-value">0</span>
-                                        </p>
-                                    </div>
-                                    <div class="grid-card__info">
-                                        <div class="players-info players-info__games-won" role="cell">
-                                            <span>0</span>
+                                        <div class="grid-card__info">
+                                            <p class="players-info players-info__games" role="cell">
+                                                <span class="players-info__games-value">0</span>
+                                            </p>
+                                        </div>
+                                        <div class="grid-card__info">
+                                            <div class="players-info players-info__games-won" role="cell">
+                                                <span>0</span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="grid-card__actions mdc-card__actions">
+
+                                            <div class="mdc-card__action-icons">
+                                                <button
+                                                    class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                    aria-pressed="false" aria-label="Add to favourites"
+                                                    title="Add to favourites">
+                                                    <i
+                                                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                                    <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                                </button>
+
+                                                <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                    href="../player-profile/player-profile.html">
+                                                    <i class="material-icons">
+                                                        chevron_right
+                                                    </i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 
-
-                                    <div class="grid-card__actions mdc-card__actions">
-
-                                        <div class="mdc-card__action-icons">
-                                            <button
-                                                class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button">
-
-                                            </button>
-                                            <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-                                                href="#">
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <button
+                                        class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+                                        <i class="material-icons">
+                                            clear
+                                        </i>
+                                    </button>
                                 </div>
 
-                                <button
-                                    class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-                                    <i class="material-icons">
-                                        clear
-                                    </i>
-                                </button>
+                                <div class="row">
+                                    <div class="grid-card players-list__card mdc-card" role="row">
 
-                                <div class="grid-card players-list__card mdc-card" role="row">
-
-                                    <div class="players-info players-info__userpic" role="cell">
-                                        <img src="../../img/avatars/avatar.svg" alt="userpic">
-                                    </div>
-                                    <p class="grid-card__title" role="cell">
-                                        <i class="material-icons" title="Team">person</i>
-                                        Steve
-                                    </p>
-                                    <div class="grid-card__info">
-                                        <div class="players-info players-info__game" role="cell">
-                                            <span>Basketball</span>
+                                        <div class="players-info players-info__userpic" role="cell">
+                                            <img src="../../img/avatars/avatar.svg" alt="userpic">
                                         </div>
-                                    </div>
-                                    <div class="grid-card__info">
-                                        <div class="players-info players-info__country" role="cell">
-                                            <span>Russia</span>
-                                        </div>
-                                    </div>
-                                    <div class="grid-card__info">
-                                        <p class="players-info players-info__points" role="cell">
-                                            <span class="players-info__points-value">0</span>
+                                        <p class="grid-card__title" role="cell">
+                                            <i class="material-icons" title="Team">person</i>
+                                            Steve
                                         </p>
-                                    </div>
+                                        <div class="grid-card__info">
+                                            <div class="players-info players-info__game" role="cell">
+                                                <span>Basketball</span>
+                                            </div>
+                                        </div>
+                                        <div class="grid-card__info">
+                                            <div class="players-info players-info__country" role="cell">
+                                                <span>Russia</span>
+                                            </div>
+                                        </div>
+                                        <div class="grid-card__info">
+                                            <p class="players-info players-info__points" role="cell">
+                                                <span class="players-info__points-value">0</span>
+                                            </p>
+                                        </div>
 
-                                    <div class="grid-card__info">
-                                        <p class="players-info players-info__games" role="cell">
-                                            <span class="players-info__games-value">0</span>
-                                        </p>
-                                    </div>
-                                    <div class="grid-card__info">
-                                        <div class="players-info players-info__games-won" role="cell">
-                                            <span>0</span>
+                                        <div class="grid-card__info">
+                                            <p class="players-info players-info__games" role="cell">
+                                                <span class="players-info__games-value">0</span>
+                                            </p>
+                                        </div>
+                                        <div class="grid-card__info">
+                                            <div class="players-info players-info__games-won" role="cell">
+                                                <span>0</span>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="grid-card__actions mdc-card__actions">
+
+                                            <div class="mdc-card__action-icons">
+                                                <button
+                                                    class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                    aria-pressed="false" aria-label="Add to favourites"
+                                                    title="Add to favourites">
+                                                    <i
+                                                        class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                                    <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                                </button>
+
+                                                <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                    href="../player-profile/player-profile.html">
+                                                    <i class="material-icons">
+                                                        chevron_right
+                                                    </i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 
+                                    <button
+                                        class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+                                        <i class="material-icons">
+                                            clear
+                                        </i>
+                                    </button>
 
-                                    <div class="grid-card__actions mdc-card__actions">
-
-                                        <div class="mdc-card__action-icons">
-                                            <button
-                                                class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button">
-                                            </button>
-                                            <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-                                                href="#">
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
-
-                                <button
-                                    class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-                                    <i class="material-icons">
-                                        clear
-                                    </i>
-                                </button>
 
                             </div>
 
@@ -485,144 +510,149 @@
                                         </div>
                                     </div>
                                 </form>
+
                                 <section class="players-search-result">
                                     <div class="players-list" role="table">
 
-                                        <div class="grid-card players-list__card mdc-card" role="row">
+                                        <div class="row">
 
-                                            <div class="players-info players-info__userpic" role="cell">
-                                                <img src="../../img/avatars/team4.jpeg" alt="userpic">
-                                            </div>
+                                            <div class="grid-card players-list__card mdc-card" role="row">
 
-                                            <p class="grid-card__title" role="cell">
-                                                <i class="material-icons" title="Team">group</i>
-                                                Mad bears
-                                            </p>
+                                                <div class="players-info players-info__userpic" role="cell">
+                                                    <img src="../../img/avatars/team4.jpeg" alt="userpic">
+                                                </div>
 
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__game" role="cell">
-                                                    <span>Football</span>
+                                                <p class="grid-card__title" role="cell">
+                                                    <i class="material-icons" title="Team">group</i>
+                                                    Mad bears
+                                                </p>
+
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__game" role="cell">
+                                                        <span>Football</span>
+                                                    </div>
+                                                </div>
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__game" role="cell">
+                                                        <span>Germany</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__points" role="cell">
+                                                        <span class="players-info__points-value">95</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__games" role="cell">
+                                                        <span class="players-info__games-value">13</span>
+                                                    </div>
+                                                </div>
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__games-won" role="cell">
+                                                        <span>5</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="grid-card__actions mdc-card__actions">
+                                                    <div class="mdc-card__action-icons">
+                                                        <button
+                                                            class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                            aria-pressed="false" aria-label="Add to favourites"
+                                                            title="Add to favourites">
+                                                            <i
+                                                                class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                                            <i
+                                                                class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                                        </button>
+
+                                                        <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                            href="../player-profile/player-profile.html">
+                                                            <i class="material-icons">
+                                                                chevron_right
+                                                            </i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__game" role="cell">
-                                                    <span>Germany</span>
-                                                </div>
-                                            </div>
 
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__points" role="cell">
-                                                    <span class="players-info__points-value">95</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__games" role="cell">
-                                                    <span class="players-info__games-value">13</span>
-                                                </div>
-                                            </div>
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__games-won" role="cell">
-                                                    <span>5</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="grid-card__actions mdc-card__actions">
-                                                <div class="mdc-card__action-icons">
-                                                    <button
-                                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-                                                        aria-pressed="false" aria-label="Add to favourites"
-                                                        title="Add to favourites">
-                                                        <i
-                                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-                                                        <i
-                                                            class="material-icons mdc-icon-button__icon">favorite_border</i>
-                                                    </button>
-
-                                                    <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-                                                        href="../player-profile/player-profile.html">
-                                                        <i class="material-icons">
-                                                            chevron_right
-                                                        </i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <button
+                                                class="add-to-list-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+                                                <i class="material-icons">
+                                                    add
+                                                </i>
+                                            </button>
                                         </div>
 
-                                        <button
-                                            class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-                                            <i class="material-icons">
-                                                add
-                                            </i>
-                                        </button>
+                                        <div class="row">
+                                            <div class="grid-card players-list__card mdc-card" role="row">
 
-                                        <div class="grid-card players-list__card mdc-card" role="row">
+                                                <div class="players-info players-info__userpic" role="cell">
+                                                    <img src="../../img/avatars/face4.jpeg" alt="userpic">
+                                                </div>
+                                                <p class="grid-card__title" role="cell">
+                                                    <i class="material-icons" title="Team">person</i>
+                                                    Jack Johnson
+                                                </p>
+                                                <div class="grid-card__info">
 
-                                            <div class="players-info players-info__userpic" role="cell">
-                                                <img src="../../img/avatars/face4.jpeg" alt="userpic">
-                                            </div>
-                                            <p class="grid-card__title" role="cell">
-                                                <i class="material-icons" title="Team">person</i>
-                                                Jack Johnson
-                                            </p>
-                                            <div class="grid-card__info">
+                                                    <div class="players-info players-info__game" role="cell">
+                                                        <span>Football</span>
+                                                    </div>
+                                                </div>
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__country" role="cell">
+                                                        <span>England</span>
+                                                    </div>
+                                                </div>
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__points" role="cell">
+                                                        <span class="players-info__points-value">45</span>
+                                                    </div>
+                                                </div>
 
-                                                <div class="players-info players-info__game" role="cell">
-                                                    <span>Football</span>
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__games" role="cell">
+                                                        <span class="players-info__games-value">6</span>
+                                                    </div>
+                                                </div>
+                                                <div class="grid-card__info">
+                                                    <div class="players-info players-info__games-won" role="cell">
+                                                        <span>5</span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="grid-card__actions mdc-card__actions">
+
+                                                    <div class="mdc-card__action-icons">
+                                                        <button
+                                                            class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                            aria-pressed="false" aria-label="Add to favourites"
+                                                            title="Add to favourites">
+                                                            <i
+                                                                class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                                                            <i
+                                                                class="material-icons mdc-icon-button__icon">favorite_border</i>
+                                                        </button>
+                                                        <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
+                                                            href="../player-profile/player-profile.html">
+                                                            <i class="material-icons">
+                                                                chevron_right
+                                                            </i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__country" role="cell">
-                                                    <span>England</span>
-                                                </div>
-                                            </div>
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__points" role="cell">
-                                                    <span class="players-info__points-value">45</span>
-                                                </div>
-                                            </div>
 
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__games" role="cell">
-                                                    <span class="players-info__games-value">6</span>
-                                                </div>
-                                            </div>
-                                            <div class="grid-card__info">
-                                                <div class="players-info players-info__games-won" role="cell">
-                                                    <span>5</span>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="grid-card__actions mdc-card__actions">
-
-                                                <div class="mdc-card__action-icons">
-                                                    <button
-                                                        class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-                                                        aria-pressed="false" aria-label="Add to favourites"
-                                                        title="Add to favourites">
-                                                        <i
-                                                            class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-                                                        <i
-                                                            class="material-icons mdc-icon-button__icon">favorite_border</i>
-                                                    </button>
-                                                    <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-                                                        href="../player-profile/player-profile.html">
-                                                        <i class="material-icons">
-                                                            chevron_right
-                                                        </i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                            <button
+                                                class="add-to-list-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+                                                <i class="material-icons">
+                                                    add
+                                                </i>
+                                            </button>
                                         </div>
-
-                                        <button
-                                            class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-                                            <i class="material-icons">
-                                                add
-                                            </i>
-                                        </button>
-                                    </div>
                                 </section>
                             </div>
 

@@ -7,6 +7,11 @@
   margin-bottom: 5%;
 }
 
+.form-input input,
+.form-selector select {
+  padding-top: 0;
+}
+
 .tourno-creation__step {
   padding: 0 10% 3% 5%;
   margin-bottom: 5%;
@@ -28,9 +33,9 @@
 }
 
 .tourno-creation__step-description {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.95em;
-    font-style: oblique;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95em;
+  font-style: oblique;
 }
 
 .tourno-creation__step-content {
@@ -41,22 +46,28 @@
 }
 
 .seed-randomly-checkbox label {
-    font-size: 1.2em;
-    font-weight: bold;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .tourno-creation__step-content_add-player {
   grid-template-columns: 1fr;
 }
 
-.added-players.players-list {
+.added-players .row {
   display: grid;
   grid-template-columns: 93% 7%;
-  margin-bottom: 5%;
+  align-items: center;
+  grid-column-gap: 3%;
 }
 
 .grid-card:hover {
   transform: none;
+}
+
+.grid-card__actions button,
+.grid-card__actions a {
+  display: none;
 }
 
 .delete-player-btn {
@@ -76,9 +87,12 @@
   margin-top: 5%;
 }
 
-.add-from-list .players-list {
-    display: grid;
-    grid-template-columns: 93% 7%;
+.add-from-list .row {
+  display: grid;
+  grid-template-columns: 93% 7%;
+  margin-bottom: 5%;
+  align-items: center;
+  grid-column-gap: 3%;
 }
 
 .add-player-btn {
@@ -121,6 +135,25 @@ input[type="file"].mdc-text-field__input {
   .tourno-creation__submit-btn {
     width: 100%;
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .add-from-list .row,
+  .added-players .row {
+    grid-template-columns: 100%;
+    margin-bottom: 5%;
+  }
+
+  .row {
+    position: relative;
+  }
+
+  .delete-player-btn,
+  .add-to-list-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 }
 

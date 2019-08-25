@@ -12,6 +12,11 @@
   flex-wrap: wrap;
 }
 
+.form-input input,
+.form-selector select {
+  padding-top: 24px;
+}
+
 .login-form__social-buttons {
   display: flex;
   flex-direction: row;

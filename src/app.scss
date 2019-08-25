@@ -359,6 +359,9 @@ h6 {
   .round {
     display: inline-block;
     vertical-align: middle;
+    .round-title {
+      display: none;
+    }
     .winners {
       > div {
         display: inline-block;
@@ -378,7 +381,8 @@ h6 {
               color: #fff;
               border-left: 0.25rem solid #858585;
               background: #61676e;
-              width: 14rem;
+              width: 20vw;
+              max-width: 270px;
               height: 3rem;
               box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
               &:not(:last-child) {
@@ -513,6 +517,54 @@ h6 {
       }
     }
   }
+  
+}
+
+@media screen and (max-width: 795px) {
+  
+  .bracket {
+    display: grid;
+
+    section.round {
+      .round-title {
+      display: block;
+      font-size: 1.5rem;
+    }
+      div.winners {
+        div.matchups {
+          width: 100%;
+
+          div.matchup {
+            margin: 0;
+            margin-bottom: 2% !important;
+
+            div.participants {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-around;
+
+              div.participant {
+                width: 100%;
+                border-bottom: none !important;
+              }
+              div.participant:not(:first-child){
+                margin-left: 2%;
+              }
+            }
+          }
+        }
+        .connector {
+          display: none;
+        }
+      }
+    }
+    section.round.quarterfinals,
+    section.round.semifinals,
+    section.round.finals {
+      margin-bottom: 8%;
+    }
+  }
+
 }
 
 // ________________________________________________________________________________
@@ -539,20 +591,23 @@ h6 {
 .main-header__logo img {
   width: 120px;
   height: 75px;
-  margin-left: 10px;
+}
+
+.main-header__logo img:first-of-type {
+  width: 90px;
 }
 
 .main-header__logo {
   cursor: pointer;
 }
 
-.main-header__logo img:last-of-type {
-  margin-left: -20px;
-}
-
 .main-header.scrolled .main-header__logo img {
   width: 110px;
   height: 60px;
+}
+
+.main-header.scrolled .main-header__logo img:first-of-type {
+  width: 60px;
 }
 
 .site-nav ul,
@@ -581,7 +636,7 @@ h6 {
 .main-header-no-min .mdc-tab-scroller__scroll-area,
 .main-header .mdc-tab-bar a,
 .main-header-no-min .mdc-tab-bar a {
-  height: 100%
+  height: 100%;
 }
 
 .site-nav-min {
@@ -641,8 +696,8 @@ h6 {
   margin-top: 10px;
 }
 
-.main-footer__logo img:last-of-type {
-  margin-left: -20px;
+.main-footer__logo img:first-of-type {
+  width: 70px;
 }
 
 .footer-middle {
@@ -858,8 +913,13 @@ h6 {
 
   .main-header .main-header__logo img,
   .main-header-no-min .main-header__logo img {
-    width: 110px;
-    height: 60px;
+    width: 90px;
+    height: 50px;
+    margin-left: 5px;
+  }
+
+  .main-header__logo img:first-of-type {
+    width: 60px;
   }
 
   .site-nav,
@@ -869,6 +929,13 @@ h6 {
 
   .site-nav-min {
     display: block;
+  }
+
+  .menu-btn {
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    margin-top: 20%;
   }
 
   .site-nav-min .mdc-menu-surface,
