@@ -12,6 +12,10 @@
   padding-top: 0;
 }
 
+input[type="file"].mdc-text-field__input {
+  padding-top: 12px;
+}
+
 .tourno-creation__step {
   padding: 0 10% 3% 5%;
   margin-bottom: 5%;

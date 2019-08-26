@@ -663,6 +663,7 @@ h6 {
 .main-footer {
   border-top: 2px solid rgba(255, 255, 255, 0.1);
   background: #262b31;
+  margin-top: 10%;
 }
 
 .main-footer a:hover {
@@ -946,6 +947,10 @@ h6 {
     display: flex;
     flex-direction: column;
     align-content: flex-end;
+  }
+
+  .main-footer {
+    margin-top: 20%;
   }
 
   .footer-top {
@@ -1281,6 +1286,14 @@ h6 {
     font-size: 2em;
     line-height: 3.5rem;
   }
+
+  .registration {
+    padding-bottom: 15%;
+  }
+
+ .landing .main-footer {
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1309,7 +1322,7 @@ h6 {
   }
 
   .registration {
-    padding: 55% 5% 10% 5%;
+    padding: 55% 5% 20% 5%;
   }
 
   .registration::before {
