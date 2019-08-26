@@ -666,6 +666,10 @@ h6 {
   margin-top: 10%;
 }
 
+.landing .main-footer {
+  margin-top: 0;
+}
+
 .main-footer a:hover {
   text-decoration: underline;
   color: #fbd132;
@@ -1291,9 +1295,7 @@ h6 {
     padding-bottom: 15%;
   }
 
- .landing .main-footer {
-    margin-top: 0;
-  }
+ 
 }
 
 @media screen and (max-width: 500px) {
