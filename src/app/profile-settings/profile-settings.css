@@ -37,6 +37,7 @@
 input[type="file"].mdc-text-field__input {
     padding-left: 10px;
     padding-right: 0;
+    padding-top: 12px;
 }
 
 .add-player-btn {
