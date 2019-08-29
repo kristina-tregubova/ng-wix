@@ -1,0 +1,73 @@
+.container-center {
+    width: 90%;
+    max-width: 960px;
+    margin-bottom: 5%;
+}
+
+.form-input input,
+.form-selector select {
+  padding-top: 0;
+}
+
+.profile-settings__step {
+    padding: 0 10% 3% 5%;
+    margin-bottom: 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "content";
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.profile-settings__step-title {
+    grid-area: header;
+    border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+}
+
+.profile-settings__step-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 8px;
+    grid-area: content;
+}
+
+input[type="file"].mdc-text-field__input {
+    padding-left: 10px;
+    padding-right: 0;
+}
+
+.add-player-btn {
+    margin: 2% auto 0 auto;
+}
+
+.profile-settings__submit-btn {
+    width: 40%;
+    margin-left: 60%;
+    margin-top: 3%;
+}
+
+@media screen and (max-width: 600px) {
+
+    .profile-settings__step-content {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-settings__submit-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 5%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .profile-settings__step-content {
+        grid-row-gap: 15px;
+    }
+
+    .profile-settings__submit-btn {
+        margin-top: 7%;
+    }
+
+}

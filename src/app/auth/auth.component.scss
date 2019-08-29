@@ -1,0 +1,142 @@
+.container-center {
+  width: 50vw; 
+  max-width: 760px;
+}
+
+.login-form {
+  margin: 8vh 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.form-input input,
+.form-selector select {
+  padding-top: 24px;
+}
+
+.login-form__social-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.social-button {
+  background-position: 25px 0px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-bottom: 3%;
+  padding-left: 0;
+  font-weight: 700;
+}
+
+.facebook-connect {
+  border-color: rgba(60, 90, 154, 0.85);
+  background: rgba(60, 90, 154, 0.85)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook-white.svg?sanitize=true")
+    no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+  width: 47%;
+}
+
+.facebook-connect span {
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.google-connect {
+  border-color: rgba(220, 74, 61, 0.85);
+  background: rgba(220, 74, 61, 0.85)
+    url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/google-plus-white.png")
+    no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+  width: 47%;
+  padding-left: 0;
+}
+
+.google-connect span {
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tab {
+  margin-left: 0;
+}
+
+.login-form__login {
+  width: 100%;
+}
+
+.sign-up-tab {
+  display: block;
+}
+
+.log-in-tab {
+  display: none;
+}
+
+.login-form__login,
+.login-form__signup {
+  padding-top: 20px;
+  border-top: 1px solid #24292f78;
+}
+
+.form-input,
+.form-selector {
+  min-width: 100%;
+  margin-bottom: 1%;
+}
+
+.login-form__btn {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .social-button {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .social-button {
+    font-size: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .main .container-center {
+    width: 75vw;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .login-form__tab .title {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+
+  .container-center {
+    width: 90vw;
+  }
+}

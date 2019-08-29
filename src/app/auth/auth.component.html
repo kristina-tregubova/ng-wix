@@ -1,0 +1,180 @@
+<div class="regular-wrapper">
+    <div class="container-center">
+        <section class="login-form">
+            <div class="login-form__tabs mdc-tab-bar" role="tablist">
+                <div class="tabs-area mdc-tab-scroller">
+                    <div class="mdc-tab-scroller__scroll-area">
+                        <div class="mdc-tab-scroller__scroll-content">
+                            <button class="login-form__tab tab mdc-tab mdc-tab--active" role="tab"
+                                aria-selected="true" tabindex="0">
+                                <span class="login-form__tab-description mdc-tab__content">
+                                    Log in
+                                </span>
+                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </button>
+                            <button class="login-form__tab tab mdc-tab" role="tab" aria-selected="false"
+                                tabindex="0">
+                                <span class="login-form__tab-description mdc-tab__content">
+                                    Sign up
+                                </span>
+                                <span class="mdc-tab-indicator">
+                                    <span
+                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                </span>
+                                <span class="mdc-tab__ripple"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="login-form__tab log-in-tab">
+                    <h4 class="title">
+                        Already have an account? Please, log in
+                    </h4>
+
+                    <div class="login-form__social-buttons">
+                        <a href="facebook.com" class="social-button facebook-connect"> <span>Login with
+                                Facebook</span></a>
+                        <a href="google.com" class="social-button google-connect"> <span>Login with Google</span></a>
+                    </div>
+
+                    <form class="login-form__login">
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                            style="display: none;">
+                            <i class="material-icons mdc-text-field__icon">person</i>
+                            <input class="mdc-text-field__input" id="text-field-name-input">
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-name-input"
+                                class="mdc-floating-label mdc-floating-label--float-above">E-mail or
+                                username</label>
+                        </div>
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">person</i>
+                            <input class="mdc-text-field__input" id="text-field-name-input2">
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-name-input2"
+                                class="mdc-floating-label mdc-floating-label--float-above">E-mail or
+                                username</label>
+                        </div>
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                            style="display: none;">
+                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                            <input type="password" class="mdc-text-field__input">
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                            <input type="password" class="mdc-text-field__input" id="text-field-pass2-input">
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-pass2-input"
+                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                        </div>
+
+                        <button type="submit" name="submit"
+                            class="mdc-button mdc-button--outlined login-form__btn btn highlighted-btn">Log
+                            in</button>
+
+                    </form>
+                </div>
+
+                <div class="login-form__tab sign-up-tab">
+                    <h4 class="title">
+                        Want to join us? Let's sign up!
+                    </h4>
+
+                    <div class="login-form__social-buttons">
+                        <a href="#" class="social-button facebook-connect"> <span>Sign up with
+                                Facebook</span></a>
+                        <a href="#" class="social-button google-connect"> <span>Sign up with Google</span></a>
+                    </div>
+
+                    <form class="login-form__signup">
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                            style="display: none;">
+                            <i class="material-icons mdc-text-field__icon">person</i>
+                            <input class="mdc-text-field__input" id="text-field-username--input">
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-username-input"
+                                class="mdc-floating-label mdc-floating-label--float-above">Choose your
+                                username</label>
+                        </div>
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">person</i>
+                            <input class="mdc-text-field__input" id="text-field-username-input2" required>
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-username-input2"
+                                class="mdc-floating-label mdc-floating-label--float-above">Choose your
+                                username</label>
+                        </div>
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">email</i>
+                            <input class="mdc-text-field__input" id="text-field-email-input" required>
+                            <div class="mdc-line-ripple"></div>
+                            <label for="text-field-email-input"
+                                class="mdc-floating-label mdc-floating-label--float-above">Put your e-mail
+                                address</label>
+                        </div>
+
+                        <div class="form-selector mdc-select mdc-select--with-leading-icon">
+                            <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
+                            <i class="mdc-select__dropdown-icon"></i>
+                            <select class="mdc-select__native-control" required>
+                                <option value="" disabled selected></option>
+                                <option value="rus">
+                                    Russia
+                                </option>
+                                <option value="ua">
+                                    USA
+                                </option>
+                                <option value="de">
+                                    Germany
+                                </option>
+                            </select>
+                            <label class="mdc-floating-label mdc-floating-label--float-above">Country</label>
+                            <div class="mdc-line-ripple"></div>
+                        </div>
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
+                            style="display: none;">
+                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                            <input type="password" class="mdc-text-field__input" id="fake-pass">
+                            <div class="mdc-line-ripple"></div>
+                            <label for="fake-pass"
+                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                        </div>
+
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                            <input type="password" class="mdc-text-field__input" id="pw1" required minlength=8>
+                            <div class="mdc-line-ripple"></div>
+                            <label for="pw1"
+                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                        </div>
+                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
+                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
+                            <input type="password" class="mdc-text-field__input" id="pw2" required minlength=8>
+                            <div class="mdc-line-ripple"></div>
+                            <label for="pw2"
+                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
+                        </div>
+
+                        <button type="submit" name="submit"
+                            class="mdc-button mdc-button--outlined login-form__btn btn highlighted-btn">Sign
+                            Up</button>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

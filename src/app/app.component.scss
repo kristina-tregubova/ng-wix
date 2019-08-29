@@ -1,9 +1,3 @@
-
-input:-webkit-autofill,
-.my-class:-webkit-autofill {
-  -webkit-transition-delay: 9999999s;
-}
-
 @keyframes floating {
   from {
     transform: translate(0, 0px);
@@ -246,36 +240,5 @@ input:-webkit-autofill,
 }
 
 // ________________________________________________________________________________
-//GENERAL-main
 
-//GENERAL-containers
-
-
-.regular-wrapper {
-  width: 100vw;
-  height: auto;
-  z-index: 1;
-  position: relative;
-}
-
-.parallax-wrapper + .regular-wrapper {
-  background-image: linear-gradient(60deg, #24292f 0%, #333941 100%);
-}
-
-.parallax-wrapper {
-  position: relative;
-  background-image: url("/assets/images/tennis-court-bg.jpg");
-  height: 100vh;
-  width: 100vw;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.promo__parallax {
-  margin-top: -80px;
-}
 
