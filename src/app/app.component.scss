@@ -1,0 +1,281 @@
+
+input:-webkit-autofill,
+.my-class:-webkit-autofill {
+  -webkit-transition-delay: 9999999s;
+}
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, 25px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
+}
+
+// COMMON COMPONENTS
+
+.btn {
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.15);
+  // @include mdc-button-outline-color(#fbd132);
+  // @include mdc-button-ink-color(#fff);
+  // @include mdc-states(#fff);
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn_round {
+  // @include mdc-button-container-fill-color(#fbd132);
+  // @include mdc-button-ink-color(#24292f);
+  border-radius: 50%;
+}
+
+.btn_delete {
+  // @include mdc-button-container-fill-color(#f84636);
+}
+
+.icon-btn_delete {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+.btn_delete i {
+  font-size: 18px;
+  padding-bottom: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.highlighted-btn {
+  font-weight: 700;
+  // @include mdc-button-container-fill-color(#fbd132);
+  // @include mdc-button-ink-color(#24292f);
+  // @include mdc-states(#fff);
+}
+
+.icon-toggle-button {
+  // @include mdc-icon-button-ink-color(#24292f);
+  // @include mdc-states-press-opacity(0);
+}
+
+.tab {
+  font-weight: 700;
+  margin-left: 20px;
+  color: #fff;
+  border-bottom: 1px solid rgba(48, 56, 65, 0.8);
+  // @include mdc-tab-ink-color(#fff);
+  // @include mdc-tab-text-label-color(#fff);
+  // @include mdc-tab-states-color(#fff);
+  // @include mdc-tab-indicator-underline-color(#fbd132);
+}
+
+.tab:first-of-type {
+  margin-left: 0;
+}
+
+// .form-input {
+//   @include mdc-text-field-caret-color(#FBD132);
+//   @include mdc-text-field-fill-color(#ffffff27);
+//   @include mdc-text-field-hover-outline-color(#FBD132);
+//   @include mdc-text-field-focused-outline-color(#FBD132);
+//   @include mdc-text-field-outline-color(#21262c);
+//   @include mdc-text-field-label-color(#21262c);
+//   @include mdc-text-field-ink-color(#fff);
+//   @include mdc-floating-label-float-position(20, 20, 1)
+// }
+
+.form-input,
+.search-input,
+.textarea {
+  border-radius: 5px;
+  // @include mdc-text-field-caret-color(#fbd132);
+  // @include mdc-text-field-fill-color(#61676e);
+  // @include mdc-text-field-label-color(rgba(255, 255, 255, 0.6));
+  // @include mdc-text-field-ink-color(#fff);
+  // @include mdc-text-field-bottom-line-color(rgba(48, 56, 65, 0.8));
+  // @include mdc-text-field-hover-bottom-line-color(#fbd132);
+  // @include mdc-text-field-line-ripple-color(#fbd132);
+}
+
+.form-input.mdc-text-field--disabled {
+  background-color: #61676e;
+}
+
+.search-input {
+  // @include mdc-text-field-hover-outline-color(#fbd132);
+  // @include mdc-text-field-focused-outline-color(#fbd132);
+}
+
+.search-input::placeholder {
+  opacity: 0.5;
+}
+
+.form-selector {
+  // @include mdc-select-container-fill-color(#61676e);
+  // @include mdc-select-hover-bottom-line-color(#fbd132);
+  // @include mdc-select-bottom-line-color(rgba(48, 56, 65, 0.8));
+  // @include mdc-select-focused-bottom-line-color(#fbd132);
+  // @include mdc-select-label-color(rgba(255, 255, 255, 0.8));
+  // @include mdc-select-focused-label-color(rgba(255, 255, 255, 0.6));
+  // @include mdc-select-ink-color(#fff);
+}
+
+.form-selector option {
+  background-color: rgb(97, 103, 110);
+}
+
+.form-selector:hover {
+  border-bottom: 1px solid #fbd132;
+}
+
+.mdc-select--focused .mdc-select__dropdown-icon {
+  background: url("data:image/svg+xml,%3Csvg%20width%3D%2210px%22%20height%3D%225px%22%20viewBox%3D%227%2010%2010%205%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cpolygon%20id%3D%22Shape%22%20stroke%3D%22none%22%20fill%3D%22%23000%22%20fill-rule%3D%22evenodd%22%20opacity%3D%220.54%22%20points%3D%227%2010%2012%2015%2017%2010%22%3E%3C%2Fpolygon%3E%0A%3C%2Fsvg%3E")
+    no-repeat center;
+}
+
+.other-chosen-input-field {
+  display: none;
+}
+
+.checkbox {
+  // @include mdc-checkbox-container-colors(
+  //   #fbd132,
+  //   rgba(255, 255, 255, 0.2),
+  //   #fbd132,
+  //   #fbd132
+  // );
+  // @include mdc-checkbox-ink-color(#4d5359);
+  // @include mdc-checkbox-focus-indicator-color(#fbd132);
+  // @include mdc-checkbox-touch-dimension(#fbd132);
+}
+
+//to change label color
+.mdc-form-field {
+  color: #fff;
+}
+
+.grid-card {
+  color: #f0f2f2;
+  // @include mdc-card-fill-color(#4d5359);
+  border-radius: 10px;
+}
+
+.grid-card:hover {
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition-duration: 0.5s;
+  z-index: 4;
+}
+
+.grid-card__title,
+.grid-card__info,
+.grid-card__actions {
+  padding: 0 3%;
+}
+
+.grid-card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-block-start: 0.9rem;
+  margin-block-end: 0.7rem;
+}
+
+.grid-card__info {
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  margin-bottom: 4%;
+  margin-top: auto;
+}
+
+.grid-card__info ul {
+  padding: 0;
+  margin: 0;
+}
+
+.grid-card__info i {
+  font-size: 16px;
+  color: #24292f;
+  padding-right: 2%;
+}
+
+.grid-card__actions {
+  margin-bottom: 3%;
+}
+
+.chart {
+  color: #fff;
+  // @include mdc-data-table-fill-color(rgb(97, 103, 110));
+  // @include mdc-data-table-divider-color(#24292f);
+  // @include mdc-data-table-row-height(43px);
+}
+
+.chart th,
+.chart td {
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.chart th {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.textarea {
+  // @include mdc-text-field-textarea-fill-color(#61676e);
+  // @include mdc-text-field-textarea-stroke-color(rgba(255, 255, 255, 0.8));
+  // @include mdc-text-field-hover-outline-color(#fbd132);
+}
+
+.radio-btn {
+  // @include mdc-radio-ink-color(#fbd132);
+  // @include mdc-radio-unchecked-stroke-color(#fbd132);
+  // @include mdc-radio-checked-stroke-color(#fbd132);
+}
+
+.mode-switcher .mdc-switch {
+  // @include mdc-switch-toggled-on-color(#fbd132);
+  // @include mdc-switch-toggled-off-color(#fbd132);
+  margin: 0 2%;
+}
+
+// ________________________________________________________________________________
+//GENERAL-main
+
+//GENERAL-containers
+
+
+.regular-wrapper {
+  width: 100vw;
+  height: auto;
+  z-index: 1;
+  position: relative;
+}
+
+.parallax-wrapper + .regular-wrapper {
+  background-image: linear-gradient(60deg, #24292f 0%, #333941 100%);
+}
+
+.parallax-wrapper {
+  position: relative;
+  background-image: url("/assets/images/tennis-court-bg.jpg");
+  height: 100vh;
+  width: 100vw;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.promo__parallax {
+  margin-top: -80px;
+}
+

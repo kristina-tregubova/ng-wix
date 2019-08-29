@@ -1,42 +1,54 @@
 {
-  "name": "angular_tsystems",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "ng-wix",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
   "dependencies": {
-    "@material/button": "^3.1.0",
-    "gh-pages-webpack-plugin": "^1.0.2",
-    "material-components-web": "^3.1.0"
+    "@angular/animations": "^8.2.4",
+    "@angular/cdk": "^8.1.4",
+    "@angular/common": "^8.2.4",
+    "@angular/compiler": "^8.2.4",
+    "@angular/core": "^8.2.4",
+    "@angular/forms": "^8.2.4",
+    "@angular/http": "^7.2.15",
+    "@angular/material": "^8.1.4",
+    "@angular/platform-browser": "^8.2.4",
+    "@angular/platform-browser-dynamic": "^8.2.4",
+    "@angular/platform-server": "^8.2.4",
+    "@angular/router": "^8.2.4",
+    "firebase": "^6.4.2",
+    "hammerjs": "^2.0.8",
+    "rxjs": "^6.5.2",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "autoprefixer": "^9.6.1",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "extract-loader": "^3.1.0",
-    "file-loader": "^4.2.0",
-    "node-sass": "^4.12.0",
-    "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.1.0",
-    "url-loader": "^2.1.0",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Cloudswillopenforme/angular_tsystems.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Cloudswillopenforme/angular_tsystems/issues"
-  },
-  "homepage": "https://github.com/Cloudswillopenforme/angular_tsystems#readme"
+    "@angular-devkit/build-angular": "~0.803.1",
+    "@angular/cli": "^8.3.1",
+    "@angular/compiler-cli": "^8.2.4",
+    "@angular/language-service": "~8.2.3",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "^5.0.0",
+    "jasmine-core": "~3.4.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.1.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "3.5.3",
+    "webpack": "^4.39.3"
+  }
 }

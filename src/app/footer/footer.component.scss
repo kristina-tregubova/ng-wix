@@ -1,0 +1,206 @@
+//GENERAL-footer
+
+.main-footer {
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    background: #262b31;
+    margin-top: 10%;
+  }
+  
+  .landing .main-footer {
+    margin-top: 0;
+  }
+  
+  .main-footer a:hover {
+    text-decoration: underline;
+    color: #fbd132;
+  }
+  
+  .main-footer .container-center {
+    width: 60vw;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-top {
+    margin-bottom: 3%;
+  }
+  
+  .footer-top a:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .main-footer__logo img {
+    width: 110px;
+    height: 65px;
+    margin-top: 10px;
+  }
+  
+  .main-footer__logo img:first-of-type {
+    width: 70px;
+  }
+  
+  .footer-middle {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 5%;
+  }
+  
+  .footer-middle ul {
+    padding: 0 0 40px;
+  }
+  
+  .main-footer__social ul {
+    display: flex;
+  
+    margin: 0;
+    padding: 0;
+  
+    list-style: none;
+  }
+  
+  .main-footer__social a {
+    position: relative;
+  
+    width: 50px;
+    height: 50px;
+    margin-right: 3px;
+  
+    text-align: center;
+  
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .main-footer__vk-social-btn {
+    font-size: inherit;
+  
+    position: absolute;
+  
+    display: block;
+  
+    width: 15px;
+    height: 15px;
+  
+    content: "";
+  
+    background: url("/assets/images/icons/icon-vk.svg") no-repeat center;
+  }
+  
+  .main-footer__vk-social-btn:hover {
+    background-color: #4c75a3;
+  }
+  
+  .main-footer__fb-social-btn {
+    font-size: inherit;
+  
+    position: absolute;
+  
+    display: block;
+  
+    width: 15px;
+    height: 15px;
+  
+    content: "";
+  
+    background: url("/assets/images/icons/icon-fb.svg") no-repeat center;
+  }
+  
+  .main-footer__fb-social-btn:hover {
+    background-color: #3b5998;
+  }
+  
+  .main-footer__insta-social-btn {
+    font-size: inherit;
+  
+    position: absolute;
+  
+    display: block;
+  
+    width: 15px;
+    height: 15px;
+  
+    content: "";
+  
+    background: url("/assets/images/icons/icon-insta.svg") no-repeat center;
+  }
+  
+  .main-footer__insta-social-btn:hover {
+    background-color: #fcb045;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(199, 199, 199);
+    font-size: 0.8rem;
+    font-style: italic;
+    padding-bottom: 3%;
+  }
+  
+  .footer-bottom__authority {
+    font-weight: 700;
+    text-align: right;
+  }
+  
+  @media screen and (max-width: 960px) {
+    .main-footer .container-center {
+      width: 75vw;
+      padding: 0;
+    }
+  }
+  
+  @media screen and (max-width: 795px) {
+    .main-footer .container-center {
+      width: 90vw;
+      padding: 0;
+    }
+  
+    .main-footer {
+      margin-top: 20%;
+    }
+  
+    .footer-top {
+      margin-bottom: 7%;
+    }
+  
+    .footer-middle {
+      margin-bottom: 7%;
+    }
+  
+    .main-footer__nav,
+    .main-footer__profile {
+      display: none;
+    }
+  
+    .main-footer__social {
+      margin: 0 auto;
+    }
+  
+    .main-footer__social h4 {
+      display: none;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+    }
+  
+    .footer-bottom__authority,
+    .footer-bottom__credits {
+      margin: 1% auto;
+      text-align: center;
+    }
+  }
+  
+  @media screen and (max-width: 550px) {
+  
+      .main-footer .container-center {
+          width: 95vw;
+          padding: 0;
+        }
+  }
