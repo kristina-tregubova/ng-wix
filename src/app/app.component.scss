@@ -154,54 +154,6 @@
   color: #fff;
 }
 
-.grid-card {
-  color: #f0f2f2;
-  // @include mdc-card-fill-color(#4d5359);
-  border-radius: 10px;
-}
-
-.grid-card:hover {
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
-  transition-duration: 0.5s;
-  z-index: 4;
-}
-
-.grid-card__title,
-.grid-card__info,
-.grid-card__actions {
-  padding: 0 3%;
-}
-
-.grid-card__title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-block-start: 0.9rem;
-  margin-block-end: 0.7rem;
-}
-
-.grid-card__info {
-  font-size: 0.95rem;
-  line-height: 1.5rem;
-  margin-bottom: 4%;
-  margin-top: auto;
-}
-
-.grid-card__info ul {
-  padding: 0;
-  margin: 0;
-}
-
-.grid-card__info i {
-  font-size: 16px;
-  color: #24292f;
-  padding-right: 2%;
-}
-
-.grid-card__actions {
-  margin-bottom: 3%;
-}
-
 .chart {
   color: #fff;
   // @include mdc-data-table-fill-color(rgb(97, 103, 110));

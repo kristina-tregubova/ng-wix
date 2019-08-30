@@ -1,0 +1,87 @@
+<div class="tourno-creation__step-content tourno-creation__step-content_add-player">
+
+  <h4 class="tourno-creation__step-subtitle">
+    Current players
+  </h4>
+
+  <p class="tourno-creation__step-description">
+    <i class="material-icons">
+      error_outline
+    </i>
+    Change list rows positions to set the seed order or check the checkbox below to let them
+    be seeded randomly
+  </p>
+
+  <div class="seed-randomly-checkbox">
+    <div class="mdc-form-field">
+      <div class="checkbox mdc-checkbox">
+        <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox2" />
+        <div class="mdc-checkbox__background">
+          <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+            <path class="mdc-checkbox__checkmark-path" fill="none" d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+          </svg>
+          <div class="mdc-checkbox__mixedmark"></div>
+        </div>
+      </div>
+      <label for="checkbox2">Seed randomly</label>
+    </div>
+  </div>
+
+  <div class="added-players players-list">
+    <div class="row">
+
+      <app-player-card></app-player-card>
+
+      <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+        <i class="material-icons">
+          clear
+        </i>
+      </button>
+    </div>
+
+    <div class="row">
+
+      <app-player-card></app-player-card>
+
+      <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+        <i class="material-icons">
+          edit
+        </i>
+      </button>
+
+      <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
+        <i class="material-icons">
+          clear
+        </i>
+      </button>
+
+    </div>
+
+  </div>
+
+  <h4 class="tourno-creation__step-subtitle">
+    Add more players
+  </h4>
+
+  <p class="tourno-creation__step-description">
+    You can either add a player from the list of the players you have already created or a
+    completely new one!
+  </p>
+
+  <div class="add-player-mode-switcher mode-switcher">
+    <label for="basic-switch">From List</label>
+    <div class="mdc-switch">
+      <div class="mdc-switch__track"></div>
+      <div class="mdc-switch__thumb-underlay">
+        <div class="mdc-switch__thumb">
+          <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch">
+        </div>
+      </div>
+    </div>
+    <label for="basic-switch">New</label>
+  </div>
+
+  <app-add-from-list></app-add-from-list>
+
+  <app-add-new></app-add-new>
+</div>

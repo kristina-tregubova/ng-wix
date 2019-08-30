@@ -1,0 +1,20 @@
+.tournos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+    padding: 0;
+    margin-bottom: 10%;
+  }
+
+  @media screen and (max-width: 800px) {
+    .tournos-list {
+        grid-template-columns: 1fr 1fr;
+      }
+  }
+
+  @media screen and (max-width: 700px) {
+    .tournos-list {
+      grid-template-columns: 1fr;
+    }
+  }

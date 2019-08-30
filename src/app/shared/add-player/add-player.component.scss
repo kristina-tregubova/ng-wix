@@ -1,0 +1,56 @@
+.added-players .row {
+  display: grid;
+  grid-template-columns: 92% 4% 4%;
+  align-items: center;
+  grid-column-gap: 3%;
+}
+
+.grid-card:hover {
+  transform: none;
+}
+
+.grid-card__actions button,
+.grid-card__actions a {
+  display: none;
+}
+
+.delete-player-btn {
+  align-self: center;
+}
+
+.add-player-mode-switcher {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 5% 0;
+}
+
+.tourno-creation__submit-btn {
+  width: 40%;
+  margin-left: 60%;
+  margin-bottom: 8%;
+}
+
+@media screen and (max-width: 600px) {
+  .tourno-creation__submit-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .added-players .row {
+    grid-template-columns: 100%;
+    margin-bottom: 5%;
+  }
+
+  .row {
+    position: relative;
+  }
+
+  .add-to-list-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}

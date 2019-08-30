@@ -51,105 +51,10 @@
     grid-template-columns: 1fr;
   }
   
-  .added-players .row {
-    display: grid;
-    grid-template-columns: 93% 7%;
-    align-items: center;
-    grid-column-gap: 3%;
-  }
-  
-  .grid-card:hover {
-    transform: none;
-  }
-  
-  .grid-card__actions button,
-  .grid-card__actions a {
-    display: none;
-  }
-  
-  .delete-player-btn {
-    align-self: center;
-  }
-  
-  .add-player-mode-switcher {
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.2em;
-    margin: 5% 0;
-  }
-  
-  .add-new {
-    display: none;
-    flex-direction: column;
-    margin-top: 5%;
-  }
-  
-  .add-from-list .row {
-    display: grid;
-    grid-template-columns: 93% 7%;
-    align-items: center;
-    grid-column-gap: 3%;
-  }
-  
-  .add-player-btn {
-    margin: 2% auto 0 auto;
-  }
-  
-  .add-player {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 2fr;
-    grid-column-gap: 2%;
-    margin-bottom: 2%;
-  }
-  
-  input[type="file"].mdc-text-field__input {
-    padding-left: 10px;
-    padding-right: 0;
-  }
-  
-  .add-player-btn {
-    margin: 2% auto 0 auto;
-  }
-  
-  .tourno-creation__submit-btn {
-    width: 40%;
-    margin-left: 60%;
-    margin-bottom: 8%;
-  }
   
   @media screen and (max-width: 600px) {
     .tourno-creation__step-content {
       grid-template-columns: 1fr;
-    }
-  
-    .add-player {
-      grid-template-columns: 1fr 2fr;
-      grid-row-gap: 8px;
-      margin-bottom: 0;
-    }
-  
-    .tourno-creation__submit-btn {
-      width: 100%;
-      margin-left: 0;
-    }
-  }
-  
-  @media screen and (max-width: 500px) {
-    .add-from-list .row,
-    .added-players .row {
-      grid-template-columns: 100%;
-      margin-bottom: 5%;
-    }
-  
-    .row {
-      position: relative;
-    }
-  
-    .delete-player-btn,
-    .add-to-list-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
     }
   }
   

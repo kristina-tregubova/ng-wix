@@ -1,0 +1,29 @@
+.add-new {
+  display: none;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.add-player-btn {
+  margin: 2% auto 0 auto;
+}
+
+.add-player {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  grid-column-gap: 2%;
+  margin-bottom: 2%;
+}
+
+input[type="file"].mdc-text-field__input {
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .add-player {
+    grid-template-columns: 1fr 2fr;
+    grid-row-gap: 8px;
+    margin-bottom: 0;
+  }
+}

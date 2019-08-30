@@ -1,0 +1,105 @@
+.players-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    align-items: stretch;
+    padding: 0;
+    margin-bottom: 10%;
+  }
+  
+  .sorting-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 0.8em;
+  }
+  
+  .sorting-header__buttons {
+    position: relative;
+  }
+  
+  .sorting-header__userpic {
+    width: 11vw;
+    margin: auto 0 auto 0.5%;
+    max-width: 85px;
+  }
+  
+  .sorting-header__title {
+    margin-left: 3%;
+    margin-right: 1%;
+    padding-left: 5%;
+    text-align: center;
+  }
+  
+  .sorting-header__title i {
+    right: -60%;
+  }
+  
+  .sorting-header__game,
+  .sorting-header__country,
+  .sorting-header__points,
+  .sorting-header__games,
+  .sorting-header__games-won {
+    min-width: 8%;
+    max-width: 13%;
+    margin: auto 0.5%;
+    text-align: center;
+  }
+  
+  .sorting-header__game,
+  .sorting-header__country {
+    min-width: 11%;
+  }
+  
+  .sorting-header__game {
+    margin-left: auto;
+  }
+  
+  .sorting-header__buttons {
+    width: 96px;
+    height: 100%;
+  }
+  .up {
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    font-size: 20px;
+  }
+  
+  .down {
+    position: absolute;
+    top: 30%;
+    right: 20%;
+    font-size: 20px;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .sorting-header__games-won,
+    .grid-card__info:nth-of-type(6) {
+      display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+  
+    .sorting-header div:nth-of-type(1),
+    .sorting-header div:nth-of-type(2),
+    .sorting-header div:nth-of-type(3),
+    .sorting-header div:nth-of-type(4),
+    .sorting-header div:nth-of-type(5),
+    .sorting-header div:nth-of-type(6),
+    .sorting-header div:nth-of-type(7) {
+      display: none;
+    }
+  
+    .sorting-header__buttons {
+      margin-left: auto;
+    }
+}
