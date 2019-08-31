@@ -14,13 +14,7 @@ import { TournoSearchComponent } from './tournos-search/tournos-search.component
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
-import { TournoCardComponent } from './shared/tournos-list/tourno-card/tourno-card.component';
-import { PlayerCardComponent } from './shared/players-list/player-card/player-card.component';
-import { AddPlayerComponent } from './shared/add-player/add-player.component';
-import { PlayersListComponent } from './shared/players-list/players-list.component';
-import { TournosListComponent } from './shared/tournos-list/tournos-list.component';
-import { AddNewComponent } from './shared/add-player/add-new/add-new.component';
-import { AddFromListComponent } from './shared/add-player/add-from-list/add-from-list.component';
+
 
 @NgModule({
   declarations: [
@@ -36,13 +30,6 @@ import { AddFromListComponent } from './shared/add-player/add-from-list/add-from
     PlayersSearchComponent,
     PlayerProfileComponent,
     TournoProfileComponent,
-    TournoCardComponent,
-    PlayerCardComponent,
-    AddPlayerComponent,
-    PlayersListComponent,
-    TournosListComponent,
-    AddNewComponent,
-    AddFromListComponent
   ],
   imports: [
     BrowserModule,
