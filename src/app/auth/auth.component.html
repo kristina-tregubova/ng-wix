@@ -1,37 +1,9 @@
 <div class="regular-wrapper">
     <div class="container-center">
         <section class="login-form">
-            <div class="login-form__tabs mdc-tab-bar" role="tablist">
-                <div class="tabs-area mdc-tab-scroller">
-                    <div class="mdc-tab-scroller__scroll-area">
-                        <div class="mdc-tab-scroller__scroll-content">
-                            <button class="login-form__tab tab mdc-tab mdc-tab--active" role="tab"
-                                aria-selected="true" tabindex="0">
-                                <span class="login-form__tab-description mdc-tab__content">
-                                    Log in
-                                </span>
-                                <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                                    <span
-                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                            </button>
-                            <button class="login-form__tab tab mdc-tab" role="tab" aria-selected="false"
-                                tabindex="0">
-                                <span class="login-form__tab-description mdc-tab__content">
-                                    Sign up
-                                </span>
-                                <span class="mdc-tab-indicator">
-                                    <span
-                                        class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                                </span>
-                                <span class="mdc-tab__ripple"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="login-form__tab log-in-tab">
+            <mat-tab-group mat-stretch-tabs>
+                
+                <mat-tab label="Log in" class="tab login-form__tab log-in-tab">
                     <h4 class="title">
                         Already have an account? Please, log in
                     </h4>
@@ -44,48 +16,33 @@
 
                     <form class="login-form__login">
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
-                            style="display: none;">
-                            <i class="material-icons mdc-text-field__icon">person</i>
-                            <input class="mdc-text-field__input" id="text-field-name-input">
-                            <div class="mdc-line-ripple"></div>
-                            <label for="text-field-name-input"
-                                class="mdc-floating-label mdc-floating-label--float-above">E-mail or
-                                username</label>
-                        </div>
+                        <mat-form-field class="form-input">
+                            <input matInput placeholder="E-mail or username">
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">person</i>
-                            <input class="mdc-text-field__input" id="text-field-name-input2">
-                            <div class="mdc-line-ripple"></div>
-                            <label for="text-field-name-input2"
-                                class="mdc-floating-label mdc-floating-label--float-above">E-mail or
-                                username</label>
-                        </div>
+                        <mat-form-field class="form-input" style="display: none;">
+                            <input matInput placeholder="E-mail or username">
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
-                            style="display: none;">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                            <input type="password" class="mdc-text-field__input">
-                            <div class="mdc-line-ripple"></div>
-                        </div>
+                        <mat-form-field class="form-input" style="display: none;">
+                            <input matInput placeholder="Password">
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                        </mat-form-field>
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                            <input type="password" class="mdc-text-field__input" id="text-field-pass2-input">
-                            <div class="mdc-line-ripple"></div>
-                            <label for="text-field-pass2-input"
-                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
-                        </div>
+                        <mat-form-field class="form-input">
+                            <input matInput placeholder="Password">
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                        </mat-form-field>
 
-                        <button type="submit" name="submit"
-                            class="mdc-button mdc-button--outlined login-form__btn btn highlighted-btn">Log
-                            in</button>
+                        <button mat-raised-button type="submit" name="submit"
+                            class="login-form__btn btn highlighted-btn">Log in</button>
 
                     </form>
-                </div>
+                </mat-tab>
 
-                <div class="login-form__tab sign-up-tab">
+                <mat-tab label="Sign up" class="tab login-form__tab sign-up-tab">
                     <h4 class="title">
                         Want to join us? Let's sign up!
                     </h4>
@@ -98,83 +55,70 @@
 
                     <form class="login-form__signup">
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
-                            style="display: none;">
-                            <i class="material-icons mdc-text-field__icon">person</i>
-                            <input class="mdc-text-field__input" id="text-field-username--input">
-                            <div class="mdc-line-ripple"></div>
-                            <label for="text-field-username-input"
-                                class="mdc-floating-label mdc-floating-label--float-above">Choose your
-                                username</label>
-                        </div>
+                        <mat-form-field class="form-input">
+                            <input matInput placeholder="Choose your username" [formControl]="usernameFormControl"
+                                required>
+                            <mat-icon matSuffix>person</mat-icon>
+                            <mat-error *ngIf="!usernameFormControl?.hasError('required')">
+                                Username is required. Username should contain ar least <strong>6 chars</strong>
+                            </mat-error>
+                        </mat-form-field>
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">person</i>
-                            <input class="mdc-text-field__input" id="text-field-username-input2" required>
-                            <div class="mdc-line-ripple"></div>
-                            <label for="text-field-username-input2"
-                                class="mdc-floating-label mdc-floating-label--float-above">Choose your
-                                username</label>
-                        </div>
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">email</i>
-                            <input class="mdc-text-field__input" id="text-field-email-input" required>
-                            <div class="mdc-line-ripple"></div>
-                            <label for="text-field-email-input"
-                                class="mdc-floating-label mdc-floating-label--float-above">Put your e-mail
-                                address</label>
-                        </div>
+                        <mat-form-field class="form-input" style="display: none;">
+                            <input matInput placeholder="Choose your username">
+                            <mat-icon matSuffix>person</mat-icon>
+                        </mat-form-field>
 
-                        <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                            <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
-                            <i class="mdc-select__dropdown-icon"></i>
-                            <select class="mdc-select__native-control" required>
-                                <option value="" disabled selected></option>
-                                <option value="rus">
+                        <mat-form-field class="form-input">
+                            <input matInput placeholder="Insert your e-mail address" [formControl]="emailFormControl"
+                                required>
+                            <mat-icon matSuffix>email</mat-icon>
+                            <mat-error *ngIf="!emailFormControl?.hasError('required')">
+                                E-mail is required. Please enter a valid email address
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-select placeholder="Country">
+                                <mat-option value="rus">
                                     Russia
-                                </option>
-                                <option value="ua">
+                                </mat-option>
+                                <mat-option value="ua">
                                     USA
-                                </option>
-                                <option value="de">
+                                </mat-option>
+                                <mat-option value="de">
                                     Germany
-                                </option>
-                            </select>
-                            <label class="mdc-floating-label mdc-floating-label--float-above">Country</label>
-                            <div class="mdc-line-ripple"></div>
-                        </div>
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon"
-                            style="display: none;">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                            <input type="password" class="mdc-text-field__input" id="fake-pass">
-                            <div class="mdc-line-ripple"></div>
-                            <label for="fake-pass"
-                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
-                        </div>
+                        <mat-form-field class="form-input" style="display: none;">
+                            <input matInput placeholder="Password">
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                        </mat-form-field>
 
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                            <input type="password" class="mdc-text-field__input" id="pw1" required minlength=8>
-                            <div class="mdc-line-ripple"></div>
-                            <label for="pw1"
-                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
-                        </div>
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                            <input type="password" class="mdc-text-field__input" id="pw2" required minlength=8>
-                            <div class="mdc-line-ripple"></div>
-                            <label for="pw2"
-                                class="mdc-floating-label mdc-floating-label--float-above">Password</label>
-                        </div>
+                        <mat-form-field class="form-input">
+                            <input matInput placeholder="Password" [formControl]="passwordFormControl" required>
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                            <mat-error *ngIf="!passwordFormControl?.hasError('required')">
+                                Password is required. Password should contain ar least <strong>6 chars</strong>
+                            </mat-error>
+                        </mat-form-field>
 
-                        <button type="submit" name="submit"
-                            class="mdc-button mdc-button--outlined login-form__btn btn highlighted-btn">Sign
-                            Up</button>
+                        <mat-form-field class="form-input">
+                            <input matInput placeholder="Password again" [formControl]="passwordFormControl" required>
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                            <mat-error *ngIf="!passwordFormControl?.hasError('required')">
+                                Repeat your password
+                            </mat-error>
+                        </mat-form-field>
+
+                        <button mat-raised-button type="submit" name="submit"
+                            class="login-form__btn btn highlighted-btn">Sign up</button>
 
                     </form>
-                </div>
-            </div>
+                </mat-tab>
+            </mat-tab-group>
         </section>
     </div>
 </div>

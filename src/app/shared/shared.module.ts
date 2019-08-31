@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { TournosListComponent } from './tournos-list/tournos-list.component';
 import { PlayersListComponent } from './players-list/players-list.component';
@@ -9,6 +9,8 @@ import { PlayerCardComponent } from './players-list/player-card/player-card.comp
 import { AddNewComponent } from './add-player/add-new/add-new.component';
 import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
 
+
+import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatTabsModule } from '@angular/material';
 
 
 @NgModule({
@@ -20,13 +22,27 @@ import { AddFromListComponent } from './add-player/add-from-list/add-from-list.c
     TournosListComponent,
     TournoCardComponent,
     PlayerCardComponent,
+
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTabsModule,
+
   ],
   exports: [
     CommonModule, 
-    FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTabsModule,
+
     AddPlayerComponent,
     AddNewComponent,
     AddFromListComponent,
@@ -34,6 +50,8 @@ import { AddFromListComponent } from './add-player/add-from-list/add-from-list.c
     PlayersListComponent,
     TournoCardComponent,
     PlayerCardComponent,
+
+    
   ]
 })
 export class SharedModule { }

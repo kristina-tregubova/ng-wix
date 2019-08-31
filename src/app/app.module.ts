@@ -16,8 +16,8 @@ import { TournoSearchComponent } from './tournos-search/tournos-search.component
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,13 +33,17 @@ import { MatButtonModule } from '@angular/material';
     PlayersSearchComponent,
     PlayerProfileComponent,
     TournoProfileComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    MatButtonModule
+    FormsModule,
+    ReactiveFormsModule,
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -232,3 +232,131 @@ h6 {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+@keyframes floating {
+  from {
+    transform: translate(0, 0px);
+  }
+  65% {
+    transform: translate(0, 25px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
+}
+
+
+
+
+// COMMON COMPONENTS
+
+
+//buttons
+.btn {
+  padding: 0 50px;
+  text-transform: uppercase;
+  color: $wix-color;
+}
+
+.btn.mat-stroked-button {
+  border-color: $wix-primary;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.highlighted-btn {
+  color: $wix-dark-color;
+  background-color: $wix-primary;
+}
+
+.highlighted-btn:hover {
+  background-color: mat-color($mat-yellow, A100);
+}
+
+//tabs
+.mat-tab-header {
+  margin-bottom: 50px;
+}
+
+.mat-tab-label-content {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $wix-color;
+}
+
+
+//form fields
+.mat-form-field input {
+  vertical-align: middle;
+}
+
+.mat-form-field-flex {
+  background-color: $wix-light-foreground;
+  padding: 3px 10px 13px;
+}
+
+
+
+
+.other-chosen-input-field {
+  display: none;
+}
+
+.checkbox {
+  // @include mdc-checkbox-container-colors(
+  //   #fbd132,
+  //   rgba(255, 255, 255, 0.2),
+  //   #fbd132,
+  //   #fbd132
+  // );
+  // @include mdc-checkbox-ink-color(#4d5359);
+  // @include mdc-checkbox-focus-indicator-color(#fbd132);
+  // @include mdc-checkbox-touch-dimension(#fbd132);
+}
+
+//to change label color
+.mdc-form-field {
+  color: #fff;
+}
+
+.chart {
+  color: #fff;
+  // @include mdc-data-table-fill-color(rgb(97, 103, 110));
+  // @include mdc-data-table-divider-color(#24292f);
+  // @include mdc-data-table-row-height(43px);
+}
+
+.chart th,
+.chart td {
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.chart th {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.textarea {
+  // @include mdc-text-field-textarea-fill-color(#61676e);
+  // @include mdc-text-field-textarea-stroke-color(rgba(255, 255, 255, 0.8));
+  // @include mdc-text-field-hover-outline-color(#fbd132);
+}
+
+.radio-btn {
+  // @include mdc-radio-ink-color(#fbd132);
+  // @include mdc-radio-unchecked-stroke-color(#fbd132);
+  // @include mdc-radio-checked-stroke-color(#fbd132);
+}
+
+.mode-switcher .mdc-switch {
+  // @include mdc-switch-toggled-on-color(#fbd132);
+  // @include mdc-switch-toggled-off-color(#fbd132);
+  margin: 0 2%;
+}
