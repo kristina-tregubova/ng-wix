@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { TournosListComponent } from './tournos-list/tournos-list.component';
 import { PlayersListComponent } from './players-list/players-list.component';
@@ -24,6 +25,8 @@ import { AddFromListComponent } from './add-player/add-from-list/add-from-list.c
     CommonModule
   ],
   exports: [
+    CommonModule, 
+    FormsModule,
     AddPlayerComponent,
     AddNewComponent,
     AddFromListComponent,

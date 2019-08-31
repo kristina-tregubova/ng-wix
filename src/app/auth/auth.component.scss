@@ -1,3 +1,5 @@
+@import 'src/styles.scss';
+
 .container-center {
   width: 50vw; 
   max-width: 760px;
@@ -25,7 +27,7 @@
 
 .social-button {
   background-position: 25px 0px;
-  color: rgb(255, 255, 255);
+  color: $wix-color;
   cursor: pointer;
   display: inline-block;
   height: 50px;
@@ -51,7 +53,7 @@
 
 .facebook-connect span {
   box-sizing: border-box;
-  color: #fff;
+  color: $wix-color;
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
@@ -68,7 +70,7 @@
 
 .google-connect span {
   box-sizing: border-box;
-  color: #fff;
+  color: $wix-color;
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
@@ -93,7 +95,7 @@
 .login-form__login,
 .login-form__signup {
   padding-top: 20px;
-  border-top: 1px solid #24292f78;
+  border-top: 1px solid $light-dividers;
 }
 
 .form-input,

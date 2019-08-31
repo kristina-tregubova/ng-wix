@@ -1,3 +1,4 @@
+@import 'src/styles.scss';
 // GENERAL-header
 
 .main-header,
@@ -12,8 +13,8 @@
   position: sticky;
   top: 0;
   transition: 0.3s;
-  background-color: #262b31;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  background-color: $wix-dark-background;
+  border-bottom: 1px solid $light-dividers;
 }
 
 .main-header__logo img {
@@ -86,7 +87,7 @@
 }
 
 .mdc-list-divider {
-  border-bottom-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: $light-dividers;
 }
 
 @media screen and (max-width: 795px) {

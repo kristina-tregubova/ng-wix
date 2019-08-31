@@ -1,6 +1,10 @@
+@import 'src/styles.scss';
+
 .background-container {
     height: 30vh;
     width: 100vw;
+    background-size: cover;
+  background-position: 0 30%;
   }
   
   .form-input input,
@@ -8,15 +12,11 @@
     padding-top: 0;
   }
   
-  .mdc-card__media {
-    background-position: 0 30%;
-  }
-  
   .player-profile__header {
     padding: 2vh 0 2vh;
     margin-bottom: 30px;
     height: 9vh;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: $wix-dark-background;
   }
   
   .player-profile__header h2 {
@@ -50,7 +50,7 @@
   }
   
   .title {
-    border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+    border-bottom: 1px solid $light-dividers;
   }
   
   .player-profile__info,

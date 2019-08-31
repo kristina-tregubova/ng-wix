@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -15,6 +17,7 @@ import { PlayersSearchComponent } from './players-search/players-search.componen
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
 
+import { MatButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { TournoProfileComponent } from './tourno-profile/tourno-profile.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    SharedModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

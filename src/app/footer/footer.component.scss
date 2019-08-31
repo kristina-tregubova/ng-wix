@@ -1,8 +1,9 @@
+@import 'src/styles.scss';
 //GENERAL-footer
 
 .main-footer {
-    border-top: 2px solid rgba(255, 255, 255, 0.1);
-    background: #262b31;
+    border-top: 1px solid $light-dividers;
+    background: $wix-dark-background;
   }
   
   .landing .main-footer {
@@ -11,7 +12,7 @@
   
   .main-footer a:hover {
     text-decoration: underline;
-    color: #fbd132;
+    color: $wix-primary;
   }
   
   .main-footer .container-center {
@@ -73,7 +74,7 @@
     text-align: center;
   
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: $wix-dark-background;
   }
   
   .main-footer__vk-social-btn {

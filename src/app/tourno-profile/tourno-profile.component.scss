@@ -1,6 +1,10 @@
+@import 'src/styles.scss';
+
 .background-container {
   height: 30vh;
   width: 100vw;
+  background-size: cover;
+  background-position: 0 30%;
 }
 
 .form-input input,
@@ -8,14 +12,11 @@
   padding-top: 0;
 }
 
-.mdc-card__media {
-  background-position: 0 30%;
-}
 
 .tourno-profile__header {
   padding: 2vh 0 0;
   margin: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: $wix-dark-background;
 }
 
 .tourno-profile__header h2 {
@@ -44,7 +45,7 @@
   width: auto;
   height: 9vh;
   border-radius: 50%;
-  border: 3px solid #fbd132;
+  border: 3px solid $wix-primary;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -105,12 +106,12 @@
 }
 
 .tourno-profile__title {
-  border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+  border-bottom: 1px solid $light-dividers;
 }
 
 .tourno-profile__settings-step {
   margin-bottom: 10%;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: $wix-dark-background;
   padding: 0 10% 3% 5%;
 }
 
@@ -237,14 +238,14 @@
               display: flex;
               flex-direction: row;
               color: #fff;
-              border-left: 0.25rem solid #858585;
-              background: #61676e;
+              border-left: 0.25rem solid $wix-dark-background;
+              background: $wix-light-foreground;
               width: 20vw;
               max-width: 270px;
               height: 3rem;
               box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
               &:not(:last-child) {
-                border-bottom: thin solid #f0f2f2;
+                border-bottom: thin solid $wix-light-foreground;
               }
               .name {
                 margin: 0 1.25rem;
@@ -259,32 +260,32 @@
               }
             }
             .participant.winner {
-              color: #fbd132;
-              border-color: #fbd132;
+              color: $wix-primary;
+              border-color: $wix-primary;
             }
             .participant.loser {
-              color: #dc563f;
-              border-color: #dc563f;
+              color: $wix-warn;
+              border-color: $wix-warn;
             }
           }
         }
       }
       > div.connector.filled {
         .line {
-          border-color: #fbd132;
+          border-color: $wix-primary;
         }
       }
       > div.connector.filled.bottom {
         .merger {
           &:after {
-            border-color: #fbd132;
+            border-color: $wix-primary;
           }
         }
       }
       > div.connector.filled.top {
         .merger {
           &:before {
-            border-color: #fbd132;
+            border-color: $wix-primary;
           }
         }
       }
@@ -294,7 +295,7 @@
           width: 2rem;
           display: inline-block;
           vertical-align: top;
-          border-bottom: thin solid #c0c0c8;
+          border-bottom: thin solid $light-dividers;
           height: 4rem;
         }
         .merger {
@@ -311,7 +312,7 @@
             width: 100%;
             height: 50%;
             border: 0 solid;
-            border-color: #c0c0c8;
+            border-color: $light-dividers;
             border-right-width: thin;
             border-top-width: thin;
           }
@@ -322,7 +323,7 @@
             width: 100%;
             height: 50%;
             border: 0 solid;
-            border-color: #c0c0c8;
+            border-color: $light-dividers;
             border-right-width: thin;
             border-bottom-width: thin;
           }

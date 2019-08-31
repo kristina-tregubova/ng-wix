@@ -1,3 +1,5 @@
+@import 'src/styles.scss';
+
 //GENERAL-main
 
 //GENERAL-containers
@@ -10,7 +12,7 @@
 }
 
 .parallax-wrapper + .regular-wrapper {
-  background-image: linear-gradient(60deg, #24292f 0%, #333941 100%);
+  background-image: $wix-background;
 }
 
 .parallax-wrapper {
@@ -67,8 +69,8 @@ section,
 .features {
   padding: 5% 0;
   background-color: #fff;
-  color: #24292f;
-  border-top: 8px solid #fbd132;
+  color: $wix-dark-color;
+  border-top: 8px solid $wix-primary;
 }
 
 .features__title {
@@ -139,7 +141,7 @@ section,
   background-image: url("/assets/images/running-people-bg.jpg");
   background-size: cover;
   align-items: stretch !important;
-  border-top: 8px solid #fbd132;
+  border-top: 8px solid $wix-primary;
 }
 
 .community.parallax-wrapper {
@@ -149,7 +151,7 @@ section,
 .community-shadow {
   background-image: linear-gradient(
     50deg,
-    #24292f 0%,
+    $wix-background 0%,
     #24292fda 60%,
     #24292f63 100%
   );
@@ -169,10 +171,10 @@ section,
 
 .registration {
   position: relative;
-  background-color: #fff;
-  color: #24292f;
+  background-color: $wix-color;
+  color: $wix-dark-color;
   align-items: stretch !important;
-  border-top: 8px solid #fbd132;
+  border-top: 8px solid $wix-primary;
   padding: 8% 10% 10% 55%;
 }
 
@@ -201,8 +203,8 @@ section,
 }
 
 .popular-games {
-  border-top: 8px solid #fbd132;
-  border-bottom: 8px solid #fbd132;
+  border-top: 8px solid $wix-primary;
+  border-bottom: 8px solid $wix-primary;
 }
 
 @media screen and (max-width: 1200px) {
@@ -307,7 +309,7 @@ section,
     display: none;
   }
   .registration {
-    border-bottom: 8px solid #fbd132;
+    border-bottom: 8px solid $wix-primary;
   }
 }
 
@@ -358,10 +360,11 @@ $text-offset: $a-height - 90;
           vertical-align: bottom;
           padding: 15px 20px;
           box-sizing: border-box;
-          color: #fff;
+          color: $wix-color;
           text-decoration: none;
           font-family: Open Sans, sans-serif;
-          background: #24292f79;
+          background: $wix-background;
+          opacity: 0.4;
 
           transition: all 200ms ease;
 

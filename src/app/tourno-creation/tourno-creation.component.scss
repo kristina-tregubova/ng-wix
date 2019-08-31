@@ -1,3 +1,5 @@
+@import 'src/styles.scss';
+
 .container-center {
     width: 90%;
     max-width: 1200px;
@@ -17,12 +19,12 @@
     grid-template-areas:
       "header"
       "content";
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: $wix-dark-background;
   }
   
   .tourno-creation__step-title {
     grid-area: header;
-    border-bottom: 1px solid rgba(97, 103, 110, 0.5);
+    border-bottom: 1px solid $light-dividers;
   }
   
   .tourno-creation__step-subtitle {
@@ -30,7 +32,6 @@
   }
   
   .tourno-creation__step-description {
-    color: rgba(255, 255, 255, 0.6);
     font-size: 0.95em;
     font-style: oblique;
   }
