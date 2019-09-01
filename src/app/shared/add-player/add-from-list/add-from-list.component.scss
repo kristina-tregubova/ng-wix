@@ -1,13 +1,14 @@
+.search-form {
+  margin: 3% 0;
+}
+
 .add-from-list .row {
   display: grid;
   grid-template-columns: 93% 7%;
   align-items: center;
   grid-column-gap: 3%;
-}
-
-.add-from-list .row {
   grid-template-columns: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 }
 
 .row {

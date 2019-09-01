@@ -1,8 +1,27 @@
+
+
+.added-players {
+  margin: 3% 0 10%;
+}
+
 .added-players .row {
   display: grid;
-  grid-template-columns: 92% 4% 4%;
+  grid-template-columns: 100%;
   align-items: center;
-  grid-column-gap: 3%;
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+  margin-bottom: 3%;
+}
+
+.row {
+  position: relative;
+}
+
+.delete-player-btn,
+.edit-player-btn  {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .grid-card:hover {
@@ -14,15 +33,17 @@
   display: none;
 }
 
-.delete-player-btn {
-  align-self: center;
-}
 
+.seed-randomly-checkbox,
 .add-player-mode-switcher {
   font-weight: bold;
   text-align: center;
   font-size: 1.2em;
-  margin: 5% 0;
+  margin: 4% 0 3%;
+}
+
+.add-player-mode-switcher label {
+  padding: 0 3%;
 }
 
 .tourno-creation__submit-btn {

@@ -1,17 +1,26 @@
 <div class="add-new">
   <div class="add-player">
-    <label for="player-name-1">
+
+    <label>
       <span class="add-player__value">1.</span>
-      Name: </label>
-    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-      <i class="material-icons mdc-text-field__icon">person</i>
-      <input class="mdc-text-field__input" id="player-name-1" required>
-      <div class="mdc-line-ripple"></div>
-    </div>
-    <label for="add-avatar-1"> Add avatar: </label>
-    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-      <input type="file" class="mdc-text-field__input" id="add-avatar-1">
-    </div>
+      Name:
+    </label>
+    <mat-form-field class="form-input">
+      <input matInput>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <label>
+      Add avatar:
+    </label>
+    <mat-form-field class="form-input">
+      <input matInput >
+      <!-- ADD TYPE FILE -->
+    </mat-form-field>
   </div>
-  <button class="add-player-btn btn_round material-icons mdc-icon-button">add</button>
+
+  <button class="add-player" mat-fab aria-label="Add more">
+      <mat-icon>add</mat-icon>
+  </button>
+
 </div>

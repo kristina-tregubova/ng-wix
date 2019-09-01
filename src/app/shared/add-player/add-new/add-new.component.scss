@@ -11,8 +11,13 @@
 .add-player {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 2fr;
-  grid-column-gap: 2%;
+  grid-column-gap: 1%;
   margin-bottom: 2%;
+  align-items: baseline;
+}
+
+.add-player label {
+  justify-self: center;
 }
 
 input[type="file"].mdc-text-field__input {

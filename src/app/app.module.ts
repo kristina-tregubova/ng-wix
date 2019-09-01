@@ -34,6 +34,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     PlayerProfileComponent,
     TournoProfileComponent,
     
+    
   ],
   imports: [
     BrowserModule,

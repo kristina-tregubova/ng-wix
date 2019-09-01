@@ -10,7 +10,7 @@ import { AddNewComponent } from './add-player/add-new/add-new.component';
 import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
 
 
-import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatTabsModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatTabsModule, MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatSlideToggleModule } from '@angular/material';
 
 
 @NgModule({
@@ -32,6 +32,11 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
     MatFormFieldModule,
     MatSelectModule,
     MatTabsModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSlideToggleModule,
 
   ],
   exports: [
@@ -42,6 +47,11 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
     MatFormFieldModule,
     MatSelectModule,
     MatTabsModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSlideToggleModule,
 
     AddPlayerComponent,
     AddNewComponent,

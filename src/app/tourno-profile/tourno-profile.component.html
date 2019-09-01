@@ -83,75 +83,63 @@
 
             <section class="tourno-profile__info">
                 <div class="tourno-profile__info-item">
-                    <i class="material-icons" title="Game">videogame_asset</i>
-                    <label for="game">Game: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="game" autocomplete="off" value="Football"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </div>
-                <div class="tourno-profile__info-item">
-                    <i class="material-icons" title="End date of tournament">calendar_today</i>
-                    <label for="start-date">Start date: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="start-date" autocomplete="off" value="12.05.2019"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </div>
-                <div class="tourno-profile__info-item">
-                    <i class="material-icons" title="End date of tournament">calendar_today</i>
-                    <label for="end-date">End date: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="end-date" autocomplete="off" value="29.05.2019"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <mat-icon matSuffix>videogame_asset</mat-icon>
+                    <label>Game: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput disabled value="Football">
+                    </mat-form-field>
                 </div>
 
                 <div class="tourno-profile__info-item">
-                    <i class="material-icons" title="Team">group</i>
-                    <label for="participants">Participants: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="participants" autocomplete="off" value="12"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </div>
-                <div class="tourno-profile__info-item">
-                    <i class="material-icons" title="Country">public</i>
-                    <label for="country">Country: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="country" autocomplete="off" value="Russia"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <mat-icon matSuffix>calendar_today</mat-icon>
+                    <label>Start date: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput disabled value="24/09/2019">
+                    </mat-form-field>
                 </div>
 
                 <div class="tourno-profile__info-item">
-                    <i class="material-icons">
-                        attach_money
-                    </i>
-                    <label for="entry-fee">Entry fee: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="entry-fee" autocomplete="off" value="None"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <mat-icon matSuffix>calendar_today</mat-icon>
+                    <label>End date: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput disabled value="04/10/2019">
+                    </mat-form-field>
                 </div>
+
                 <div class="tourno-profile__info-item">
-                    <i class="material-icons">
-                        star
-                    </i>
-                    <label for="prize">Prize: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="prize" autocomplete="off" value="2020 Schoolarship"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <mat-icon matSuffix>group</mat-icon>
+                    <label>Participants: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput disabled value="22">
+                    </mat-form-field>
                 </div>
+
+                <div class="tourno-profile__info-item">
+                    <mat-icon matSuffix>public</mat-icon>
+                    <label>Country: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput disabled value="Germany">
+                    </mat-form-field>
+                </div>
+
+                <div class="tourno-profile__info-item">
+                    <mat-icon matSuffix>attach_money</mat-icon>
+                    <label>Entry fee:: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput disabled value=" - ">
+                    </mat-form-field>
+                </div>
+
+                <div class="tourno-profile__info-item">
+                    <mat-icon matSuffix>star</mat-icon>
+                    <label>Prize: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput disabled value="Free">
+                    </mat-form-field>
+                </div>
+
             </section>
+
 
             <section class="tourno-profile__bracket">
                 <h3 class="tourno-profile__title">
@@ -462,19 +450,13 @@
                     Leave a comment
                 </h3>
 
-                <div class="textarea mdc-text-field mdc-text-field--textarea">
-                    <textarea id="textarea" class="mdc-text-field__input" rows="8" cols="40"
-                        placeholder="Type some comment here"></textarea>
-                    <div class="mdc-notched-outline">
-                        <div class="mdc-notched-outline__leading"></div>
-                        <div class="mdc-notched-outline__notch">
-                        </div>
-                        <div class="mdc-notched-outline__trailing"></div>
-                    </div>
-                </div>
-                <button class="mdc-button mdc-button--unelevated btn highlighted-btn">
+                <mat-form-field class="form-input">
+                    <textarea matInput rows="8" cols="40"></textarea>
+                </mat-form-field>
+                <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn">
                     Post
                 </button>
+
                 <div class="tourno-profile__details-tab-content">
 
                 </div>
@@ -488,32 +470,33 @@
                     </h3>
                     <form class="tourno-profile__settings-content">
                         <label for="start-date"> Start date: </label>
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">today</i>
-                            <input type="date" class="mdc-text-field__input" id="start-date" required>
-                            <div class="mdc-line-ripple"></div>
-                        </div>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="startDate" placeholder="Start date">
+                            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                            <mat-datepicker #startDate></mat-datepicker>
+                        </mat-form-field>
 
                         <label for="end-date"> End date: </label>
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">today</i>
-                            <input type="date" class="mdc-text-field__input" id="end-date" required>
-                            <div class="mdc-line-ripple"></div>
-                        </div>
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="endDate" placeholder="End date">
+                            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                            <mat-datepicker #endDate></mat-datepicker>
+                        </mat-form-field>
 
-                        <label for="entry-fee"> Entry Fee: </label>
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">person</i>
-                            <input class="mdc-text-field__input" id="entry-fee" required>
-                            <div class="mdc-line-ripple"></div>
-                        </div>
+                        <label> Entry Fee: </label>
+                        <mat-form-field class="form-input">
+                            <input matInput>
+                            <mat-icon matSuffix>money</mat-icon>
+                        </mat-form-field>
 
-                        <label for="prize"> Prize: </label>
-                        <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                            <i class="material-icons mdc-text-field__icon">stars</i>
-                            <input class="mdc-text-field__input" id="prize" required>
-                            <div class="mdc-line-ripple"></div>
-                        </div>
+                        <label> Prize: </label>
+                        <mat-form-field class="form-input">
+                            <input matInput>
+                            <mat-icon matSuffix>stars</mat-icon>
+                        </mat-form-field>
+                        <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn">
+                            Submit changes
+                        </button>
                     </form>
                 </div>
 
@@ -522,8 +505,8 @@
                         Players management
                     </h3>
 
-                   <app-add-player></app-add-player>
-                   
+                    <app-add-player></app-add-player>
+
                 </div>
                 <div class="tourno-profile__settings-step">
                     <h3 class="tourno-profile__title">

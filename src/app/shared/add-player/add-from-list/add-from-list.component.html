@@ -1,14 +1,10 @@
 <div class="add-from-list">
   <div class="search-form">
-    <div
-      class="search-input search-form__search mdc-text-field mdc-text-field--outlined mdc-text-field--no-label mdc-text-field--with-leading-icon">
-      <i class="material-icons mdc-text-field__icon">search</i>
-      <input type="text" class="mdc-text-field__input" aria-label="Label" placeholder="Start typing to find...">
-      <div class="mdc-notched-outline">
-        <div class="mdc-notched-outline__leading"></div>
-        <div class="mdc-notched-outline__trailing"></div>
-      </div>
-    </div>
+      <mat-form-field class="form-input">
+          <input matInput>
+          <mat-icon matSuffix>search</mat-icon>
+          <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
+      </mat-form-field>
   </div>
 
   <section class="players-search-result">

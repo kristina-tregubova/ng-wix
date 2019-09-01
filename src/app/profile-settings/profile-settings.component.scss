@@ -12,13 +12,15 @@
 }
 
 .profile-settings__step {
-    padding: 0 10% 3% 5%;
+    padding: 0 10% 8% 5%;
     margin-bottom: 5%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "header"
     "content";
+    grid-column-gap: 3%;
+    grid-row-gap: 4%;
     background-color: $wix-dark-background;
 }
 

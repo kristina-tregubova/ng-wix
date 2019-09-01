@@ -10,133 +10,82 @@
                 </h3>
                 <div class="tourno-creation__step-content">
 
-                    <label for="name-input">Name:</label>
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">person</i>
-                        <input class="mdc-text-field__input" id="name-input" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <label> Name: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput [formControl]="nameFormControl" required>
+                        <mat-icon matSuffix>person</mat-icon>
+                        <mat-error *ngIf="!nameFormControl?.hasError('required')">
+                            Name is required
+                        </mat-error>
+                    </mat-form-field>
 
-                    <label for="tourno-type-checkboxes"> Tournament type: </label>
-                    <div id="tourno-type-checkboxes">
-                        <div class="mdc-form-field">
-                            <div class="radio-btn mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" name="tourno-type"
-                                    id="tourno-type1" checked required>
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle" selected></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="tourno-type1"> Single-elimination tournament </label>
-                        </div>
-                        <div class="mdc-form-field">
-                            <div class="radio-btn mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" name="tourno-type"
-                                    id="tourno-type2" checked required>
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle" selected></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="tourno-type2"> Double-elimination tournament </label>
-                        </div>
-                    </div>
+                    <label> Tournament type: </label>
+                    <mat-radio-group>
+                        <mat-radio-button>Single-elimination tournament</mat-radio-button>
+                        <mat-radio-button>Double-elimination tournament</mat-radio-button>
+                    </mat-radio-group>
 
-                    <label for="country-selector"> Country: </label>
-                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">public</i>
-                        <i class="mdc-select__dropdown-icon"></i>
-                        <select class="mdc-select__native-control" id="country-selector" required>
-                            <option value="none">
 
-                            </option>
-                            <option value="rus">
+                    <label>Country</label>
+                    <mat-form-field>
+                        <mat-select required>
+
+                            <mat-option value="rus">
                                 Russia
-                            </option>
-                            <option value="ua">
+                            </mat-option>
+                            <mat-option value="ua">
                                 USA
-                            </option>
-                            <option value="de">
+                            </mat-option>
+                            <mat-option value="de">
                                 Germany
-                            </option>
-                            <option value="en">
+                            </mat-option>
+                            <mat-option value="en">
                                 England
-                            </option>
-                            <option value="fr">
+                            </mat-option>
+                            <mat-option value="fr">
                                 France
-                            </option>
-                            <option value="ukr">
+                            </mat-option>
+                            <mat-option value="ukr">
                                 Ukraine
-                            </option>
-                        </select>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                            </mat-option>
 
-                    <label for="game-selector"> Game: </label>
-                    <div class="form-selector mdc-select mdc-select--with-leading-icon">
-                        <i class="material-icons mdc-select__icon" tabindex="0" role="button">videogame_asset</i>
-                        <i class="mdc-select__dropdown-icon"></i>
-                        <select class="mdc-select__native-control" id="game-selector" required>
-                            <option value=""></option>
-                            <option value="football">Football</option>
-                            <option value="basketball">Basketball</option>
-                            <option value="rugby">Rugby</option>
-                            <option value="baseball">Baseball</option>
-                            <option value="hockey">Hockey</option>
-                            <option value="tennis">Tennis</option>
-                            <option value="chess">Chess</option>
-                            <option value="counterstrike">CS:Go</option>
-                            <option value="dota2">DOTA 2</option>
-                            <option value="fifa">FIFA</option>
-                            <option value="pubg">PUBG</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                    <div class="other-chosen-input-field form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">videogame_asset</i>
-                        <input class="mdc-text-field__input" id="game-selector" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <label> Game: </label>
+                    <mat-form-field>
+                        <mat-select required>
+                            <mat-option value="football">Football</mat-option>
+                            <mat-option value="basketball">Basketball</mat-option>
+                            <mat-option value="rugby">Rugby</mat-option>
+                            <mat-option value="baseball">Baseball</mat-option>
+                            <mat-option value="hockey">Hockey</mat-option>
+                            <mat-option value="tennis">Tennis</mat-option>
+                            <mat-option value="chess">Chess</mat-option>
+                            <mat-option value="counterstrike">CS:Go</mat-option>
+                            <mat-option value="dota2">DOTA 2</mat-option>
+                            <mat-option value="fifa">FIFA</mat-option>
+                            <mat-option value="pubg">PUBG</mat-option>
+                            <mat-option value="other">Other</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="form-input other-chosen-input-field">
+                        <input matInput>
+                        <mat-icon matSuffix>videogame_asset</mat-icon>
+                    </mat-form-field>
 
 
-                    <label for="player-checkboxes"> Player type: </label>
-                    <div id="player-checkboxes">
-                        <div class="mdc-form-field">
-                            <div class="radio-btn mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" name="player-type"
-                                    id="player-type1" checked required>
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle" selected></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="player-type1"> Single </label>
-                        </div>
-                        <div class="mdc-form-field">
-                            <div class="radio-btn mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" name="player-type"
-                                    id="player-type2" checked required>
-                                <div class="mdc-radio__background">
-                                    <div class="mdc-radio__outer-circle" selected></div>
-                                    <div class="mdc-radio__inner-circle"></div>
-                                </div>
-                            </div>
-                            <label for="player-type2"> Team </label>
-                        </div>
-                    </div>
+                    <label> Player type: </label>
+                    <mat-radio-group>
+                        <mat-radio-button>Single</mat-radio-button>
+                        <mat-radio-button>Double</mat-radio-button>
+                    </mat-radio-group>
+
+
                     <label for="description"> Add a description: </label>
-                    <div class="textarea mdc-text-field mdc-text-field--textarea">
-                        <textarea id="textarea" class="mdc-text-field__input" rows="8" cols="40"
-                            placeholder="Type some comment here" id="description"></textarea>
-                        <div class="mdc-notched-outline">
-                            <div class="mdc-notched-outline__leading"></div>
-                            <div class="mdc-notched-outline__notch">
-                            </div>
-                            <div class="mdc-notched-outline__trailing"></div>
-                        </div>
-                    </div>
+                    <mat-form-field class="form-input">
+                        <textarea matInput rows="8" cols="40"></textarea>
+                    </mat-form-field>
                 </div>
             </section>
 
@@ -147,32 +96,30 @@
 
                 <div class="tourno-creation__step-content">
                     <label for="start-date"> Start date: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">today</i>
-                        <input type="date" class="mdc-text-field__input" id="start-date" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="startDate" placeholder="Start date">
+                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                        <mat-datepicker #startDate></mat-datepicker>
+                    </mat-form-field>
 
                     <label for="end-date"> End date: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">today</i>
-                        <input type="date" class="mdc-text-field__input" id="end-date" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="endDate" placeholder="End date">
+                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                        <mat-datepicker #endDate></mat-datepicker>
+                    </mat-form-field>
 
-                    <label for="entry-fee"> Entry Fee: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">person</i>
-                        <input class="mdc-text-field__input" id="entry-fee" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <label> Entry Fee: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput>
+                        <mat-icon matSuffix>money</mat-icon>
+                    </mat-form-field>
 
-                    <label for="prize"> Prize: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon">
-                        <i class="material-icons mdc-text-field__icon">stars</i>
-                        <input class="mdc-text-field__input" id="prize" required>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
+                    <label> Prize: </label>
+                    <mat-form-field class="form-input">
+                        <input matInput>
+                        <mat-icon matSuffix>stars</mat-icon>
+                    </mat-form-field>
                 </div>
             </section>
 
@@ -186,8 +133,8 @@
 
             </section>
 
-            <button type="submit" name="submit"
-                class="tourno-creation__submit-btn mdc-button mdc-button--outlined btn highlighted-btn">
+            <button mat-raised-button type="submit" name="submit"
+                class="tourno-creation__submit-btn btn highlighted-btn">
                 Create a
                 tournament
             </button>

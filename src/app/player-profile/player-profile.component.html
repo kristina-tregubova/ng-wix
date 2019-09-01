@@ -20,59 +20,51 @@
     <div class="container-center">
         <section class="player-profile__info">
             <div class="player-profile__info-item">
-                <i class="material-icons" title="Game">group</i>
-                <label for="game">Type: </label>
-                <div class="form-input mdc-text-field mdc-text-field--disabled">
-                    <input class="mdc-text-field__input" id="game" autocomplete="off" value="Team"
-                        style="color: #fff;" disabled>
-                    <div class="mdc-line-ripple"></div>
-                </div>
-            </div>
-            <div class="player-profile__info-item">
-                <i class="material-icons" title="End date of tournament">videogame_asset</i>
-                <label for="start-date">Game: </label>
-                <div class="form-input mdc-text-field mdc-text-field--disabled">
-                    <input class="mdc-text-field__input" id="start-date" autocomplete="off" value="Basketball"
-                        style="color: #fff;" disabled>
-                    <div class="mdc-line-ripple"></div>
-                </div>
-            </div>
-            <div class="player-profile__info-item">
-                <i class="material-icons" title="End date of tournament">stars</i>
-                <label for="end-date">Points in total: </label>
-                <div class="form-input mdc-text-field mdc-text-field--disabled">
-                    <input class="mdc-text-field__input" id="end-date" autocomplete="off" value="123"
-                        style="color: #fff;" disabled>
-                    <div class="mdc-line-ripple"></div>
-                </div>
+                <mat-icon matSuffix>group</mat-icon>
+                <label>Type: </label>
+                <mat-form-field class="form-input">
+                    <input matInput disabled value="Team">
+                </mat-form-field>
             </div>
 
             <div class="player-profile__info-item">
-                <i class="material-icons" title="Team">play_circle_filled</i>
-                <label for="participants">Games in total: </label>
-                <div class="form-input mdc-text-field mdc-text-field--disabled">
-                    <input class="mdc-text-field__input" id="participants" autocomplete="off" value="12"
-                        style="color: #fff;" disabled>
-                    <div class="mdc-line-ripple"></div>
-                </div>
+                <mat-icon matSuffix>videogame_asset</mat-icon>
+                <label>Game: </label>
+                <mat-form-field class="form-input">
+                    <input matInput disabled value="Basketball">
+                </mat-form-field>
             </div>
+
             <div class="player-profile__info-item">
-                    <i class="material-icons" title="Team">play_circle_filled</i>
-                    <label for="participants">Wins in total: </label>
-                    <div class="form-input mdc-text-field mdc-text-field--disabled">
-                        <input class="mdc-text-field__input" id="participants" autocomplete="off" value="2"
-                            style="color: #fff;" disabled>
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-                </div>
+                <mat-icon matSuffix>stars</mat-icon>
+                <label>Points in total: </label>
+                <mat-form-field class="form-input">
+                    <input matInput disabled value="148">
+                </mat-form-field>
+            </div>
+
             <div class="player-profile__info-item">
-                <i class="material-icons" title="Country">public</i>
-                <label for="country">Country: </label>
-                <div class="form-input mdc-text-field mdc-text-field--disabled">
-                    <input class="mdc-text-field__input" id="country" autocomplete="off" value="Russia"
-                        style="color: #fff;" disabled>
-                    <div class="mdc-line-ripple"></div>
-                </div>
+                <mat-icon matSuffix>play_circle_filled</mat-icon>
+                <label>Games in total: </label>
+                <mat-form-field class="form-input">
+                    <input matInput disabled value="6">
+                </mat-form-field>
+            </div>
+
+            <div class="player-profile__info-item">
+                <mat-icon matSuffix>play_circle_filled</mat-icon>
+                <label>Wins in total: </label>
+                <mat-form-field class="form-input">
+                    <input matInput disabled value="3">
+                </mat-form-field>
+            </div>
+
+            <div class="player-profile__info-item">
+                <mat-icon matSuffix>public</mat-icon>
+                <label>Country: </label>
+                <mat-form-field class="form-input">
+                    <input matInput disabled value="USA">
+                </mat-form-field>
             </div>
 
         </section>
