@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -10,15 +10,15 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $app-primary: mat-palette($mat-yellow, A200, A100, A400);
-$app-accent:  mat-palette($mat-yellow, A200, A100, A400);
+$app-accent: mat-palette($mat-yellow, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$app-warn:    mat-palette($mat-red);
+$app-warn: mat-palette($mat-red);
 
 $wix-primary: mat-color($mat-yellow, A200);
 $wix-warn: mat-color($mat-red, 600);
 $wix-background: mat-color($mat-grey, 900);
-$wix-dark-background: rgba(0, 0, 0, 0.1);
+$wix-dark-background: rgba(43, 43, 47);
 $wix-foreground: mat-color($mat-grey, 800);
 $wix-light-foreground: mat-color($mat-grey, 700);
 $wix-dark-color: mat-color($mat-grey, 900);
@@ -32,12 +32,11 @@ $wix-app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 // that you are using.
 @include angular-material-theme($wix-app-theme);
 
-
 html,
 body {
   box-sizing: border-box;
 
-  background-color: $wix-background; 
+  background-color: $wix-background;
   font-family: Roboto, Helvetica, sans-serif;
   color: $wix-color;
   font-size: 15px;
@@ -110,7 +109,6 @@ h6 {
 }
 
 @media screen and (max-width: 960px) {
-
   .container-center {
     width: 75vw;
     padding: 0;
@@ -228,12 +226,21 @@ h6 {
   .container-center {
     width: 95vw;
   }
+
+  .mat-menu-panel {
+    width: 90vw !important;
+    max-width: 90vw !important;
+  }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 @keyframes floating {
   from {
@@ -247,11 +254,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
-
-
-
 // COMMON COMPONENTS
-
 
 //buttons
 .btn {
@@ -278,11 +281,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: mat-color($mat-yellow, A100);
 }
 
+.menu-btn {
+  .mat-button-wrapper {
+    padding: 0 !important;
+  }
+}
 
 //tabs
-// .mat-tab-header {
-//   margin-bottom: 50px;
-// }
 
 .mat-tab-label-content,
 .mat-tab-link {
@@ -291,17 +296,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: $wix-color;
 }
 
-.mat-tab-link {
-  height: 100%;
-}
+// .mat-tab-link {
+//   height: 100%;
+// }
 
 .mat-tab-header {
   align-items: center;
 }
 
-
 //form fields
-.mat-form-field { 
+.mat-form-field {
   &.input {
     vertical-align: middle;
   }
@@ -329,11 +333,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .search-field {
-
   .mat-form-field {
     width: 100%;
   }
-  
+
   .mat-form-field-underline {
     height: 0;
     display: none;
@@ -355,9 +358,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
-
 .mat-checkbox {
-
   margin-right: 15px;
 
   .mat-checkbox-inner-container {
@@ -374,12 +375,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-right: 5%;
 }
 
-
 //card
-.mat-card>.mat-card-actions:last-child {
+.mat-card > .mat-card-actions:last-child {
   margin-bottom: unset;
 }
-
 
 .chart {
   color: #fff;

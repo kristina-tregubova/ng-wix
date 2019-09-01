@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppRoutingModule } from '../app-routing.module';
 
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { TournosListComponent } from './tournos-list/tournos-list.component';
@@ -11,6 +12,7 @@ import { AddFromListComponent } from './add-player/add-from-list/add-from-list.c
 
 
 import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatTabsModule, MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatSlideToggleModule, MatCardModule, MatButtonToggleModule, MatMenuModule, MatDividerModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
 
   ],
   imports: [
+    AppRoutingModule,
     CommonModule,
     MatButtonModule,
     MatInputModule,

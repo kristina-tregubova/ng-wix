@@ -1,6 +1,6 @@
 <header class="main-header-no-min">
 
-    <a class="main-header__logo">
+    <a class="main-header__logo" [routerLink]="['/main']">
         <img src="/assets/images/avatars/flaming.svg" width="100" height="50" alt="Logo image">
         <img src="/assets/images/image2vector.svg" width="120" height="60" alt="Logo image">
     </a>
@@ -18,7 +18,7 @@
 
     <nav class="site-nav-min">
 
-        <button mat-fab aria-label="open menu" [matMenuTriggerFor]="menu">
+        <button mat-fab aria-label="open menu" [matMenuTriggerFor]="menu" class="menu-btn">
             <mat-icon>menu</mat-icon>
         </button>
 

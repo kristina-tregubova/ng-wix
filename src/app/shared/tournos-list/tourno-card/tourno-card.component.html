@@ -24,8 +24,10 @@
   </mat-card-content>
 
   <mat-card-actions class="grid-card__actions">
-    <a mat-stroked-button class="btn" href="../tourno-profile/tourno-profile.html">View
+
+    <a mat-stroked-button class="btn" [routerLink]="['/tourno-profile']">View
       Details</a>
+      
     <button mat-icon-button aria-label="Add to favorite">
       <mat-icon>favorite</mat-icon>
     </button>

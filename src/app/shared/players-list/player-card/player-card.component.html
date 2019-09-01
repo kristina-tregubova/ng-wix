@@ -1,4 +1,4 @@
-<div class="grid-card players-list__card mdc-card" role="row">
+<div class="grid-card players-list__card" role="row">
 
   <div class="players-info players-info__userpic" role="cell">
     <img src=".././assets/images/avatars/team4.jpeg" alt="userpic">
@@ -37,8 +37,10 @@
     </div>
   </div>
 
-  <div class="grid-card__actions mdc-card__actions">
-    <div class="mdc-card__action-icons">
+  <div class="grid-card__actions">
+
+    <div>
+      
       <button mat-icon-button aria-label="Add to favorite">
         <mat-icon>favorite</mat-icon>
       </button>
@@ -46,12 +48,13 @@
         <mat-icon color="primary">favorite</mat-icon>
       </button>
 
-      <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-        href="../player-profile/player-profile.html">
+      <a class="icon-toggle-button"
+        [routerLink]="['/player-profile']">
         <i class="material-icons">
           chevron_right
         </i>
       </a>
     </div>
+
   </div>
 </div>
