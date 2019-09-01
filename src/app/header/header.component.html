@@ -5,45 +5,35 @@
         <img src="/assets/images/image2vector.svg" width="120" height="60" alt="Logo image">
     </a>
 
-    <nav class="site-nav-no-min">
-        <ul>
-            <li><a class="mdc-button mdc-button--outlined btn"
-                    href="./app/tournos-search/tournos-search.html">Search tournaments</a>
-            </li>
-            <li><a class="mdc-button mdc-button--outlined btn"
-                    href="./app/players-search/players-search.html">Search players</a>
-            </li>
-            <li><a class="mdc-button mdc-button--unelevated highlighted-btn" href="./app/auth/auth.html">Sign in</a>
-            </li>
-        </ul>
+    <nav mat-tab-nav-bar class="site-nav-no-min">
+            <a mat-tab-link [routerLink]="['/tournos-search']"> Tournaments
+            </a>
+
+            <a mat-tab-link [routerLink]="['/players-search']"> Players
+            </a>
+
+            <a mat-tab-link [routerLink]="['/auth']"> Sign In
+            </a>
     </nav>
 
     <nav class="site-nav-min">
-        <button
-            class="menu-btn btn_round material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
-        <div class="menu-anchor mdc-menu-surface--anchor">
-            <div class="mdc-menu mdc-menu-surface">
-                <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-                    <li>
-                        <ul class="mdc-menu__selection-group">
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__text"><a
-                                        href="./app/tournos-search/tournos-search.html">All
-                                        Tournaments</a></span>
-                            </li>
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__text"><a
-                                        href="./app/players-search/players-search.html">All
-                                        Players</a></span>
-                            </li>
-                            <li class="mdc-list-divider" role="separator"></li>
-                            <li class="mdc-list-item" role="menuitem">
-                                <span class="mdc-list-item__text"><a href="./app/auth/auth.html">Sign in</a></span>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
+        <button mat-fab aria-label="open menu" [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <a mat-menu-item [routerLink]="['/tournos-search']">
+                All Tournaments</a>
+
+            <a mat-menu-item [routerLink]="['/players-search']">
+                All Players</a>
+
+            <mat-divider></mat-divider>
+
+            <a mat-menu-item [routerLink]="['/auth']">
+                Sign in</a>
+        </mat-menu>
+
     </nav>
 </header>

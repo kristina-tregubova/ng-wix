@@ -1,38 +1,36 @@
-<div class="grid-card tournos-list__card mdc-card">
-  <div class="mdc-card__media mdc-card__media--16-9"
-    style="background-image: url(&quot;.././assets/images/games-wp/rugby.jpg&quot;);">
-  </div>
-  <p class="grid-card__title">
+<mat-card class="grid-card tournos-list__card">
+
+  <img mat-card-image src="./assets/images/games-wp/rugby.jpg" alt="Game background picture">
+
+  <mat-card-title class="grid-card__title">
     Regionals 2019
-  </p>
-  <div class="grid-card__info">
+  </mat-card-title>
+
+  <mat-card-content class="grid-card__info">
     <ul>
       <li class="grid-card__info-game">
-        <i class="material-icons" title="Game">videogame_asset</i>
+          <mat-icon>videogame_asset</mat-icon>
         <span>Rugby</span>
       </li>
       <li class="grid-card__info-participants">
-        <i class="material-icons" title="No. of participants">group</i>
-        <span><span>12</span> participants</span>
+          <mat-icon>group</mat-icon>
+        <span>12 participants</span>
       </li>
       <li class="grid-card__info-end-date">
-        <i class="material-icons" title="End date of tournament">calendar_today</i>
+          <mat-icon>calendar_today</mat-icon>
         <span>12 September 2019</span>
       </li>
     </ul>
-  </div>
-  <div class="grid-card__actions mdc-card__actions">
-    <div class="mdc-card__action-buttons">
-      <a class="btn mdc-button mdc-button--outlined mdc-button mdc-card__action mdc-card__action--button"
-        href="../tourno-profile/tourno-profile.html">View
-        Details</a>
-    </div>
-    <div class="mdc-card__action-icons">
-      <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
-        <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+  </mat-card-content>
+
+  <mat-card-actions class="grid-card__actions">
+    <a mat-stroked-button class="btn" href="../tourno-profile/tourno-profile.html">View
+      Details</a>
+    <button mat-icon-button aria-label="Add to favorite">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Add to favorite" style="display: none;">
+        <mat-icon color="primary">favorite</mat-icon>
       </button>
-    </div>
-  </div>
-</div>
+  </mat-card-actions>
+</mat-card>

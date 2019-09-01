@@ -36,13 +36,14 @@
       <span>5</span>
     </div>
   </div>
-  
+
   <div class="grid-card__actions mdc-card__actions">
     <div class="mdc-card__action-icons">
-      <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"
-        aria-pressed="false" aria-label="Add to favourites" title="Add to favourites">
-        <i class="material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
-        <i class="material-icons mdc-icon-button__icon">favorite_border</i>
+      <button mat-icon-button aria-label="Add to favorite">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Add to favorite" style="display: none;">
+        <mat-icon color="primary">favorite</mat-icon>
       </button>
 
       <a class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded icon-toggle-button"

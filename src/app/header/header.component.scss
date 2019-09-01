@@ -39,32 +39,9 @@
   width: 60px;
 }
 
-.site-nav ul,
-.site-nav-no-min ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: 1;
-}
 
-.site-nav-no-min ul {
-  padding-top: 2%;
-}
-
-.site-nav li,
-.site-nav-no-min li {
-  margin-left: 20px;
-  border-bottom: none;
-}
-
-.main-header .mdc-tab-bar,
-.main-header-no-min .mdc-tab-bar,
-.main-header .mdc-tab-scroller,
-.main-header-no-min .mdc-tab-scroller,
-.main-header .mdc-tab-scroller__scroll-area,
-.main-header-no-min .mdc-tab-scroller__scroll-area,
-.main-header .mdc-tab-bar a,
-.main-header-no-min .mdc-tab-bar a {
+.site-nav a,
+.site-nav-no-min a {
   height: 100%;
 }
 

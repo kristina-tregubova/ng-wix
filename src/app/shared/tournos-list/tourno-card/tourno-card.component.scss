@@ -16,7 +16,7 @@
 .grid-card__title,
 .grid-card__info,
 .grid-card__actions {
-  padding: 0 3%;
+  padding: 0 5%;
 }
 
 .grid-card__title {
@@ -38,12 +38,22 @@
   margin: 0;
 }
 
-.grid-card__info i {
-  font-size: 16px;
-  color: #24292f;
-  padding-right: 2%;
+.grid-card__info li {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2%;
+}
+
+.grid-card__info span {
+  padding-left: 4%;
 }
 
 .grid-card__actions {
-  margin-bottom: 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5% 0 3%;
 }
+
+

@@ -255,7 +255,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 //buttons
 .btn {
-  padding: 0 50px;
+  padding: 0 10%;
   text-transform: uppercase;
   color: $wix-color;
 }
@@ -280,20 +280,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 //tabs
-.mat-tab-header {
-  margin-bottom: 50px;
-}
+// .mat-tab-header {
+//   margin-bottom: 50px;
+// }
 
-.mat-tab-label-content {
+.mat-tab-label-content,
+.mat-tab-link {
   font-weight: 700;
   text-transform: uppercase;
   color: $wix-color;
 }
 
+.mat-tab-link {
+  height: 100%;
+}
+
+.mat-tab-header {
+  align-items: center;
+}
+
 
 //form fields
-.mat-form-field input {
-  vertical-align: middle;
+.mat-form-field { 
+  &.input {
+    vertical-align: middle;
+  }
+
+  .mat-form-field-underline {
+    width: 99.9%;
+  }
+
+  .mat-datepicker-toggle-default-icon {
+    width: unset !important;
+  }
 }
 
 .mat-form-field-disabled .mat-form-field-flex {
@@ -309,7 +328,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: none;
 }
 
-.search-form {
+.search-field {
+
+  .mat-form-field {
+    width: 100%;
+  }
   
   .mat-form-field-underline {
     height: 0;
@@ -332,13 +355,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
+
 .mat-checkbox {
+
+  margin-right: 15px;
+
   .mat-checkbox-inner-container {
     width: 22px;
     height: 22px;
+    background-color: $wix-light-foreground;
   }
   .mat-checkbox-frame {
-    border-width: 3px;
+    border-radius: 3px;
   }
 }
 
@@ -346,6 +374,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-right: 5%;
 }
 
+
+//card
+.mat-card>.mat-card-actions:last-child {
+  margin-bottom: unset;
+}
 
 
 .chart {
