@@ -11,7 +11,7 @@ import { AddNewComponent } from './add-player/add-new/add-new.component';
 import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
 
 
-import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatTabsModule, MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatSlideToggleModule, MatCardModule, MatButtonToggleModule, MatMenuModule, MatDividerModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatTabsModule, MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatSlideToggleModule, MatCardModule, MatButtonToggleModule, MatMenuModule, MatDividerModule, MatTableModule } from '@angular/material';
 
 
 
@@ -44,6 +44,7 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
     MatButtonToggleModule,
     MatMenuModule,
     MatDividerModule,
+    MatTableModule
 
   ],
   exports: [
@@ -63,6 +64,7 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
     MatButtonToggleModule,
     MatMenuModule,
     MatDividerModule,
+    MatTableModule,
 
     AddPlayerComponent,
     AddNewComponent,

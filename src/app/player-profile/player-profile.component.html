@@ -73,53 +73,41 @@
             <h2 class="title">
                 Team members
             </h2>
-            <div class="team-chart chart mdc-data-table">
-                <table class="mdc-data-table__table" aria-label="Participants chart">
-                    <thead>
-                        <tr class="mdc-data-table__header-row">
-                            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">No.</th>
-                            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Name</th>
-                            <th class="mdc-data-table__header-cell" role="columnheader" scope="col">Role</th>
-                        </tr>
-                    </thead>
-                    <tbody class="mdc-data-table__content">
-                        <tr class="mdc-data-table__row">
-                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">1.</td>
-                            <td class="mdc-data-table__cell ">Bob</td>
-                            <td class="mdc-data-table__cell ">Point guard</td>
-                        </tr>
-                        <tr class="mdc-data-table__row">
-                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">2.</td>
-                            <td class="mdc-data-table__cell ">Denis</td>
-                            <td class="mdc-data-table__cell ">Shooting guard</td>
-                        </tr>
-                        <tr class="mdc-data-table__row">
-                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">3.</td>
-                            <td class="mdc-data-table__cell ">Steve</td>
-                            <td class="mdc-data-table__cell ">Small forward</td>
-                        </tr>
-                        <tr class="mdc-data-table__row">
-                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">4.</td>
-                            <td class="mdc-data-table__cell ">Keith</td>
-                            <td class="mdc-data-table__cell ">Power forward</td>
-                        </tr>
-                        <tr class="mdc-data-table__row">
-                            <td class="mdc-data-table__cell mdc-data-table__cell--numeric">5.</td>
-                            <td class="mdc-data-table__cell ">Li</td>
-                            <td class="mdc-data-table__cell ">Center</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+            <table mat-table [dataSource]="dataSource" class="chart team-chart mat-elevation-z8">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="role">
+                    <th mat-header-cell *matHeaderCellDef> Role </th>
+                    <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+                </ng-container>
+
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
         </section>
         <section class="player-profile__games-attended">
+
             <h2 class="title">
                 Tournaments attended
             </h2>
-            <div class="tournos-list">
-                <app-tourno-card></app-tourno-card>
-                <app-tourno-card></app-tourno-card>
-            </div>
+
+            <app-tournos-list></app-tournos-list>
+
         </section>
     </div>
 </div>
