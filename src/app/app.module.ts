@@ -6,9 +6,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingComponent } from './landing/landing.component';
@@ -20,7 +23,7 @@ import { TournoSearchComponent } from './tournos-search/tournos-search.component
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,7 +14,7 @@
                         <a href="google.com" class="social-button google-connect"> <span>Login with Google</span></a>
                     </div>
 
-                    <form class="login-form__login">
+                    <form class="login-form__login" [formGroup]="loginForm">
 
                         <mat-form-field class="form-input">
                             <input matInput placeholder="E-mail or username">
@@ -22,17 +22,17 @@
                         </mat-form-field>
 
                         <mat-form-field class="form-input" style="display: none;">
-                            <input matInput placeholder="E-mail or username">
+                            <input matInput placeholder="E-mail or username" formControlName="username\email">
                             <mat-icon matSuffix>person</mat-icon>
                         </mat-form-field>
 
                         <mat-form-field class="form-input" style="display: none;">
-                            <input matInput placeholder="Password">
+                            <input matInput placeholder="Password" formControlName="password">
                             <mat-icon matSuffix>vpn_key</mat-icon>
                         </mat-form-field>
 
                         <mat-form-field class="form-input">
-                            <input matInput placeholder="Password">
+                            <input matInput placeholder="Password" formControlName="password">
                             <mat-icon matSuffix>vpn_key</mat-icon>
                         </mat-form-field>
 
@@ -53,10 +53,10 @@
                         <a href="#" class="social-button google-connect"> <span>Sign up with Google</span></a>
                     </div>
 
-                    <form class="login-form__signup">
+                    <form class="login-form__signup" [formGroup]="signupForm">
 
                         <mat-form-field class="form-input">
-                            <input matInput placeholder="Choose your username" [formControl]="usernameFormControl"
+                            <input matInput placeholder="Choose your username" formControlName="username" [formControl]="usernameFormControl"
                                 required>
                             <mat-icon matSuffix>person</mat-icon>
                             <mat-error *ngIf="!usernameFormControl?.hasError('required')">
@@ -70,7 +70,7 @@
                         </mat-form-field>
 
                         <mat-form-field class="form-input">
-                            <input matInput placeholder="Insert your e-mail address" [formControl]="emailFormControl"
+                            <input matInput placeholder="Insert your e-mail address" formControlName="email" [formControl]="emailFormControl"
                                 required>
                             <mat-icon matSuffix>email</mat-icon>
                             <mat-error *ngIf="!emailFormControl?.hasError('required')">
@@ -79,7 +79,7 @@
                         </mat-form-field>
 
                         <mat-form-field>
-                            <mat-select placeholder="Country">
+                            <mat-select placeholder="Country" formControlName="country">
                                 <mat-option value="rus">
                                     Russia
                                 </mat-option>
@@ -98,7 +98,7 @@
                         </mat-form-field>
 
                         <mat-form-field class="form-input">
-                            <input matInput placeholder="Password" [formControl]="passwordFormControl" required>
+                            <input matInput placeholder="Password" formControlName="password" [formControl]="passwordFormControl" required>
                             <mat-icon matSuffix>vpn_key</mat-icon>
                             <mat-error *ngIf="!passwordFormControl?.hasError('required')">
                                 Password is required. Password should contain ar least <strong>6 chars</strong>
@@ -106,7 +106,7 @@
                         </mat-form-field>
 
                         <mat-form-field class="form-input">
-                            <input matInput placeholder="Password again" [formControl]="passwordFormControl" required>
+                            <input matInput placeholder="Password again" formControlName="password" [formControl]="passwordFormControl" required>
                             <mat-icon matSuffix>vpn_key</mat-icon>
                             <mat-error *ngIf="!passwordFormControl?.hasError('required')">
                                 Repeat your password
