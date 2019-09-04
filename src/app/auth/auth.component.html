@@ -48,9 +48,9 @@
           </h4>
 
           <div class="login-form__social-buttons">
-            <a href="#" class="social-button facebook-connect"> <span>Sign up with
-                Facebook</span></a>
-            <a href="#" class="social-button google-connect"> <span>Sign up with Google</span></a>
+            <button  class="social-button facebook-connect" (click)="tryFacebookLogin()"> <span>Sign up with
+                Facebook</span></button>
+            <button  class="social-button google-connect" (click)="tryGoogleLogin()"> <span>Sign up with Google</span></button>
           </div>
 
           <form class="login-form__signup" [formGroup]="signupForm">

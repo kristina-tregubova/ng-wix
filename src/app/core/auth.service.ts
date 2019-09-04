@@ -15,7 +15,7 @@ import { IUser } from './IUser';
 })
 export class AuthService {
 
-  user: Observable<IUser>;
+  user$: Observable<IUser>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -24,7 +24,7 @@ export class AuthService {
   ) {
 
     //// Get auth data, then get firestore user document || null
-    this.user = this.afAuth.authState.pipe(
+    this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
           return this.afs.doc<IUser>(`users/${user.uid}`).valueChanges();
@@ -41,19 +41,16 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
-  private oAuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-      .then((credential) => {
-        this.updateUserData(credential.user);
-      });
+  private async oAuthLogin(provider) {
+    const credential = await this.afAuth.auth.signInWithPopup(provider)
+    return await this.updateUserData(credential.user);
   }
 
-  facebookLogin() {
-    const provider = new firebase.auth.FacebookAuthProvider();
-    this.afAuth.auth.signInWithPopup(provider)
-      .then((credential) => {
-        this.updateUserData(credential.user);
-      });
+  async facebookLogin() {
+    const provider = await new firebase.auth.FacebookAuthProvider();
+    const credential = await this.afAuth.auth.signInWithPopup(provider)
+    return this.updateUserData(credential.user);
+
   }
 
 
@@ -64,13 +61,11 @@ export class AuthService {
 
     const data: IUser = {
       uid: user.uid,
-      username: user.username,
       email: user.email,
-      password: user.password,
-      country: user.country,
-      createdTournaments: user.createdTournaments,
-      createdPlayers: user.createdPlayers,
-      joinDate: user.joinDate
+      // createdTournaments: user.createdTournaments,
+      // createdPlayers: user.createdPlayers
+      createdTournaments: null,
+      createdPlayers: null,
     };
 
     return userRef.set(data, { merge: true });
@@ -78,27 +73,33 @@ export class AuthService {
   }
 
   signup(value) {
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-        .then(res => {
-          resolve(res);
-        }, err => reject(err));
-    });
+    firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+      .then((credential) => {
+        console.log(credential, 'user created!')
+        this.updateUserData(credential.user);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
   }
 
   login(value) {
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-      .then(res => {
-        resolve(res);
-      }, err => reject(err));
-    });
+    firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+    .then((credential) => {
+      console.log(credential, 'user logged in!')
+      this.updateUserData(credential.user);
+    })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
 
   signOut() {
-    this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/']);
-    });
+    this.afAuth.auth.signOut()
+      .then(() => {
+        this.router.navigate(['/']);
+      });
   }
 }
