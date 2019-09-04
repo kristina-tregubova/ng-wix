@@ -1,125 +1,123 @@
 <div class="regular-wrapper">
-    <div class="container-center">
-        <section class="login-form">
-            <mat-tab-group mat-stretch-tabs>
-                
-                <mat-tab label="Log in" class="tab login-form__tab log-in-tab">
-                    <h4 class="title">
-                        Already have an account? Please, log in
-                    </h4>
+  <div class="container-center">
+    <section class="login-form">
+      <mat-tab-group mat-stretch-tabs>
 
-                    <div class="login-form__social-buttons">
-                        <a href="facebook.com" class="social-button facebook-connect"> <span>Login with
-                                Facebook</span></a>
-                        <a href="google.com" class="social-button google-connect"> <span>Login with Google</span></a>
-                    </div>
+        <mat-tab label="Log in" class="tab login-form__tab log-in-tab">
+          <h4 class="title">
+            Already have an account? Please, log in
+          </h4>
 
-                    <form class="login-form__login" [formGroup]="loginForm">
+          <div class="login-form__social-buttons">
+            <a href="facebook.com" class="social-button facebook-connect"> <span>Login with
+                Facebook</span></a>
+            <a href="google.com" class="social-button google-connect"> <span>Login with Google</span></a>
+          </div>
 
-                        <mat-form-field class="form-input">
-                            <input matInput placeholder="E-mail or username">
-                            <mat-icon matSuffix>person</mat-icon>
-                        </mat-form-field>
+          <form class="login-form__login">
 
-                        <mat-form-field class="form-input" style="display: none;">
-                            <input matInput placeholder="E-mail or username" formControlName="username\email">
-                            <mat-icon matSuffix>person</mat-icon>
-                        </mat-form-field>
+            <mat-form-field class="form-input">
+              <input matInput placeholder="E-mail or username">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
 
-                        <mat-form-field class="form-input" style="display: none;">
-                            <input matInput placeholder="Password" formControlName="password">
-                            <mat-icon matSuffix>vpn_key</mat-icon>
-                        </mat-form-field>
+            <mat-form-field class="form-input" style="display: none;">
+              <input matInput placeholder="E-mail or username">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
 
-                        <mat-form-field class="form-input">
-                            <input matInput placeholder="Password" formControlName="password">
-                            <mat-icon matSuffix>vpn_key</mat-icon>
-                        </mat-form-field>
+            <mat-form-field class="form-input" style="display: none;">
+              <input matInput placeholder="Password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
 
-                        <button mat-raised-button type="submit" name="submit"
-                            class="login-form__btn btn highlighted-btn">Log in</button>
+            <mat-form-field class="form-input">
+              <input matInput placeholder="Password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
 
-                    </form>
-                </mat-tab>
+            <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn">Log
+              in</button>
 
-                <mat-tab label="Sign up" class="tab login-form__tab sign-up-tab">
-                    <h4 class="title">
-                        Want to join us? Let's sign up!
-                    </h4>
+          </form>
+        </mat-tab>
 
-                    <div class="login-form__social-buttons">
-                        <a href="#" class="social-button facebook-connect"> <span>Sign up with
-                                Facebook</span></a>
-                        <a href="#" class="social-button google-connect"> <span>Sign up with Google</span></a>
-                    </div>
+        <mat-tab label="Sign up" class="tab login-form__tab sign-up-tab">
+          <h4 class="title">
+            Want to join us? Let's sign up!
+          </h4>
 
-                    <form class="login-form__signup" [formGroup]="signupForm">
+          <div class="login-form__social-buttons">
+            <a href="#" class="social-button facebook-connect"> <span>Sign up with
+                Facebook</span></a>
+            <a href="#" class="social-button google-connect"> <span>Sign up with Google</span></a>
+          </div>
 
-                        <mat-form-field class="form-input">
-                            <input matInput placeholder="Choose your username" formControlName="username" [formControl]="usernameFormControl"
-                                required>
-                            <mat-icon matSuffix>person</mat-icon>
-                            <mat-error *ngIf="!usernameFormControl?.hasError('required')">
-                                Username is required. Username should contain ar least <strong>6 chars</strong>
-                            </mat-error>
-                        </mat-form-field>
+          <form class="login-form__signup" [formGroup]="signupForm">
 
-                        <mat-form-field class="form-input" style="display: none;">
-                            <input matInput placeholder="Choose your username">
-                            <mat-icon matSuffix>person</mat-icon>
-                        </mat-form-field>
+            <mat-form-field class="form-input">
+              <input matInput placeholder="Choose your username" formControlName="username" required>
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-error *ngIf="!usernameFormControl?.hasError('required')">
+                Username is required. Username should contain ar least <strong>6 chars</strong>
+              </mat-error>
+            </mat-form-field>
 
-                        <mat-form-field class="form-input">
-                            <input matInput placeholder="Insert your e-mail address" formControlName="email" [formControl]="emailFormControl"
-                                required>
-                            <mat-icon matSuffix>email</mat-icon>
-                            <mat-error *ngIf="!emailFormControl?.hasError('required')">
-                                E-mail is required. Please enter a valid email address
-                            </mat-error>
-                        </mat-form-field>
+            <mat-form-field class="form-input" style="display: none;">
+              <input matInput placeholder="Choose your username">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
 
-                        <mat-form-field>
-                            <mat-select placeholder="Country" formControlName="country">
-                                <mat-option value="rus">
-                                    Russia
-                                </mat-option>
-                                <mat-option value="ua">
-                                    USA
-                                </mat-option>
-                                <mat-option value="de">
-                                    Germany
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+            <mat-form-field class="form-input">
+              <input matInput placeholder="Insert your e-mail address" formControlName="email" required>
+              <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="!emailFormControl?.hasError('required')">
+                E-mail is required. Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
 
-                        <mat-form-field class="form-input" style="display: none;">
-                            <input matInput placeholder="Password">
-                            <mat-icon matSuffix>vpn_key</mat-icon>
-                        </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Country" formControlName="country">
+                <mat-option value="rus">
+                  Russia
+                </mat-option>
+                <mat-option value="ua">
+                  USA
+                </mat-option>
+                <mat-option value="de">
+                  Germany
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
-                        <mat-form-field class="form-input">
-                            <input matInput placeholder="Password" formControlName="password" [formControl]="passwordFormControl" required>
-                            <mat-icon matSuffix>vpn_key</mat-icon>
-                            <mat-error *ngIf="!passwordFormControl?.hasError('required')">
-                                Password is required. Password should contain ar least <strong>6 chars</strong>
-                            </mat-error>
-                        </mat-form-field>
+            <mat-form-field class="form-input" style="display: none;">
+              <input matInput placeholder="Password">
+              <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
 
-                        <mat-form-field class="form-input">
-                            <input matInput placeholder="Password again" formControlName="password" [formControl]="passwordFormControl" required>
-                            <mat-icon matSuffix>vpn_key</mat-icon>
-                            <mat-error *ngIf="!passwordFormControl?.hasError('required')">
-                                Repeat your password
-                            </mat-error>
-                        </mat-form-field>
+            <mat-form-field class="form-input">
+              <input matInput placeholder="Password" formControlName="password" required>
+              <mat-icon matSuffix>vpn_key</mat-icon>
+              <mat-error *ngIf="!passwordFormControl?.hasError('required')">
+                Password is required. Password should contain ar least <strong>6 chars</strong>
+              </mat-error>
+            </mat-form-field>
 
-                        <button mat-raised-button type="submit" name="submit"
-                            class="login-form__btn btn highlighted-btn">Sign up</button>
+            <mat-form-field class="form-input">
+              <input matInput placeholder="Password again" formControlName="password" required>
+              <mat-icon matSuffix>vpn_key</mat-icon>
+              <mat-error *ngIf="!passwordFormControl?.hasError('required')">
+                Repeat your password
+              </mat-error>
+            </mat-form-field>
 
-                    </form>
-                </mat-tab>
+            <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn" (click)="trySignup(signupForm.value)">Sign
+              up</button>
 
-            </mat-tab-group>
-        </section>
-    </div>
+          </form>
+        </mat-tab>
+
+      </mat-tab-group>
+    </section>
+  </div>
 </div>
