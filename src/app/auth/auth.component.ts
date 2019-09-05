@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { Router, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessPopupComponent } from './success-popup/success-popup.component';
+// import { ErrorAreaComponent } from '../shared/error-area/error-area.component';
 
 @Component({
   selector: 'app-auth',
@@ -37,23 +38,38 @@ export class AuthComponent {
   async trySignup(value) {
     const result = await this.authService.signup(value);
     if (result) {
-      this.openDialog();
+      this.openSuccessDialog();
+    } else {
+      this.sendSigninErrorMessage();
     }
   }
 
   async tryFacebookLogin() {
     const result = await this.authService.facebookLogin();
+    if (!result) {
+      this.sendSigninErrorMessage();
+    }
   }
 
   async tryGoogleLogin() {
     const result = await this.authService.googleLogin();
+    if (!result) {
+      this.sendSigninErrorMessage();
+    }
   }
 
   async tryLogin(value) {
     const result = await this.authService.login(value);
+    if (!result) {
+      this.sendSigninErrorMessage();
+    }
   }
 
-  openDialog() {
+  openSuccessDialog() {
     this.dialog.open(SuccessPopupComponent, { width: '450px' });
+  }
+
+  sendSigninErrorMessage() {
+    this.authService.showErrorMessage('You are already signed in. Firstly, log out and try again.');
   }
 }

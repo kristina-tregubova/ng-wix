@@ -42,6 +42,8 @@
               <mat-icon matSuffix>vpn_key</mat-icon>
             </mat-form-field>
 
+            <app-error-area></app-error-area>
+
             <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn"
               (click)="tryLogin(loginForm.value)">
               Login
@@ -115,6 +117,8 @@
                 Repeat your password
               </mat-error>
             </mat-form-field>
+
+            <app-error-area></app-error-area>
 
             <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn"
               (click)="trySignup(signupForm.value)">

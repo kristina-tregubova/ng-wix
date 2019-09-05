@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { IUser } from './IUser';
@@ -42,23 +42,27 @@ export class AuthService {
   }
 
   private async oAuthLogin(provider): Promise<boolean> {
-    const credential = await this.afAuth.auth.signInWithPopup(provider);
-    await this.updateUserData(credential.user);
-    if (credential) {
-      this.updateUserData(credential.user);
-      this.router.navigate(['/tournos-search']);
-      return true;
+    if (this.user$ === null) {
+      const credential = await this.afAuth.auth.signInWithPopup(provider);
+      await this.updateUserData(credential.user);
+      if (credential) {
+        this.updateUserData(credential.user);
+        this.router.navigate(['/tournos-search']);
+        return true;
+      }
     }
     return false;
   }
 
   async facebookLogin(): Promise<boolean> {
-    const provider = await new firebase.auth.FacebookAuthProvider();
-    const credential = await this.afAuth.auth.signInWithPopup(provider);
-    if (credential) {
-      this.updateUserData(credential.user);
-      this.router.navigate(['/tournos-search']);
-      return true;
+    if (this.user$ === null) {
+      const provider = await new firebase.auth.FacebookAuthProvider();
+      const credential = await this.afAuth.auth.signInWithPopup(provider);
+      if (credential) {
+        this.updateUserData(credential.user);
+        this.router.navigate(['/tournos-search']);
+        return true;
+      }
     }
     return false;
   }
@@ -83,28 +87,35 @@ export class AuthService {
   }
 
   signup(value): boolean {
-    firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-      .then((credential) => {
-        this.updateUserData(credential.user);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    return true;
+    if (this.user$ === null) {
+      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+        .then((credential) => {
+          this.updateUserData(credential.user);
+        })
+        .catch((err) => {
+          console.log(err);
+          this.showErrorMessage(err);
+        });
+      return true;
+    }
+    return false;
   }
 
   login(value): boolean {
-    firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-      .then((credential) => {
-        this.updateUserData(credential.user);
-        this.router.navigate(['/tournos-search']);
+    if (this.user$ === null) {
+      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+        .then((credential) => {
+          this.updateUserData(credential.user);
+          this.router.navigate(['/tournos-search']);
 
-      })
-      .catch((err) => {
-        console.log(err);
-
-      });
-    return true;
+        })
+        .catch((err) => {
+          console.log(err);
+          this.showErrorMessage(err);
+        });
+      return true;
+    }
+    return false;
   }
 
 
@@ -113,5 +124,9 @@ export class AuthService {
       .then(() => {
         this.router.navigate(['/']);
       });
+  }
+
+  showErrorMessage(message?: string) {
+    
   }
 }

@@ -9,7 +9,7 @@ import { TournoCardComponent } from './tournos-list/tourno-card/tourno-card.comp
 import { PlayerCardComponent } from './players-list/player-card/player-card.component';
 import { AddNewComponent } from './add-player/add-new/add-new.component';
 import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
-
+import { ErrorAreaComponent } from './error-area/error-area.component';
 
 import {
   MatButtonModule,
@@ -43,6 +43,7 @@ import {
     TournosListComponent,
     TournoCardComponent,
     PlayerCardComponent,
+    ErrorAreaComponent,
 
   ],
   imports: [
@@ -64,11 +65,11 @@ import {
     MatMenuModule,
     MatDividerModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
 
   ],
   exports: [
-    CommonModule, 
+    CommonModule,
     MatButtonModule,
     MatInputModule,
     MatIconModule,
@@ -94,6 +95,7 @@ import {
     PlayersListComponent,
     TournoCardComponent,
     PlayerCardComponent,
+    ErrorAreaComponent,
 
   ]
 })
