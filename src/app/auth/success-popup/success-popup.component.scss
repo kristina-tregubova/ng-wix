@@ -1,0 +1,16 @@
+@import 'src/styles.scss';
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+}
+
+.mat-dialog-content {
+    padding: 15px 24px;
+    button {
+        padding: 0 10%;
+    }
+}

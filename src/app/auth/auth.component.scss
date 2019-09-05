@@ -126,8 +126,9 @@
     width: 100%;
   }
 
-  .main .container-center {
+  .container-center {
     width: 75vw;
+    max-width: 75vw;
   }
 }
 
@@ -141,5 +142,6 @@
 
   .container-center {
     width: 90vw;
+    max-width: 90vw;
   }
 }

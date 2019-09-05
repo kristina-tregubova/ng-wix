@@ -23,6 +23,8 @@ import { TournoSearchComponent } from './tournos-search/tournos-search.component
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
+import { SuccessPopupComponent } from './auth/success-popup/success-popup.component';
+
 
 
 
@@ -40,6 +42,8 @@ import { TournoProfileComponent } from './tourno-profile/tourno-profile.componen
     PlayersSearchComponent,
     PlayerProfileComponent,
     TournoProfileComponent,
+    SuccessPopupComponent
+
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,9 @@ import { TournoProfileComponent } from './tourno-profile/tourno-profile.componen
     CoreModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    SuccessPopupComponent,
+  ]
 })
 export class AppModule { }

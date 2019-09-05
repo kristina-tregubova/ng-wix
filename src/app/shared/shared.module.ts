@@ -11,7 +11,26 @@ import { AddNewComponent } from './add-player/add-new/add-new.component';
 import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
 
 
-import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatTabsModule, MatCheckboxModule, MatRadioModule, MatDatepickerModule, MatNativeDateModule, MatSlideToggleModule, MatCardModule, MatButtonToggleModule, MatMenuModule, MatDividerModule, MatTableModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatInputModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatTabsModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSlideToggleModule,
+  MatCardModule,
+  MatButtonToggleModule,
+  MatMenuModule,
+  MatDividerModule,
+  MatTableModule,
+  MatDialogModule,
+
+} from '@angular/material';
 
 
 
@@ -44,7 +63,8 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
     MatButtonToggleModule,
     MatMenuModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
 
   ],
   exports: [
@@ -65,6 +85,7 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
     MatMenuModule,
     MatDividerModule,
     MatTableModule,
+    MatDialogModule,
 
     AddPlayerComponent,
     AddNewComponent,
@@ -74,7 +95,6 @@ import { MatButtonModule, MatInputModule, MatIconModule, MatFormFieldModule, Mat
     TournoCardComponent,
     PlayerCardComponent,
 
-    
   ]
 })
 export class SharedModule { }

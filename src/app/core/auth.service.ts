@@ -41,23 +41,26 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
-  private async oAuthLogin(provider) {
+  private async oAuthLogin(provider): Promise<boolean> {
     const credential = await this.afAuth.auth.signInWithPopup(provider);
     await this.updateUserData(credential.user);
     if (credential) {
       this.updateUserData(credential.user);
       this.router.navigate(['/tournos-search']);
+      return true;
     }
+    return false;
   }
 
-  async facebookLogin() {
+  async facebookLogin(): Promise<boolean> {
     const provider = await new firebase.auth.FacebookAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
     if (credential) {
       this.updateUserData(credential.user);
       this.router.navigate(['/tournos-search']);
+      return true;
     }
-
+    return false;
   }
 
 
@@ -79,29 +82,29 @@ export class AuthService {
 
   }
 
-  signup(value) {
+  signup(value): boolean {
     firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
       .then((credential) => {
-        console.log(credential, 'user created!');
         this.updateUserData(credential.user);
-        this.router.navigate(['/tournos-search']);
       })
       .catch((err) => {
         console.log(err);
       });
-
+    return true;
   }
 
-  login(value) {
+  login(value): boolean {
     firebase.auth().signInWithEmailAndPassword(value.email, value.password)
       .then((credential) => {
-        console.log(credential, 'user logged in!');
         this.updateUserData(credential.user);
         this.router.navigate(['/tournos-search']);
+
       })
       .catch((err) => {
         console.log(err);
+
       });
+    return true;
   }
 
 
