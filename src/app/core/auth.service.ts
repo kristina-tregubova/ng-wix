@@ -42,14 +42,21 @@ export class AuthService {
   }
 
   private async oAuthLogin(provider) {
-    const credential = await this.afAuth.auth.signInWithPopup(provider)
-    return await this.updateUserData(credential.user);
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    await this.updateUserData(credential.user);
+    if (credential) {
+      this.updateUserData(credential.user);
+      this.router.navigate(['/tournos-search']);
+    }
   }
 
   async facebookLogin() {
     const provider = await new firebase.auth.FacebookAuthProvider();
-    const credential = await this.afAuth.auth.signInWithPopup(provider)
-    return this.updateUserData(credential.user);
+    const credential = await this.afAuth.auth.signInWithPopup(provider);
+    if (credential) {
+      this.updateUserData(credential.user);
+      this.router.navigate(['/tournos-search']);
+    }
 
   }
 
@@ -75,28 +82,30 @@ export class AuthService {
   signup(value) {
     firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
       .then((credential) => {
-        console.log(credential, 'user created!')
+        console.log(credential, 'user created!');
         this.updateUserData(credential.user);
+        this.router.navigate(['/tournos-search']);
       })
       .catch((err) => {
         console.log(err);
-      })
+      });
 
   }
 
   login(value) {
     firebase.auth().signInWithEmailAndPassword(value.email, value.password)
-    .then((credential) => {
-      console.log(credential, 'user logged in!')
-      this.updateUserData(credential.user);
-    })
+      .then((credential) => {
+        console.log(credential, 'user logged in!');
+        this.updateUserData(credential.user);
+        this.router.navigate(['/tournos-search']);
+      })
       .catch((err) => {
         console.log(err);
-      })
+      });
   }
 
 
-  signOut() {
+  logout() {
     this.afAuth.auth.signOut()
       .then(() => {
         this.router.navigate(['/']);

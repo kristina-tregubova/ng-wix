@@ -1,39 +1,44 @@
 <header class="main-header-no-min">
 
-    <a class="main-header__logo" [routerLink]="['/main']">
-        <img src="/assets/images/avatars/flaming.svg" width="100" height="50" alt="Logo image">
-        <img src="/assets/images/image2vector.svg" width="120" height="60" alt="Logo image">
+  <a class="main-header__logo" [routerLink]="['/main']">
+    <img src="/assets/images/avatars/flaming.svg" width="100" height="50" alt="Logo image">
+    <img src="/assets/images/image2vector.svg" width="120" height="60" alt="Logo image">
+  </a>
+
+  <nav mat-tab-nav-bar class="site-nav-no-min">
+    <a mat-tab-link [routerLink]="['/tournos-search']"> Tournaments
     </a>
 
-    <nav mat-tab-nav-bar class="site-nav-no-min">
-            <a mat-tab-link [routerLink]="['/tournos-search']"> Tournaments
-            </a>
+    <a mat-tab-link [routerLink]="['/players-search']"> Players
+    </a>
 
-            <a mat-tab-link [routerLink]="['/players-search']"> Players
-            </a>
+    <a mat-tab-link [routerLink]="['/auth']"> Sign In
+    </a>
+  </nav>
 
-            <a mat-tab-link [routerLink]="['/auth']"> Sign In
-            </a>
-    </nav>
+  <nav class="site-nav-min">
 
-    <nav class="site-nav-min">
+    <button mat-fab aria-label="open menu" [matMenuTriggerFor]="menu" class="menu-btn">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-        <button mat-fab aria-label="open menu" [matMenuTriggerFor]="menu" class="menu-btn">
-            <mat-icon>menu</mat-icon>
-        </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item [routerLink]="['/tournos-search']">
+        All Tournaments</a>
 
-        <mat-menu #menu="matMenu">
-            <a mat-menu-item [routerLink]="['/tournos-search']">
-                All Tournaments</a>
+      <a mat-menu-item [routerLink]="['/players-search']">
+        All Players</a>
 
-            <a mat-menu-item [routerLink]="['/players-search']">
-                All Players</a>
+      <mat-divider></mat-divider>
 
-            <mat-divider></mat-divider>
+      <a mat-menu-item [routerLink]="['/auth']">
+        Sign in</a>
 
-            <a mat-menu-item [routerLink]="['/auth']">
-                Sign in</a>
-        </mat-menu>
+      <mat-divider></mat-divider>
 
-    </nav>
+      <button mat-menu-item (click)=tryLogout()>
+        Log out</button>
+    </mat-menu>
+
+  </nav>
 </header>

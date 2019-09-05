@@ -3,73 +3,77 @@
     <section class="login-form">
       <mat-tab-group mat-stretch-tabs>
 
+
+        <!-- LOG IN -->
         <mat-tab label="Log in" class="tab login-form__tab log-in-tab">
           <h4 class="title">
             Already have an account? Please, log in
           </h4>
 
           <div class="login-form__social-buttons">
-            <a href="facebook.com" class="social-button facebook-connect"> <span>Login with
-                Facebook</span></a>
-            <a href="google.com" class="social-button google-connect"> <span>Login with Google</span></a>
+            <button class="social-button facebook-connect" (click)="tryFacebookLogin()"> <span>Login with
+                Facebook</span></button>
+            <button class="social-button google-connect" (click)="tryGoogleLogin()"> <span>Login with
+                Google</span></button>
           </div>
 
-          <form class="login-form__login">
+          <form class="login-form__login" [formGroup]="loginForm">
 
-            <mat-form-field class="form-input">
-              <input matInput placeholder="E-mail or username">
+
+            <!-- //field to avoid autocomplete -->
+            <mat-form-field class="form-input" style="display: none;">
+              <input matInput type='email' placeholder="Email">
               <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
-
+            
+            <!-- //field to avoid autocomplete -->
             <mat-form-field class="form-input" style="display: none;">
-              <input matInput placeholder="E-mail or username">
-              <mat-icon matSuffix>person</mat-icon>
-            </mat-form-field>
-
-            <mat-form-field class="form-input" style="display: none;">
-              <input matInput placeholder="Password">
+              <input matInput  type="password" placeholder="Password">
               <mat-icon matSuffix>vpn_key</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="form-input">
-              <input matInput placeholder="Password">
+              <input matInput type='email' placeholder="E-mail" formControlName="email">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field class="form-input">
+              <input matInput type="password" placeholder="Password" formControlName="password">
               <mat-icon matSuffix>vpn_key</mat-icon>
             </mat-form-field>
 
-            <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn">Log
-              in</button>
+            <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn"
+              (click)="tryLogin(loginForm.value)">
+              Login
+            </button>
 
           </form>
         </mat-tab>
 
+
+        <!-- SIGN UP -->
         <mat-tab label="Sign up" class="tab login-form__tab sign-up-tab">
           <h4 class="title">
             Want to join us? Let's sign up!
           </h4>
 
           <div class="login-form__social-buttons">
-            <button  class="social-button facebook-connect" (click)="tryFacebookLogin()"> <span>Sign up with
+            <button class="social-button facebook-connect" (click)="tryFacebookLogin()"> <span>Sign up with
                 Facebook</span></button>
-            <button  class="social-button google-connect" (click)="tryGoogleLogin()"> <span>Sign up with Google</span></button>
+            <button class="social-button google-connect" (click)="tryGoogleLogin()"> <span>Sign up with
+                Google</span></button>
           </div>
 
           <form class="login-form__signup" [formGroup]="signupForm">
 
-            <mat-form-field class="form-input">
-              <input matInput placeholder="Choose your username" formControlName="username" required>
-              <mat-icon matSuffix>person</mat-icon>
-              <mat-error *ngIf="!usernameFormControl?.hasError('required')">
-                Username is required. Username should contain ar least <strong>6 chars</strong>
-              </mat-error>
-            </mat-form-field>
-
+            <!-- //field to avoid autocomplete -->
             <mat-form-field class="form-input" style="display: none;">
               <input matInput placeholder="Choose your username">
               <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="form-input">
-              <input matInput placeholder="Insert your e-mail address" formControlName="email" required>
+              <input matInput type="email" placeholder="Insert your e-mail address" formControlName="email" required>
               <mat-icon matSuffix>email</mat-icon>
               <mat-error *ngIf="!emailFormControl?.hasError('required')">
                 E-mail is required. Please enter a valid email address
@@ -90,13 +94,14 @@
               </mat-select>
             </mat-form-field>
 
+            <!-- //field to avoid autocomplete -->
             <mat-form-field class="form-input" style="display: none;">
-              <input matInput placeholder="Password">
+              <input matInput type="password" placeholder="Password">
               <mat-icon matSuffix>vpn_key</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="form-input">
-              <input matInput placeholder="Password" formControlName="password" required>
+              <input matInput type="password" placeholder="Password" formControlName="password" required>
               <mat-icon matSuffix>vpn_key</mat-icon>
               <mat-error *ngIf="!passwordFormControl?.hasError('required')">
                 Password is required. Password should contain ar least <strong>6 chars</strong>
@@ -104,15 +109,17 @@
             </mat-form-field>
 
             <mat-form-field class="form-input">
-              <input matInput placeholder="Password again" formControlName="password" required>
+              <input matInput type="password" placeholder="Password again" formControlName="password" required>
               <mat-icon matSuffix>vpn_key</mat-icon>
               <mat-error *ngIf="!passwordFormControl?.hasError('required')">
                 Repeat your password
               </mat-error>
             </mat-form-field>
 
-            <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn" (click)="trySignup(signupForm.value)">Sign
-              up</button>
+            <button mat-raised-button type="submit" name="submit" class="login-form__btn btn highlighted-btn"
+              (click)="trySignup(signupForm.value)">
+              Sign up
+            </button>
 
           </form>
         </mat-tab>

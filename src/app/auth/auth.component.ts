@@ -26,15 +26,24 @@ export class AuthComponent {
       country: new FormControl('', Validators.required)
     });
 
-    async trySignup(value){
+    loginForm = new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl('')
+    });
+
+    async trySignup(value) {
       await this.authService.signup(value);
     }
 
-    async tryFacebookLogin(){
+    async tryFacebookLogin() {
       await this.authService.facebookLogin();
     }
 
-    async tryGoogleLogin(){
+    async tryGoogleLogin() {
       await this.authService.googleLogin();
+    }
+
+    async tryLogin(value) {
+      await this.authService.login(value);
     }
 }

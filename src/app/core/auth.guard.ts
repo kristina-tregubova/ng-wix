@@ -25,7 +25,9 @@ export class AuthGuard implements CanActivate {
 
     return this.auth.user$.pipe(
       take(1),
-      map(user => !!user),
+      map((user) => {
+        return !!user;
+      }),
       tap(loggedIn => {
         if (!loggedIn) {
           console.log('access denied');
