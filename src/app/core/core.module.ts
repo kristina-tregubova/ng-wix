@@ -13,6 +13,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireAuthModule,
     AngularFirestoreModule,
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+  ],
 })
 export class CoreModule { }

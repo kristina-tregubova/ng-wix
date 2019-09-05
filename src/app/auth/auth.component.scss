@@ -16,6 +16,10 @@
   min-height: 850px;
 }
 
+.title {
+  margin: 8% 0;
+}
+
 
 .login-form__social-buttons {
   display: flex;
@@ -30,18 +34,19 @@
   color: $wix-color;
   cursor: pointer;
   display: inline-block;
-  height: 57px;
+  height: 55px;
   line-height: 50px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   vertical-align: middle;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
+  border-radius: 3px;
   margin-bottom: 3%;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   padding-left: 0;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.4px;
 }
 
 .facebook-connect {
@@ -50,12 +55,15 @@
     url("https://raw.githubusercontent.com/eswarasai/social-login/master/img/facebook-white.svg?sanitize=true")
     no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
   width: 47%;
+
+  &:hover {
+    background-color: rgba(77, 102, 156, 0.85);
+  }
 }
 
 .facebook-connect span {
   box-sizing: border-box;
   color: $wix-color;
-  cursor: pointer;
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
@@ -68,12 +76,14 @@
     no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
   width: 47%;
   padding-left: 0;
+  &:hover {
+    background-color: rgba(214, 92, 81, 0.85);
+  }
 }
 
 .google-connect span {
   box-sizing: border-box;
   color: $wix-color;
-  cursor: pointer;
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
@@ -99,7 +109,7 @@
 .login-form__signup {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  padding-top: 3%;
   width: 100%;
 }
 
@@ -107,7 +117,7 @@
 
 .login-form__btn {
   width: 100%;
-  height: 57px;
+  height: 55px;
   margin-top: 40px;
 }
 

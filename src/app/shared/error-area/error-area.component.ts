@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-error-area',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorAreaComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string;
+
+  constructor(
+    private auth: AuthService,
+  ) { }
 
   ngOnInit() {
+    this.auth.errorMessage.subscribe((errorMessage) =>  {
+      this.errorMessage = errorMessage;
+    });
   }
-
 }

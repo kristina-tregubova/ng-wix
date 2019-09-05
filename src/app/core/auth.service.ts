@@ -1,21 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { IUser } from './IUser';
+import { ErrorAreaComponent } from '../shared/error-area/error-area.component';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  private messageSource = new BehaviorSubject<string>(null);
+  errorMessage = this.messageSource.asObservable();
+
   user$: Observable<IUser>;
+  user: IUser | null = null;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -35,36 +41,59 @@ export class AuthService {
     );
   }
 
+  isUserLogged() {
+    this.user$.subscribe((user) => {
+      this.user = user;
+    });
+    return (this.user == null ? false : true);
+  }
+
 
   googleLogin() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    return this.oAuthLogin(provider);
+    if (!this.isUserLogged()) {
+
+      const provider = new firebase.auth.GoogleAuthProvider();
+      return this.oAuthLogin(provider);
+
+    } else {
+      this.messageSource.next("You are already signed in. Log out first and try again");
+    }
+
   }
 
-  private async oAuthLogin(provider): Promise<boolean> {
-    if (this.user$ === null) {
-      const credential = await this.afAuth.auth.signInWithPopup(provider);
-      await this.updateUserData(credential.user);
-      if (credential) {
+  private oAuthLogin(provider) {
+
+    this.afAuth.auth.signInWithPopup(provider)
+      .then((credential) => {
         this.updateUserData(credential.user);
         this.router.navigate(['/tournos-search']);
-        return true;
-      }
-    }
-    return false;
+        this.messageSource.next(null);
+      })
+      .catch((err) => {
+        this.messageSource.next(err)
+      })
   }
 
-  async facebookLogin(): Promise<boolean> {
-    if (this.user$ === null) {
-      const provider = await new firebase.auth.FacebookAuthProvider();
-      const credential = await this.afAuth.auth.signInWithPopup(provider);
-      if (credential) {
-        this.updateUserData(credential.user);
-        this.router.navigate(['/tournos-search']);
-        return true;
-      }
+  facebookLogin() {
+
+    if (!this.isUserLogged()) {
+
+      const provider = new firebase.auth.FacebookAuthProvider();
+
+      this.afAuth.auth.signInWithPopup(provider)
+        .then((credential) => {
+          this.updateUserData(credential.user);
+          this.router.navigate(['/tournos-search']);
+          this.messageSource.next(null);
+        })
+        .catch((err) => {
+          this.messageSource.next(err)
+        })
+
+    } else {
+      this.messageSource.next("You are already signed in. Log out first and try again");
+
     }
-    return false;
   }
 
 
@@ -86,36 +115,38 @@ export class AuthService {
 
   }
 
-  signup(value): boolean {
-    if (this.user$ === null) {
+  signup(value) {
+    if (!this.isUserLogged()) {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
         .then((credential) => {
           this.updateUserData(credential.user);
         })
         .catch((err) => {
           console.log(err);
-          this.showErrorMessage(err);
+          this.messageSource.next(err);
         });
+      this.messageSource.next(null);
       return true;
+    } else {
+      this.messageSource.next("You are already signed in. Log out first and try again");
     }
-    return false;
   }
 
-  login(value): boolean {
-    if (this.user$ === null) {
+  login(value) {
+    if (!this.isUserLogged()) {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
         .then((credential) => {
           this.updateUserData(credential.user);
           this.router.navigate(['/tournos-search']);
-
         })
         .catch((err) => {
           console.log(err);
-          this.showErrorMessage(err);
+          this.messageSource.next(err);
         });
-      return true;
+      this.messageSource.next(null);
+    } else {
+      this.messageSource.next("You are already signed in. Log out first and try again");
     }
-    return false;
   }
 
 
@@ -126,7 +157,4 @@ export class AuthService {
       });
   }
 
-  showErrorMessage(message?: string) {
-    
-  }
 }
