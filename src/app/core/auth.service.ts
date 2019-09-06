@@ -6,6 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
+import { share } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 
 import { IUser } from './IUser';
@@ -17,11 +18,11 @@ import { IUser } from './IUser';
 export class AuthService {
 
   private messageSource$ = new BehaviorSubject<string>(null);
-  errorMessage$ = this.messageSource$.asObservable();
+  errorMessage$ = this.messageSource$.asObservable().pipe(share());
 
   user$: Observable<IUser>;
   userState$ = new BehaviorSubject<IUser>(null);
-  isLogged$ = this.userState$.asObservable();
+  isLogged$ = this.userState$.asObservable().pipe(share());
   user: IUser | null;
 
 
