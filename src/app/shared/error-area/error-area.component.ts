@@ -15,7 +15,7 @@ export class ErrorAreaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.auth.errorMessage.subscribe((errorMessage) =>  {
+    this.auth.errorMessage$.subscribe((errorMessage) =>  {
       this.errorMessage = errorMessage;
     });
   }

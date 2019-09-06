@@ -9,7 +9,6 @@ import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import { IUser } from './IUser';
-import { ErrorAreaComponent } from '../shared/error-area/error-area.component';
 
 
 @Injectable({
@@ -17,11 +16,14 @@ import { ErrorAreaComponent } from '../shared/error-area/error-area.component';
 })
 export class AuthService {
 
-  private messageSource = new BehaviorSubject<string>(null);
-  errorMessage = this.messageSource.asObservable();
+  private messageSource$ = new BehaviorSubject<string>(null);
+  errorMessage$ = this.messageSource$.asObservable();
 
   user$: Observable<IUser>;
-  user: IUser | null = null;
+  userState$ = new BehaviorSubject<IUser>(null);
+  isLogged$ = this.userState$.asObservable();
+  user: IUser | null;
+
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -41,8 +43,8 @@ export class AuthService {
     );
   }
 
-  isUserLogged() {
-    this.user$.subscribe((user) => {
+  get isUserLogged() {
+    this.isLogged$.subscribe((user) => {
       this.user = user;
     });
     return (this.user == null ? false : true);
@@ -50,13 +52,13 @@ export class AuthService {
 
 
   googleLogin() {
-    if (!this.isUserLogged()) {
+    if (!this.isUserLogged) {
 
       const provider = new firebase.auth.GoogleAuthProvider();
       return this.oAuthLogin(provider);
 
     } else {
-      this.messageSource.next("You are already signed in. Log out first and try again");
+      this.messageSource$.next('You are already signed in. Log out first and try again');
     }
 
   }
@@ -67,16 +69,17 @@ export class AuthService {
       .then((credential) => {
         this.updateUserData(credential.user);
         this.router.navigate(['/tournos-search']);
-        this.messageSource.next(null);
+        this.userState$.next(credential.user);
+        this.messageSource$.next(null);
       })
       .catch((err) => {
-        this.messageSource.next(err)
+        this.messageSource$.next(err);
       })
   }
 
   facebookLogin() {
 
-    if (!this.isUserLogged()) {
+    if (!this.isUserLogged) {
 
       const provider = new firebase.auth.FacebookAuthProvider();
 
@@ -84,14 +87,15 @@ export class AuthService {
         .then((credential) => {
           this.updateUserData(credential.user);
           this.router.navigate(['/tournos-search']);
-          this.messageSource.next(null);
+          this.userState$.next(credential.user);
+          this.messageSource$.next(null);
         })
         .catch((err) => {
-          this.messageSource.next(err)
+          this.messageSource$.next(err);
         })
 
     } else {
-      this.messageSource.next("You are already signed in. Log out first and try again");
+      this.messageSource$.next('You are already signed in. Log out first and try again');
 
     }
   }
@@ -116,36 +120,38 @@ export class AuthService {
   }
 
   signup(value) {
-    if (!this.isUserLogged()) {
+    if (!this.isUserLogged) {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
         .then((credential) => {
           this.updateUserData(credential.user);
+          this.userState$.next(credential.user);
         })
         .catch((err) => {
           console.log(err);
-          this.messageSource.next(err);
+          this.messageSource$.next(err);
         });
-      this.messageSource.next(null);
+      this.messageSource$.next(null);
       return true;
     } else {
-      this.messageSource.next("You are already signed in. Log out first and try again");
+      this.messageSource$.next('You are already signed in. Log out first and try again');
     }
   }
 
   login(value) {
-    if (!this.isUserLogged()) {
+    if (!this.isUserLogged) {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
         .then((credential) => {
           this.updateUserData(credential.user);
+          this.userState$.next(credential.user);
           this.router.navigate(['/tournos-search']);
         })
         .catch((err) => {
           console.log(err);
-          this.messageSource.next(err);
+          this.messageSource$.next(err);
         });
-      this.messageSource.next(null);
+      this.messageSource$.next(null);
     } else {
-      this.messageSource.next("You are already signed in. Log out first and try again");
+      this.messageSource$.next('You are already signed in. Log out first and try again');
     }
   }
 
@@ -153,6 +159,7 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut()
       .then(() => {
+        this.userState$.next(null);
         this.router.navigate(['/']);
       });
   }

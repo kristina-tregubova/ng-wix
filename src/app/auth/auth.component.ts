@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { SuccessPopupComponent } from './success-popup/success-popup.component';
+
 
 @Component({
   selector: 'app-auth',
@@ -37,7 +38,7 @@ export class AuthComponent {
     const result = await this.authService.signup(value);
     if (result) {
       this.openSuccessDialog();
-    } 
+    }
   }
 
   async tryFacebookLogin() {

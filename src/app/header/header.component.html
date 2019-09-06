@@ -6,14 +6,19 @@
   </a>
 
   <nav mat-tab-nav-bar class="site-nav-no-min">
+
+    <a mat-tab-link [routerLink]="['/creation']" *ngIf="user"> Create new
+    </a>
+
     <a mat-tab-link [routerLink]="['/tournos-search']"> Tournaments
     </a>
 
     <a mat-tab-link [routerLink]="['/players-search']"> Players
     </a>
 
-    <a mat-tab-link [routerLink]="['/auth']"> Sign In
+    <a mat-tab-link [routerLink]="['/auth']" *ngIf="!user"> Sign In
     </a>
+
   </nav>
 
   <nav class="site-nav-min">
@@ -23,6 +28,10 @@
     </button>
 
     <mat-menu #menu="matMenu">
+
+      <a mat-menu-item [routerLink]="['/creation']" *ngIf="user">
+        Create new</a>
+
       <a mat-menu-item [routerLink]="['/tournos-search']">
         All Tournaments</a>
 
@@ -31,13 +40,17 @@
 
       <mat-divider></mat-divider>
 
-      <a mat-menu-item [routerLink]="['/auth']">
+      <a mat-menu-item [routerLink]="['/auth']" *ngIf="!user">
         Sign in</a>
 
-      <mat-divider></mat-divider>
+      <a mat-menu-item [routerLink]="['/settings']" *ngIf="user">
+        Profile Settings</a>
 
-      <button mat-menu-item (click)=tryLogout()>
+      <mat-divider *ngIf="user"></mat-divider>
+
+      <button mat-menu-item (click)=tryLogout() *ngIf="user">
         Log out</button>
+
     </mat-menu>
 
   </nav>
