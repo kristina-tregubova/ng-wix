@@ -48,13 +48,6 @@
 
 <div class="players-list" role="table">
 
-  <app-player-card></app-player-card>
-  <app-player-card></app-player-card>
-  <app-player-card></app-player-card>
-  <app-player-card></app-player-card>
-  <app-player-card></app-player-card>
-  <app-player-card></app-player-card>
-  <app-player-card></app-player-card>
-  <app-player-card></app-player-card>
+  <app-player-card *ngFor="let item of items$ | async" [item]="item"></app-player-card>
 
 </div>

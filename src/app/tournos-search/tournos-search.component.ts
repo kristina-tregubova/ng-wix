@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
-import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({

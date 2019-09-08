@@ -7,7 +7,7 @@
 
             <div class="search-form__search search-field">
                 <mat-form-field class="form-input">
-                    <input matInput>
+                    <input matInput (keyup)="updateSearch($event.target.value)">
                     <mat-icon matSuffix>search</mat-icon>
                     <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
                 </mat-form-field>
@@ -22,7 +22,7 @@
 
                 <mat-form-field class="search-field" floatLabel="never">
                     <mat-label>Game:</mat-label>
-                    <mat-select>
+                    <mat-select (selectionChange)="filterByGame($event.value)">
                         <mat-option value="all">All</mat-option>
                         <mat-option value="football">Football</mat-option>
                         <mat-option value="basketball">Basketball</mat-option>
@@ -41,26 +41,26 @@
 
                 <mat-form-field class="search-field" floatLabel="never">
                     <mat-label>Country:</mat-label>
-                    <mat-select>
+                    <mat-select (selectionChange)="filterByCountry($event.value)">
                         <mat-option value="all">
                             All
                         </mat-option>
-                        <mat-option value="rus">
+                        <mat-option value="Russia">
                             Russia
                         </mat-option>
-                        <mat-option value="ua">
+                        <mat-option value="USA">
                             USA
                         </mat-option>
-                        <mat-option value="de">
+                        <mat-option value="Germany">
                             Germany
                         </mat-option>
-                        <mat-option value="en">
+                        <mat-option value="England">
                             England
                         </mat-option>
-                        <mat-option value="fr">
+                        <mat-option value="France">
                             France
                         </mat-option>
-                        <mat-option value="ukr">
+                        <mat-option value="Ukraine">
                             Ukraine
                         </mat-option>
                     </mat-select>
@@ -74,7 +74,7 @@
                 Players list
             </h2>
 
-            <app-players-list></app-players-list>
+            <app-players-list [items$]="items$"></app-players-list>
 
         </section>
     </div>
