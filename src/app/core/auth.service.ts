@@ -9,7 +9,7 @@ import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { share } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 
-import { IUser } from './IUser';
+import { IUser } from './models/IUser';
 
 
 @Injectable({

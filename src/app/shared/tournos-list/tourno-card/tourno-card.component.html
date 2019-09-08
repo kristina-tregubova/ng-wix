@@ -1,24 +1,24 @@
 <mat-card class="grid-card tournos-list__card">
    
-  <img mat-card-image src="./assets/images/games-wp/rugby.jpg" alt="Game background picture">
+  <img mat-card-image src="./assets/images/games-wp/{{item.game}}.jpg" alt="Game background picture">
 
   <mat-card-title class="grid-card__title">
-    Regionals 2019
+    {{item.name}}
   </mat-card-title>
 
   <mat-card-content class="grid-card__info">
     <ul>
       <li class="grid-card__info-game">
           <mat-icon>videogame_asset</mat-icon>
-        <span>Rugby</span>
+        <span>{{item.game}}</span>
       </li>
       <li class="grid-card__info-participants">
           <mat-icon>group</mat-icon>
-        <span>12 participants</span>
+        <span>{{item.participants}} participants</span>
       </li>
       <li class="grid-card__info-end-date">
           <mat-icon>calendar_today</mat-icon>
-        <span>12 September 2019</span>
+        <span>{{item.endDate}}</span>
       </li>
     </ul>
   </mat-card-content>

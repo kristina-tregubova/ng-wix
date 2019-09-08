@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
-import { IUser } from '../core/IUser';
+import { IUser } from '../core/models/IUser';
 
 @Component({
   selector: 'app-footer',

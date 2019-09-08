@@ -2,7 +2,7 @@ import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Router, Params } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IUser } from '../core/IUser';
+import { IUser } from '../core/models/IUser';
 
 @Component({
   selector: 'app-header',

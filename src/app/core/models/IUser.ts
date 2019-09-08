@@ -3,4 +3,6 @@ export interface IUser {
     'email': string;
     'createdTournaments'?: [] | null;
     'createdPlayers'?: [] | null;
+    'favoritePlayers'?: [] | null;
+    'favoriteTournos'?: [] | null;
 }
