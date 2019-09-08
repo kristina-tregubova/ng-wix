@@ -10,6 +10,7 @@ import { PlayerCardComponent } from './players-list/player-card/player-card.comp
 import { AddNewComponent } from './add-player/add-new/add-new.component';
 import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
 import { ErrorAreaComponent } from './error-area/error-area.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 import {
   MatButtonModule,
@@ -44,6 +45,7 @@ import {
     TournoCardComponent,
     PlayerCardComponent,
     ErrorAreaComponent,
+    LoadingSpinnerComponent,
 
   ],
   imports: [
@@ -66,6 +68,7 @@ import {
     MatDividerModule,
     MatTableModule,
     MatDialogModule,
+    
 
   ],
   exports: [
@@ -96,6 +99,7 @@ import {
     TournoCardComponent,
     PlayerCardComponent,
     ErrorAreaComponent,
+    LoadingSpinnerComponent,
 
   ]
 })

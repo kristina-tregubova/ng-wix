@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class TournoSearchComponent implements OnInit {
 
-  items$: Observable<any> 
+  items$: Observable<any>;
+  isLoading$: Observable<boolean>; 
 
   constructor(
     private tournosService: TournosSearchService
@@ -18,7 +19,7 @@ export class TournoSearchComponent implements OnInit {
   
   ngOnInit() {
     this.items$ = this.tournosService.searchTournaments();
-    console.log(this.items$);
+    this.isLoading$ = this.tournosService.loading$;
   }
 
   updateSearch($event) {

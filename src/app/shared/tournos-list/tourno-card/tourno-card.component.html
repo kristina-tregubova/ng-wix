@@ -3,14 +3,14 @@
   <img mat-card-image src="./assets/images/games-wp/{{item.game}}.jpg" alt="Game background picture">
 
   <mat-card-title class="grid-card__title">
-    {{item.name}}
+    {{item.name | titlecase}}
   </mat-card-title>
 
   <mat-card-content class="grid-card__info">
     <ul>
       <li class="grid-card__info-game">
           <mat-icon>videogame_asset</mat-icon>
-        <span>{{item.game}}</span>
+        <span>{{item.game | titlecase}}</span>
       </li>
       <li class="grid-card__info-participants">
           <mat-icon>group</mat-icon>

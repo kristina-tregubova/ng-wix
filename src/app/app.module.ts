@@ -42,7 +42,7 @@ import { SuccessPopupComponent } from './auth/success-popup/success-popup.compon
     PlayersSearchComponent,
     PlayerProfileComponent,
     TournoProfileComponent,
-    SuccessPopupComponent
+    SuccessPopupComponent,
 
   ],
   imports: [

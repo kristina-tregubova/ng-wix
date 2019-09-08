@@ -6,17 +6,17 @@
 
   <p class="grid-card__title" role="cell">
     <i class="material-icons" title="Team">group</i>
-    {{item.name}}
+    {{item.name | titlecase}}
   </p>
 
   <div class="grid-card__info">
     <div class="players-info players-info__game" role="cell">
-      <span>{{item.game}}</span>
+      <span>{{item.game | titlecase}}</span>
     </div>
   </div>
   <div class="grid-card__info">
     <div class="players-info players-info__game" role="cell">
-      <span>{{item.country}}</span>
+      <span>{{item.country | uppercase}}</span>
     </div>
   </div>
 

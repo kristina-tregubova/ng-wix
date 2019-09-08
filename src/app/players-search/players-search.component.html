@@ -74,7 +74,8 @@
                 Players list
             </h2>
 
-            <app-players-list [items$]="items$"></app-players-list>
+            <app-players-list [items$]="items$" ></app-players-list>
+            <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
 
         </section>
     </div>

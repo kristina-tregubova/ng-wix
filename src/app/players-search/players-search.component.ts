@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class PlayersSearchComponent implements OnInit {
 
-  items$: Observable<any> 
+  items$: Observable<any>
+  isLoading$: Observable<boolean>; 
 
   constructor(
     private playersService: PlayersSearchService
@@ -18,7 +19,7 @@ export class PlayersSearchComponent implements OnInit {
   
   ngOnInit() {
     this.items$ = this.playersService.searchPlayers();
-    console.log(this.items$);
+    this.isLoading$ = this.playersService.loading$;
   }
 
   updateSearch($event) {

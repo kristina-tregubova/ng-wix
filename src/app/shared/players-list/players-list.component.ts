@@ -9,10 +9,12 @@ import { Observable } from 'rxjs';
 export class PlayersListComponent implements OnInit {
 
   @Input() items$: Observable<any>;
+  @Input() isLoading$: Observable<boolean>;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
