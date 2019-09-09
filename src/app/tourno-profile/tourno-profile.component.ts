@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-tourno-profile',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TournoProfileComponent implements OnInit {
 
-  constructor() { }
+  private _id: string;
+  tourno: object;
+
+  constructor(
+    private route: ActivatedRoute,
+    private afs: AngularFirestore
+  ) {
+  }
 
   ngOnInit() {
+    this._id = this.route.snapshot.paramMap.get('id');
+    this.getTourno();
+  }
+
+  getTourno() {
+    this.afs.collection('tournaments').doc(this._id).valueChanges()
+      .subscribe((val: object) => {
+        this.tourno = val;
+      });
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class PlayersSearchService {
     private afs: AngularFirestore,
   ) { }
 
-  
+
   countrySubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
 
@@ -39,18 +39,25 @@ export class PlayersSearchService {
         this.afs.collection('players', ref => {
 
           let query: firebase.firestore.Query = ref;
-          if (country) { query = query.where('country', '==', country) };
-          if (game) { query = query.where('game', '==', game) };
+          if (country) { query = query.where('country', '==', country); }
+          if (game) { query = query.where('game', '==', game); }
           if (start || end) {
-            query = query.orderBy("name").startAt(start).endAt(end)
-          };
-          
+            query = query.orderBy("name").startAt(start).endAt(end);
+          }
+
           return query;
 
-        }).valueChanges()
+        }).snapshotChanges().pipe(
+          map(actions => {
+            return actions.map(a => {
+              const data = a.payload.doc.data();
+              const id = a.payload.doc.id;
+              return { id, ...data };
+          });
+        }))
       ),
       tap(() => this.stopLoading()),
-    )
+    );
   }
 
   startLoading() {

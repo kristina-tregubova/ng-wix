@@ -75,7 +75,7 @@ export class AuthService {
       })
       .catch((err) => {
         this.messageSource$.next(err);
-      })
+      });
   }
 
   facebookLogin() {
@@ -93,7 +93,7 @@ export class AuthService {
         })
         .catch((err) => {
           this.messageSource$.next(err);
-        })
+        });
 
     } else {
       this.messageSource$.next('You are already signed in. Log out first and try again');
@@ -110,10 +110,6 @@ export class AuthService {
     const data: IUser = {
       uid: user.uid,
       email: user.email,
-      // createdTournaments: user.createdTournaments,
-      // createdPlayers: user.createdPlayers
-      createdTournaments: null,
-      createdPlayers: null,
     };
 
     return userRef.set(data, { merge: true });

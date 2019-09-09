@@ -18,14 +18,14 @@
       </li>
       <li class="grid-card__info-end-date">
           <mat-icon>calendar_today</mat-icon>
-        <span>{{item.endDate}}</span>
+        <span>{{item.endDate}} </span>
       </li>
     </ul>
   </mat-card-content>
 
   <mat-card-actions class="grid-card__actions">
 
-    <a mat-stroked-button class="btn" [routerLink]="['/tourno-profile']">View
+    <a mat-stroked-button class="btn" [routerLink]="['/tourno-profile', item.id]">View
       Details</a>
 
     <button mat-icon-button aria-label="Add to favorite">

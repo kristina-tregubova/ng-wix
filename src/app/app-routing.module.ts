@@ -47,11 +47,11 @@ const routes: Routes = [
     component: PlayersSearchComponent
   },
   {
-    path: 'player-profile',
+    path: 'player-profile/:id',
     component: PlayerProfileComponent
   },
   {
-    path: 'tourno-profile',
+    path: 'tourno-profile/:id',
     component: TournoProfileComponent
   },
 

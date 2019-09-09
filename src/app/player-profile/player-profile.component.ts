@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-player-profile',
@@ -9,22 +10,25 @@ import { Observable } from 'rxjs';
 })
 export class PlayerProfileComponent implements OnInit {
 
-  players$: Observable<any[]>
-  displayedColumns: string[] = ['position', 'name', 'role'];
-  dataSource: [];
+  private _id: string;
+  player: object;
 
-  constructor(db: AngularFirestore) {
-    
-      this.players$ = db.collection('players').valueChanges();
-      this.players$.subscribe((players: []) => {
-        this.dataSource = players;
-      })
-    
+  constructor(
+    private route: ActivatedRoute,
+    private afs: AngularFirestore
+  ) {
   }
 
   ngOnInit() {
+    this._id = this.route.snapshot.paramMap.get('id');
+    this.getPlayer();
   }
 
-
+  getPlayer() {
+    this.afs.collection('players').doc(this._id).valueChanges()
+      .subscribe((val: object) => {
+        this.player = val;
+      });
+  }
 
 }
