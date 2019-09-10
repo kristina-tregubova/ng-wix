@@ -22,7 +22,7 @@
                 <mat-icon matSuffix>group</mat-icon>
                 <label>Type: </label>
                 <mat-form-field class="form-input">
-                    <input matInput disabled value="Team">
+                    <input matInput disabled value={{player?.playerType}}>
                 </mat-form-field>
             </div>
 
@@ -30,7 +30,7 @@
                 <mat-icon matSuffix>videogame_asset</mat-icon>
                 <label>Game: </label>
                 <mat-form-field class="form-input">
-                    <input matInput disabled value="Basketball">
+                    <input matInput disabled value={{player?.game}}>
                 </mat-form-field>
             </div>
 
@@ -38,7 +38,7 @@
                 <mat-icon matSuffix>stars</mat-icon>
                 <label>Points: </label>
                 <mat-form-field class="form-input">
-                    <input matInput disabled value="148">
+                    <input matInput disabled value={{player?.points}}>
                 </mat-form-field>
             </div>
 
@@ -46,7 +46,7 @@
                 <mat-icon matSuffix>play_circle_filled</mat-icon>
                 <label>Games: </label>
                 <mat-form-field class="form-input">
-                    <input matInput disabled value="6">
+                    <input matInput disabled value={{player?.games}}>
                 </mat-form-field>
             </div>
 
@@ -54,7 +54,7 @@
                 <mat-icon matSuffix>play_circle_filled</mat-icon>
                 <label>Wins: </label>
                 <mat-form-field class="form-input">
-                    <input matInput disabled value="3">
+                    <input matInput disabled value={{player?.wins}}>
                 </mat-form-field>
             </div>
 
@@ -62,35 +62,29 @@
                 <mat-icon matSuffix>public</mat-icon>
                 <label>Country: </label>
                 <mat-form-field class="form-input">
-                    <input matInput disabled value="USA">
+                    <input matInput disabled value={{player?.country}}>
                 </mat-form-field>
             </div>
 
         </section>
 
-        <section class="player-profile__details">
+        <section class="player-profile__details" *ngIf="dataSource">
             <h2 class="title">
                 Team members
             </h2>
 
-            <table mat-table [dataSource]="dataSource" class="chart team-chart mat-elevation-z8">
-
-                <!-- Position Column -->
-                <ng-container matColumnDef="position">
-                    <th mat-header-cell *matHeaderCellDef> No. </th>
-                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                </ng-container>
+            <table mat-table [dataSource]="dataSource" class="chart team-chart mat-elevation-z8" >
 
                 <!-- Name Column -->
                 <ng-container matColumnDef="name">
                     <th mat-header-cell *matHeaderCellDef> Name </th>
-                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    <td mat-cell *matCellDef="let member"> {{member.name}} </td>
                 </ng-container>
 
-                <!-- Weight Column -->
+                <!-- Role Column -->
                 <ng-container matColumnDef="role">
                     <th mat-header-cell *matHeaderCellDef> Role </th>
-                    <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+                    <td mat-cell *matCellDef="let member"> {{member.role}} </td>
                 </ng-container>
 
 
@@ -99,13 +93,14 @@
             </table>
 
         </section>
+
         <section class="player-profile__games-attended">
 
             <h2 class="title">
                 Tournaments attended
             </h2>
 
-            <app-tournos-list></app-tournos-list>
+            <app-tournos-list [items$]="items$"></app-tournos-list>
 
         </section>
     </div>

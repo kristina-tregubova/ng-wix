@@ -21,8 +21,9 @@ export class PlayerCardComponent implements OnInit {
   }
 
   getPoints() {
+    let sum = 0;
     for (let tourno of this.item.relatedTournaments) {
-      this.points = tourno.pointsGained;
+      this.points = sum + tourno.pointsGained;
     }
   }
 

@@ -1,11 +1,12 @@
 import { IUser } from './IUser';
+import { DocumentReference } from '@angular/fire/firestore';
 
 export interface IPlayer {
-    'name': string,
-    'playerType': string,
-    'game': string,
-    'country': string,
-    'userCreated': IUser,
-    'relatedTournaments': Array<Map<string, string>>,
-    'team'?: Array<Map<string, string>>
+    'name': string;
+    'playerType': string;
+    'game': string;
+    'country': string;
+    'userCreated': DocumentReference;
+    'relatedTournaments': Map<any, any>[];
+    'team': [] | null;
 }
