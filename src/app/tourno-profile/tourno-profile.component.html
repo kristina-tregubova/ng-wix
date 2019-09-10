@@ -28,7 +28,7 @@
                   <mat-icon matSuffix>videogame_asset</mat-icon>
                   <label>Game: </label>
                   <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.game}}>
+                    <input matInput disabled value={{tourno?.game|titlecase}}>
                   </mat-form-field>
                 </div>
 
@@ -60,7 +60,7 @@
                   <mat-icon matSuffix>public</mat-icon>
                   <label>Country: </label>
                   <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.country}}>
+                    <input matInput disabled value={{tourno?.country|titlecase}}>
                   </mat-form-field>
                 </div>
 
@@ -262,27 +262,27 @@
                   <form class="tourno-profile__settings-content">
                     <label for="start-date"> Start date: </label>
                     <mat-form-field>
-                      <input matInput [matDatepicker]="startDate" placeholder="Start date">
+                      <input matInput [matDatepicker]="startDate" placeholder="Start date" value={{tourno?.startDate}}>
                       <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
                       <mat-datepicker #startDate></mat-datepicker>
                     </mat-form-field>
 
                     <label for="end-date"> End date: </label>
                     <mat-form-field>
-                      <input matInput [matDatepicker]="endDate" placeholder="End date">
+                      <input matInput [matDatepicker]="endDate" placeholder="End date" value={{tourno?.endDate}}>
                       <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
                       <mat-datepicker #endDate></mat-datepicker>
                     </mat-form-field>
 
                     <label> Entry Fee: </label>
-                    <mat-form-field class="form-input">
-                      <input matInput>
+                    <mat-form-field class="form-input" >
+                      <input matInput value={{tourno?.entryFee}}>
                       <mat-icon matSuffix>money</mat-icon>
                     </mat-form-field>
 
                     <label> Prize: </label>
                     <mat-form-field class="form-input">
-                      <input matInput>
+                      <input matInput value={{tourno?.prize}}>
                       <mat-icon matSuffix>stars</mat-icon>
                     </mat-form-field>
                     <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn">
@@ -296,7 +296,7 @@
                     Players management
                   </h3>
 
-                  <app-add-player></app-add-player>
+                  <app-add-player [items$]="items$"></app-add-player>
 
                 </div>
                 <div class="tourno-profile__settings-step">

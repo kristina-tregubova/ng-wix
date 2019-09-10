@@ -19,33 +19,15 @@
 
 
   <div class="added-players players-list">
-    <div class="row">
+    <div class="row" *ngFor="let item of items$ | async">
 
-      <app-player-card></app-player-card>
-
-      <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-        <i class="material-icons">
-          clear
-        </i>
-      </button>
-    </div>
-
-    <div class="row">
-
-      <app-player-card></app-player-card>
-
-      <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-        <i class="material-icons">
-          edit
-        </i>
-      </button>
+      <app-player-card [item]="item"></app-player-card>
 
       <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
         <i class="material-icons">
           clear
         </i>
       </button>
-
     </div>
 
   </div>
@@ -69,4 +51,5 @@
   <app-add-from-list></app-add-from-list>
 
   <app-add-new></app-add-new>
+  
 </div>

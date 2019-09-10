@@ -16,10 +16,10 @@ export class TournoService {
     return this.afs.collection('tournaments').doc(id).valueChanges();
   }
 
-  getRelatedPlayers(val) {
+  getRelatedPlayers(tourno) {
     const items = [];
 
-    for (const player of val.relatedPlayers) {
+    for (const player of tourno.relatedPlayers) {
       player.get().then((doc) => {
         if (doc.exists) {
            items.push(doc.data());
