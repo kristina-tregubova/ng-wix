@@ -6,6 +6,8 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ITourno } from '../core/models/ITourno';
 import { Observable, of } from 'rxjs';
 import { IPlayer } from '../core/models/IPlayer';
+import { TournoService } from '../shared/tourno.service';
+
 
 @Component({
   selector: 'app-tourno-profile',
@@ -22,36 +24,18 @@ export class TournoProfileComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private afs: AngularFirestore,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private tournoService: TournoService,
   ) {
   }
 
   ngOnInit() {
     this._id = this.route.snapshot.paramMap.get('id');
-    this.getTourno();
-  }
-
-  getTourno() {
-    this.afs.collection('tournaments').doc(this._id).valueChanges()
+    this.tournoService.getTourno(this._id)
       .subscribe((val: ITourno) => {
         this.tourno = val;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
+        this.items$ = this.tournoService.getRelatedPlayers(val);
       });
   }
-
-  getRelatedPlayers(val) {
-    const items = [];
-
-    for (const player of val.relatedPlayers) {
-      player.get().then((doc) => {
-        if (doc.exists) {
-           items.push(doc.data());
-        }
-      });
-    }
-
-    this.items$ = of(items);
-  }
-
 }

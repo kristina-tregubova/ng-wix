@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PlayerService } from '../../player.service';
 
 @Component({
   selector: 'app-player-card',
@@ -12,28 +13,14 @@ export class PlayerCardComponent implements OnInit {
   games: number;
   wins: number;
 
-  constructor() { }
+  constructor(
+    private playerService: PlayerService,
+  ) { }
 
   ngOnInit() {
-    this.getPoints();
-    this.getGames();
-    this.getWins();
-  }
-
-  getPoints() {
-    let sum = 0;
-    for (let tourno of this.item.relatedTournaments) {
-      this.points = sum + tourno.pointsGained;
-    }
-  }
-
-  getGames() {
-    this.games = this.item.relatedTournaments.length;
-  }
-
-  getWins() {
-    let winArr = this.item.relatedTournaments.filter(tourno => tourno.isWinner == true);
-    this.wins = winArr.length;
+    this.points = this.playerService.getPlayerPoints(this.item);
+    this.games = this.playerService.getPlayerGames(this.item);
+    this.wins = this.playerService.getPlayerWins(this.item);
   }
 
 }

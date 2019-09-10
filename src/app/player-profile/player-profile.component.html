@@ -1,107 +1,120 @@
 <h1 hidden>
-    Player NAME's profile
+  Player NAME's profile
 </h1>
 <div class="background-container" [style.background-image]="backgroundImg">
 </div>
 
 <div class="player-profile__header">
-    <div class="container-center">
-        <div class="player-profile__userpic">
-            <img src=".././assets/images/avatars/avatar.svg" alt="userpic">
-        </div>
-        <h2 class="player-profile__header-title">
-            Tigers
-        </h2>
+  <div class="container-center">
+    <div class="player-profile__userpic">
+      <img src=".././assets/images/avatars/avatar.svg" alt="userpic">
     </div>
+    <h2 class="player-profile__header-title">
+      Tigers
+    </h2>
+  </div>
 </div>
 
 <div class="regular-wrapper">
-    <div class="container-center">
-        <section class="player-profile__info">
-            <div class="player-profile__info-item">
-                <mat-icon matSuffix>group</mat-icon>
-                <label>Type: </label>
-                <mat-form-field class="form-input">
-                    <input matInput disabled value={{player?.playerType}}>
-                </mat-form-field>
-            </div>
+  <div class="container-center">
+    <section class="player-profile__info">
+      <div class="player-profile__info-item">
+        <mat-icon matSuffix>group</mat-icon>
+        <label>Type: </label>
+        <mat-form-field class="form-input">
+          <input matInput disabled value={{player?.playerType|titlecase}}>
+        </mat-form-field>
+      </div>
 
-            <div class="player-profile__info-item">
-                <mat-icon matSuffix>videogame_asset</mat-icon>
-                <label>Game: </label>
-                <mat-form-field class="form-input">
-                    <input matInput disabled value={{player?.game}}>
-                </mat-form-field>
-            </div>
+      <div class="player-profile__info-item">
+        <mat-icon matSuffix>videogame_asset</mat-icon>
+        <label>Game: </label>
+        <mat-form-field class="form-input">
+          <input matInput disabled value={{player?.game|titlecase}}>
+        </mat-form-field>
+      </div>
 
-            <div class="player-profile__info-item">
-                <mat-icon matSuffix>stars</mat-icon>
-                <label>Points: </label>
-                <mat-form-field class="form-input">
-                    <input matInput disabled value={{player?.points}}>
-                </mat-form-field>
-            </div>
+      <div class="player-profile__info-item">
+        <mat-icon matSuffix>stars</mat-icon>
+        <label>Points: </label>
+        <mat-form-field class="form-input">
+          <input matInput disabled value={{points}}>
+        </mat-form-field>
+      </div>
 
-            <div class="player-profile__info-item">
-                <mat-icon matSuffix>play_circle_filled</mat-icon>
-                <label>Games: </label>
-                <mat-form-field class="form-input">
-                    <input matInput disabled value={{player?.games}}>
-                </mat-form-field>
-            </div>
+      <div class="player-profile__info-item">
+        <mat-icon matSuffix>play_circle_filled</mat-icon>
+        <label>Games: </label>
+        <mat-form-field class="form-input">
+          <input matInput disabled value={{games}}>
+        </mat-form-field>
+      </div>
 
-            <div class="player-profile__info-item">
-                <mat-icon matSuffix>play_circle_filled</mat-icon>
-                <label>Wins: </label>
-                <mat-form-field class="form-input">
-                    <input matInput disabled value={{player?.wins}}>
-                </mat-form-field>
-            </div>
+      <div class="player-profile__info-item">
+        <mat-icon matSuffix>play_circle_filled</mat-icon>
+        <label>Wins: </label>
+        <mat-form-field class="form-input">
+          <input matInput disabled value={{wins}}>
+        </mat-form-field>
+      </div>
 
-            <div class="player-profile__info-item">
-                <mat-icon matSuffix>public</mat-icon>
-                <label>Country: </label>
-                <mat-form-field class="form-input">
-                    <input matInput disabled value={{player?.country}}>
-                </mat-form-field>
-            </div>
+      <div class="player-profile__info-item">
+        <mat-icon matSuffix>public</mat-icon>
+        <label>Country: </label>
+        <mat-form-field class="form-input">
+          <input matInput disabled value={{player?.country}}>
+        </mat-form-field>
+      </div>
 
-        </section>
+    </section>
 
-        <section class="player-profile__details" *ngIf="dataSource">
-            <h2 class="title">
-                Team members
-            </h2>
+    <section class="player-profile__details" *ngIf="player?.playerType === 'team'">
+      <h2 class="title">
+        Team members
+      </h2>
 
-            <table mat-table [dataSource]="dataSource" class="chart team-chart mat-elevation-z8" >
+      <ng-template #elseBlock>No team members were specified. Please, add information regarding members of the team
+      </ng-template>
 
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef> Name </th>
-                    <td mat-cell *matCellDef="let member"> {{member.name}} </td>
-                </ng-container>
+      <table mat-table [dataSource]="dataSource" class="chart team-chart mat-elevation-z8">
 
-                <!-- Role Column -->
-                <ng-container matColumnDef="role">
-                    <th mat-header-cell *matHeaderCellDef> Role </th>
-                    <td mat-cell *matCellDef="let member"> {{member.role}} </td>
-                </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let member">
 
+            {{member.name}}
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
+          </td>
+        </ng-container>
 
-        </section>
+        <!-- Role Column -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef> Role </th>
+          <td mat-cell *matCellDef="let member">
 
-        <section class="player-profile__games-attended">
+            {{member.role}}
 
-            <h2 class="title">
-                Tournaments attended
-            </h2>
+          </td>
+        </ng-container>
 
-            <app-tournos-list [items$]="items$"></app-tournos-list>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-        </section>
-    </div>
+      </table>
+      <div class='no-team' *ngIf="!dataSource">No team members were specified.
+      </div>
+
+    </section>
+
+    <section class="player-profile__games-attended">
+
+      <h2 class="title">
+        Tournaments attended
+      </h2>
+
+      <app-tournos-list [items$]="items$"></app-tournos-list>
+
+    </section>
+  </div>
 </div>

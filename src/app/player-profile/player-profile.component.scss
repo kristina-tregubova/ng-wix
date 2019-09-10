@@ -78,8 +78,15 @@
     padding-right: 5px;
   }
   
-  .chart {
+  .chart,
+  .no-team  {
     width: 100%;
+    
+  }
+
+  .no-team {
+    text-align: center;
+    margin-top: 5%;
   }
   
   @media screen and (max-width: 1200px) {

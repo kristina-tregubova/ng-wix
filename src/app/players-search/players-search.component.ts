@@ -16,7 +16,7 @@ export class PlayersSearchComponent implements OnInit {
     private playersService: PlayersSearchService
   ) { }
 
-  
+
   ngOnInit() {
     this.items$ = this.playersService.searchPlayers();
     this.isLoading$ = this.playersService.loading$;

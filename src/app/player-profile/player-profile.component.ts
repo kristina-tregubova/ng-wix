@@ -6,6 +6,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Observable, of } from 'rxjs';
 import { ITourno } from '../core/models/ITourno';
 import { IPlayer } from '../core/models/IPlayer';
+import { PlayerService } from '../shared/player.service';
 
 @Component({
   selector: 'app-player-profile',
@@ -15,9 +16,14 @@ import { IPlayer } from '../core/models/IPlayer';
 export class PlayerProfileComponent implements OnInit {
 
   private _id: string;
+
   player: any;
   backgroundImg: any;
   game: string;
+  points: number;
+  games: number;
+  wins: number;
+
   items$: Observable<ITourno[]>;
 
   dataSource: [] | null;
@@ -25,36 +31,23 @@ export class PlayerProfileComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private afs: AngularFirestore,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private playerService: PlayerService
   ) {
   }
 
   ngOnInit() {
     this._id = this.route.snapshot.paramMap.get('id');
-    this.getPlayer();
-  }
-
-  getPlayer() {
-    this.afs.collection('players').doc(this._id).valueChanges()
+    this.playerService.getPlayer(this._id)
       .subscribe((val: IPlayer) => {
         this.player = val;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
+        this.points = this.playerService.getPlayerPoints(val);
+        this.games = this.playerService.getPlayerGames(val);
+        this.wins = this.playerService.getPlayerWins(val);
         this.dataSource = val.team;
-        this.items$ = this.getTournamentsAttended(val);
+        console.log(this.dataSource);
+        this.items$ = this.playerService.getTournamentsAttended(val);
       });
-  }
-
-  getTournamentsAttended(player): Observable<ITourno[]> {
-    const items: Array<ITourno> = [];
-
-    for (const tourno of player.relatedTournaments) {
-      tourno.tournament.get().then((doc) => {
-        if (doc.exists) {
-           items.push(doc.data());
-        }
-      });
-    }
-    return of(items);
   }
 }
