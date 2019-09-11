@@ -1,10 +1,14 @@
 <h1 hidden>
   Tournament {{tourno?.name}} profile
 </h1>
-<div  class="background-container"  [style.background-image]="backgroundImg">
+<div class="background-container" [style.background-image]="backgroundImg">
 </div>
 
 <div class="regular-wrapper">
+
+
+
+
   <div class="tourno-profile__header">
 
     <div class="container-center">
@@ -17,309 +21,314 @@
         {{tourno?.name}}
       </h2>
 
-      <mat-tab-group class="tourno-profile__tabs">
-
-        <div class="container-center">
-          <section class="tourno-profile">
-            <mat-tab label="Info">
-
-              <section class="tourno-profile__info">
-                <div class="tourno-profile__info-item">
-                  <mat-icon matSuffix>videogame_asset</mat-icon>
-                  <label>Game: </label>
-                  <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.game|titlecase}}>
-                  </mat-form-field>
-                </div>
-
-                <div class="tourno-profile__info-item">
-                  <mat-icon matSuffix>calendar_today</mat-icon>
-                  <label>Start date: </label>
-                  <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.startDate}}>
-                  </mat-form-field>
-                </div>
-
-                <div class="tourno-profile__info-item">
-                  <mat-icon matSuffix>calendar_today</mat-icon>
-                  <label>End date: </label>
-                  <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.endDate}}>
-                  </mat-form-field>
-                </div>
-
-                <div class="tourno-profile__info-item">
-                  <mat-icon matSuffix>group</mat-icon>
-                  <label>Participants: </label>
-                  <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.participants}}>
-                  </mat-form-field>
-                </div>
-
-                <div class="tourno-profile__info-item">
-                  <mat-icon matSuffix>public</mat-icon>
-                  <label>Country: </label>
-                  <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.country|titlecase}}>
-                  </mat-form-field>
-                </div>
-
-                <div class="tourno-profile__info-item">
-                  <mat-icon matSuffix>attach_money</mat-icon>
-                  <label>Entry fee:: </label>
-                  <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.entryFee}}>
-                  </mat-form-field>
-                </div>
-
-                <div class="tourno-profile__info-item">
-                  <mat-icon matSuffix>star</mat-icon>
-                  <label>Prize: </label>
-                  <mat-form-field class="form-input">
-                    <input matInput disabled value={{tourno?.prize}}>
-                  </mat-form-field>
-                </div>
-
-              </section>
-
-            </mat-tab>
-
-            <mat-tab label="Bracket">
-
-              <section class="tourno-profile__bracket">
-                <h3 class="tourno-profile__title">
-                  Tournament bracket
-                </h3>
-
-                <div class="tourno-profile__bracket-content">
-
-                  <div class="bracket">
-
-                    <section class="round quarterfinals">
-                      <h5 class="round-title">
-                        Quarterfinals
-                      </h5>
-                      <div class="winners">
-                        <div class="matchups">
-                          <div class="matchup">
-                            <div class="participants">
-                              <div class="participant winner">
-                                <span class="name">John</span>
-                                <span class="result">23</span>
-                              </div>
-                              <div class="participant">
-                                <span class="name">Steve</span>
-                                <span class="result">13</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="matchup">
-                            <div class="participants">
-                              <div class="participant">
-                                <span class="name">Vanya</span>
-                                <span class="result">11</span>
-                              </div>
-                              <div class="participant winner">
-                                <span class="name">Pete</span>
-                                <span class="result">17</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="connector">
-                          <div class="merger"></div>
-                          <div class="line"></div>
-                        </div>
-                      </div>
-                      <div class="winners">
-                        <div class="matchups">
-                          <div class="matchup">
-                            <div class="participants">
-                              <div class="participant">
-                                <span class="name">Jack</span>
-                                <span class="result">19</span>
-                              </div>
-                              <div class="participant winner">
-                                <span class="name">Sean</span>
-                                <span class="result">18</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="matchup">
-                            <div class="participants">
-                              <div class="participant">
-                                <span class="name">Bob</span>
-                                <span class="result">9</span>
-                              </div>
-                              <div class="participant winner">
-                                <span class="name">Li</span>
-                                <span class="result">15</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="connector">
-                          <div class="merger"></div>
-                          <div class="line"></div>
-                        </div>
-                      </div>
-                    </section>
-
-                    <section class="round semifinals">
-                      <h5 class="round-title">
-                        Semifinals
-                      </h5>
-                      <div class="winners">
-                        <div class="matchups">
-                          <div class="matchup">
-                            <div class="participants">
-                              <div class="participant winner">
-                                <span class="name">John</span>
-                                <span class="result">21</span>
-                              </div>
-                              <div class="participant">
-                                <span class="name">Jack</span>
-                                <span class="result">19</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="matchup">
-                            <div class="participants">
-                              <div class="participant winner">
-                                <span class="name">Sean</span>
-                                <span class="result">17</span>
-                              </div>
-                              <div class="participant">
-                                <span class="name">Steve</span>
-                                <span class="result">14</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="connector">
-                          <div class="merger"></div>
-                          <div class="line"></div>
-                        </div>
-                      </div>
-                    </section>
-                    <section class="round finals">
-                      <h5 class="round-title">
-                        Finals
-                      </h5>
-                      <div class="winners">
-                        <div class="matchups">
-                          <div class="matchup">
-                            <div class="participants">
-                              <div class="participant winner">
-                                <span class="name">Steve</span>
-                                <span class="result">20</span>
-                              </div>
-                              <div class="participant">
-                                <span class="name">Sean</span>
-                                <span class="result">18</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-              </section>
-
-            </mat-tab>
-
-            <mat-tab label="Comments">
-
-              <section class="tourno-profile__comments">
-
-                <h3 class="tourno-profile__title">
-                  Leave a comment
-                </h3>
-
-                <mat-form-field class="form-input">
-                  <textarea matInput rows="8" cols="40"></textarea>
-                </mat-form-field>
-                <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn">
-                  Post
-                </button>
-
-                <div class="tourno-profile__details-tab-content">
-
-                </div>
-              </section>
-
-            </mat-tab>
-
-            <mat-tab label="Settings">
-
-              <section class="tourno-profile__settings">
-
-                <div class="tourno-profile__settings-step">
-                  <h3 class="tourno-profile__title">
-                    Edit tournament info
-                  </h3>
-                  <form class="tourno-profile__settings-content">
-                    <label for="start-date"> Start date: </label>
-                    <mat-form-field>
-                      <input matInput [matDatepicker]="startDate" placeholder="Start date" value={{tourno?.startDate}}>
-                      <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                      <mat-datepicker #startDate></mat-datepicker>
-                    </mat-form-field>
-
-                    <label for="end-date"> End date: </label>
-                    <mat-form-field>
-                      <input matInput [matDatepicker]="endDate" placeholder="End date" value={{tourno?.endDate}}>
-                      <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                      <mat-datepicker #endDate></mat-datepicker>
-                    </mat-form-field>
-
-                    <label> Entry Fee: </label>
-                    <mat-form-field class="form-input" >
-                      <input matInput value={{tourno?.entryFee}}>
-                      <mat-icon matSuffix>money</mat-icon>
-                    </mat-form-field>
-
-                    <label> Prize: </label>
-                    <mat-form-field class="form-input">
-                      <input matInput value={{tourno?.prize}}>
-                      <mat-icon matSuffix>stars</mat-icon>
-                    </mat-form-field>
-                    <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn">
-                      Submit changes
-                    </button>
-                  </form>
-                </div>
-
-                <div class="tourno-profile__settings-step">
-                  <h3 class="tourno-profile__title">
-                    Players management
-                  </h3>
-
-                  <app-add-player [items$]="items$"></app-add-player>
-
-                </div>
-                <div class="tourno-profile__settings-step">
-                  <h3 class="tourno-profile__title">
-                    Delete tournament
-                  </h3>
-                  <p class="tourno-profile__desscription">
-                    Once you delete your account, there is no going back. Please be certain.
-                  </p>
-
-                  <button mat-raised-button color="warn" class="btn hightlighted-btn btn_delete">
-                    Delete this tournament
-                  </button>
-                </div>
-              </section>
-
-            </mat-tab>
-          </section>
-        </div>
-
-      </mat-tab-group>
+      <p class="tourno-profile__dates">
+        {{tourno?.startDate}} - {{tourno?.endDate}}
+      </p>
 
     </div>
+
   </div>
+
+  <div class="container-center">
+    <mat-tab-group mat-stretch-tabs class="tourno-profile__tabs" [animationDuration]="0">
+
+
+      <section class="tourno-profile">
+        <mat-tab label="Info">
+
+
+          <section class="tourno-profile__info">
+
+
+
+            <div class="tourno-profile__info-item">
+              <mat-icon matSuffix>hourglass_empty</mat-icon>
+              <label>Status: </label>
+              <mat-form-field class="form-input">
+                <input matInput disabled value={{tourno?.status|titlecase}}>
+              </mat-form-field>
+            </div>
+
+            <div class="tourno-profile__info-item">
+              <mat-icon matSuffix>videogame_asset</mat-icon>
+              <label>Game: </label>
+              <mat-form-field class="form-input">
+                <input matInput disabled value={{tourno?.game|titlecase}}>
+              </mat-form-field>
+            </div>
+
+            <div class="tourno-profile__info-item">
+              <mat-icon matSuffix>public</mat-icon>
+              <label>Country: </label>
+              <mat-form-field class="form-input">
+                <input matInput disabled value={{tourno?.country|titlecase}}>
+              </mat-form-field>
+            </div>
+
+
+            <div class="tourno-profile__info-item">
+              <mat-icon matSuffix>group</mat-icon>
+              <label>Participants: </label>
+              <mat-form-field class="form-input">
+                <input matInput disabled value={{tourno?.participants}}>
+              </mat-form-field>
+            </div>
+
+            <div class="tourno-profile__info-item">
+              <mat-icon matSuffix>attach_money</mat-icon>
+              <label>Entry fee:: </label>
+              <mat-form-field class="form-input">
+                <input matInput disabled value={{tourno?.entryFee}}>
+              </mat-form-field>
+            </div>
+
+            <div class="tourno-profile__info-item">
+              <mat-icon matSuffix>star</mat-icon>
+              <label>Prize: </label>
+              <mat-form-field class="form-input">
+                <input matInput disabled value={{tourno?.prize}}>
+              </mat-form-field>
+            </div>
+
+          </section>
+
+        </mat-tab>
+
+        <mat-tab label="Bracket">
+
+          <section class="tourno-profile__bracket">
+            <h3 class="tourno-profile__title">
+              Tournament bracket
+            </h3>
+
+            <div class="tourno-profile__bracket-content">
+
+              <div class="bracket">
+
+                <section class="round quarterfinals">
+                  <h5 class="round-title">
+                    Quarterfinals
+                  </h5>
+                  <div class="winners">
+                    <div class="matchups">
+                      <div class="matchup">
+                        <div class="participants">
+                          <div class="participant winner">
+                            <span class="name">John</span>
+                            <span class="result">23</span>
+                          </div>
+                          <div class="participant">
+                            <span class="name">Steve</span>
+                            <span class="result">13</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="matchup">
+                        <div class="participants">
+                          <div class="participant">
+                            <span class="name">Vanya</span>
+                            <span class="result">11</span>
+                          </div>
+                          <div class="participant winner">
+                            <span class="name">Pete</span>
+                            <span class="result">17</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="connector">
+                      <div class="merger"></div>
+                      <div class="line"></div>
+                    </div>
+                  </div>
+                  <div class="winners">
+                    <div class="matchups">
+                      <div class="matchup">
+                        <div class="participants">
+                          <div class="participant">
+                            <span class="name">Jack</span>
+                            <span class="result">19</span>
+                          </div>
+                          <div class="participant winner">
+                            <span class="name">Sean</span>
+                            <span class="result">18</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="matchup">
+                        <div class="participants">
+                          <div class="participant">
+                            <span class="name">Bob</span>
+                            <span class="result">9</span>
+                          </div>
+                          <div class="participant winner">
+                            <span class="name">Li</span>
+                            <span class="result">15</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="connector">
+                      <div class="merger"></div>
+                      <div class="line"></div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="round semifinals">
+                  <h5 class="round-title">
+                    Semifinals
+                  </h5>
+                  <div class="winners">
+                    <div class="matchups">
+                      <div class="matchup">
+                        <div class="participants">
+                          <div class="participant winner">
+                            <span class="name">John</span>
+                            <span class="result">21</span>
+                          </div>
+                          <div class="participant">
+                            <span class="name">Jack</span>
+                            <span class="result">19</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="matchup">
+                        <div class="participants">
+                          <div class="participant winner">
+                            <span class="name">Sean</span>
+                            <span class="result">17</span>
+                          </div>
+                          <div class="participant">
+                            <span class="name">Steve</span>
+                            <span class="result">14</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="connector">
+                      <div class="merger"></div>
+                      <div class="line"></div>
+                    </div>
+                  </div>
+                </section>
+                <section class="round finals">
+                  <h5 class="round-title">
+                    Finals
+                  </h5>
+                  <div class="winners">
+                    <div class="matchups">
+                      <div class="matchup">
+                        <div class="participants">
+                          <div class="participant winner">
+                            <span class="name">Steve</span>
+                            <span class="result">20</span>
+                          </div>
+                          <div class="participant">
+                            <span class="name">Sean</span>
+                            <span class="result">18</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+
+        </mat-tab>
+
+        <mat-tab label="Comments">
+
+          <section class="tourno-profile__comments">
+
+            <h3 class="tourno-profile__title">
+              Leave a comment
+            </h3>
+
+            <mat-form-field class="form-input">
+              <textarea matInput rows="8" cols="40"></textarea>
+            </mat-form-field>
+            <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn">
+              Post
+            </button>
+
+            <div class="tourno-profile__details-tab-content">
+
+            </div>
+          </section>
+
+        </mat-tab>
+
+        <mat-tab label="Settings">
+
+          <section class="tourno-profile__settings">
+
+            <div class="tourno-profile__settings-step">
+              <h3 class="tourno-profile__title">
+                Edit tournament info
+              </h3>
+              <form class="tourno-profile__settings-content">
+                <label for="start-date"> Start date: </label>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="startDate" placeholder="Start date" value={{tourno?.startDate}}>
+                  <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                  <mat-datepicker #startDate></mat-datepicker>
+                </mat-form-field>
+
+                <label for="end-date"> End date: </label>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="endDate" placeholder="End date" value={{tourno?.endDate}}>
+                  <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                  <mat-datepicker #endDate></mat-datepicker>
+                </mat-form-field>
+
+                <label> Entry Fee: </label>
+                <mat-form-field class="form-input">
+                  <input matInput value={{tourno?.entryFee}}>
+                  <mat-icon matSuffix>money</mat-icon>
+                </mat-form-field>
+
+                <label> Prize: </label>
+                <mat-form-field class="form-input">
+                  <input matInput value={{tourno?.prize}}>
+                  <mat-icon matSuffix>stars</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn">
+                  Submit changes
+                </button>
+              </form>
+            </div>
+
+            <div class="tourno-profile__settings-step">
+              <h3 class="tourno-profile__title">
+                Players management
+              </h3>
+
+              <app-add-player [items$]="items$"></app-add-player>
+
+            </div>
+            <div class="tourno-profile__settings-step">
+              <h3 class="tourno-profile__title">
+                Delete tournament
+              </h3>
+              <p class="tourno-profile__desscription">
+                Once you delete your account, there is no going back. Please be certain.
+              </p>
+
+              <button mat-raised-button color="warn" class="btn hightlighted-btn btn_delete">
+                Delete this tournament
+              </button>
+            </div>
+          </section>
+
+        </mat-tab>
+      </section>
+
+    </mat-tab-group>
+
+  </div>
+
 
 </div>

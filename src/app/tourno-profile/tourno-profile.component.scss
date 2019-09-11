@@ -1,4 +1,4 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 .background-container {
   height: 30vh;
@@ -12,24 +12,34 @@
   padding-top: 0;
 }
 
+.container-center {
+  position: relative;
+}
 
 .tourno-profile__header {
-  padding: 2vh 0 0;
-  margin: 0;
   background-color: $wix-dark-background;
 }
 
-.tourno-profile__header h2 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-left: 19vh;
-  margin-top: 0;
+.tourno-profile__header > .container-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: baseline;
 }
 
-.tourno-profile__header .container-center {
-  flex-direction: row;
-  position: relative;
-  height: 100%;
+.tourno-profile__header-title {
+  margin-left: 20%;
+  margin-bottom: 12%;
+}
+
+.tourno-profile__dates {
+  padding-left: 3%;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.tourno-profile__tabs {
+  margin-top: -48px;
 }
 
 .tourno-profile__pic {
@@ -49,24 +59,20 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+.tourno-profile__info,
 .tourno-profile__bracket,
-.tourno-profile__chart,
 .tourno-profile__comments,
 .tourno-profile__settings {
   display: flex;
   flex-direction: column;
-  margin: 6% auto 10%;
-}
-
-.tourno-profile > .tourno-profile__info {
-  display: flex;
-  flex-direction: column;
-  margin: 6% 0 10%;
+  margin: 8% 0 10%;
+  width: 98%;
+  min-height: 700px;
 }
 
 .tourno-profile__info-item {
   display: grid;
-  grid-template-columns: 4% 16% 80%;
+  grid-template-columns: 3% 12% 70%;
   grid-template-rows: auto;
   grid-row-gap: 2%;
   grid-column-gap: 1%;
@@ -113,7 +119,7 @@
 .tourno-profile__settings-step {
   margin-bottom: 10%;
   background-color: $wix-dark-background;
-  padding: 0 10% 3% 5%;
+  padding: 0 10% 3% 0;
 }
 
 .tourno-profile__desscription {
