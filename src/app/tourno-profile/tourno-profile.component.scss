@@ -33,7 +33,7 @@
 }
 
 .tourno-profile__dates {
-  padding-left: 3%;
+  margin-left: 3%;
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -118,8 +118,7 @@
 
 .tourno-profile__settings-step {
   margin-bottom: 10%;
-  background-color: $wix-dark-background;
-  padding: 0 10% 3% 0;
+  padding: 0 10% 3% 4%;
 }
 
 .tourno-profile__desscription {
@@ -151,9 +150,27 @@
     width: 90vw;
   }
 
+  .tourno-profile__header > .container-center {
+    flex-direction: column;
+  }
+
   .tourno-profile__header h2 {
-    font-size: 2.2rem;
-    line-height: 3.8rem;
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-left: 25%;
+    margin-bottom: 0%;
+  }
+
+  .tourno-profile__dates {
+    font-size: 1em;
+    font-weight: bold;
+    margin-left: 25%;
+    margin-bottom: 15%;
+  }
+
+  .tourno-profile__info-item {
+    grid-template-columns: 3% 12% 78%;
+    grid-column-gap: 4%;
   }
 
   .tourno-profile__comments .textarea {
@@ -163,22 +180,41 @@
   .tourno-profile__comments .btn {
     width: 100%;
   }
+
+  .tourno-profile__settings-step {
+    margin-bottom: 10%;
+    padding: 0 0 5% 0;
+  }
 }
 
 @media screen and (max-width: 795px) {
-  .tourno-profile__tab:nth-of-type(3),
-  .tourno-profile__chart {
-    display: none;
+  .tourno-profile__info-item {
+    grid-template-columns: 3% 15% 70%;
+    margin-bottom: 4%;
+  }
+
+  .tourno-profile__info,
+  .tourno-profile__bracket,
+  .tourno-profile__comments,
+  .tourno-profile__settings {
+    min-height: 0;
   }
 }
 
 @media screen and (max-width: 560px) {
   .tourno-profile__header h2 {
     font-size: 1.8rem;
-    line-height: 3.5rem;
-    margin-left: 0;
+    line-height: 3rem;
+    margin-left: 2%;
     padding-top: 10vh;
     margin-top: 0;
+  }
+
+  .tourno-profile__dates {
+    font-size: 1em;
+    font-weight: normal;
+    margin-left: 2%;
+    margin-bottom: 20%;
   }
 
   .tourno-profile__info-item label {
@@ -187,7 +223,7 @@
 
   .tourno-profile__info-item {
     grid-template-columns: 5% 90%;
-    grid-column-gap: 4%;
+    margin-bottom: 6%;
   }
 
   .tourno-profile__settings-content {

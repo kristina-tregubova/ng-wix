@@ -35,6 +35,14 @@
       </div>
 
       <div class="player-profile__info-item">
+        <mat-icon matSuffix>public</mat-icon>
+        <label>Country: </label>
+        <mat-form-field class="form-input">
+          <input matInput disabled value={{player?.country}}>
+        </mat-form-field>
+      </div>
+
+      <div class="player-profile__info-item">
         <mat-icon matSuffix>stars</mat-icon>
         <label>Points: </label>
         <mat-form-field class="form-input">
@@ -55,14 +63,6 @@
         <label>Wins: </label>
         <mat-form-field class="form-input">
           <input matInput disabled value={{wins}}>
-        </mat-form-field>
-      </div>
-
-      <div class="player-profile__info-item">
-        <mat-icon matSuffix>public</mat-icon>
-        <label>Country: </label>
-        <mat-form-field class="form-input">
-          <input matInput disabled value={{player?.country}}>
         </mat-form-field>
       </div>
 

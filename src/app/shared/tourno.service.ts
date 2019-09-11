@@ -22,7 +22,9 @@ export class TournoService {
     for (const player of tourno.relatedPlayers) {
       player.get().then((doc) => {
         if (doc.exists) {
-           items.push(doc.data());
+          const data = doc.data();
+          const id = doc.id;
+          items.push({id, ...data});
         }
       });
     }

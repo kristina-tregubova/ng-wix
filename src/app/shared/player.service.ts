@@ -22,7 +22,9 @@ export class PlayerService {
     for (const tourno of player.relatedTournaments) {
       tourno.tournament.get().then((doc) => {
         if (doc.exists) {
-          items.push(doc.data());
+          const data = doc.data();
+          const id = doc.id;
+          items.push({id, ...data});
         }
       });
     }

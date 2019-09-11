@@ -1,7 +1,8 @@
 import { Injectable, OnInit, OnChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap, tap, map } from 'rxjs/operators';
+import { switchMap, tap, map, filter } from 'rxjs/operators';
+import { ITourno } from '../core/models/ITourno';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +14,11 @@ export class TournosSearchService {
   ) { }
 
 
-
+  private _items$: Observable<any[]>;
   statusSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
 
-  startAtSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
-  endAtSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
+  searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
 
   private _loading = new BehaviorSubject(false);
   loading$ = this._loading.asObservable();
@@ -28,37 +28,25 @@ export class TournosSearchService {
 
     this.startLoading();
 
-    return combineLatest(
-      this.statusSubject$,
-      this.gameSubject$,
-      this.startAtSubject$,
-      this.endAtSubject$,
-    ).pipe(
-      tap(() => this.startLoading()),
-      switchMap(([status, game, start, end]) =>
-
-        this.afs.collection('tournaments', ref => {
-
-          let query: firebase.firestore.Query = ref;
-          if (status) { query = query.where('status', '==', status); }
-          if (game) { query = query.where('game', '==', game); }
-          if (start || end) {
-            query = query.orderBy("name").startAt(start).endAt(end);
-          }
-
-          return query;
-
-        }).snapshotChanges().pipe(
-          map(actions => {
-            return actions.map(a => {
-              const data = a.payload.doc.data();
-              const id = a.payload.doc.id;
-              return { id, ...data };
-          });
-        }))
-      ),
+    this._items$ = this.afs.collection('tournaments').snapshotChanges().pipe(
       tap(() => this.stopLoading()),
-    );
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      }),
+      tap(() => this.stopLoading()),
+    )
+    return this._items$;
+  }
+
+  sortTournamentsByGame() {
+    let game = this.gameSubject$.subscribe(val => val);
+    this._items$.pipe(
+      filter((item) => item.game === game))
+    )
   }
 
   startLoading() {

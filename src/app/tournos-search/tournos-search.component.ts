@@ -20,11 +20,11 @@ export class TournoSearchComponent implements OnInit {
   ngOnInit() {
     this.items$ = this.tournosService.searchTournaments();
     this.isLoading$ = this.tournosService.loading$;
+    this.tournosService.sortTournamentsByGame();
   }
 
   updateSearch($event) {
-    this.tournosService.startAtSubject$.next($event);
-    this.tournosService.endAtSubject$.next($event + '\uf8ff');
+    this.tournosService.searchSubject$.next($event);
   }
 
   filterByGame($event) {

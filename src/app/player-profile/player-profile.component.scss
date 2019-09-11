@@ -1,125 +1,139 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 .background-container {
-    height: 30vh;
-    width: 100vw;
-    background-size: cover;
+  height: 30vh;
+  width: 100vw;
+  background-size: cover;
   background-position: 0 30%;
+}
+
+.form-input input,
+.form-selector select {
+  padding-top: 0;
+}
+
+.player-profile__header {
+  padding: 2vh 0 2vh;
+  margin-bottom: 30px;
+  height: 9vh;
+  background-color: $wix-dark-background;
+}
+
+.player-profile__header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-left: 19vh;
+  margin-top: 0;
+}
+
+.player-profile__header .container-center {
+  flex-direction: row;
+  position: relative;
+  height: 100%;
+}
+
+.player-profile__userpic {
+  margin-left: 4%;
+  margin-top: 1%;
+  position: absolute;
+  top: -5vh;
+  left: 0;
+}
+
+.player-profile__userpic img {
+  padding: 10px;
+  width: auto;
+  height: 9vh;
+  border-radius: 50%;
+  border: 3px solid #fbd132;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.title {
+  border-bottom: 1px solid $light-dividers;
+}
+
+.player-profile__info,
+.player-profile__details,
+.player-profile__games-attended {
+  margin-bottom: 10%;
+}
+
+.player-profile__info-item {
+  display: grid;
+  grid-template-columns: 4% 16% 80%;
+  grid-template-rows: auto;
+  grid-row-gap: 2%;
+  grid-column-gap: 1%;
+  margin-bottom: 3%;
+  align-items: end;
+}
+
+.player-profile__info-item .form-input {
+  height: 40px;
+}
+
+.player-profile__info-item i {
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+.chart,
+.no-team {
+  width: 100%;
+}
+
+.no-team {
+  text-align: center;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 1200px) {
+  .container-center {
+    width: 75vw;
   }
-  
-  .form-input input,
-  .form-selector select {
-    padding-top: 0;
+}
+
+@media screen and (max-width: 980px) {
+  .container-center {
+    width: 90vw;
   }
-  
-  .player-profile__header {
-    padding: 2vh 0 2vh;
-    margin-bottom: 30px;
-    height: 9vh;
-    background-color: $wix-dark-background;
-  }
-  
+
   .player-profile__header h2 {
-    font-size: 2.4rem;
-    font-weight: 800;
-    margin-left: 19vh;
-    margin-top: 0;
+    font-size: 2.2rem;
+    line-height: 3.8rem;
   }
-  
-  .player-profile__header .container-center {
-    flex-direction: row;
-    position: relative;
-    height: 100%;
-  }
-  
-  .player-profile__userpic {
-    margin-left: 4%;
-    margin-top: 1%;
-    position: absolute;
-    top: -5vh;
-    left: 0;
-  }
-  
-  .player-profile__userpic img {
-    padding: 10px;
-    width: auto;
-    height: 9vh;
-    border-radius: 50%;
-    border: 3px solid #FBD132;
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .title {
-    border-bottom: 1px solid $light-dividers;
-  }
-  
+
   .player-profile__info,
   .player-profile__details,
   .player-profile__games-attended {
-    margin-bottom: 10%;
-  }
-  
-  .player-profile__info-item {
-    display: grid;
-    grid-template-columns: 4% 16% 80%;
-    grid-template-rows: auto;
-    grid-row-gap: 2%;
-    grid-column-gap: 1%;
-    margin-bottom: 3%;
-    align-items: end;
-  }
-  
-  .player-profile__info-item .form-input {
-    height: 40px;
-  }
-  
-  .player-profile__info-item i {
-    font-size: 20px;
-    padding-right: 5px;
-  }
-  
-  .chart,
-  .no-team  {
-    width: 100%;
-    
+    margin-bottom: 20%;
   }
 
-  .no-team {
-    text-align: center;
-    margin-top: 5%;
+  .player-profile__info-item {
+    margin-bottom: 4%;
   }
-  
-  @media screen and (max-width: 1200px) {
-     .container-center {
-      width: 75vw;
-    }
-  
+}
+
+@media screen and (max-width: 560px) {
+  .player-profile__header h2 {
+    font-size: 1.8rem;
+    line-height: 3.5rem;
   }
-  
-  @media screen and (max-width: 980px) {
-     .container-center {
-      width: 90vw;
-    }
-  
-    .player-profile__header h2 {
-      font-size: 2.2rem;
-      line-height: 3.8rem;
-    }
-  
+
+  .player-profile__info,
+  .player-profile__details,
+  .player-profile__games-attended {
+    margin-bottom: 30%;
   }
-  
-  @media screen and (max-width: 560px) {
-  
-    .player-profile__header h2 {
-      font-size: 1.8rem;
-      line-height: 3.5rem;
-    }
-    .player-profile__info-item label {
-      display: none;
-    }
-    .player-profile__info-item {
-      grid-template-columns: 5% 90%;
-      grid-column-gap: 4%;
-    }
-  
+
+  .player-profile__info-item label {
+    display: none;
   }
+
+  .player-profile__info-item {
+    grid-template-columns: 5% 90%;
+    grid-column-gap: 5%;
+    margin-bottom: 7%;
+  }
+}
