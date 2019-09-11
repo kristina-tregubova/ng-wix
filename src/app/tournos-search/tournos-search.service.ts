@@ -17,7 +17,6 @@ export class TournosSearchService {
   items$: Observable<any[]>;
   statusSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
-
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
 
   private _loading = new BehaviorSubject(false);
@@ -48,13 +47,13 @@ export class TournosSearchService {
     this.startLoading();
 
     let name;
-    this.searchSubject$.subscribe(val => name = val);
+    this.searchSubject$.subscribe(val => name = val.toLowerCase());
 
     this.items$ = this.items$.pipe(
 
-      debounceTime(500),
+
       map((itemArr: ITourno[]) => {
-        return itemArr = itemArr.filter((item: ITourno) => item.name.includes(name));
+        return itemArr = itemArr.filter((item: ITourno) => item.name.toLowerCase().includes(name));
       }),
       tap(() => this.stopLoading()),
     )

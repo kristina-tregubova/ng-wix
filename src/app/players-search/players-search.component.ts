@@ -22,17 +22,19 @@ export class PlayersSearchComponent implements OnInit {
     this.isLoading$ = this.playersService.loading$;
   }
 
-  updateSearch($event) {
-    this.playersService.startAtSubject$.next($event);
-    this.playersService.endAtSubject$.next($event + '\uf8ff');
+  trySearchByName($event) {
+    this.playersService.searchSubject$.next($event);
+    this.items$ = this.playersService.searchByName();
   }
 
-  filterByGame($event) {
+  tryFilterByGame($event) {
     this.playersService.gameSubject$.next($event);
+    this.items$ = this.playersService.filterPlayersByGame();
   }
 
-  filterByCountry($event) {
+  tryFilterByCountry($event) {
     this.playersService.countrySubject$.next($event);
+    this.items$ = this.playersService.filterPlayersByCountry();
   }
 
 }
