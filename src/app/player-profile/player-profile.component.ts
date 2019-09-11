@@ -46,7 +46,6 @@ export class PlayerProfileComponent implements OnInit {
         this.games = this.playerService.getPlayerGames(val);
         this.wins = this.playerService.getPlayerWins(val);
         this.dataSource = val.team;
-        console.log(this.dataSource);
         this.items$ = this.playerService.getTournamentsAttended(val);
       });
   }

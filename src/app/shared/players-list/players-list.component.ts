@@ -14,7 +14,7 @@ export class PlayersListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    // this.items$.subscribe(val=>console.log(val))
   }
 
 }
