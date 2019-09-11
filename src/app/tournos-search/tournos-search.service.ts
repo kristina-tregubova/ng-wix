@@ -1,7 +1,7 @@
 import { Injectable, OnInit, OnChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap, tap, map, filter } from 'rxjs/operators';
+import { switchMap, tap, map, filter, last, debounceTime } from 'rxjs/operators';
 import { ITourno } from '../core/models/ITourno';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class TournosSearchService {
   ) { }
 
 
-  private _items$: Observable<any[]>;
+  items$: Observable<any[]>;
   statusSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
 
@@ -28,8 +28,8 @@ export class TournosSearchService {
 
     this.startLoading();
 
-    this._items$ = this.afs.collection('tournaments').snapshotChanges().pipe(
-      tap(() => this.stopLoading()),
+    this.items$ = this.afs.collection('tournaments').snapshotChanges().pipe(
+
       map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data();
@@ -39,15 +39,66 @@ export class TournosSearchService {
       }),
       tap(() => this.stopLoading()),
     )
-    return this._items$;
+    return this.items$;
+
   }
 
-  sortTournamentsByGame() {
-    let game = this.gameSubject$.subscribe(val => val);
-    this._items$.pipe(
-      filter((item) => item.game === game))
+  searchByName() {
+
+    this.startLoading();
+
+    let name;
+    this.searchSubject$.subscribe(val => name = val);
+
+    this.items$ = this.items$.pipe(
+
+      debounceTime(500),
+      map((itemArr: ITourno[]) => {
+        return itemArr = itemArr.filter((item: ITourno) => item.name.includes(name));
+      }),
+      tap(() => this.stopLoading()),
     )
+
+    return this.items$;
+
   }
+
+  filterTournamentsByGame() {
+
+    this.startLoading();
+
+    let game;
+    this.gameSubject$.subscribe(val => game = val);
+
+    this.items$ = this.items$.pipe(
+
+      map((itemArr: ITourno[]) => {
+        return itemArr = itemArr.filter((item: ITourno) => item.game === game);
+      }),
+      tap(() => this.stopLoading()),
+    )
+
+    return this.items$;
+  }
+
+  filterTournamentsByStatus() {
+
+    this.startLoading();
+
+    let status;
+    this.statusSubject$.subscribe(val => status = val);
+
+    this.items$ = this.items$.pipe(
+
+      map((itemArr: ITourno[]) => {
+        return itemArr = itemArr.filter((item: ITourno) => item.status === status);
+      }),
+      tap(() => this.stopLoading()),
+    )
+
+    return this.items$;
+  }
+
 
   startLoading() {
     this._loading.next(true);

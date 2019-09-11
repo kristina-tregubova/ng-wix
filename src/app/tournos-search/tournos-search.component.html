@@ -8,7 +8,7 @@
         <form class="search-form">
             <div class="search-form__search search-field">
                 <mat-form-field class="form-input">
-                    <input matInput (keyup)="updateSearch($event.target.value)">
+                    <input matInput (keyup)="trySearchByName($event.target.value)" id="tournos-search-input">
                     <mat-icon matSuffix>search</mat-icon>
                     <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
                 </mat-form-field>
@@ -25,7 +25,7 @@
 
                 <mat-form-field class="search-field" floatLabel="never">
                     <mat-label>Game:</mat-label>
-                    <mat-select (selectionChange)="filterByGame($event.value)">
+                    <mat-select (selectionChange)="tryFilterByGame($event.value)">
                         <mat-option value="">All</mat-option>
                         <mat-option value="football">Football</mat-option>
                         <mat-option value="basketball">Basketball</mat-option>
@@ -44,7 +44,7 @@
 
                 <mat-form-field class="search-field" floatLabel="never">
                     <mat-label>Satus:</mat-label>
-                    <mat-select (selectionChange)="filterByStatus($event.value)">
+                    <mat-select (selectionChange)="tryFilterByStatus($event.value)">
                         <mat-option value="" selected>
                             All
                         </mat-option>
