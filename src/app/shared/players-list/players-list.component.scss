@@ -49,6 +49,11 @@
     cursor: none;
     border-bottom: none;
   }
+
+  &.active-sorting {
+    border-bottom: 2px dashed $wix-primary;
+    color: $wix-primary;
+  }
 }
 
 .sorting-header__buttons {

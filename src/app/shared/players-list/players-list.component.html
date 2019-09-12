@@ -4,7 +4,7 @@
   </div>
 
   <div class="sorting-header__title">
-    <button (click)="handleSorting('name', 'letters')">Name
+    <button (click)="handleSorting($event, 'name', 'letters')">Name
     </button>
   </div>
 
@@ -19,27 +19,27 @@
   </div>
 
   <div class="sorting-header__points">
-    <button (click)="handleSorting('points', 'numbers')">Points
+    <button (click)="handleSorting($event, 'points', 'numbers')">Points
     </button>
 
   </div>
 
   <div class="sorting-header__games">
-    <button (click)="handleSorting('games', 'numbers')">Games
+    <button (click)="handleSorting($event, 'games', 'numbers')">Games
     </button>
   </div>
 
   <div class="sorting-header__games-won">
-    <button (click)="handleSorting('won', 'numbers')">Won
+    <button (click)="handleSorting($event, 'won', 'numbers')">Won
     </button>
   </div>
 
 
   <div class="sorting-header__buttons">
-    <i class="up material-icons">
+    <i class="up material-icons" [style.color]="order ? 'yellow' : 'white'">
       arrow_drop_up
     </i>
-    <i class="down material-icons">
+    <i class="down material-icons" [style.color]="order ? 'white' : 'yellow'">
       arrow_drop_down
     </i>
   </div>

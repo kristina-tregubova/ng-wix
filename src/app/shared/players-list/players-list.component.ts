@@ -18,12 +18,22 @@ export class PlayersListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.items$ = this.handleSorting('name', 'letters');
+    this.items$ = this.handleSorting(null, 'name', 'letters');
   }
 
-  handleSorting(field: string, sortType: string) {
+  handleSorting($event, field: string, sortType: string) {
 
     this.order = !this.order;
+    console.log($event)
+
+    if ($event) {
+      document.querySelectorAll('.sorting-header button').forEach((el) => el.classList.remove('active-sorting'));
+      $event.currentTarget.classList.add('active-sorting');
+    }
+
+    // if (!this.order) {
+    //   document.querySelector('.sorting-header__buttons .up').style.color = '$wix-primary';
+    // }
 
     this.items$ = this.items$.pipe(
       map((itemArr: IPlayer[]) => {
