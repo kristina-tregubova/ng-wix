@@ -38,9 +38,16 @@
   border-bottom: 2px dashed $wix-color;
   color: $wix-color;
 
-  &:active,
+  &:focus,
   &:hover {
     border-bottom: 2px dashed $wix-primary;
+    color: $wix-primary;
+  }
+
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    cursor: none;
+    border-bottom: none;
   }
 }
 
