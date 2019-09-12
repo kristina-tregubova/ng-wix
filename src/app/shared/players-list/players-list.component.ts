@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
-import { map } from 'rxjs/operators';
+import { map, tap, last } from 'rxjs/operators';
+import { PlayersSearchService } from 'src/app/players-search/players-search.service';
 
 @Component({
   selector: 'app-players-list',
@@ -15,39 +16,41 @@ export class PlayersListComponent implements OnInit {
 
   order: boolean = false;
 
-  constructor() { }
+  constructor(
+    private playersSearchService: PlayersSearchService
+  ) { }
 
   ngOnInit() {
-    this.items$ = this.handleSorting(null, 'name', 'letters');
+    // this.handleSorting(null, 'name', 'letters');
   }
 
   handleSorting($event, field: string, sortType: string) {
 
     this.order = !this.order;
-    console.log($event)
+    this.playersSearchService.startLoading();
 
     if ($event) {
       document.querySelectorAll('.sorting-header button').forEach((el) => el.classList.remove('active-sorting'));
       $event.currentTarget.classList.add('active-sorting');
     }
 
-    // if (!this.order) {
-    //   document.querySelector('.sorting-header__buttons .up').style.color = '$wix-primary';
-    // }
+    let resultItemsArr;
+    this.playersSearchService.items$.subscribe((itemArr: IPlayer[]) => {
+      debugger
+      itemArr = itemArr.sort((a: IPlayer, b: IPlayer) => {
+        if (sortType === 'letters') {
+          console.log('tack');
+          return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
+        } else if (sortType === 'numbers') {
+          console.log('tick');
+          return (this.order) ? +a[field] - +b[field] : +b[field] - +a[field];
+        }
+      });
+      resultItemsArr = itemArr;
+    });
 
-    this.items$ = this.items$.pipe(
-      map((itemArr: IPlayer[]) => {
-        return itemArr = itemArr.sort((a: IPlayer, b: IPlayer) => {
-          if (sortType === 'letters') {
-            return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
-          } else {
-            return (this.order) ? a[field] - b[field] : b[field] - a[field];
-          }
-        });
-      }),
-    );
-
-    return this.items$;
+    this.playersSearchService.items$.next(resultItemsArr);
+    this.playersSearchService.stopLoading();
   }
 
 }

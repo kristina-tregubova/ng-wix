@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayersSearchService } from './players-search.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-players-search',
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class PlayersSearchComponent implements OnInit {
 
-  items$: Observable<any>
+  items$: Observable<any>;
   isLoading$: Observable<boolean>; 
 
   constructor(
@@ -18,23 +18,24 @@ export class PlayersSearchComponent implements OnInit {
 
 
   ngOnInit() {
-    this.items$ = this.playersService.searchPlayers();
+    this.playersService.items$.subscribe((val) => this.items$ = of(val));
+    this.playersService.searchPlayers();
     this.isLoading$ = this.playersService.loading$;
   }
 
   trySearchByName($event) {
     this.playersService.searchSubject$.next($event);
-    this.items$ = this.playersService.searchByName();
+    this.playersService.searchByName();
   }
 
   tryFilterByGame($event) {
     this.playersService.gameSubject$.next($event);
-    this.items$ = this.playersService.filterPlayersByGame();
+    this.playersService.filterPlayersByGame();
   }
 
   tryFilterByCountry($event) {
     this.playersService.countrySubject$.next($event);
-    this.items$ = this.playersService.filterPlayersByCountry();
+    this.playersService.filterPlayersByCountry();
   }
 
 }

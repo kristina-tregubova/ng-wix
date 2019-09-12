@@ -32,14 +32,21 @@
   border: none;
   display: block;
   outline: none;
-  cursor: pointer;
-
   position: relative;
-  border-bottom: 2px dashed $wix-color;
   color: $wix-color;
+  
+  &.sortable {
+    cursor: pointer;
+    border-bottom: 2px dashed $wix-color;
+  }
 
-  &:focus,
-  &:hover {
+  &.sortable.active-sorting {
+    border-bottom: 2px dashed $wix-primary;
+    color: $wix-primary;
+  }
+
+  &.sortable:focus,
+  &.sortable:hover {
     border-bottom: 2px dashed $wix-primary;
     color: $wix-primary;
   }
@@ -48,11 +55,6 @@
   &:nth-of-type(3) {
     cursor: none;
     border-bottom: none;
-  }
-
-  &.active-sorting {
-    border-bottom: 2px dashed $wix-primary;
-    color: $wix-primary;
   }
 }
 
@@ -139,7 +141,6 @@
 }
 
 @media screen and (max-width: 500px) {
-
   .sorting-header {
     margin: 8% 0;
   }

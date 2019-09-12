@@ -4,33 +4,33 @@
   </div>
 
   <div class="sorting-header__title">
-    <button (click)="handleSorting($event, 'name', 'letters')">Name
+    <button class="sortable" (click)="handleSorting($event, 'name', 'letters')">Name
     </button>
   </div>
 
   <div class="sorting-header__game">
-    <button disabled>Game
+    <button>Game
     </button>
   </div>
 
   <div class="sorting-header__country">
-    <button disabled>Country
+    <button>Country
     </button>
   </div>
 
   <div class="sorting-header__points">
-    <button (click)="handleSorting($event, 'points', 'numbers')">Points
+    <button class="sortable" (click)="handleSorting($event, 'points', 'numbers')">Points
     </button>
 
   </div>
 
   <div class="sorting-header__games">
-    <button (click)="handleSorting($event, 'games', 'numbers')">Games
+    <button class="sortable" (click)="handleSorting($event, 'games', 'numbers')">Games
     </button>
   </div>
 
   <div class="sorting-header__games-won">
-    <button (click)="handleSorting($event, 'won', 'numbers')">Won
+    <button class="sortable" (click)="handleSorting($event, 'won', 'numbers')">Won
     </button>
   </div>
 

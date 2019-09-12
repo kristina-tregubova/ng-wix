@@ -72,7 +72,13 @@ export class TournosSearchService {
     this.items$ = this.items$.pipe(
 
       map((itemArr: ITourno[]) => {
-        return itemArr = itemArr.filter((item: ITourno) => item.game === game);
+        return itemArr = itemArr.filter((item: ITourno) => {
+          if (game) {
+            return item.game === game;
+          } else {
+            return item.game;
+          }
+        });
       }),
       tap(() => this.stopLoading()),
     )
@@ -90,7 +96,13 @@ export class TournosSearchService {
     this.items$ = this.items$.pipe(
 
       map((itemArr: ITourno[]) => {
-        return itemArr = itemArr.filter((item: ITourno) => item.status === status);
+        return itemArr = itemArr.filter((item: ITourno) => {
+          if (status) {
+            return item.game === status;
+          } else {
+            return item.game;
+          }
+        });
       }),
       tap(() => this.stopLoading()),
     )

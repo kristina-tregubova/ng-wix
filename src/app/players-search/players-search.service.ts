@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap, tap, map, debounceTime } from 'rxjs/operators';
+import { switchMap, tap, map, debounceTime, toArray } from 'rxjs/operators';
 import { IPlayer } from '../core/models/IPlayer';
 
 @Injectable({
@@ -13,8 +13,8 @@ export class PlayersSearchService {
     private afs: AngularFirestore,
   ) { }
 
-
-  items$: Observable<any[]>;
+  initialItems$: BehaviorSubject<any> = new BehaviorSubject(null);
+  items$: BehaviorSubject<any> = new BehaviorSubject(null);
   countrySubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
@@ -27,7 +27,7 @@ export class PlayersSearchService {
 
     this.startLoading();
 
-    this.items$ = this.afs.collection('players').snapshotChanges().pipe(
+    const result = this.afs.collection('players').snapshotChanges().pipe(
 
       map(actions => {
         return actions.map(a => {
@@ -37,8 +37,9 @@ export class PlayersSearchService {
         });
       }),
       tap(() => this.stopLoading()),
-    )
-    return this.items$;
+    );
+    result.subscribe(val => this.initialItems$.next(val));
+    this.initialItems$.subscribe(val => this.items$.next(val));
   }
 
   searchByName() {
@@ -48,18 +49,15 @@ export class PlayersSearchService {
     let name;
     this.searchSubject$.subscribe(val => name = val.toLowerCase());
 
-    this.items$ = this.items$.pipe(
-
-
-      map((itemArr: IPlayer[]) => {
-        return itemArr = itemArr.filter((item: IPlayer) => item.name.toLowerCase().includes(name));
-      }),
-      tap(() => this.stopLoading()),
-    )
-
-    return this.items$;
-
+    let resultItemArr;
+    this.initialItems$.subscribe((itemArr: IPlayer[]) => {
+      const result = itemArr.filter((item: IPlayer) => item.name.toLowerCase().includes(name));
+      resultItemArr = result;
+    });
+    this.items$.next(resultItemArr);
+    this.stopLoading();
   }
+
   filterPlayersByGame() {
 
     this.startLoading();
@@ -67,15 +65,19 @@ export class PlayersSearchService {
     let game;
     this.gameSubject$.subscribe(val => game = val);
 
-    this.items$ = this.items$.pipe(
-
-      map((itemArr: IPlayer[]) => {
-        return itemArr = itemArr.filter((item: IPlayer) => item.game === game);
-      }),
-      tap(() => this.stopLoading()),
-    )
-
-    return this.items$;
+    let resultItemArr;
+    this.initialItems$.subscribe((itemArr: IPlayer[]) => {
+      itemArr = itemArr.filter((item: IPlayer) => {
+        if (game) {
+          return item.game === game;
+        } else {
+          return item.game;
+        }
+      });
+      resultItemArr = itemArr;
+    });
+    this.items$.next(resultItemArr);
+    this.stopLoading();
   }
 
   filterPlayersByCountry() {
@@ -85,15 +87,20 @@ export class PlayersSearchService {
     let country;
     this.countrySubject$.subscribe(val => country = val);
 
-    this.items$ = this.items$.pipe(
+    let resultItemArr;
+    this.initialItems$.subscribe((itemArr: IPlayer[]) => {
+      itemArr = itemArr.filter((item: IPlayer) => {
+        if (country) {
+          return item.country === country;
+        } else {
+          return item.country;
+        }
+      });
+      resultItemArr = itemArr;
+    });
 
-      map((itemArr: IPlayer[]) => {
-        return itemArr = itemArr.filter((item: IPlayer) => item.country === country);
-      }),
-      tap(() => this.stopLoading()),
-    )
-
-    return this.items$;
+    this.items$.next(resultItemArr);
+    this.stopLoading();
   }
 
   startLoading() {
