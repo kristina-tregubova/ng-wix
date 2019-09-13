@@ -26,33 +26,29 @@ export class PlayersListComponent implements OnInit {
     // this.handleSorting(null, 'name', 'letters');
   }
 
-  // handleSorting($event, field: string, sortType: string) {
+  
 
-  //   this.order = !this.order;
-  //   this.playersSearchService.startLoading();
+  handleSorting($event, field: string, sortType: string) {
 
-  //   if ($event) {
-  //     document.querySelectorAll('.sorting-header button').forEach((el) => el.classList.remove('active-sorting'));
-  //     $event.currentTarget.classList.add('active-sorting');
-  //   }
+    this.order = !this.order;
+    this.playersSearchService.startLoading();
 
-  //   let resultItemsArr;
-  //   this.playersSearchService.items$.subscribe((itemArr: IPlayer[]) => {
+    if ($event) {
+      document.querySelectorAll('.sorting-header button').forEach((el) => el.classList.remove('active-sorting'));
+      $event.currentTarget.classList.add('active-sorting');
+    }
 
-  //     itemArr = itemArr.sort((a: IPlayer, b: IPlayer) => {
-  //       if (sortType === 'letters') {
-  //         console.log('tack');
-  //         return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
-  //       } else if (sortType === 'numbers') {
-  //         console.log('tick');
-  //         return (this.order) ? +a[field] - +b[field] : +b[field] - +a[field];
-  //       }
-  //     });
-  //     resultItemsArr = itemArr;
-  //   });
+    this.items.sort((a: IPlayer, b: IPlayer) => {
+        if (sortType === 'letters') {
+          console.log('tack');
+          return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
+        } else if (sortType === 'numbers') {
+          console.log('tick');
+          return (this.order) ? +a[field] - +b[field] : +b[field] - +a[field];
+        }
+      });
 
-  //   this.playersSearchService.items$.next(resultItemsArr);
-  //   this.playersSearchService.stopLoading();
-  // }
+    this.playersSearchService.stopLoading();
+  }
 
 }

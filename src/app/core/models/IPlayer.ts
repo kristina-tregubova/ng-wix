@@ -9,4 +9,7 @@ export interface IPlayer {
     'userCreated': DocumentReference;
     'relatedTournaments': Map<any, any>[];
     'team': [] | null;
+    'points': number;
+    'wins': number;
+    'games': number;
 }
