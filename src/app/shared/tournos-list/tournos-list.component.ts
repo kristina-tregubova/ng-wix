@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TournosListComponent implements OnInit {
 
-  @Input() items$: Observable<any>;
+  @Input() items: any[];
   @Input() isLoading$: Observable<boolean>;
 
   constructor() { }

@@ -10,7 +10,7 @@ import { ITourno } from '../core/models/ITourno';
 })
 export class TournoSearchComponent implements OnInit {
 
-  items$: Observable<ITourno[]>;
+  items: any[];
   isLoading$: Observable<boolean>;
 
   searchInput = document.getElementById('tournos-search-input');
@@ -20,23 +20,23 @@ export class TournoSearchComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.items$ = this.tournosService.searchTournaments();
+    this.tournosService.searchTournaments().subscribe((val) => this.items = val);
     this.isLoading$ = this.tournosService.loading$;
   }
 
   trySearchByName($event) {
     this.tournosService.searchSubject$.next($event);
-    this.items$ = this.tournosService.searchByName();
+    this.items = this.tournosService.getFilteredItems();
   }
 
   tryFilterByGame($event) {
     this.tournosService.gameSubject$.next($event);
-    this.items$ = this.tournosService.filterTournamentsByGame();
+    this.items = this.tournosService.getFilteredItems();
   }
 
   tryFilterByStatus($event) {
     this.tournosService.statusSubject$.next($event);
-    this.items$ = this.tournosService.filterTournamentsByStatus();
+    this.items = this.tournosService.getFilteredItems();
   }
 
 

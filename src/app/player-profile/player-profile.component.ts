@@ -24,7 +24,7 @@ export class PlayerProfileComponent implements OnInit {
   games: number;
   wins: number;
 
-  items$: Observable<ITourno[]>;
+  items: ITourno[];
 
   dataSource: [] | null;
   displayedColumns = ['name', 'role'];
@@ -46,7 +46,7 @@ export class PlayerProfileComponent implements OnInit {
         this.games = this.playerService.getPlayerGames(val);
         this.wins = this.playerService.getPlayerWins(val);
         this.dataSource = val.team;
-        this.items$ = this.playerService.getTournamentsAttended(val);
+        this.items = this.playerService.getTournamentsAttended(val);
       });
   }
 }

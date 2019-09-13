@@ -14,7 +14,9 @@ export class TournosSearchService {
   ) { }
 
 
-  items$: Observable<any[]>;
+  initialItems: any[];
+  items: ITourno[];
+
   statusSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
@@ -27,7 +29,7 @@ export class TournosSearchService {
 
     this.startLoading();
 
-    this.items$ = this.afs.collection('tournaments').snapshotChanges().pipe(
+    const result = this.afs.collection('tournaments').snapshotChanges().pipe(
 
       map(actions => {
         return actions.map(a => {
@@ -38,78 +40,64 @@ export class TournosSearchService {
       }),
       tap(() => this.stopLoading()),
     )
-    return this.items$;
+    result.subscribe((val) => this.initialItems = val);
+    this.initialItems = this.items;
+
+    return result;
 
   }
 
-  searchByName() {
+  getFilteredItems() {
 
     this.startLoading();
 
-    let name;
-    this.searchSubject$.subscribe(val => name = val.toLowerCase());
+    let name: string;
+    let game: string;
+    let status: string;
 
-    this.items$ = this.items$.pipe(
+    this.searchSubject$.subscribe(val => {
+      if (val) {
+        name = val.toLowerCase();
+      }
+    });
+    this.gameSubject$.subscribe(val => {
+      if (val) {
+        game = val;
+      }
+    });
+    this.statusSubject$.subscribe(val => {
+      if (val) {
+        status = val;
+      }
+    });
 
+    this.items = this.initialItems
+      .filter((item: ITourno) => {
+        if (name) {
+          return item.name.toLowerCase().includes(name);
+        } else {
+          return item.name;
+        }
+      })
+      .filter((item: ITourno) => {
+        if (game) {
+          return item.game === game;
+        } else {
+          return item.game;
+        }
+      })
+      .filter((item: ITourno) => {
+        if (status) {
+          return item.status === status;
+        } else {
+          return item.status;
+        }
+      });
 
-      map((itemArr: ITourno[]) => {
-        return itemArr = itemArr.filter((item: ITourno) => item.name.toLowerCase().includes(name));
-      }),
-      tap(() => this.stopLoading()),
-    )
-
-    return this.items$;
+    this.stopLoading();
+    return this.items;
 
   }
-
-  filterTournamentsByGame() {
-
-    this.startLoading();
-
-    let game;
-    this.gameSubject$.subscribe(val => game = val);
-
-    this.items$ = this.items$.pipe(
-
-      map((itemArr: ITourno[]) => {
-        return itemArr = itemArr.filter((item: ITourno) => {
-          if (game) {
-            return item.game === game;
-          } else {
-            return item.game;
-          }
-        });
-      }),
-      tap(() => this.stopLoading()),
-    )
-
-    return this.items$;
-  }
-
-  filterTournamentsByStatus() {
-
-    this.startLoading();
-
-    let status;
-    this.statusSubject$.subscribe(val => status = val);
-
-    this.items$ = this.items$.pipe(
-
-      map((itemArr: ITourno[]) => {
-        return itemArr = itemArr.filter((item: ITourno) => {
-          if (status) {
-            return item.game === status;
-          } else {
-            return item.game;
-          }
-        });
-      }),
-      tap(() => this.stopLoading()),
-    )
-
-    return this.items$;
-  }
-
 
   startLoading() {
     this._loading.next(true);

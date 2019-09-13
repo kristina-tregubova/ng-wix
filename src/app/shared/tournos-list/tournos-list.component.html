@@ -1,3 +1,4 @@
 <div class="tournos-list">
-  <app-tourno-card *ngFor="let item of items$ | async" [item]="item"></app-tourno-card>
+  <app-tourno-card *ngFor="let item of items" [item]="item"></app-tourno-card>
+  <!-- <div class='no-tourno' *ngIf="!(isLoading  items)">No tournaments found</div> -->
 </div>

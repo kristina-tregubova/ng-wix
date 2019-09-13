@@ -16,7 +16,7 @@ export class PlayerService {
     return this.afs.collection('players').doc(id).valueChanges();
   }
 
-  getTournamentsAttended(player): Observable<ITourno[]> {
+  getTournamentsAttended(player): ITourno[] {
     const items: Array<ITourno> = [];
 
     for (const tourno of player.relatedTournaments) {
@@ -28,7 +28,7 @@ export class PlayerService {
         }
       });
     }
-    return of(items);
+    return items;
   }
 
   getPlayerPoints(player) {

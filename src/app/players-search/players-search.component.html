@@ -76,6 +76,7 @@
 
             <app-players-list [items]="items" ></app-players-list>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
+            <div class='no-player' *ngIf="!items && (isLoading$ | async) == false">No players found</div>
 
         </section>
     </div>

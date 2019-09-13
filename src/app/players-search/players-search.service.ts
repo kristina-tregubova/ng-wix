@@ -47,7 +47,7 @@ export class PlayersSearchService {
   }
 
   getFilteredItems() {
-    console.log(this.items);
+
     this.startLoading();
 
     let name: string;
@@ -94,8 +94,6 @@ export class PlayersSearchService {
       });
 
     this.stopLoading();
-
-    console.log(this.items);
     return this.items;
 
   }

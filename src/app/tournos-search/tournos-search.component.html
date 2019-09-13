@@ -68,7 +68,7 @@
                 Tournaments list
             </h2>
 
-            <app-tournos-list [items$]="items$" [isLoading$]="isLoading$"></app-tournos-list>
+            <app-tournos-list [items]="items" [isLoading$]="isLoading$"></app-tournos-list>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
 
         </section>

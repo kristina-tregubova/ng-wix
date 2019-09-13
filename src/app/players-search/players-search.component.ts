@@ -26,19 +26,16 @@ export class PlayersSearchComponent implements OnInit {
   trySearchByName($event) {
     this.playersService.searchSubject$.next($event);
     this.items = this.playersService.getFilteredItems();
-    // this.playersService.searchByName();
   }
 
   tryFilterByGame($event) {
     this.playersService.gameSubject$.next($event);
     this.items = this.playersService.getFilteredItems();
-    // this.playersService.filterPlayersByGame();
   }
 
   tryFilterByCountry($event) {
     this.playersService.countrySubject$.next($event);
     this.items = this.playersService.getFilteredItems();
-    // this.playersService.filterPlayersByCountry();
   }
 
 }
