@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { map, tap, last } from 'rxjs/operators';
 import { PlayersSearchService } from 'src/app/players-search/players-search.service';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-players-list',
@@ -11,46 +12,47 @@ import { PlayersSearchService } from 'src/app/players-search/players-search.serv
 })
 export class PlayersListComponent implements OnInit {
 
-  @Input() items$: Observable<any>;
+  @Input() items: IPlayer[];
   @Input() isLoading$: Observable<boolean>;
 
   order: boolean = false;
 
   constructor(
-    private playersSearchService: PlayersSearchService
+    private playersSearchService: PlayersSearchService,
+    private playerService: PlayerService
   ) { }
 
   ngOnInit() {
     // this.handleSorting(null, 'name', 'letters');
   }
 
-  handleSorting($event, field: string, sortType: string) {
+  // handleSorting($event, field: string, sortType: string) {
 
-    this.order = !this.order;
-    this.playersSearchService.startLoading();
+  //   this.order = !this.order;
+  //   this.playersSearchService.startLoading();
 
-    if ($event) {
-      document.querySelectorAll('.sorting-header button').forEach((el) => el.classList.remove('active-sorting'));
-      $event.currentTarget.classList.add('active-sorting');
-    }
+  //   if ($event) {
+  //     document.querySelectorAll('.sorting-header button').forEach((el) => el.classList.remove('active-sorting'));
+  //     $event.currentTarget.classList.add('active-sorting');
+  //   }
 
-    let resultItemsArr;
-    this.playersSearchService.items$.subscribe((itemArr: IPlayer[]) => {
-      debugger
-      itemArr = itemArr.sort((a: IPlayer, b: IPlayer) => {
-        if (sortType === 'letters') {
-          console.log('tack');
-          return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
-        } else if (sortType === 'numbers') {
-          console.log('tick');
-          return (this.order) ? +a[field] - +b[field] : +b[field] - +a[field];
-        }
-      });
-      resultItemsArr = itemArr;
-    });
+  //   let resultItemsArr;
+  //   this.playersSearchService.items$.subscribe((itemArr: IPlayer[]) => {
 
-    this.playersSearchService.items$.next(resultItemsArr);
-    this.playersSearchService.stopLoading();
-  }
+  //     itemArr = itemArr.sort((a: IPlayer, b: IPlayer) => {
+  //       if (sortType === 'letters') {
+  //         console.log('tack');
+  //         return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
+  //       } else if (sortType === 'numbers') {
+  //         console.log('tick');
+  //         return (this.order) ? +a[field] - +b[field] : +b[field] - +a[field];
+  //       }
+  //     });
+  //     resultItemsArr = itemArr;
+  //   });
+
+  //   this.playersSearchService.items$.next(resultItemsArr);
+  //   this.playersSearchService.stopLoading();
+  // }
 
 }

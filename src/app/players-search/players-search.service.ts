@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap, tap, map, debounceTime, toArray } from 'rxjs/operators';
+import { Observable, BehaviorSubject, combineLatest, of } from 'rxjs';
+import { switchMap, tap, map, debounceTime, toArray, take, last, first } from 'rxjs/operators';
 import { IPlayer } from '../core/models/IPlayer';
+import { delay } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,9 @@ export class PlayersSearchService {
     private afs: AngularFirestore,
   ) { }
 
-  initialItems$: BehaviorSubject<any> = new BehaviorSubject(null);
-  items$: BehaviorSubject<any> = new BehaviorSubject(null);
+  initialItems: any[];
+  items: IPlayer[];
+
   countrySubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
@@ -38,70 +40,126 @@ export class PlayersSearchService {
       }),
       tap(() => this.stopLoading()),
     );
-    result.subscribe(val => this.initialItems$.next(val));
-    this.initialItems$.subscribe(val => this.items$.next(val));
+    result.subscribe((val) => this.initialItems = val);
+    this.initialItems = this.items;
+
+    return result;
   }
 
-  searchByName() {
-
+  getFilteredItems() {
+    console.log(this.items);
     this.startLoading();
 
-    let name;
-    this.searchSubject$.subscribe(val => name = val.toLowerCase());
+    let name: string;
+    let game: string;
+    let country: string;
 
-    let resultItemArr;
-    this.initialItems$.subscribe((itemArr: IPlayer[]) => {
-      const result = itemArr.filter((item: IPlayer) => item.name.toLowerCase().includes(name));
-      resultItemArr = result;
+    this.searchSubject$.subscribe(val => {
+      if (val) {
+        name = val.toLowerCase();
+      }
     });
-    this.items$.next(resultItemArr);
-    this.stopLoading();
-  }
+    this.gameSubject$.subscribe(val => {
+      if (val) {
+        game = val;
+      }
+    });
+    this.countrySubject$.subscribe(val => {
+      if (val) {
+        country = val;
+      }
+    });
 
-  filterPlayersByGame() {
-
-    this.startLoading();
-
-    let game;
-    this.gameSubject$.subscribe(val => game = val);
-
-    let resultItemArr;
-    this.initialItems$.subscribe((itemArr: IPlayer[]) => {
-      itemArr = itemArr.filter((item: IPlayer) => {
+    this.items = this.initialItems
+      .filter((item: IPlayer) => {
+        if (name) {
+          return item.name.toLowerCase().includes(name);
+        } else {
+          return item.name;
+        }
+      })
+      .filter((item: IPlayer) => {
         if (game) {
           return item.game === game;
         } else {
           return item.game;
         }
-      });
-      resultItemArr = itemArr;
-    });
-    this.items$.next(resultItemArr);
-    this.stopLoading();
-  }
-
-  filterPlayersByCountry() {
-
-    this.startLoading();
-
-    let country;
-    this.countrySubject$.subscribe(val => country = val);
-
-    let resultItemArr;
-    this.initialItems$.subscribe((itemArr: IPlayer[]) => {
-      itemArr = itemArr.filter((item: IPlayer) => {
+      })
+      .filter((item: IPlayer) => {
         if (country) {
           return item.country === country;
         } else {
           return item.country;
         }
       });
-      resultItemArr = itemArr;
-    });
 
-    this.items$.next(resultItemArr);
     this.stopLoading();
+
+    console.log(this.items);
+    return this.items;
+
   }
+
+  // searchByName() {
+
+  //   this.startLoading();
+
+  //   let name;
+  //   this.searchSubject$.subscribe(val => name = val.toLowerCase());
+
+  //   let resultItemArr;
+  //   this.initialItems$.subscribe((itemArr: IPlayer[]) => {
+  //     const result = itemArr.filter((item: IPlayer) => item.name.toLowerCase().includes(name));
+  //     resultItemArr = result;
+  //   });
+  //   this.items$.next(resultItemArr);
+  //   this.stopLoading();
+  // }
+
+  // filterPlayersByGame() {
+
+  //   this.startLoading();
+
+  //   let game;
+  //   this.gameSubject$.subscribe(val => game = val);
+
+  //   let resultItemArr;
+  //   this.initialItems$.subscribe((itemArr: IPlayer[]) => {
+  //     itemArr = itemArr.filter((item: IPlayer) => {
+  //       if (game) {
+  //         return item.game === game;
+  //       } else {
+  //         return item.game;
+  //       }
+  //     });
+  //     resultItemArr = itemArr;
+  //   });
+  //   this.items$.next(resultItemArr);
+  //   this.stopLoading();
+  // }
+
+  // filterPlayersByCountry() {
+
+  //   this.startLoading();
+
+  //   let country;
+  //   this.countrySubject$.subscribe(val => country = val);
+
+  //   let resultItemArr;
+  //   this.initialItems$.subscribe((itemArr: IPlayer[]) => {
+  //     itemArr = itemArr.filter((item: IPlayer) => {
+  //       if (country) {
+  //         return item.country === country;
+  //       } else {
+  //         return item.country;
+  //       }
+  //     });
+  //     resultItemArr = itemArr;
+  //   });
+
+  //   this.items$.next(resultItemArr);
+  //   this.stopLoading();
+  // }
 
   startLoading() {
     this._loading.next(true);

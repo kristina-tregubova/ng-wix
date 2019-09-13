@@ -23,7 +23,7 @@
                 <mat-form-field class="search-field" floatLabel="never">
                     <mat-label>Game:</mat-label>
                     <mat-select (selectionChange)="tryFilterByGame($event.value)">
-                        <mat-option value="">All</mat-option>
+                        <mat-option value>All</mat-option>
                         <mat-option value="football">Football</mat-option>
                         <mat-option value="basketball">Basketball</mat-option>
                         <mat-option value="rugby">Rugby</mat-option>
@@ -42,7 +42,7 @@
                 <mat-form-field class="search-field" floatLabel="never">
                     <mat-label>Country:</mat-label>
                     <mat-select (selectionChange)="tryFilterByCountry($event.value)">
-                        <mat-option value="">
+                        <mat-option value>
                             All
                         </mat-option>
                         <mat-option value="Russia">
@@ -74,7 +74,7 @@
                 Players list
             </h2>
 
-            <app-players-list [items$]="items$" ></app-players-list>
+            <app-players-list [items]="items" ></app-players-list>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
 
         </section>

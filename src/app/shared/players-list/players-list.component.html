@@ -48,7 +48,7 @@
 
 <div class="players-list" role="table">
 
-  <app-player-card *ngFor="let item of items$ |async" [item]="item"></app-player-card>
+  <app-player-card *ngFor="let item of items" [item]="item"></app-player-card>
   <!-- <div class='no-player' *ngIf="!(items$ | async)">No players were found</div> -->
 
 </div>

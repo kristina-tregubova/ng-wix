@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayersSearchService } from './players-search.service';
 import { Observable, of } from 'rxjs';
+import { IPlayer } from '../core/models/IPlayer';
 
 @Component({
   selector: 'app-players-search',
@@ -9,8 +10,8 @@ import { Observable, of } from 'rxjs';
 })
 export class PlayersSearchComponent implements OnInit {
 
-  items$: Observable<any>;
-  isLoading$: Observable<boolean>; 
+  items: any[];
+  isLoading$: Observable<boolean>;
 
   constructor(
     private playersService: PlayersSearchService
@@ -18,24 +19,26 @@ export class PlayersSearchComponent implements OnInit {
 
 
   ngOnInit() {
-    this.playersService.items$.subscribe((val) => this.items$ = of(val));
-    this.playersService.searchPlayers();
+    this.playersService.searchPlayers().subscribe((val) => this.items = val);
     this.isLoading$ = this.playersService.loading$;
   }
 
   trySearchByName($event) {
     this.playersService.searchSubject$.next($event);
-    this.playersService.searchByName();
+    this.items = this.playersService.getFilteredItems();
+    // this.playersService.searchByName();
   }
 
   tryFilterByGame($event) {
     this.playersService.gameSubject$.next($event);
-    this.playersService.filterPlayersByGame();
+    this.items = this.playersService.getFilteredItems();
+    // this.playersService.filterPlayersByGame();
   }
 
   tryFilterByCountry($event) {
     this.playersService.countrySubject$.next($event);
-    this.playersService.filterPlayersByCountry();
+    this.items = this.playersService.getFilteredItems();
+    // this.playersService.filterPlayersByCountry();
   }
 
 }
