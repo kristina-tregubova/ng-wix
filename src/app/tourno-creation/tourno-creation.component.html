@@ -1,143 +1,169 @@
 <div class="regular-wrapper">
-    <div class="container-center">
-        <h2 class="main-title">
-            New tournament
-        </h2>
-        <form class="tourno-creation">
-            <section class="tourno-creation__step">
-                <h3 class="tourno-creation__step-title">
-                    Basic information
-                </h3>
-                <div class="tourno-creation__step-content">
+  <div class="container-center">
+    <h2 class="main-title">
+      New tournament
+    </h2>
 
-                    <label> Name: </label>
-                    <mat-form-field class="form-input">
-                        <input matInput [formControl]="nameFormControl" required>
-                        <mat-icon matSuffix>person</mat-icon>
-                        <mat-error *ngIf="!nameFormControl?.hasError('required')">
-                            Name is required
-                        </mat-error>
-                    </mat-form-field>
+    <form class="tourno-creation" [formGroup]="formGroup">
+      <mat-vertical-stepper formArrayName="formArray" linear>
 
-                    <label> Tournament type: </label>
-                    <mat-radio-group>
-                        <mat-radio-button value="single-elim" checked>Single-elimination tournament</mat-radio-button>
-                        <mat-radio-button value="double-elim">Double-elimination tournament</mat-radio-button>
-                    </mat-radio-group>
+        <mat-step formGroupName="0" [stepControl]="formArray?.get([0])">
+          <ng-template matStepLabel>Fill out tournament's basic information</ng-template>
 
+          <section class="tourno-creation__step">
 
-                    <label>Country</label>
-                    <mat-form-field>
-                        <mat-select required>
+            <h3 class="tourno-creation__step-title">
+              Basic information
+            </h3>
+            <div class="tourno-creation__step-content">
 
-                            <mat-option value="rus">
-                                Russia
-                            </mat-option>
-                            <mat-option value="ua">
-                                USA
-                            </mat-option>
-                            <mat-option value="de">
-                                Germany
-                            </mat-option>
-                            <mat-option value="en">
-                                England
-                            </mat-option>
-                            <mat-option value="fr">
-                                France
-                            </mat-option>
-                            <mat-option value="ukr">
-                                Ukraine
-                            </mat-option>
+              <label> Name: </label>
+              <mat-form-field class="form-input">
+                <input matInput formControlName="name" required>
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
 
-                        </mat-select>
-                    </mat-form-field>
-
-                    <label> Game: </label>
-                    <mat-form-field>
-                        <mat-select required>
-                            <mat-option value="football">Football</mat-option>
-                            <mat-option value="basketball">Basketball</mat-option>
-                            <mat-option value="rugby">Rugby</mat-option>
-                            <mat-option value="baseball">Baseball</mat-option>
-                            <mat-option value="hockey">Hockey</mat-option>
-                            <mat-option value="tennis">Tennis</mat-option>
-                            <mat-option value="chess">Chess</mat-option>
-                            <mat-option value="counterstrike">CS:Go</mat-option>
-                            <mat-option value="dota2">DOTA 2</mat-option>
-                            <mat-option value="fifa">FIFA</mat-option>
-                            <mat-option value="pubg">PUBG</mat-option>
-                            <mat-option value="other">Other</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field class="form-input other-chosen-input-field">
-                        <input matInput>
-                        <mat-icon matSuffix>videogame_asset</mat-icon>
-                    </mat-form-field>
+              <label> Tournament type: </label>
+              <mat-radio-group formControlName="tournamentType">
+                <mat-radio-button value="single-elim" checked>Single-elimination tournament</mat-radio-button>
+                <mat-radio-button value="double-elim">Double-elimination tournament</mat-radio-button>
+              </mat-radio-group>
 
 
-                    <label> Player type: </label>
-                    <mat-radio-group>
-                        <mat-radio-button value="single" checked>Single</mat-radio-button>
-                        <mat-radio-button value="team">Team</mat-radio-button>
-                    </mat-radio-group>
+              <label>Country</label>
+              <mat-form-field>
+                <mat-select formControlName="country" required>
+
+                  <mat-option value="rus">
+                    Russia
+                  </mat-option>
+                  <mat-option value="ua">
+                    USA
+                  </mat-option>
+                  <mat-option value="de">
+                    Germany
+                  </mat-option>
+                  <mat-option value="en">
+                    England
+                  </mat-option>
+                  <mat-option value="fr">
+                    France
+                  </mat-option>
+                  <mat-option value="ukr">
+                    Ukraine
+                  </mat-option>
+
+                </mat-select>
+              </mat-form-field>
+
+              <label> Game: </label>
+              <mat-form-field>
+                <mat-select formControlName="game" required>
+                  <mat-option value="football">Football</mat-option>
+                  <mat-option value="basketball">Basketball</mat-option>
+                  <mat-option value="rugby">Rugby</mat-option>
+                  <mat-option value="baseball">Baseball</mat-option>
+                  <mat-option value="hockey">Hockey</mat-option>
+                  <mat-option value="tennis">Tennis</mat-option>
+                  <mat-option value="chess">Chess</mat-option>
+                  <mat-option value="counterstrike">CS:Go</mat-option>
+                  <mat-option value="dota2">DOTA 2</mat-option>
+                  <mat-option value="fifa">FIFA</mat-option>
+                  <mat-option value="pubg">PUBG</mat-option>
+                  <mat-option value="other">Other</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="form-input other-chosen-input-field">
+                <input matInput>
+                <mat-icon matSuffix>videogame_asset</mat-icon>
+              </mat-form-field>
 
 
-                    <label for="description"> Add a description: </label>
-                    <mat-form-field class="form-input">
-                        <textarea matInput rows="8" cols="40"></textarea>
-                    </mat-form-field>
-                </div>
-            </section>
+              <label> Player type: </label>
+              <mat-radio-group formControlName="playerType">
+                <mat-radio-button value="single" checked>Single</mat-radio-button>
+                <mat-radio-button value="team">Team</mat-radio-button>
+              </mat-radio-group>
 
-            <section class="tourno-creation__step">
-                <h3 class="tourno-creation__step-title">
-                    Org information
-                </h3>
 
-                <div class="tourno-creation__step-content">
-                    <label for="start-date"> Start date: </label>
-                    <mat-form-field>
-                        <input matInput [matDatepicker]="startDate" placeholder="Start date">
-                        <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                        <mat-datepicker #startDate></mat-datepicker>
-                    </mat-form-field>
+              <label for="description"> Add a description: </label>
+              <mat-form-field class="form-input">
+                <textarea matInput rows="8" cols="40" formControlName="description"></textarea>
+              </mat-form-field>
+            </div>
+          </section>
 
-                    <label for="end-date"> End date: </label>
-                    <mat-form-field>
-                        <input matInput [matDatepicker]="endDate" placeholder="End date">
-                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                        <mat-datepicker #endDate></mat-datepicker>
-                    </mat-form-field>
+          <div>
+            <button class="btn" mat-stroked-button matStepperNext type="button">Next</button>
+          </div>
+        </mat-step>
 
-                    <label> Entry Fee: </label>
-                    <mat-form-field class="form-input">
-                        <input matInput>
-                        <mat-icon matSuffix>money</mat-icon>
-                    </mat-form-field>
 
-                    <label> Prize: </label>
-                    <mat-form-field class="form-input">
-                        <input matInput>
-                        <mat-icon matSuffix>stars</mat-icon>
-                    </mat-form-field>
-                </div>
-            </section>
+        <mat-step formGroupName="1" [stepControl]="formArray?.get([1])">
+          <ng-template matStepLabel>Fill out tournament's orga information</ng-template>
 
-            <section class="tourno-creation__step">
+          <section class="tourno-creation__step">
+            <h3 class="tourno-creation__step-title">
+              Org information
+            </h3>
 
-                <h3 class="tourno-creation__step-title">
-                    Add players to the tournament
-                </h3>
+            <div class="tourno-creation__step-content">
+              <label for="start-date"> Start date: </label>
+              <mat-form-field>
+                <input matInput [matDatepicker]="startDate" placeholder="Start date" formControlName="startDate">
+                <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+              </mat-form-field>
 
-                <app-add-player></app-add-player>
+              <label for="end-date"> End date: </label>
+              <mat-form-field>
+                <input matInput [matDatepicker]="endDate" placeholder="End date" formControlName="endDate">
+                <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                <mat-datepicker #endDate></mat-datepicker>
+              </mat-form-field>
 
-            </section>
+              <label> Entry Fee: </label>
+              <mat-form-field class="form-input">
+                <input matInput formControlName="entryFee">
+                <mat-icon matSuffix>money</mat-icon>
+              </mat-form-field>
 
-            <button mat-raised-button type="submit" name="submit"
-                class="tourno-creation__submit-btn btn highlighted-btn">
-                Create a
-                tournament
+              <label> Prize: </label>
+              <mat-form-field class="form-input">
+                <input matInput formControlName="prize">
+                <mat-icon matSuffix>stars</mat-icon>
+              </mat-form-field>
+            </div>
+          </section>
+          <div>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button">Back</button>
+            <button class="btn" mat-stroked-button matStepperNext type="button">Next</button>
+          </div>
+        </mat-step>
+
+
+        <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
+          <ng-template matStepLabel>Add players</ng-template>
+          <section class="tourno-creation__step">
+
+            <h3 class="tourno-creation__step-title">
+              Add players to the tournament
+            </h3>
+
+            <app-add-player></app-add-player>
+
+          </section>
+          <div>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button">Back</button>
+            <button class="btn highlighted-btn" mat-raised-button type="submit" name="submit"
+              class="tourno-creation__submit-btn btn highlighted-btn">
+              Create a
+              tournament
             </button>
-        </form>
-    </div>
+          </div>
+        </mat-step>
+
+      </mat-vertical-stepper>
+    </form>
+  </div>
 </div>

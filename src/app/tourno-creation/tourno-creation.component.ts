@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-tourno-creation',
@@ -8,13 +8,35 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class TournoCreationComponent implements OnInit {
 
-  nameFormControl = new FormControl('', [
-    Validators.required
-  ]);
+  isLinear = false;
+  formGroup: FormGroup;
 
-  constructor() { }
+  constructor(
+    private _formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+    this.formGroup = this._formBuilder.group({
+      formArray: this._formBuilder.array([
+        this._formBuilder.group({
+          name: [''],
+          tournamentType: [''],
+          country: [''],
+          game: [''],
+          playerType: [''],
+          description: [''],
+        }),
+        this._formBuilder.group({
+          startDate: [''],
+          endDate: [''],
+          entryFee: [''],
+          prize: [''],
+        }),
+        this._formBuilder.group({
+
+        }),
+      ])
+    });
   }
 
 }
