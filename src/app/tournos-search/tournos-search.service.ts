@@ -47,6 +47,7 @@ export class TournosSearchService {
           return { id, ...data };
         });
       }),
+      tap(() => this.getCreatorIds()),
       tap(() => this.stopLoading()),
     )
     result.subscribe((val) => this.initialItems = val);
@@ -56,7 +57,7 @@ export class TournosSearchService {
 
   }
 
-  async getFilteredItems() {
+  getFilteredItems() {
 
     this.startLoading();
 
@@ -86,7 +87,7 @@ export class TournosSearchService {
       }
     });
 
-    this.items = await this.initialItems
+    this.items = this.initialItems
       .filter((item: ITourno) => {
         if (name) {
           return item.name.toLowerCase().includes(name);
@@ -108,21 +109,10 @@ export class TournosSearchService {
           return item.status;
         }
       })
-      .filter(async (item: ITourno) => {
+      .filter((item: ITourno) => {
         if (showOnlyMine) {
 
-          let id: string;
-          let ifEqual: boolean;
-
-          await item.userCreated.get().then(async (doc) => {
-            if (await doc.exists) {
-              id = await doc.id;
-            }
-          }).then(() => {
-            ifEqual = this.userId === id;
-          });
-
-          return ifEqual;
+          return item.userCreatedId === this.userId;
 
         } else {
           return item;
@@ -134,6 +124,17 @@ export class TournosSearchService {
 
   }
 
+  async getCreatorIds() {
+    await this.initialItems.forEach((item: ITourno) => {
+      item.userCreated.get()
+        .then((doc) => {
+          if (doc.exists) {
+            item['userCreatedId'] = doc.id;
+            console.log(doc.id)
+          }
+        });
+    })
+  }
 
   startLoading() {
     this._loading.next(true);

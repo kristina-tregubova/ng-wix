@@ -17,4 +17,5 @@ export interface ITourno {
     'relatedPlayers': Map<any, any>[];
     'rounds': [];
     'userCreated': DocumentReference;
+    'userCreatedId'?: string;
 }
