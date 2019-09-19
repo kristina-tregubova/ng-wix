@@ -15,7 +15,7 @@
             </div>
 
             <div class="search-form__checkboxes">
-                <mat-checkbox>Only mine</mat-checkbox>
+                <mat-checkbox (change)="tryFilterByMine($event.checked)" [disabled]="!tournosService.userId">Only mine</mat-checkbox>
             
                 <mat-checkbox>Favourites</mat-checkbox>
             </div>

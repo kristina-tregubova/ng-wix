@@ -11,23 +11,25 @@ import { IUser } from '../core/models/IUser';
 })
 export class HeaderComponent implements OnInit {
 
-  user: IUser;
+  user: IUser | null;
 
   constructor(
-    public authService: AuthService,
+    private authService: AuthService,
     private router: Router,
-  ) {}
+  ) { }
 
   async tryLogout() {
     await this.authService.logout();
   }
 
-  ngOnInit() {
-    this.authService.isLogged$.subscribe((user) => {
-      this.user = user;
-      console.log(this.user);
+  getUser() {
+    this.authService.user$.subscribe((u) => {
+      this.user = u;
     });
+  }
 
+  ngOnInit() {
+    this.getUser();
   }
 
 }

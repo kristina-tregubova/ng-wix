@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { switchMap, tap, map, filter, last, debounceTime } from 'rxjs/operators';
 import { ITourno } from '../core/models/ITourno';
+import { AuthService } from '../core/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +12,27 @@ export class TournosSearchService {
 
   constructor(
     private afs: AngularFirestore,
+    private authService: AuthService,
   ) { }
 
-
+  userId: string;
   initialItems: any[];
   items: ITourno[];
 
   statusSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
+  myTournamentsSubject$: BehaviorSubject<boolean | null> = new BehaviorSubject(false);
 
   private _loading = new BehaviorSubject(false);
   loading$ = this._loading.asObservable();
 
+  getUserId() {
+    this.authService.user$.subscribe((u) => {
+      this.userId = u.uid;
+    });
+    return this.userId;
+  }
 
   searchTournaments() {
 
@@ -47,13 +56,14 @@ export class TournosSearchService {
 
   }
 
-  getFilteredItems() {
+  async getFilteredItems() {
 
     this.startLoading();
 
     let name: string;
     let game: string;
     let status: string;
+    let showOnlyMine: boolean;
 
     this.searchSubject$.subscribe(val => {
       if (val) {
@@ -70,8 +80,13 @@ export class TournosSearchService {
         status = val;
       }
     });
+    this.myTournamentsSubject$.subscribe(val => {
+      if (val) {
+        showOnlyMine = val;
+      }
+    });
 
-    this.items = this.initialItems
+    this.items = await this.initialItems
       .filter((item: ITourno) => {
         if (name) {
           return item.name.toLowerCase().includes(name);
@@ -92,12 +107,33 @@ export class TournosSearchService {
         } else {
           return item.status;
         }
+      })
+      .filter(async (item: ITourno) => {
+        if (showOnlyMine) {
+
+          let id: string;
+          let ifEqual: boolean;
+
+          await item.userCreated.get().then(async (doc) => {
+            if (await doc.exists) {
+              id = await doc.id;
+            }
+          }).then(() => {
+            ifEqual = this.userId === id;
+          });
+
+          return ifEqual;
+
+        } else {
+          return item;
+        }
       });
 
     this.stopLoading();
     return this.items;
 
   }
+
 
   startLoading() {
     this._loading.next(true);

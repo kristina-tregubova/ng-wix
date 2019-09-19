@@ -22,22 +22,27 @@ export class TournoSearchComponent implements OnInit {
   ngOnInit() {
     this.tournosService.searchTournaments().subscribe((val) => this.items = val);
     this.isLoading$ = this.tournosService.loading$;
+    this.tournosService.getUserId();
   }
 
-  trySearchByName($event) {
+  async trySearchByName($event) {
     this.tournosService.searchSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.items = await this.tournosService.getFilteredItems();
   }
 
-  tryFilterByGame($event) {
+  async tryFilterByGame($event) {
     this.tournosService.gameSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.items = await this.tournosService.getFilteredItems();
   }
 
-  tryFilterByStatus($event) {
+  async tryFilterByStatus($event) {
     this.tournosService.statusSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.items = await this.tournosService.getFilteredItems();
   }
 
+  async tryFilterByMine($event) {
+    this.tournosService.myTournamentsSubject$.next($event);
+    this.items = await this.tournosService.getFilteredItems();
+  }
 
 }

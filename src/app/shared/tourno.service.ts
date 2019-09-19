@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ITourno } from '../core/models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from '../core/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class TournoService {
 
   constructor(
     private afs: AngularFirestore,
+    private authService: AuthService
   ) { }
 
   getTourno(id: string) {
@@ -31,4 +33,5 @@ export class TournoService {
 
     return of(items);
   }
+
 }

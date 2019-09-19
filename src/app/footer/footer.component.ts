@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
   user: IUser;
 
   constructor(
-    public authService: AuthService,
+    private authService: AuthService,
     private router: Router,
   ) {}
 
@@ -21,11 +21,15 @@ export class FooterComponent implements OnInit {
     await this.authService.logout();
   }
 
-  ngOnInit() {
-    this.authService.isLogged$.subscribe((user) => {
-      this.user = user;
-      console.log(this.user);
+  getUser() {
+    this.authService.user$.subscribe((u) => {
+      this.user = u;
     });
   }
+
+  ngOnInit() {
+    this.getUser();
+  }
+
 
 }
