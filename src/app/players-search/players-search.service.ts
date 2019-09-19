@@ -4,6 +4,8 @@ import { Observable, BehaviorSubject, combineLatest, of } from 'rxjs';
 import { switchMap, tap, map, debounceTime, toArray, take, last, first } from 'rxjs/operators';
 import { IPlayer } from '../core/models/IPlayer';
 import { delay } from 'q';
+import { AuthService } from '../core/auth.service';
+import { IUser } from '../core/models/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +14,29 @@ export class PlayersSearchService {
 
   constructor(
     private afs: AngularFirestore,
+    private authService: AuthService,
   ) { }
 
+  user: IUser;
   initialItems: any[];
   items: IPlayer[];
 
   countrySubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
+  myFavoritesSubject$: BehaviorSubject<boolean | null> = new BehaviorSubject(false);
 
   private _loading = new BehaviorSubject(false);
   loading$ = this._loading.asObservable();
 
+  getUser() {
+    this.authService.user$.subscribe((u) => {
+      if (u) {
+        this.user = u;
+      }
+    });
+    return this.user;
+  }
 
   searchPlayers() {
 
@@ -53,6 +66,7 @@ export class PlayersSearchService {
     let name: string;
     let game: string;
     let country: string;
+    let showFavorite: boolean;
 
     this.searchSubject$.subscribe(val => {
       if (val) {
@@ -67,6 +81,11 @@ export class PlayersSearchService {
     this.countrySubject$.subscribe(val => {
       if (val) {
         country = val;
+      }
+    });
+    this.myFavoritesSubject$.subscribe(val => {
+      if (val) {
+        showFavorite = val;
       }
     });
 
@@ -98,7 +117,7 @@ export class PlayersSearchService {
         } else {
           return item;
         }
-      });;
+      });
 
     this.stopLoading();
     return this.items;

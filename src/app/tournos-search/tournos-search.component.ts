@@ -20,7 +20,7 @@ export class TournoSearchComponent implements OnInit {
 
   constructor(
     private tournosService: TournosSearchService,
-    public authService: AuthService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
