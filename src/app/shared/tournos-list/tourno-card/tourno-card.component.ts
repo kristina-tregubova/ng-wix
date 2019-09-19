@@ -8,11 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TournoCardComponent implements OnInit {
 
   @Input() item;
+  isFavorite: boolean;
 
   constructor() { }
 
   ngOnInit() {
 
+  }
+
+  addToFavorite() {
+    console.log('added to fav');
   }
 
 }

@@ -15,7 +15,7 @@
 
 
             <div class="search-form__checkboxes">
-                <mat-checkbox>Favourites</mat-checkbox>
+                <mat-checkbox (change)="tryFilterByFavorite($event.checked)" [disabled]="!(isLogged$ | async)">Favourites</mat-checkbox>
             </div>
 
             <div class="search-form__selectors">

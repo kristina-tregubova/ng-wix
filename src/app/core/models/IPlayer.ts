@@ -2,6 +2,7 @@ import { IUser } from './IUser';
 import { DocumentReference } from '@angular/fire/firestore';
 
 export interface IPlayer {
+    'id'?: string;
     'name': string;
     'playerType': string;
     'game': string;

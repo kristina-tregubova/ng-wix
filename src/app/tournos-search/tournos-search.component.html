@@ -15,9 +15,9 @@
             </div>
 
             <div class="search-form__checkboxes">
-                <mat-checkbox (change)="tryFilterByMine($event.checked)" [disabled]="!isLogged">Only mine</mat-checkbox>
+                <mat-checkbox (change)="tryFilterByMine($event.checked)" [disabled]="!(isLogged$ | async)">Only mine</mat-checkbox>
             
-                <mat-checkbox>Favourites</mat-checkbox>
+                <mat-checkbox (change)="tryFilterByFavorite($event.checked)" [disabled]="!(isLogged$ | async)">Favourites</mat-checkbox>
             </div>
 
 

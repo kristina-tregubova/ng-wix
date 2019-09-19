@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { switchMap, tap, map, filter, last, debounceTime } from 'rxjs/operators';
 import { ITourno } from '../core/models/ITourno';
 import { AuthService } from '../core/auth.service';
+import { IUser } from '../core/models/IUser';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class TournosSearchService {
     private authService: AuthService,
   ) { }
 
-  userId: string;
+  user: IUser;
   initialItems: any[];
   items: ITourno[];
 
@@ -23,15 +24,18 @@ export class TournosSearchService {
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   myTournamentsSubject$: BehaviorSubject<boolean | null> = new BehaviorSubject(false);
+  myFavoritesSubject$: BehaviorSubject<boolean | null> = new BehaviorSubject(false);
 
   private _loading = new BehaviorSubject(false);
   loading$ = this._loading.asObservable();
 
-  getUserId() {
+  getUser() {
     this.authService.user$.subscribe((u) => {
-      this.userId = u.uid;
+      if (u) {
+        this.user = u;
+      }
     });
-    return this.userId;
+    return this.user;
   }
 
   searchTournaments() {
@@ -47,7 +51,9 @@ export class TournosSearchService {
           return { id, ...data };
         });
       }),
-      tap(() => this.getCreatorIds()),
+      tap(() => {
+          this.getCreatorIds();
+      }),
       tap(() => this.stopLoading()),
     )
     result.subscribe((val) => this.initialItems = val);
@@ -65,6 +71,7 @@ export class TournosSearchService {
     let game: string;
     let status: string;
     let showOnlyMine: boolean;
+    let showFavorite: boolean;
 
     this.searchSubject$.subscribe(val => {
       if (val) {
@@ -84,6 +91,11 @@ export class TournosSearchService {
     this.myTournamentsSubject$.subscribe(val => {
       if (val) {
         showOnlyMine = val;
+      }
+    });
+    this.myFavoritesSubject$.subscribe(val => {
+      if (val) {
+        showFavorite = val;
       }
     });
 
@@ -112,8 +124,15 @@ export class TournosSearchService {
       .filter((item: ITourno) => {
         if (showOnlyMine) {
 
-          return item.userCreatedId === this.userId;
+          return item.userCreatedId === this.user.uid;
 
+        } else {
+          return item;
+        }
+      })
+      .filter((item: ITourno) => {
+        if (showFavorite) {
+          return this.user.favoriteTournos.includes(item.id);
         } else {
           return item;
         }

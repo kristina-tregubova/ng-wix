@@ -110,6 +110,10 @@ export class AuthService {
     const data: IUser = {
       uid: user.uid,
       email: user.email,
+      // favoritePlayers: user.favoritePlayers,
+      // favoriteTournos: user.favoriteTournos,
+      // createdTournaments: user.createdTournaments,
+      // createdPlayers: user.createdPlayers,
     };
 
     return userRef.set(data, { merge: true });

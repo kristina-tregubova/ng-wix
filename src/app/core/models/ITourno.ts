@@ -2,6 +2,7 @@ import { IUser } from './IUser';
 import { DocumentReference } from '@angular/fire/firestore';
 
 export interface ITourno {
+    'id'?: string;
     'name': string;
     'tournamentType': string;
     'status': string;

@@ -91,7 +91,14 @@ export class PlayersSearchService {
         } else {
           return item.country;
         }
-      });
+      })
+      .filter((item: IPlayer) => {
+        if (showFavorite) {
+          return this.user.favoritePlayers.includes(item.id);
+        } else {
+          return item;
+        }
+      });;
 
     this.stopLoading();
     return this.items;

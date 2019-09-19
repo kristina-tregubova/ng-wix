@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
 import { Observable, fromEvent } from 'rxjs';
 import { ITourno } from '../core/models/ITourno';
 import { AuthService } from '../core/auth.service';
+import { IUser } from '../core/models/IUser';
 
 @Component({
   selector: 'app-tournos-search',
@@ -13,7 +14,7 @@ export class TournoSearchComponent implements OnInit {
 
   items: any[];
   isLoading$: Observable<boolean>;
-  isLogged: boolean;
+  isLogged$: Observable<IUser>;
 
   searchInput = document.getElementById('tournos-search-input');
 
@@ -23,10 +24,11 @@ export class TournoSearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.isLogged$ = this.authService.userState$;
+    this.tournosService.getUser();
+
     this.tournosService.searchTournaments().subscribe((val) => this.items = val);
     this.isLoading$ = this.tournosService.loading$;
-    this.tournosService.getUserId();
-    this.isLogged = this.authService.isUserLogged;
   }
 
   trySearchByName($event) {
@@ -46,6 +48,11 @@ export class TournoSearchComponent implements OnInit {
 
   tryFilterByMine($event) {
     this.tournosService.myTournamentsSubject$.next($event);
+    this.items = this.tournosService.getFilteredItems();
+  }
+
+  tryFilterByFavorite($event) {
+    this.tournosService.myFavoritesSubject$.next($event);
     this.items = this.tournosService.getFilteredItems();
   }
 
