@@ -130,10 +130,9 @@ export class TournosSearchService {
         .then((doc) => {
           if (doc.exists) {
             item['userCreatedId'] = doc.id;
-            console.log(doc.id)
           }
         });
-    })
+    });
   }
 
   startLoading() {
