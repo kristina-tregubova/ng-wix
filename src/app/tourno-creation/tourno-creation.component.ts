@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormControl, Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
@@ -10,7 +10,7 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
   }]
 })
-export class TournoCreationComponent implements OnInit {
+export class TournoCreationComponent implements OnInit, DoCheck {
 
   isLinear = true;
   formGroup: FormGroup;
@@ -43,6 +43,10 @@ export class TournoCreationComponent implements OnInit {
         }),
       ])
     });
+
+  }
+
+  ngDoCheck() {
   }
 
 }

@@ -35,11 +35,19 @@
     font-style: oblique;
   }
   
+  .tourno-creation__step {
+    margin-top: 3%;
+  }
+
   .tourno-creation__step-content {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-row-gap: 8px;
     grid-area: content;
+  }
+
+  .stepper-navigation-btns button {
+    margin-right: 3%;
   }
   
   .seed-randomly-checkbox label {
@@ -51,6 +59,9 @@
     grid-template-columns: 1fr;
   }
   
+  .tourno-creation__submit-btn {
+    margin-left: auto;
+  }
   
   @media screen and (max-width: 600px) {
     .tourno-creation__step-content {
