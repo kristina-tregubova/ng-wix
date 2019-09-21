@@ -41,11 +41,8 @@
 
     <div>
       
-      <button mat-icon-button aria-label="Add to favorite">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button aria-label="Add to favorite" style="display: none;">
-        <mat-icon color="primary">favorite</mat-icon>
+      <button mat-icon-button aria-label="Add to favorite" *ngIf="isLogged$ | async" (click)="handleFavorite()">
+        <mat-icon [style.color]="isFavorite ? primary : ''">favorite</mat-icon>
       </button>
 
       <a class="icon-toggle-button"
