@@ -24,7 +24,7 @@ export class TournoSearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isLogged$ = this.authService.userState$;
+    this.isLogged$ = this.authService.userLoggedSubject$;
     this.tournosService.getUser();
 
     this.tournosService.searchTournaments().subscribe((val) => this.items = val);

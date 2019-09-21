@@ -30,7 +30,7 @@ export class PlayersSearchService {
   loading$ = this._loading.asObservable();
 
   getUser() {
-    this.authService.user$.subscribe((u) => {
+    this.authService.userLoggedSubject$.subscribe((u) => {
       if (u) {
         this.user = u;
       }

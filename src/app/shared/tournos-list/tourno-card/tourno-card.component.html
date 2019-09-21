@@ -28,8 +28,8 @@
     <a mat-stroked-button class="btn" [routerLink]="['/tourno-profile', item.id]">View
       Details</a>
 
-    <button mat-icon-button aria-label="Add to favorite" (click)="addToFavorite()" [color]="isFavorite ? primary : white">
-      <mat-icon>favorite</mat-icon>
+    <button mat-icon-button aria-label="Add to favorite" *ngIf="isLogged$ | async" (click)="handleFavorite()">
+      <mat-icon [color]="isFavorite ? yellow : white">favorite</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>
