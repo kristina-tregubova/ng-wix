@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/core/auth.service';
   templateUrl: './tourno-card.component.html',
   styleUrls: ['./tourno-card.component.scss']
 })
-export class TournoCardComponent implements OnInit, OnDestroy, AfterViewInit {
+export class TournoCardComponent implements OnInit, OnDestroy {
 
   @Input() item: ITourno;
   isFavorite: boolean;
@@ -24,11 +24,13 @@ export class TournoCardComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     let user = this.tournoCardService.getUser();
     this.isLogged$ = this.authService.userLoggedSubject$;
-  }
 
-  ngAfterViewInit() {
     this.showFavorites();
   }
+
+  // ngAfterViewInit() {
+  //   this.showFavorites();
+  // }
   
   showFavorites() {
     this.isFavorite = this.tournoCardService.defineIfFavorite(this.item.id) ? true : false;

@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/core/auth.service';
   templateUrl: './player-card.component.html',
   styleUrls: ['./player-card.component.scss']
 })
-export class PlayerCardComponent implements OnInit, AfterViewInit, OnDestroy {
+export class PlayerCardComponent implements OnInit, OnDestroy {
 
   @Input() item;
   points: number;
@@ -33,11 +33,13 @@ export class PlayerCardComponent implements OnInit, AfterViewInit, OnDestroy {
     this.points = this.playerService.getPlayerPoints(this.item);
     this.games = this.playerService.getPlayerGames(this.item);
     this.wins = this.playerService.getPlayerWins(this.item);
-  }
 
-  ngAfterViewInit() {
     this.showFavorites();
   }
+
+  // ngAfterViewInit() {
+  //   this.showFavorites();
+  // }
   
   showFavorites() {
     this.isFavorite = this.playerCardService.defineIfFavorite(this.item.id) ? true : false;
