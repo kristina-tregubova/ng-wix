@@ -1,5 +1,5 @@
 <mat-card class="grid-card tournos-list__card">
-   
+
   <img mat-card-image src="./assets/images/games-wp/{{item?.game}}.jpg" alt="Game background picture">
 
   <mat-card-title class="grid-card__title">
@@ -9,15 +9,15 @@
   <mat-card-content class="grid-card__info">
     <ul>
       <li class="grid-card__info-game">
-          <mat-icon>videogame_asset</mat-icon>
+        <mat-icon>videogame_asset</mat-icon>
         <span>{{item?.game | titlecase}}</span>
       </li>
       <li class="grid-card__info-participants">
-          <mat-icon>group</mat-icon>
+        <mat-icon>group</mat-icon>
         <span>{{item?.participants}} participants</span>
       </li>
       <li class="grid-card__info-end-date">
-          <mat-icon>calendar_today</mat-icon>
+        <mat-icon>calendar_today</mat-icon>
         <span>{{item?.endDate}} </span>
       </li>
     </ul>
@@ -29,7 +29,8 @@
       Details</a>
 
     <button mat-icon-button aria-label="Add to favorite" *ngIf="isLogged$ | async" (click)="handleFavorite()">
-      <mat-icon [style.color]="isFavorite ? primary : ''">favorite</mat-icon>
+      <mat-icon *ngIf="isFavorite" color="primary">favorite</mat-icon>
+      <mat-icon *ngIf="!isFavorite">favorite</mat-icon>
     </button>
   </mat-card-actions>
 </mat-card>
