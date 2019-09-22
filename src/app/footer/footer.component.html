@@ -15,7 +15,7 @@
         <ul>
 
           <li><a [routerLink]="['/creation']" *ngIf="user">Create new</a></li>
-          <li><a [routerLink]="['/tournos-serach']">Search tournaments</a></li>
+          <li><a [routerLink]="['/tournos-search']">Search tournaments</a></li>
           <li><a [routerLink]="['/players-search']">Search players</a></li>
         </ul>
       </section>
@@ -36,7 +36,7 @@
         </h4>
         <ul>
           <li><a [routerLink]="['/settings']">Profile Settings</a></li>
-          <li><a (click)=tryLogout()>Log Out</a></li>
+          <li><a href='#' (click)=tryLogout()>Log Out</a></li>
         </ul>
       </section>
 

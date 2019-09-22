@@ -30,7 +30,6 @@ export class TournoCardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.showFavorites();
   }
   
-
   showFavorites() {
     this.isFavorite = this.tournoCardService.defineIfFavorite(this.item.id) ? true : false;
   }
@@ -43,6 +42,7 @@ export class TournoCardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.isFavorite = true;
       this.tournoCardService.addToFavorite(this.item.id);
     }
+    console.log(this.isFavorite);
   }
 
   ngOnDestroy() {

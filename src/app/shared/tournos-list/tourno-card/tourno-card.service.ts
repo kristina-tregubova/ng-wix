@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/core/auth.service';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { IUser } from 'src/app/core/models/IUser';
 
@@ -24,13 +24,13 @@ export class TournoCardService {
 
   addToFavorite(itemId) {
     this.afs.collection('users').doc(this.userId).update({
-      favoriteTornos: firebase.firestore.FieldValue.arrayUnion(itemId)
+      favoriteTournos: firebase.firestore.FieldValue.arrayUnion(itemId)
     })
   }
 
   removeFromFavorite(itemId) {
     this.afs.collection('users').doc(this.userId).update({
-      favoriteTornos: firebase.firestore.FieldValue.arrayRemove(itemId)
+      favoriteTournos: firebase.firestore.FieldValue.arrayRemove(itemId)
     })
   }
 
