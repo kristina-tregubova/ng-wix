@@ -1,4 +1,4 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 // GENERAL-header
 
 .main-header,
@@ -30,46 +30,30 @@
   cursor: pointer;
 }
 
-.main-header.scrolled .main-header__logo img {
-  width: 110px;
-  height: 60px;
-}
-
-.main-header.scrolled .main-header__logo img:first-of-type {
-  width: 60px;
-}
-
-
-.site-nav a,
-.site-nav-no-min a {
-  height: 100%;
-}
+// .site-nav a,
+// .site-nav-no-min a {
+//   height: 100%;
+// }
 
 .site-nav-min {
   display: none;
 }
 
-.menu-btn {
-  width: 50px;
-  height: 50px;
-  margin-top: 10%;
-  margin-left: 10%;
-}
-
-.site-nav-min .mdc-menu-surface {
-  margin-top: 20%;
-  // @include mdc-menu-surface-fill-color(#262b31);
-}
-
-.site-nav-min .mdc-list {
-  // @include mdc-menu-surface-ink-color(#fff);
-}
-
-.mdc-list-divider {
-  border-bottom-color: $light-dividers;
-}
-
 @media screen and (max-width: 795px) {
+  .menu-btn {
+    width: 50px;
+    height: 50px;
+    margin-top: 10%;
+    margin-left: 10%;
+  }
+
+  .site-nav-min .mdc-menu-surface {
+    margin-top: 20%;
+  }
+
+  .mdc-list-divider {
+    border-bottom-color: $light-dividers;
+  }
   .main-header .main-header__logo img,
   .main-header-no-min .main-header__logo img {
     width: 90px;
@@ -113,5 +97,4 @@
   .menu-btn {
     margin-top: 15%;
   }
-
 }

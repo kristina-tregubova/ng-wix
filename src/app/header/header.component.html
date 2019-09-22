@@ -5,18 +5,22 @@
     <img src="/assets/images/image2vector.svg" width="120" height="60" alt="Logo image">
   </a>
 
-  <nav mat-tab-nav-bar class="site-nav-no-min">
+  <nav mat-tab-nav-bar class="site-nav-no-min" >
 
-    <a mat-tab-link [routerLink]="['/creation']" *ngIf="user"> Create new
+    <a mat-tab-link *ngIf="user" [routerLink]="['/creation']" routerLinkActive #rla1="routerLinkActive"
+      [active]="rla1.isActive"> Create new
     </a>
 
-    <a mat-tab-link [routerLink]="['/tournos-search']"> Tournaments
+    <a mat-tab-link [routerLink]="['/tournos-search']" routerLinkActive #rla2="routerLinkActive" [active]="rla2.isActive">
+      Tournaments
     </a>
 
-    <a mat-tab-link [routerLink]="['/players-search']"> Players
+    <a mat-tab-link [routerLink]="['/players-search']" routerLinkActive #rla3="routerLinkActive" [active]="rla3.isActive">
+      Players
     </a>
 
-    <a mat-tab-link [routerLink]="['/auth']" *ngIf="!user"> Sign In
+    <a mat-tab-link *ngIf="!user" [routerLink]="['/auth']" routerLinkActive #rla4="routerLinkActive"
+      [active]="rla4.isActive"> Sign In
     </a>
 
   </nav>
