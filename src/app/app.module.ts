@@ -24,6 +24,7 @@ import { PlayersSearchComponent } from './players-search/players-search.componen
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
 import { SuccessPopupComponent } from './auth/success-popup/success-popup.component';
+import { BracketComponent } from './tourno-profile/bracket/bracket.component';
 
 
 
@@ -43,6 +44,7 @@ import { SuccessPopupComponent } from './auth/success-popup/success-popup.compon
     PlayerProfileComponent,
     TournoProfileComponent,
     SuccessPopupComponent,
+    BracketComponent,
 
   ],
   imports: [
