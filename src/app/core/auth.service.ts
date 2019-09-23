@@ -36,12 +36,12 @@ export class AuthService {
       if (user) {
         this.afs.collection('users').doc<IUser>(user.uid).valueChanges().subscribe((res) => {
           this.userLoggedSubject$.next(res);
-        });       
+        });
       } else {
         this.userLoggedSubject$.next(null);
       }
-      
-    })
+
+    });
 
   }
 
