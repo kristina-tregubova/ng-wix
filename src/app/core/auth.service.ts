@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
-import { share } from 'rxjs/operators';
+import { share, mergeMap } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 
 import { IUser } from './models/IUser';
@@ -20,9 +20,7 @@ export class AuthService {
   private messageSource$ = new BehaviorSubject<string>(null);
   errorMessage$ = this.messageSource$.asObservable().pipe(share());
 
-  user$: Observable<IUser>;
-  userState$ = new BehaviorSubject<IUser>(null);
-  isLogged$ = this.userState$.asObservable().pipe(share());
+  userLoggedSubject$: BehaviorSubject<IUser>;
   user: IUser | null;
 
 
@@ -32,20 +30,24 @@ export class AuthService {
     private router: Router
   ) {
 
-    //// Get auth data, then get firestore user document || null
-    this.user$ = this.afAuth.authState.pipe(
-      switchMap(user => {
-        if (user) {
-          return this.afs.doc<IUser>(`users/${user.uid}`).valueChanges();
-        } else {
-          return of(null);
-        }
-      })
-    );
+    this.userLoggedSubject$ = new BehaviorSubject(null);
+
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.afs.collection('users').doc<IUser>(user.uid).valueChanges().subscribe((res) => {
+          this.userLoggedSubject$.next(res);
+        });       
+      } else {
+        this.userLoggedSubject$.next(null);
+      }
+      
+    })
+
   }
 
+
   get isUserLogged() {
-    this.isLogged$.subscribe((user) => {
+    this.userLoggedSubject$.subscribe((user) => {
       this.user = user;
     });
     return (this.user == null ? false : true);
@@ -69,9 +71,8 @@ export class AuthService {
     this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
         this.updateUserData(credential.user);
-        this.router.navigate(['/tournos-search']);
-        this.userState$.next(credential.user);
         this.messageSource$.next(null);
+        this.router.navigate(['/tournos-search']);
       })
       .catch((err) => {
         this.messageSource$.next(err);
@@ -87,9 +88,8 @@ export class AuthService {
       this.afAuth.auth.signInWithPopup(provider)
         .then((credential) => {
           this.updateUserData(credential.user);
-          this.router.navigate(['/tournos-search']);
-          this.userState$.next(credential.user);
           this.messageSource$.next(null);
+          this.router.navigate(['/tournos-search']);
         })
         .catch((err) => {
           this.messageSource$.next(err);
@@ -125,7 +125,6 @@ export class AuthService {
       firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
         .then((credential) => {
           this.updateUserData(credential.user);
-          this.userState$.next(credential.user);
         })
         .catch((err) => {
           console.log(err);
@@ -143,7 +142,6 @@ export class AuthService {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
         .then((credential) => {
           this.updateUserData(credential.user);
-          this.userState$.next(credential.user);
           this.router.navigate(['/tournos-search']);
         })
         .catch((err) => {
@@ -160,7 +158,6 @@ export class AuthService {
   logout() {
     this.afAuth.auth.signOut()
       .then(() => {
-        this.userState$.next(null);
         this.router.navigate(['/']);
       });
   }

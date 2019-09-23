@@ -1,7 +1,6 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
-import { Router, Params } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { IUser } from '../core/models/IUser';
 
 @Component({
@@ -15,21 +14,22 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
   ) { }
+
+  ngOnInit() {
+    this.getUser();
+  }
 
   async tryLogout() {
     await this.authService.logout();
   }
 
   getUser() {
-    this.authService.user$.subscribe((u) => {
+    this.authService.userLoggedSubject$.subscribe((u) => {
       this.user = u;
     });
   }
 
-  ngOnInit() {
-    this.getUser();
-  }
+
 
 }

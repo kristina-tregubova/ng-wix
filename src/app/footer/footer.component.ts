@@ -22,7 +22,7 @@ export class FooterComponent implements OnInit {
   }
 
   getUser() {
-    this.authService.user$.subscribe((u) => {
+    this.authService.userLoggedSubject$.subscribe((u) => {
       this.user = u;
     });
   }

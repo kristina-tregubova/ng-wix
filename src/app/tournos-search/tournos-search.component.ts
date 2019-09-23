@@ -1,9 +1,9 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
-import { Observable, fromEvent } from 'rxjs';
-import { ITourno } from '../core/models/ITourno';
+import { Observable } from 'rxjs';
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
+
 
 @Component({
   selector: 'app-tournos-search',
@@ -24,7 +24,7 @@ export class TournoSearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.isLogged$ = this.authService.userState$;
+    this.isLogged$ = this.authService.userLoggedSubject$;
     this.tournosService.getUser();
 
     this.tournosService.searchTournaments().subscribe((val) => this.items = val);

@@ -30,7 +30,7 @@ export class TournosSearchService {
   loading$ = this._loading.asObservable();
 
   getUser() {
-    this.authService.user$.subscribe((u) => {
+    this.authService.userLoggedSubject$.subscribe((u) => {
       if (u) {
         this.user = u;
       }
@@ -51,12 +51,13 @@ export class TournosSearchService {
           return { id, ...data };
         });
       }),
-      tap(() => {
-          this.getCreatorIds();
+      tap((res) => {
+        this.initialItems = res;
+        this.getCreatorIds();
       }),
       tap(() => this.stopLoading()),
     )
-    result.subscribe((val) => this.initialItems = val);
+    // result.subscribe((val) => this.initialItems = val);
     this.initialItems = this.items;
 
     return result;
@@ -144,14 +145,16 @@ export class TournosSearchService {
   }
 
   async getCreatorIds() {
-    await this.initialItems.forEach((item: ITourno) => {
-      item.userCreated.get()
-        .then((doc) => {
-          if (doc.exists) {
-            item['userCreatedId'] = doc.id;
-          }
-        });
-    });
+    if (this.initialItems) {
+      await this.initialItems.forEach((item: ITourno) => {
+        item.userCreated.get()
+          .then((doc) => {
+            if (doc.exists) {
+              item['userCreatedId'] = doc.id;
+            }
+          });
+      });
+    }
   }
 
   startLoading() {
