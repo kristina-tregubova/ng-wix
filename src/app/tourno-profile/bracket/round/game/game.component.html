@@ -1,1 +1,3 @@
-<p>game works!</p>
+<div class="participants">
+  <app-player *ngFor="let player of game | keyvalue" [playerId]="player.key" [playerPoints]="player.value"></app-player>
+</div>

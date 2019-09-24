@@ -1,5 +1,14 @@
-* {
-    color: white;
-    height: 100px;
-    width: 100px;
+@import "src/styles.scss";
+
+.participants {
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 795px) {
+  .participants {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }

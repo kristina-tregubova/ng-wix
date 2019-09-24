@@ -1,0 +1,43 @@
+@import "src/styles.scss";
+
+.participant {
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+  border-left: 0.25rem solid $wix-dark-background;
+  background: $wix-light-foreground;
+  width: 20vw;
+  max-width: 240px;
+  height: 3rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+
+  &:not(:last-child) {
+    border-bottom: thin solid $wix-light-foreground;
+  }
+
+  .name {
+    margin: 0 1.25rem;
+    line-height: 3;
+    font-size: 1rem;
+  }
+  .result {
+    margin-right: 1.25rem;
+    margin-left: auto;
+    line-height: 3;
+    font-size: 1rem;
+  }
+}
+.participant.winner {
+  color: $wix-primary;
+  border-color: $wix-primary;
+}
+
+@media screen and (max-width: 795px) {
+  .participant {
+    width: 100%;
+    border-bottom: none !important;
+  }
+  .participant:not(:first-child) {
+    margin-left: 2%;
+  }
+}

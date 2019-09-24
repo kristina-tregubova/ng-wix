@@ -19,19 +19,22 @@ export class TournoService {
   }
 
   getRelatedPlayers(tourno) {
-    const items = [];
+    let items;
 
-    for (const player of tourno.relatedPlayers) {
-      player.get().then((doc) => {
-        if (doc.exists) {
-          const data = doc.data();
-          const id = doc.id;
-          items.push({id, ...data});
-        }
-      });
+    if (tourno.relatedPlayers) {
+      items = [];
+
+      for (const player of tourno.relatedPlayers) {
+        player.get().then((doc) => {
+          if (doc.exists) {
+            const data = doc.data();
+            const id = doc.id;
+            items.push({ id, ...data });
+          }
+        });
+      }
+      return of(items);
     }
-
-    return of(items);
   }
 
   getRounds(tourno: ITourno) {

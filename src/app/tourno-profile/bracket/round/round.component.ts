@@ -8,11 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RoundComponent implements OnInit {
 
   @Input() round: Map<string, Array<Map<string, number>>>;
+  @Input() roundType: string;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.round)
   }
 
 }

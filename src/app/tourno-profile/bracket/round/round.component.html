@@ -1,4 +1,13 @@
 <section>
-  <app-game *ngFor="let game of round.games" [game]='game'>
+  <h5 class="round-title">
+    {{roundType | titlecase}}
+  </h5>
+
+  <app-game 
+    *ngFor="let game of round.games; let odd = odd; let even = even" 
+    [game]='game'
+    class="game"
+    [ngClass]="{ odd: odd, even: even }"
+  >
   </app-game>
 </section>

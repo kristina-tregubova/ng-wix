@@ -122,12 +122,14 @@
   </section>
 </div> -->
 
-<div class="bracket" *ngIf="(rounds$ | async) as rounds">
-  <app-round *ngFor="let round of rounds; let i = index" [round]='round' [ngClass]="{
-    'finals': rounds.length === (i + 1),
-    'semifinals': (rounds.length - 1) === i,
-    'quarterfinals': (rounds.length - 2) === (i - 1),
-    'round': ((rounds.length > 3) && (i < 2))
-}">
+<div class="bracket" *ngIf="rounds">
+  {{rounds.length}}
+  <app-round 
+    *ngFor="let round of rounds; let i = index;" 
+    [round]='round' 
+    [roundType]="roundType" 
+    class="round"
+    [ngClass]="defineRoundType(i)"
+    >
   </app-round>
 </div>

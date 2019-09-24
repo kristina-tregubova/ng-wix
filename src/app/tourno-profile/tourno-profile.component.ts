@@ -21,7 +21,7 @@ export class TournoProfileComponent implements OnInit {
   backgroundImg: any;
   game: string;
   items$: Observable<IPlayer[]>;
-  rounds$: Observable<[]>;
+  rounds: [];
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +37,7 @@ export class TournoProfileComponent implements OnInit {
         this.tourno = val;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
-        this.rounds$ = this.tournoService.getRounds(val);
+        this.rounds = val.rounds;
       });
   }
 }

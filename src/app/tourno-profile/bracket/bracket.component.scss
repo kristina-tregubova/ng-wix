@@ -1,14 +1,60 @@
 @import "src/styles.scss";
 
 .bracket {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   position: relative;
   white-space: nowrap;
-  
+}
+
+::ng-deep.round {
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .game.odd {
+    margin-bottom: 2rem;
+  }
+
+  &.quarterfinals {
+    .game {
+      margin-bottom: 9rem;
+    }
+
+    .game:first-of-type {
+      margin-top: 6rem;
+    }
+  }
+
+  &.semifinals {
+    .game.even {
+      margin-bottom: 24rem;
+    }
+  }
+
+  &.finals {
+    .game.odd {
+      margin-bottom: 0;
+    }
+  }
 }
 
 @media screen and (max-width: 795px) {
   .bracket {
     display: grid;
+  }
+
+  .round {
+    .quarterfinals,
+    .semifinals,
+    .finals {
+      margin-bottom: 8%;
+    }
+  }
+
+  .round-title {
+    display: block;
+    font-size: 1.5rem;
   }
 }
