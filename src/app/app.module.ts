@@ -10,6 +10,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { TournoProfileModule } from './tourno-profile/tourno-profile.module';
+
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './header/header.component';
@@ -22,10 +24,7 @@ import { TournoCreationComponent } from './tourno-creation/tourno-creation.compo
 import { TournoSearchComponent } from './tournos-search/tournos-search.component';
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
-import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
 import { SuccessPopupComponent } from './auth/success-popup/success-popup.component';
-import { BracketComponent } from './tourno-profile/bracket/bracket.component';
-
 
 
 
@@ -42,22 +41,21 @@ import { BracketComponent } from './tourno-profile/bracket/bracket.component';
     TournoSearchComponent,
     PlayersSearchComponent,
     PlayerProfileComponent,
-    TournoProfileComponent,
     SuccessPopupComponent,
-    BracketComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    CoreModule
+    CoreModule,
+    SharedModule,
+    TournoProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -17,10 +17,11 @@ import { TournoService } from '../shared/tourno.service';
 export class TournoProfileComponent implements OnInit {
 
   private _id: string;
-  tourno: any;
+  tourno: ITourno;
   backgroundImg: any;
   game: string;
   items$: Observable<IPlayer[]>;
+  rounds$: Observable<[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class TournoProfileComponent implements OnInit {
         this.tourno = val;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
+        this.rounds$ = this.tournoService.getRounds(val);
       });
   }
 }

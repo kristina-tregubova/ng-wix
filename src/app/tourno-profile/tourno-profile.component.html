@@ -98,11 +98,9 @@
 
           <section class="tourno-profile__bracket">
 
-            <div class="tourno-profile__bracket-content">
+            <app-bracket [rounds$]="rounds$">
+            </app-bracket>
 
-              <app-bracket [tourno]="tourno"></app-bracket>
-
-            </div>
           </section>
 
         </mat-tab>

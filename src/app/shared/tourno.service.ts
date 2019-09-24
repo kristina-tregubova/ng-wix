@@ -34,4 +34,8 @@ export class TournoService {
     return of(items);
   }
 
+  getRounds(tourno: ITourno) {
+    return of(tourno.rounds);
+  }
+
 }

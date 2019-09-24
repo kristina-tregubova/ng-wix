@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ITourno } from 'src/app/core/models/ITourno';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bracket',
@@ -8,7 +8,7 @@ import { ITourno } from 'src/app/core/models/ITourno';
 })
 export class BracketComponent implements OnInit {
 
-  @Input() tourno: ITourno;
+  @Input() rounds$: Observable<[]>;
 
   constructor() { }
 
