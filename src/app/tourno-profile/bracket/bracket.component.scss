@@ -3,8 +3,10 @@
 .bracket {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   position: relative;
   white-space: nowrap;
+  margin: 5% 0 10%;
 }
 
 ::ng-deep.round {

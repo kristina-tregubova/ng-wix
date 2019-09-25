@@ -22,16 +22,12 @@ export class TournoCardComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    let user = this.tournoCardService.getUser();
+    this.tournoCardService.getUser();
     this.isLogged$ = this.authService.userLoggedSubject$;
 
     this.showFavorites();
   }
 
-  // ngAfterViewInit() {
-  //   this.showFavorites();
-  // }
-  
   showFavorites() {
     this.isFavorite = this.tournoCardService.defineIfFavorite(this.item.id) ? true : false;
   }

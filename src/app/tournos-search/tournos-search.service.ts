@@ -57,7 +57,6 @@ export class TournosSearchService {
       }),
       tap(() => this.stopLoading()),
     )
-    // result.subscribe((val) => this.initialItems = val);
     this.initialItems = this.items;
 
     return result;

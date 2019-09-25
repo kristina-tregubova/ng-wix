@@ -16,6 +16,7 @@ import { TournoProfileService } from './tourno-profile.service';
   styleUrls: ['./tourno-profile.component.scss']
 })
 export class TournoProfileComponent implements OnInit {
+  isLogged: boolean;
 
   private _id: string;
   tourno: ITourno;
@@ -25,7 +26,7 @@ export class TournoProfileComponent implements OnInit {
   items$: Observable<IPlayer[]>;
   rounds: [];
 
-  ifCreator: boolean;
+  ifCreator: boolean | null;
   isEditingDisabled = true;
 
   constructor(
@@ -38,9 +39,12 @@ export class TournoProfileComponent implements OnInit {
 
   ngOnInit() {
     this._id = this.route.snapshot.paramMap.get('id');
+    this.isLogged = this.tournoProfileService.getUser() ? true : false;
+
     this.tournoService.getTourno(this._id)
-      .subscribe((val: ITourno) => {
+      .subscribe(async (val: ITourno) => {
         this.tourno = val;
+        this.ifCreator = this.isLogged ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
         this.rounds = val.rounds;
@@ -49,8 +53,14 @@ export class TournoProfileComponent implements OnInit {
 
   handleEnableEditing() {
     this.isEditingDisabled = !this.isEditingDisabled;
-    console.log(this.isEditingDisabled);
   }
 
+  handleCancelEditing() {
+    this.isEditingDisabled = true;
+  }
+
+  handleSubmitEditing() {
+    this.isEditingDisabled = true;
+  }
 
 }

@@ -21,4 +21,19 @@ export class TournoProfileService {
     });
     return this.user;
   }
+
+  async checkIfCreator(tourno) {
+    let creatorId;
+    let currentId = this.user.uid;
+
+    await tourno.userCreated.get()
+      .then((doc) => {
+        if (doc.exists) {
+          creatorId = doc.id;
+        }
+      });
+
+    return (currentId === creatorId ? true : false);
+
+  }
 }

@@ -5,7 +5,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit, OnChanges {
+export class GameComponent implements OnInit {
 
   @Input() game: Map<string, Map<string, any>>;
   @Input() isEditingDisabled: boolean;
@@ -22,10 +22,6 @@ export class GameComponent implements OnInit, OnChanges {
     this.defineIfWinner();
   }
 
-  ngOnChanges() {
-    console.log(this.isEditingDisabled)
-  }
-
   getNames() {
     this.game['player1']['id'].get().then((doc) => {
       if (doc.exists) {
@@ -38,6 +34,10 @@ export class GameComponent implements OnInit, OnChanges {
         this.secondName = doc.data().name;
       }
     });
+  }
+
+  savePoints() {
+    
   }
 
   defineIfWinner() {

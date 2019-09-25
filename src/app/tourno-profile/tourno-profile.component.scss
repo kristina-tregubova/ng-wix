@@ -92,15 +92,14 @@
   font-weight: 600;
 }
 
-/* .tourno-profile__bracket,
-  .tourno-profile__chart,
-  .tourno-profile__comments,
-  .tourno-profile__settings {
-    display: none;
-  } */
+.edit-mode-btns {
+  display: flex;
+  flex-direction: row;
 
-.tourno-profile__chart .chart {
-  width: 100%;
+  button:first-of-type {
+    margin-left: auto;
+    margin-right: 5%;
+  }
 }
 
 .tourno-profile__comments .textarea {

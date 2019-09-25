@@ -19,7 +19,7 @@ export class TournoCardService {
 
 
   defineIfFavorite(itemId) {
-     return this.user.favoriteTournos.includes(itemId); 
+     return this.user.favoriteTournos.includes(itemId);
   }
 
   addToFavorite(itemId) {
@@ -31,7 +31,7 @@ export class TournoCardService {
   removeFromFavorite(itemId) {
     this.afs.collection('users').doc(this.userId).update({
       favoriteTournos: firebase.firestore.FieldValue.arrayRemove(itemId)
-    })
+    });
   }
 
   getUser(): IUser {
