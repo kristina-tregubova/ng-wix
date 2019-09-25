@@ -7,12 +7,44 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  @Input() game: Map<string, number>;
+  @Input() game: Map<string, Map<string, any>>;
+  firstName: string;
+  secondName: string;
+
+  isFirstWinner: boolean;
+  isSecondWinner: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.game);
+    this.getNames();
+    this.defineIfWinner();
+  }
+
+  getNames() {
+    this.game['player1']['id'].get().then((doc) => {
+      if (doc.exists) {
+        this.firstName = doc.data().name;
+      }
+    });
+
+    this.game['player2']['id'].get().then((doc) => {
+      if (doc.exists) {
+        this.secondName = doc.data().name;
+      }
+    });
+  }
+
+  defineIfWinner() {
+    let res = this.game['player1']['points'] - this.game['player2']['points'];
+
+    if (res > 0) {
+      this.isFirstWinner = true;
+      this.isSecondWinner = false;
+    } else if (res < 0) {
+      this.isFirstWinner = false;
+      this.isSecondWinner = true;
+    }
   }
 
 }

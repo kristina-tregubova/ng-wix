@@ -27,7 +27,7 @@ export class BracketComponent implements OnInit {
     } else if ((this.rounds.length - 2) === index) {
       this.roundType = 'quarterfinals';
     } else if ((this.rounds.length > 3) && index) {
-      this.roundType = 'round';
+      this.roundType = 'rounds';
     }
 
     return this.roundType;

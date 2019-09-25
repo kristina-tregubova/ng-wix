@@ -1,3 +1,10 @@
 <div class="participants">
-  <app-player *ngFor="let player of game | keyvalue" [playerId]="player.key" [playerPoints]="player.value"></app-player>
+  <div class="participant" [ngClass]="{'winner': isFirstWinner === true}">
+    <span class="name">{{firstName}}</span>
+    <span class="result">{{game.player1.points}}</span>
+  </div>
+  <div class="participant" [ngClass]="{'winner': isSecondWinner === true}">
+    <span class="name">{{secondName}}</span>
+    <span class="result">{{game.player2.points}}</span>
+  </div>
 </div>

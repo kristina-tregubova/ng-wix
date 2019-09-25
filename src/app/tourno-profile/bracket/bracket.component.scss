@@ -27,9 +27,16 @@
     }
   }
 
-  &.semifinals {
+  //only in case quarterfinals are preceeding
+  &.quarterfinals > &.semifinals {
     .game.even {
       margin-bottom: 24rem;
+    }
+  }
+
+  &.semifinals {
+    .game.even {
+      margin-bottom: 9rem;
     }
   }
 
