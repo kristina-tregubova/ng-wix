@@ -1,10 +1,10 @@
 <div class="participants">
   <div class="participant" [ngClass]="{'winner': isFirstWinner === true}">
     <span class="name">{{firstName}}</span>
-    <span class="result">{{game.player1.points}}</span>
+    <input type="text" class="points" value="{{game.player1.points}}" [disabled]="isEditingDisabled ? true : null">
   </div>
   <div class="participant" [ngClass]="{'winner': isSecondWinner === true}">
     <span class="name">{{secondName}}</span>
-    <span class="result">{{game.player2.points}}</span>
+    <input type="text" class="points" value="{{game.player2.points}}" [disabled]="isEditingDisabled ? true : null">
   </div>
 </div>

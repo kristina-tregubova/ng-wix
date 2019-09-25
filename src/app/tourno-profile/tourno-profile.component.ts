@@ -7,6 +7,7 @@ import { ITourno } from '../core/models/ITourno';
 import { Observable, of } from 'rxjs';
 import { IPlayer } from '../core/models/IPlayer';
 import { TournoService } from '../shared/tourno.service';
+import { TournoProfileService } from './tourno-profile.service';
 
 
 @Component({
@@ -18,15 +19,20 @@ export class TournoProfileComponent implements OnInit {
 
   private _id: string;
   tourno: ITourno;
+
   backgroundImg: any;
   game: string;
   items$: Observable<IPlayer[]>;
   rounds: [];
 
+  ifCreator: boolean;
+  isEditingDisabled = true;
+
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private tournoService: TournoService,
+    private tournoProfileService: TournoProfileService
   ) {
   }
 
@@ -40,4 +46,11 @@ export class TournoProfileComponent implements OnInit {
         this.rounds = val.rounds;
       });
   }
+
+  handleEnableEditing() {
+    this.isEditingDisabled = !this.isEditingDisabled;
+    console.log(this.isEditingDisabled);
+  }
+
+
 }

@@ -6,6 +6,7 @@
   <app-game 
     *ngFor="let game of round.games; let odd = odd; let even = even" 
     [game]='game'
+    [isEditingDisabled]="isEditingDisabled"
     class="game"
     [ngClass]="{ odd: odd, even: even }"
   >

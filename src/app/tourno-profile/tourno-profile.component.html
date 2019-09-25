@@ -98,8 +98,22 @@
 
           <section class="tourno-profile__bracket">
 
-            <app-bracket [rounds]="rounds">
+            <app-bracket [rounds]="rounds" [isEditingDisabled]="isEditingDisabled">
             </app-bracket>
+
+            <div class="edit-mode-btns">
+              <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn" (click)="handleEnableEditing()" *ngIf="isEditingDisabled">
+                Add scores
+              </button>
+
+              <button mat-stroked-button class="btn" *ngIf="!isEditingDisabled">
+                Cancel
+              </button>
+
+              <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn" *ngIf="!isEditingDisabled">
+                Save changes
+              </button>
+            </div>
 
           </section>
 

@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class BracketComponent implements OnInit {
 
   @Input() rounds: [];
+  @Input() isEditingDisabled: boolean;
   roundType: string;
 
   constructor() { }

@@ -14,31 +14,43 @@
     max-width: 240px;
     height: 3rem;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-  
+
     &:not(:last-child) {
       border-bottom: thin solid $wix-light-foreground;
     }
-  
+
     .name {
       margin: 0 1.25rem;
       line-height: 3;
       font-size: 1rem;
     }
-    .result {
-      margin-right: 1.25rem;
+    .points {
+      margin-right: 1rem;
       margin-left: auto;
+      margin-top: 3px;
+      padding: 0;
+      padding-left: 5px;
       line-height: 3;
       font-size: 1rem;
+      color: $wix-background;
+      width: 2rem;
+      height: 80%;
+      background-color: $wix-color;
+      border: $wix-primary solid 1px;
+      border-radius: 5px;
+
+      &:disabled {
+        background-color: transparent;
+        color: $wix-color;
+        border: none;
+      }
     }
   }
   .participant.winner {
     color: $wix-primary;
     border-color: $wix-primary;
   }
-  
 }
-
-
 
 @media screen and (max-width: 795px) {
   .participants {
@@ -47,11 +59,11 @@
     justify-content: space-around;
 
     .participant {
-        width: 100%;
-        border-bottom: none !important;
-      }
-      .participant:not(:first-child) {
-        margin-left: 2%;
-      }
+      width: 100%;
+      border-bottom: none !important;
+    }
+    .participant:not(:first-child) {
+      margin-left: 2%;
+    }
   }
 }

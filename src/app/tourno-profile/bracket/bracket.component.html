@@ -2,6 +2,7 @@
   <app-round 
     *ngFor="let round of rounds; let i = index;" 
     [round]='round' 
+    [isEditingDisabled]='isEditingDisabled'
     [roundType]="roundType" 
     class="round"
     [ngClass]="defineRoundType(i)"
