@@ -5,7 +5,7 @@ import { IUser } from '../core/models/IUser';
 @Injectable({
   providedIn: 'root'
 })
-export class TournoProfileService {
+export class PlayerProfileService {
 
   user: IUser;
 

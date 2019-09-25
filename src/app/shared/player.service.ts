@@ -31,22 +31,4 @@ export class PlayerService {
     return items;
   }
 
-  getPlayerPoints(player) {
-    let sum = 0;
-    for (const tourno of player.relatedTournaments) {
-      sum = sum + tourno.pointsGained;
-    }
-    return sum;
-  }
-
-  getPlayerGames(player) {
-    return player.relatedTournaments.length;
-  }
-
-  getPlayerWins(player) {
-    const winArr = player.relatedTournaments.filter(tourno => tourno.isWinner === true);
-    return winArr.length;
-  }
-
-
 }

@@ -12,6 +12,20 @@
     <h2 class="player-profile__header-title">
       Tigers
     </h2>
+
+    <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn" (click)="handleEnableEditing()"
+      *ngIf="isEditingDisabled">
+      Edit
+    </button>
+
+    <button mat-stroked-button class="btn" *ngIf="!isEditingDisabled" (click)="handleCancelEditing()">
+      Cancel
+    </button>
+
+    <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn" *ngIf="!isEditingDisabled"
+      (click)="handleSubmitEditing()">
+      Save changes
+    </button>
   </div>
 </div>
 
@@ -46,7 +60,7 @@
         <mat-icon matSuffix>stars</mat-icon>
         <label>Points: </label>
         <mat-form-field class="form-input">
-          <input matInput disabled value={{points}}>
+          <input matInput disabled value={{player?.points}}>
         </mat-form-field>
       </div>
 
@@ -54,7 +68,7 @@
         <mat-icon matSuffix>play_circle_filled</mat-icon>
         <label>Games: </label>
         <mat-form-field class="form-input">
-          <input matInput disabled value={{games}}>
+          <input matInput disabled value={{player?.games}}>
         </mat-form-field>
       </div>
 
@@ -62,7 +76,7 @@
         <mat-icon matSuffix>play_circle_filled</mat-icon>
         <label>Wins: </label>
         <mat-form-field class="form-input">
-          <input matInput disabled value={{wins}}>
+          <input matInput disabled value={{player?.wins}}>
         </mat-form-field>
       </div>
 

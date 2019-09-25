@@ -30,16 +30,8 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
     this.playerCardService.getUser();
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.points = this.playerService.getPlayerPoints(this.item);
-    this.games = this.playerService.getPlayerGames(this.item);
-    this.wins = this.playerService.getPlayerWins(this.item);
-
     this.showFavorites();
   }
-
-  // ngAfterViewInit() {
-  //   this.showFavorites();
-  // }
   
   showFavorites() {
     this.isFavorite = this.playerCardService.defineIfFavorite(this.item.id) ? true : false;
