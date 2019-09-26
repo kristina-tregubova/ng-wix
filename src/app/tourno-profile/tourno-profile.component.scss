@@ -131,10 +131,12 @@
   grid-area: content;
 }
 
+.tourno-profile__description {
+  margin: 3% 0;
+}
+
 .delete-tourno-btn,
 .tourno-profile__settings-submit-btn {
-  width: 40%;
-  margin-left: 60%;
   margin-top: 3%;
 }
 

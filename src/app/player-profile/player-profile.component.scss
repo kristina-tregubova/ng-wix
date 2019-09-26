@@ -1,5 +1,21 @@
 @import "src/styles.scss";
 
+input {
+  display: inline-block;
+  background-color: $wix-color;
+  border: $wix-primary solid 1px;
+  border-radius: 5px;
+  min-width: 170px;
+  width: 200px;
+  max-width: 250px;
+
+  &:disabled {
+    background-color: transparent;
+    color: $wix-color;
+    border: none;
+  }
+}
+
 .background-container {
   height: 30vh;
   width: 100vw;
@@ -13,17 +29,24 @@
 }
 
 .player-profile__header {
+  position: relative;
   padding: 2vh 0 2vh;
   margin-bottom: 30px;
   height: 9vh;
   background-color: $wix-dark-background;
 }
 
-.player-profile__header h2 {
+.player-profile__header-title {
+  display: inline-block;
   font-size: 2.4rem;
-  font-weight: 800;
+  font-weight: 600;
   margin-left: 19vh;
   margin-top: 0;
+  margin-right: 10px;
+}
+
+.submit-btn {
+  color: $wix-light-foreground;
 }
 
 .player-profile__header .container-center {
@@ -49,13 +72,23 @@
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+.player-profile__userpic-change {
+  position: absolute;
+  top: 10vh;
+  left: 3vh;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
 .title {
   border-bottom: 1px solid $light-dividers;
 }
 
 .player-profile__info,
 .player-profile__details,
-.player-profile__games-attended {
+.player-profile__games-attended,
+.player-profile__settings {
   margin-bottom: 10%;
 }
 
@@ -78,15 +111,31 @@
   padding-right: 5px;
 }
 
-.chart,
-.no-team {
-  width: 100%;
+.player-profile__details {
+  display: flex;
+  flex-direction: column;
 }
 
 .no-team {
-  text-align: center;
+  margin: 0 auto;
   margin-top: 5%;
 }
+
+.add-new-player-btn {
+  margin: 0 auto;
+  margin-top: 5%;
+  
+}
+
+.player-profile__description {
+  margin: 3% 0;
+}
+
+.delete-player-btn,
+.player-profile__settings-submit-btn {
+  margin-top: 3%;
+}
+
 
 @media screen and (max-width: 1200px) {
   .container-center {
