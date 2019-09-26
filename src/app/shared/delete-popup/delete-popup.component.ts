@@ -23,11 +23,11 @@ export class DeletePopupComponent  {
   handleDeletion(): void {
     switch (this.data.collectionName) {
       case 'tournaments':
-        this.tournoService.deleteTourno(this.data.item.id);
+        this.tournoService.deleteTourno(this.data.itemId);
         break;
 
       case 'players':
-        this.playerService.deletePlayer(this.data.item.id);
+        this.playerService.deletePlayer(this.data.itemId);
         break;
     }
 

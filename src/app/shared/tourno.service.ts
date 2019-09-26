@@ -41,12 +41,39 @@ export class TournoService {
     return of(tourno.rounds);
   }
 
+  updateField(tourno: ITourno, tournoId: string, field: string) {
+    let updateInfo = {};
+    updateInfo['' + field] = tourno[field];
+
+    this.afs.collection('tournaments').doc(tournoId).update({
+      
+      field: tourno[field] 
+    
+    }).then(() => {
+      console.log('Document successfully updated!');
+    }).catch((error) => {
+      console.error('Error updating document: ', error);
+    });
+  }
+
+  updateRounds(tourno: ITourno, id?: string) {
+    this.afs.collection('tournaments').doc(id).update({ 
+      
+      'rounds': tourno.rounds 
+    
+    }).then(() => {
+      console.log('Document successfully updated!');
+    }).catch((error) => {
+      console.error('Error updating document: ', error);
+    });
+  }
+
   deleteTourno(tournoId) {
-    this.afs.collection('tounaments').doc(tournoId).delete().then(() => {
+    this.afs.collection('tournaments').doc(tournoId).delete().then(() => {
       console.log('Document successfully deleted!');
-  }).catch((error) => {
+    }).catch((error) => {
       console.error('Error removing document: ', error);
-  });
+    });
   }
 
 }

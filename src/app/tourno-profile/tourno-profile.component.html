@@ -98,19 +98,37 @@
 
           <section class="tourno-profile__bracket">
 
-            <app-bracket [rounds]="rounds" [isEditingDisabled]="isEditingDisabled">
+            <app-bracket 
+              [rounds]="rounds" 
+              [isEditingDisabled]="isBracketEditingDisabled">
             </app-bracket>
 
             <div class="edit-mode-btns" *ngIf="ifCreator">
-              <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn" (click)="handleEnableEditing()" *ngIf="isEditingDisabled">
+              <button 
+                mat-raised-button 
+                type="submit" 
+                name="submit" 
+                class="btn highlighted-btn" 
+                *ngIf="isBracketEditingDisabled" 
+                (click)="handleEnableBracketEditing()">
                 Add scores
               </button>
 
-              <button mat-stroked-button class="btn" *ngIf="!isEditingDisabled" (click)="handleCancelEditing()">
+              <button 
+                mat-stroked-button 
+                class="btn" 
+                *ngIf="!isBracketEditingDisabled" 
+                (click)="handleCancelBracketEditing()">
                 Cancel
               </button>
 
-              <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn" *ngIf="!isEditingDisabled" (click)="handleSubmitEditing()">
+              <button 
+                mat-raised-button 
+                type="submit" 
+                name="submit" 
+                class="btn highlighted-btn" 
+                *ngIf="!isBracketEditingDisabled" 
+                (click)="handleSubmitBracketEditing()">
                 Save changes
               </button>
             </div>
@@ -197,7 +215,7 @@
                 Once you delete your a tournament, there is no going back. Please be certain.
               </p>
 
-              <button mat-raised-button color="warn" class="delete-tourno-btn btn hightlighted-btn btn_delete" (click)="handleOpenDeletePopup('tounaments')">
+              <button mat-raised-button color="warn" class="delete-tourno-btn btn hightlighted-btn btn_delete" (click)="handleOpenDeletePopup()">
                 Delete this tournament
               </button>
             </div>

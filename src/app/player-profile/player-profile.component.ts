@@ -17,7 +17,7 @@ import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.compon
 export class PlayerProfileComponent implements OnInit {
   isLogged: boolean;
 
-  private _id: string;
+  id: string;
 
   player: any;
   backgroundImg: any;
@@ -42,10 +42,10 @@ export class PlayerProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
     this.isLogged = this.playerProfileService.getUser() ? true : false;
 
-    this.playerService.getPlayer(this._id)
+    this.playerService.getPlayer(this.id)
       .subscribe(async (val: IPlayer) => {
         this.player = val;
         this.ifCreator = this.isLogged ? await this.playerProfileService.checkIfCreator(this.player) : null;
@@ -70,23 +70,25 @@ export class PlayerProfileComponent implements OnInit {
     switch (type) {
       case 'name':
         this.isNameEditingDisabled = true;
+        this.playerService.updateField(this.player, this.id, 'name');
         break;
       case 'team':
         this.isTeamEditingDisabled = true;
+        this.playerService.updateField(this.player, this.id, 'team');
         break;
     }
   }
 
-  // handleSubmitEditing() {
-  //   // this.isEditingDisabled = true;
-  // }
+  handleAddTeamMember() {
+    this.playerService.addTeamMember(this.player, this.id);
+  }
 
-  handleOpenDeletePopup(collectionName) {
+  handleOpenDeletePopup() {
     this.dialog.open(DeletePopupComponent, {
       width: '450px',
       data: {
-        collectionName: collectionName,
-        item: this.player
+        collectionName: 'players',
+        item: this.id
       }
     });
   }

@@ -18,7 +18,7 @@ import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.compon
 export class TournoProfileComponent implements OnInit {
   isLogged: boolean;
 
-  private _id: string;
+  id: string;
   tourno: ITourno;
 
   backgroundImg: any;
@@ -27,7 +27,7 @@ export class TournoProfileComponent implements OnInit {
   rounds: [];
 
   ifCreator: boolean | null;
-  isEditingDisabled = true;
+  isBracketEditingDisabled = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -39,10 +39,10 @@ export class TournoProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
     this.isLogged = this.tournoProfileService.getUser() ? true : false;
 
-    this.tournoService.getTourno(this._id)
+    this.tournoService.getTourno(this.id)
       .subscribe(async (val: ITourno) => {
         this.tourno = val;
         this.ifCreator = this.isLogged ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
@@ -52,25 +52,25 @@ export class TournoProfileComponent implements OnInit {
       });
   }
 
-  handleEnableEditing() {
-    this.isEditingDisabled = !this.isEditingDisabled;
+  handleEnableBracketEditing() {
+    this.isBracketEditingDisabled = !this.isBracketEditingDisabled;
   }
 
-  handleCancelEditing() {
-    this.isEditingDisabled = true;
+  handleCancelBracketEditing() {
+    this.isBracketEditingDisabled = true;
   }
 
-  handleSubmitEditing() {
-    this.isEditingDisabled = true;
-    console.log(this.tourno);
+  handleSubmitBracketEditing() {
+    this.isBracketEditingDisabled = true;
+    this.tournoService.updateRounds(this.tourno, this.id);
   }
 
-  handleOpenDeletePopup(collectionName) {
+  handleOpenDeletePopup() {
     this.dialog.open(DeletePopupComponent, {
       width: '450px',
       data: {
-        collectionName: collectionName,
-        item: this.tourno
+        collectionName: 'tournaments',
+        itemId: this.id
       }
     });
   }
