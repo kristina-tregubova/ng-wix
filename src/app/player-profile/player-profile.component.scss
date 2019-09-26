@@ -6,8 +6,8 @@ input {
   border: $wix-primary solid 1px;
   border-radius: 5px;
   min-width: 170px;
-  width: 200px;
   max-width: 250px;
+  color: $wix-foreground;
 
   &:disabled {
     background-color: transparent;
@@ -114,6 +114,10 @@ input {
 .player-profile__details {
   display: flex;
   flex-direction: column;
+
+  input {
+    text-align: center;
+  }
 }
 
 .no-team {

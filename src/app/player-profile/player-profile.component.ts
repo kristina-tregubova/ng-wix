@@ -29,7 +29,8 @@ export class PlayerProfileComponent implements OnInit {
   displayedColumns = ['name', 'role'];
 
   ifCreator: boolean | null;
-  isEditingDisabled = true;
+  isNameEditingDisabled = true;
+  isTeamEditingDisabled = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -54,17 +55,31 @@ export class PlayerProfileComponent implements OnInit {
       });
   }
 
-  handleEnableEditing() {
-    this.isEditingDisabled = !this.isEditingDisabled;
+  handleEnableEditing(type) {
+    switch (type) {
+      case 'name':
+        this.isNameEditingDisabled = !this.isNameEditingDisabled;
+        break;
+      case 'team':
+        this.isTeamEditingDisabled = !this.isTeamEditingDisabled;
+        break;
+    }
   }
 
-  handleCancelEditing() {
-    this.isEditingDisabled = true;
+  handleSubmitEditing(type) {
+    switch (type) {
+      case 'name':
+        this.isNameEditingDisabled = true;
+        break;
+      case 'team':
+        this.isTeamEditingDisabled = true;
+        break;
+    }
   }
 
-  handleSubmitEditing() {
-    this.isEditingDisabled = true;
-  }
+  // handleSubmitEditing() {
+  //   // this.isEditingDisabled = true;
+  // }
 
   handleOpenDeletePopup(collectionName) {
     this.dialog.open(DeletePopupComponent, {

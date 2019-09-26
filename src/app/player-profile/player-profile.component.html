@@ -11,18 +11,18 @@
       <p class="player-profile__userpic-change" (click)="handleAddingPhoto()" *ngIf="ifCreator">Change</p>
     </div>
 
-    <h2 class="player-profile__header-title" *ngIf="isEditingDisabled">
+    <h2 class="player-profile__header-title" *ngIf="isNameEditingDisabled">
       {{player?.name}}
     </h2>
-    <input class="player-profile__header-title" value="{{player?.name}}" *ngIf="!isEditingDisabled" max-value="50">
+    <input class="player-profile__header-title" value="{{player?.name}}" *ngIf="!isNameEditingDisabled" max="50">
 
-    <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing()"
-      *ngIf="isEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+    <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('name')"
+      *ngIf="isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
       <mat-icon>edit</mat-icon>
     </button>
 
-    <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing()"
-      *ngIf="!isEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+    <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing('name')"
+      *ngIf="!isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
       <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
     </button>
 
@@ -86,13 +86,13 @@
       <h2 class="title">
         Team members
 
-        <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing()"
-          *ngIf="isEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+        <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('team')"
+          *ngIf="isTeamEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
           <mat-icon>edit</mat-icon>
         </button>
 
-        <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing()"
-          *ngIf="!isEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+        <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing('team')"
+          *ngIf="!isTeamEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
           <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
         </button>
       </h2>
@@ -106,7 +106,7 @@
           <th mat-header-cell *matHeaderCellDef> Name </th>
           <td mat-cell *matCellDef="let member">
 
-            <input value={{member.name}} [disabled]="isEditingDisabled ? true : null">
+            <input value={{member.name}} [disabled]="isTeamEditingDisabled ? true : null">
 
           </td>
         </ng-container>
@@ -116,7 +116,7 @@
           <th mat-header-cell *matHeaderCellDef> Role </th>
           <td mat-cell *matCellDef="let member">
 
-            <input value={{member.role}} [disabled]="isEditingDisabled ? true : null">
+            <input value={{member.role}} [disabled]="isTeamEditingDisabled ? true : null">
 
           </td>
         </ng-container>
@@ -129,7 +129,7 @@
       </div>
 
       <button mat-mini-fab aria-label="Example icon-button with a heart icon" color="primary" class="add-new-player-btn"
-        *ngIf="!isEditingDisabled">
+        *ngIf="!isTeamEditingDisabled">
         <mat-icon>add</mat-icon>
       </button>
 
