@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Router, Params } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-success-popup',
@@ -18,5 +18,4 @@ export class SuccessPopupComponent  {
     this.dialogRef.close();
     this.router.navigate(['/tournos-search']);
   }
-
 }

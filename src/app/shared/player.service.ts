@@ -31,4 +31,11 @@ export class PlayerService {
     return items;
   }
 
+  deletePlayer(playerId) {
+    this.afs.collection('players').doc(playerId).delete().then(() => {
+      console.log('Document successfully deleted!');
+  }).catch((error) => {
+      console.error('Error removing document: ', error);
+  });
+  }
 }

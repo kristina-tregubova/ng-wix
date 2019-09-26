@@ -33,6 +33,7 @@ import {
   MatStepperModule,
 
 } from '@angular/material';
+import { DeletePopupComponent } from './delete-popup/delete-popup.component';
 
 
 
@@ -47,6 +48,7 @@ import {
     PlayerCardComponent,
     ErrorAreaComponent,
     LoadingSpinnerComponent,
+    DeletePopupComponent,
 
   ],
   imports: [

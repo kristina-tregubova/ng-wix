@@ -86,7 +86,7 @@
               <mat-icon matSuffix>star</mat-icon>
               <label>Prize: </label>
               <mat-form-field class="form-input">
-                <input matInput disabled value={{tourno?.prize}}>
+                <input matInput disabled value={{tourno?.prize|titlecase}}>
               </mat-form-field>
             </div>
 
@@ -197,7 +197,7 @@
                 Once you delete your a tournament, there is no going back. Please be certain.
               </p>
 
-              <button mat-raised-button color="warn" class="delete-tourno-btn btn hightlighted-btn btn_delete">
+              <button mat-raised-button color="warn" class="delete-tourno-btn btn hightlighted-btn btn_delete" (click)="handleOpenDeletePopup('tounaments')">
                 Delete this tournament
               </button>
             </div>

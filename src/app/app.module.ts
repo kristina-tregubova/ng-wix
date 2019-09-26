@@ -25,6 +25,7 @@ import { TournoSearchComponent } from './tournos-search/tournos-search.component
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { SuccessPopupComponent } from './auth/success-popup/success-popup.component';
+import { DeletePopupComponent } from './shared/delete-popup/delete-popup.component';
 
 
 
@@ -61,6 +62,7 @@ import { SuccessPopupComponent } from './auth/success-popup/success-popup.compon
   bootstrap: [AppComponent],
   entryComponents: [
     SuccessPopupComponent,
+    DeletePopupComponent
   ]
 })
 export class AppModule { }

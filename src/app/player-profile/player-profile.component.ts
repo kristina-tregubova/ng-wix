@@ -5,6 +5,9 @@ import { ITourno } from '../core/models/ITourno';
 import { IPlayer } from '../core/models/IPlayer';
 import { PlayerService } from '../shared/player.service';
 import { PlayerProfileService } from './player-profile.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.component'
+
 
 @Component({
   selector: 'app-player-profile',
@@ -33,6 +36,7 @@ export class PlayerProfileComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private playerService: PlayerService,
     private playerProfileService: PlayerProfileService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -60,6 +64,16 @@ export class PlayerProfileComponent implements OnInit {
 
   handleSubmitEditing() {
     this.isEditingDisabled = true;
+  }
+
+  handleOpenDeletePopup(collectionName) {
+    this.dialog.open(DeletePopupComponent, {
+      width: '450px',
+      data: {
+        collectionName: collectionName,
+        item: this.player
+      }
+    });
   }
 
 }

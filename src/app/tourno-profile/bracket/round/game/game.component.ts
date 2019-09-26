@@ -11,6 +11,7 @@ export class GameComponent implements OnInit {
   @Input() isEditingDisabled: boolean;
   firstName: string;
   secondName: string;
+  // firstPoints: string = this.game['player1']['points'];
 
   isFirstWinner: boolean;
   isSecondWinner: boolean;

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Just one question...</h1>
+
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <p>Do you really want to delete this item?</p>  
+  <p>No rollback is possible.</p>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="handleDeletion()" class="btn">Sure</button>
+  <button mat-stroked-button (click)="handleClosingPopup()" class="btn">Cancel</button>
+</div>

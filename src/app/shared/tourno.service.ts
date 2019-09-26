@@ -41,4 +41,12 @@ export class TournoService {
     return of(tourno.rounds);
   }
 
+  deleteTourno(tournoId) {
+    this.afs.collection('tounaments').doc(tournoId).delete().then(() => {
+      console.log('Document successfully deleted!');
+  }).catch((error) => {
+      console.error('Error removing document: ', error);
+  });
+  }
+
 }
