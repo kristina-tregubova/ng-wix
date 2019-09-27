@@ -34,7 +34,7 @@
       </button>
 
       <p class="tourno-profile__dates">
-        {{startDate}} - {{endDate}}
+        {{tourno?.startDate.toDate() | date: mediumDate}} - {{tourno?.endDate.toDate() | date: mediumDate}}
       </p>
 
     </div>
@@ -169,7 +169,13 @@
                 <label for="start-date"> Start date: </label>
 
                 <mat-form-field>
-                  <input matInput [matDatepicker]="startDate" placeholder="Start date" value={{startDate}}>
+                  <input 
+                    matInput 
+                    [matDatepicker]="startDate" 
+                    placeholder="Start date" 
+                    [ngModel]="tourno.startDate.toDate()|dateToIso" 
+                    (ngModelChange)="tourno.startDate=$event"
+                    [disabled]="isStartDateEditingDisabled ? true : null">
                   <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
                   <mat-datepicker #startDate></mat-datepicker>
                 </mat-form-field>
@@ -189,7 +195,13 @@
                 <label for="end-date"> End date: </label>
 
                 <mat-form-field>
-                  <input matInput [matDatepicker]="endDate" placeholder="End date" value={{endDateIso}}>
+                  <input 
+                    matInput 
+                    [matDatepicker]="endDate" 
+                    placeholder="End date" 
+                    [ngModel]="tourno.endDate.toDate()|dateToIso" 
+                    (ngModelChange)="tourno.endDate=$event"
+                    [disabled]="isEndDateEditingDisabled ? true : null">
                   <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
                   <mat-datepicker #endDate></mat-datepicker>
                 </mat-form-field>
@@ -209,7 +221,11 @@
                 <label> Entry Fee: </label>
 
                 <mat-form-field class="form-input">
-                  <input matInput [(ngModel)]="tourno.entryFee" max="20">
+                  <input 
+                    matInput 
+                    [(ngModel)]="tourno.entryFee" 
+                    max="20" 
+                    [disabled]="isEntryFeeEditingDisabled ? true : null">
                   <mat-icon matSuffix>money</mat-icon>
                 </mat-form-field>
 
@@ -228,7 +244,11 @@
                 <label> Prize: </label>
 
                 <mat-form-field class="form-input">
-                  <input matInput [(ngModel)]="tourno.prize" max="50">
+                  <input 
+                    matInput 
+                    [(ngModel)]="tourno.prize" 
+                    max="50" 
+                    [disabled]="isPrizeEditingDisabled ? true : null">
                   <mat-icon matSuffix>stars</mat-icon>
                 </mat-form-field>
 

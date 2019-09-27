@@ -10,7 +10,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.component'
 import { IUser } from '../core/models/IUser';
 import { AuthService } from '../core/auth.service';
-import * as moment from 'moment'
 
 
 @Component({
