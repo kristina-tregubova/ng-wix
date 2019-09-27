@@ -10,6 +10,7 @@ import { DeletePopupComponent } from '../shared/popups/delete-popup/delete-popup
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
 import { Observable } from 'rxjs';
+import { FileUploadPopupComponent } from '../shared/popups/file-upload-popup/file-upload-popup.component';
 
 
 @Component({
@@ -95,6 +96,16 @@ export class PlayerProfileComponent implements OnInit {
       data: {
         collectionName: 'players',
         item: this.id
+      }
+    });
+  }
+
+  handleOpenFileUploadPopup() {
+    this.dialog.open(FileUploadPopupComponent, {
+      width: '450px',
+      data: {
+        storageName: 'players-logos/',
+        playerId: this.id
       }
     });
   }

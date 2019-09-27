@@ -11,6 +11,7 @@ import { AddNewComponent } from './add-player/add-new/add-new.component';
 import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
 import { ErrorAreaComponent } from './error-area/error-area.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
 
 import {
   MatButtonModule,
@@ -33,9 +34,7 @@ import {
   MatStepperModule,
 
 } from '@angular/material';
-import { DeletePopupComponent } from './popups/delete-popup/delete-popup.component';
-import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
-import { SuccessPopupComponent } from './popups/success-popup/success-popup.component';
+
 
 
 
@@ -50,8 +49,6 @@ import { SuccessPopupComponent } from './popups/success-popup/success-popup.comp
     PlayerCardComponent,
     ErrorAreaComponent,
     LoadingSpinnerComponent,
-    SuccessPopupComponent,
-    DeletePopupComponent,
     TimestampToIsoPipe,
 
   ],
@@ -110,10 +107,6 @@ import { SuccessPopupComponent } from './popups/success-popup/success-popup.comp
     LoadingSpinnerComponent,
     TimestampToIsoPipe,
 
-  ],
-  entryComponents: [
-    SuccessPopupComponent,
-    DeletePopupComponent
   ]
 })
 export class SharedModule { }

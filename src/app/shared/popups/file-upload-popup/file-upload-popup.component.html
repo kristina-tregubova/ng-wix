@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Upload new image</h1>
+
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+  <p>You can upload an image (JPG/JPEG, PNG, SVG) of max. 2Mb</p>  
+
+  <button mat-raised-button class="btn highlighted-btn" type="button" (click)="fileInput.click()">
+      Upload image
+  </button>
+  <input #fileInput type="file" (change)="handleUploadFile($event)" style="display:none;" />
+  <mat-icon class="complete-sign" *ngIf="isCompleted">done</mat-icon>
+
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-actions>
+  <button mat-stroked-button (click)="handleSaveFile()" class="btn">Save</button>
+</div>

@@ -24,6 +24,9 @@ import { TournoCreationComponent } from './tourno-creation/tourno-creation.compo
 import { TournoSearchComponent } from './tournos-search/tournos-search.component';
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
+import { SuccessPopupComponent } from './shared/popups/success-popup/success-popup.component';
+import { DeletePopupComponent } from './shared/popups/delete-popup/delete-popup.component';
+import { FileUploadPopupComponent } from './shared/popups/file-upload-popup/file-upload-popup.component';
 
 
 
@@ -40,6 +43,9 @@ import { PlayerProfileComponent } from './player-profile/player-profile.componen
     TournoSearchComponent,
     PlayersSearchComponent,
     PlayerProfileComponent,
+    FileUploadPopupComponent,
+    SuccessPopupComponent,
+    DeletePopupComponent,
 
   ],
   imports: [
@@ -57,6 +63,11 @@ import { PlayerProfileComponent } from './player-profile/player-profile.componen
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [
+    SuccessPopupComponent,
+    DeletePopupComponent,
+    FileUploadPopupComponent
+  ]
   
 })
 export class AppModule { }

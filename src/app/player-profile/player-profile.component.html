@@ -8,7 +8,7 @@
   <div class="container-center">
     <div class="player-profile__userpic">
       <img src={{player?.logoRef}} alt="userpic">
-      <p class="player-profile__userpic-change" (click)="handleAddingPhoto()" *ngIf="ifCreator">Change</p>
+      <p class="player-profile__userpic-change" (click)="handleOpenFileUploadPopup()" *ngIf="ifCreator">Change</p>
     </div>
 
     <h2 class="player-profile__header-title" *ngIf="isNameEditingDisabled">

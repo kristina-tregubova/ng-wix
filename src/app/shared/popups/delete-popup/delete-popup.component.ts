@@ -20,7 +20,7 @@ export class DeletePopupComponent  {
     private playerService: PlayerService
   ) { }
 
-  handleDeletion(): void {
+  handleDeletion() {
     switch (this.data.collectionName) {
       case 'tournaments':
         this.tournoService.deleteTourno(this.data.itemId);
