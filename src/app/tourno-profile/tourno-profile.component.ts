@@ -18,7 +18,7 @@ import { AuthService } from '../core/auth.service';
   styleUrls: ['./tourno-profile.component.scss']
 })
 export class TournoProfileComponent implements OnInit {
-  user: IUser | null
+
   isLogged$: Observable<IUser | null>;
 
   id: string;
@@ -44,13 +44,12 @@ export class TournoProfileComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.user = this.authService.getUserLogged;
     this.isLogged$ = this.authService.userLoggedSubject$;
 
     this.tournoService.getTourno(this.id)
       .subscribe(async (val: ITourno) => {
         this.tourno = val;
-        this.ifCreator = this.user ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
+        this.ifCreator = this.authService.getUserLogged ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
         this.rounds = val.rounds;

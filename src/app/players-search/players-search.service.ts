@@ -16,7 +16,7 @@ export class PlayersSearchService {
     private afs: AngularFirestore,
     private authService: AuthService,
   ) { 
-    this.user = this.authService.getUserLogged;
+    // this.user = this.authService.getUserLogged;
   }
 
   user: IUser;
@@ -109,7 +109,7 @@ export class PlayersSearchService {
       })
       .filter((item: IPlayer) => {
         if (showFavorite) {
-          return this.user.favoritePlayers.includes(item.id);
+          return this.authService.getUserLogged.favoritePlayers.includes(item.id);
         } else {
           return item;
         }

@@ -15,7 +15,7 @@ export class TournosSearchService {
     private afs: AngularFirestore,
     private authService: AuthService,
   ) { 
-    this.user = this.authService.getUserLogged;
+    // this.user = this.authService.getUserLogged;
   }
 
   user: IUser;
@@ -118,7 +118,7 @@ export class TournosSearchService {
       .filter((item: ITourno) => {
         if (showOnlyMine) {
 
-          return item.userCreatedId === this.user.uid;
+          return item.userCreatedId === this.authService.getUserLogged.uid;
 
         } else {
           return item;
@@ -126,7 +126,7 @@ export class TournosSearchService {
       })
       .filter((item: ITourno) => {
         if (showFavorite) {
-          return this.user.favoriteTournos.includes(item.id);
+          return this.authService.getUserLogged.favoriteTournos.includes(item.id);
         } else {
           return item;
         }

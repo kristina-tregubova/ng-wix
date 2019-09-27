@@ -23,7 +23,6 @@ export class PlayersSearchComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
-    this.authService.getUserLogged;
 
     this.playersService.searchPlayers().subscribe((val) => this.items = val);
     this.isLoading$ = this.playersService.loading$;

@@ -17,7 +17,6 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
   games: number;
   wins: number;
 
-  user: IUser | null = this.authService.getUserLogged;
   isFavorite: boolean;
   isLogged$: Observable<IUser | null>;
 
@@ -30,7 +29,7 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
     
-    if (this.user) {
+    if (this.authService.isUserLogged) {
       this.showFavorites();
     }
   }

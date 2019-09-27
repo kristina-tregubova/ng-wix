@@ -9,29 +9,24 @@ import { IUser } from 'src/app/core/models/IUser';
 })
 export class TournoCardService {
 
-  user: IUser;
-  userId: string;
-
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) {
-    this.user = this.authService.getUserLogged;
-   }
+  ) {}
 
 
   defineIfFavorite(itemId) {
-     return this.user.favoriteTournos.includes(itemId);
+     return this.authService.getUserLogged.favoriteTournos.includes(itemId);
   }
 
   addToFavorite(itemId) {
-    this.afs.collection('users').doc(this.userId).update({
+    this.afs.collection('users').doc(this.authService.getUserLogged.uid).update({
       favoriteTournos: firebase.firestore.FieldValue.arrayUnion(itemId)
     })
   }
 
   removeFromFavorite(itemId) {
-    this.afs.collection('users').doc(this.userId).update({
+    this.afs.collection('users').doc(this.authService.getUserLogged.uid).update({
       favoriteTournos: firebase.firestore.FieldValue.arrayRemove(itemId)
     });
   }

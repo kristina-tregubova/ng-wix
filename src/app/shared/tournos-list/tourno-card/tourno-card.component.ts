@@ -14,7 +14,6 @@ export class TournoCardComponent implements OnInit, OnDestroy {
 
   @Input() item: ITourno;
 
-  user: IUser | null = this.authService.getUserLogged;
   isFavorite: boolean;
   isLogged$: Observable<IUser | null>;
 
@@ -26,7 +25,7 @@ export class TournoCardComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    if (this.user) {
+    if (this.authService.isUserLogged) {
       this.showFavorites();
     }
   }

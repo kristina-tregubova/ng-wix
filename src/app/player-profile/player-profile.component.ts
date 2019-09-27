@@ -18,7 +18,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./player-profile.component.scss']
 })
 export class PlayerProfileComponent implements OnInit {
-  user: IUser | null
+
   isLogged$: Observable<IUser | null>;
 
   id: string;
@@ -48,13 +48,12 @@ export class PlayerProfileComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.user = this.authService.getUserLogged;
     this.isLogged$ = this.authService.userLoggedSubject$;
 
     this.playerService.getPlayer(this.id)
       .subscribe(async (val: IPlayer) => {
         this.player = val;
-        this.ifCreator = this.user ? await this.playerProfileService.checkIfCreator(this.player) : null;
+        this.ifCreator = this.authService.getUserLogged ? await this.playerProfileService.checkIfCreator(this.player) : null;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.dataSource = val.team;
         this.items = this.playerService.getTournamentsAttended(val);
