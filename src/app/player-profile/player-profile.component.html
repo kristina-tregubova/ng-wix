@@ -7,7 +7,7 @@
 <div class="player-profile__header">
   <div class="container-center">
     <div class="player-profile__userpic">
-      <img src=".././assets/images/avatars/avatar.svg" alt="userpic">
+      <img src={{player?.logoRef}} alt="userpic">
       <p class="player-profile__userpic-change" (click)="handleAddingPhoto()" *ngIf="ifCreator">Change</p>
     </div>
 

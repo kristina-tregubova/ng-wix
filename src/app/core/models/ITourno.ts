@@ -19,4 +19,5 @@ export interface ITourno {
     'rounds': [];
     'userCreated': DocumentReference;
     'userCreatedId'?: string;
+    'logoRef': DocumentReference;
 }

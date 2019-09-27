@@ -13,4 +13,5 @@ export interface IPlayer {
     'points': number;
     'wins': number;
     'games': number;
+    'logoRef': DocumentReference;
 }

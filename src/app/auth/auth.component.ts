@@ -3,7 +3,7 @@ import { AuthService } from '../core/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { SuccessPopupComponent } from './success-popup/success-popup.component';
+import { SuccessPopupComponent } from '../shared/popups/success-popup/success-popup.component';
 
 
 @Component({

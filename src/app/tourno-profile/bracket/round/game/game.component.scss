@@ -32,9 +32,9 @@
       color: $wix-color;
       width: 2rem;
       height: 80%;
-      background-color: $wix-light-foreground;
-      // border: $wix-primary solid 1px;
+      background-color: $wix-foreground;
       border-radius: 5px;
+      border: none;
 
       &:disabled {
         background-color: transparent;

@@ -45,11 +45,10 @@ input {
 }
 
 .tourno-profile__header-title {
+  margin: 0;
   display: inline-block;
   font-size: 2.2rem;
   font-weight: 600;
-  margin-left: 19vh;
-  margin-top: 0;
   margin-right: 10px;
   margin-bottom: 12%;
 }
@@ -63,32 +62,6 @@ input {
 
 .tourno-profile__tabs {
   margin-top: -48px;
-}
-
-.tourno-profile__pic {
-  margin-left: 4%;
-  margin-top: 1%;
-  position: absolute;
-  top: -5vh;
-  left: 0;
-}
-
-.tourno-profile__pic img {
-  padding: 10px;
-  width: auto;
-  height: 9vh;
-  border-radius: 50%;
-  border: 3px solid $wix-primary;
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-.tourno-profile__userpic-change {
-  position: absolute;
-  top: 10vh;
-  left: 3vh;
-  text-decoration: underline;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 
 .tourno-profile__info,

@@ -20,6 +20,10 @@ export class PlayerService {
     return this.afs.collection('players').doc(id).valueChanges();
   }
 
+  getPlayerLogo(ref) {
+    return firebase.storage().refFromURL(ref);
+  }
+
   getTournamentsAttended(player): ITourno[] {
     const items: Array<ITourno> = [];
 

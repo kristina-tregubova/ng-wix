@@ -7,7 +7,7 @@ import { IPlayer } from '../core/models/IPlayer';
 import { TournoService } from '../shared/tourno.service';
 import { TournoProfileService } from './tourno-profile.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.component'
+import { DeletePopupComponent } from '../shared/popups/delete-popup/delete-popup.component'
 import { IUser } from '../core/models/IUser';
 import { AuthService } from '../core/auth.service';
 

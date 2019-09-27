@@ -33,8 +33,9 @@ import {
   MatStepperModule,
 
 } from '@angular/material';
-import { DeletePopupComponent } from './delete-popup/delete-popup.component';
+import { DeletePopupComponent } from './popups/delete-popup/delete-popup.component';
 import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
+import { SuccessPopupComponent } from './popups/success-popup/success-popup.component';
 
 
 
@@ -49,6 +50,7 @@ import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
     PlayerCardComponent,
     ErrorAreaComponent,
     LoadingSpinnerComponent,
+    SuccessPopupComponent,
     DeletePopupComponent,
     TimestampToIsoPipe,
 
@@ -108,6 +110,10 @@ import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
     LoadingSpinnerComponent,
     TimestampToIsoPipe,
 
+  ],
+  entryComponents: [
+    SuccessPopupComponent,
+    DeletePopupComponent
   ]
 })
 export class SharedModule { }

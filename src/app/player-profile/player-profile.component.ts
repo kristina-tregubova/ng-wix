@@ -6,7 +6,7 @@ import { IPlayer } from '../core/models/IPlayer';
 import { PlayerService } from '../shared/player.service';
 import { PlayerProfileService } from './player-profile.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.component'
+import { DeletePopupComponent } from '../shared/popups/delete-popup/delete-popup.component'
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
 import { Observable } from 'rxjs';
@@ -23,8 +23,9 @@ export class PlayerProfileComponent implements OnInit {
 
   id: string;
 
-  player: any;
+  player: IPlayer;
   backgroundImg: any;
+  logoUrl: any;
   game: string;
 
   items: ITourno[];
