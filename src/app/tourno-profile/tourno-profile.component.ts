@@ -62,7 +62,6 @@ export class TournoProfileComponent implements OnInit {
         this.items$ = this.tournoService.getRelatedPlayers(val);
         this.rounds = val.rounds;
       });
-
       
   }
 

@@ -1,12 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'dateToIso'
+  name: 'timestampToIso'
 })
-export class DateToIsoPipe implements PipeTransform {
+export class TimestampToIsoPipe implements PipeTransform {
 
-  transform(value: any, ...args: any[]): any {
-    let newValue = value.toISOString();
-    return newValue;
+  transform(value): string {
+    if (value && typeof value.toDate !== 'undefined') {
+      let newValue = value.toDate().toISOString();
+      return newValue;
+      
+    }
+    return value;
   }
 }

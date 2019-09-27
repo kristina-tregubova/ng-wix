@@ -34,7 +34,7 @@ import {
 
 } from '@angular/material';
 import { DeletePopupComponent } from './delete-popup/delete-popup.component';
-import { DateToIsoPipe } from './pipes/date-to-iso.pipe';
+import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
 
 
 
@@ -50,7 +50,7 @@ import { DateToIsoPipe } from './pipes/date-to-iso.pipe';
     ErrorAreaComponent,
     LoadingSpinnerComponent,
     DeletePopupComponent,
-    DateToIsoPipe,
+    TimestampToIsoPipe,
 
   ],
   imports: [
@@ -106,7 +106,7 @@ import { DateToIsoPipe } from './pipes/date-to-iso.pipe';
     PlayerCardComponent,
     ErrorAreaComponent,
     LoadingSpinnerComponent,
-    DateToIsoPipe,
+    TimestampToIsoPipe,
 
   ]
 })

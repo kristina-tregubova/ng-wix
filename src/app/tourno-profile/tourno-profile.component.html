@@ -34,7 +34,7 @@
       </button>
 
       <p class="tourno-profile__dates">
-        {{tourno?.startDate.toDate() | date: mediumDate}} - {{tourno?.endDate.toDate() | date: mediumDate}}
+        {{tourno?.startDate | timestampToIso | date: mediumDate }} - {{tourno?.endDate | timestampToIso | date: mediumDate}}
       </p>
 
     </div>
@@ -173,11 +173,11 @@
                     matInput 
                     [matDatepicker]="startDate" 
                     placeholder="Start date" 
-                    [ngModel]="tourno.startDate.toDate()|dateToIso" 
+                    [ngModel]="tourno.startDate|timestampToIso" 
                     (ngModelChange)="tourno.startDate=$event"
-                    [disabled]="isStartDateEditingDisabled ? true : null">
+                    disabled>
                   <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                  <mat-datepicker #startDate></mat-datepicker>
+                  <mat-datepicker #startDate [disabled]="isStartDateEditingDisabled ? true : null"></mat-datepicker>
                 </mat-form-field>
 
                 <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
@@ -199,11 +199,11 @@
                     matInput 
                     [matDatepicker]="endDate" 
                     placeholder="End date" 
-                    [ngModel]="tourno.endDate.toDate()|dateToIso" 
+                    [ngModel]="tourno.endDate|timestampToIso" 
                     (ngModelChange)="tourno.endDate=$event"
-                    [disabled]="isEndDateEditingDisabled ? true : null">
+                    disabled>
                   <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                  <mat-datepicker #endDate></mat-datepicker>
+                  <mat-datepicker #endDate [disabled]="isEndDateEditingDisabled ? true : null"></mat-datepicker>
                 </mat-form-field>
 
                 <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"

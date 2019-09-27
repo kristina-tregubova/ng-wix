@@ -3,7 +3,6 @@ import { TournosSearchService } from './tournos-search.service';
 import { Observable } from 'rxjs';
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
-import * as moment from 'moment'
 
 
 @Component({
