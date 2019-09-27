@@ -14,10 +14,7 @@
     max-width: 240px;
     height: 3rem;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
-
-    &:not(:last-child) {
-      border-bottom: thin solid $wix-light-foreground;
-    }
+    border-bottom: thin solid $wix-color;
 
     .name {
       margin: 0 1.25rem;
@@ -32,11 +29,11 @@
       padding-left: 5px;
       line-height: 3;
       font-size: 1rem;
-      color: $wix-foreground;
+      color: $wix-color;
       width: 2rem;
       height: 80%;
-      background-color: $wix-color;
-      border: $wix-primary solid 1px;
+      background-color: $wix-light-foreground;
+      // border: $wix-primary solid 1px;
       border-radius: 5px;
 
       &:disabled {

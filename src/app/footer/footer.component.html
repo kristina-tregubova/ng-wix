@@ -14,13 +14,13 @@
         </h4>
         <ul>
 
-          <li><a [routerLink]="['/creation']" *ngIf="user">Create new</a></li>
+          <li><a [routerLink]="['/creation']" *ngIf="this.isLogged$ | async">Create new</a></li>
           <li><a [routerLink]="['/tournos-search']">Search tournaments</a></li>
           <li><a [routerLink]="['/players-search']">Search players</a></li>
         </ul>
       </section>
 
-      <section class="main-footer__profile" *ngIf="!user">
+      <section class="main-footer__profile" *ngIf="!this.isLogged$ | async">
         <h4>
           Join WiX
         </h4>
@@ -30,7 +30,7 @@
         </ul>
       </section>
 
-      <section class="main-footer__profile" *ngIf="user">
+      <section class="main-footer__profile" *ngIf="this.isLogged$ | async">
         <h4>
           Your WiX
         </h4>

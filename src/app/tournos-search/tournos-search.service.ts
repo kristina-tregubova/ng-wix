@@ -14,7 +14,9 @@ export class TournosSearchService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) { }
+  ) { 
+    this.user = this.authService.getUserLogged;
+  }
 
   user: IUser;
   initialItems: any[];
@@ -29,14 +31,6 @@ export class TournosSearchService {
   private _loading = new BehaviorSubject(false);
   loading$ = this._loading.asObservable();
 
-  getUser() {
-    this.authService.userLoggedSubject$.subscribe((u) => {
-      if (u) {
-        this.user = u;
-      }
-    });
-    return this.user;
-  }
 
   searchTournaments() {
 

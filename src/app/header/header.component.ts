@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Router } from '@angular/router';
 import { IUser } from '../core/models/IUser';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,26 +11,19 @@ import { IUser } from '../core/models/IUser';
 })
 export class HeaderComponent implements OnInit {
 
-  user: IUser | null;
+  isLogged$: Observable<IUser | null>
 
   constructor(
     private authService: AuthService,
   ) { }
 
   ngOnInit() {
-    this.getUser();
+    this.isLogged$ = this.authService.userLoggedSubject$;
   }
 
   async tryLogout() {
     await this.authService.logout();
   }
-
-  getUser() {
-    this.authService.userLoggedSubject$.subscribe((u) => {
-      this.user = u;
-    });
-  }
-
 
 
 }

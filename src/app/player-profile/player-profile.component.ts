@@ -7,6 +7,9 @@ import { PlayerService } from '../shared/player.service';
 import { PlayerProfileService } from './player-profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.component'
+import { AuthService } from '../core/auth.service';
+import { IUser } from '../core/models/IUser';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -15,7 +18,8 @@ import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.compon
   styleUrls: ['./player-profile.component.scss']
 })
 export class PlayerProfileComponent implements OnInit {
-  isLogged: boolean;
+  user: IUser | null
+  isLogged$: Observable<IUser | null>;
 
   id: string;
 
@@ -35,6 +39,7 @@ export class PlayerProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
+    private authService: AuthService,
     private playerService: PlayerService,
     private playerProfileService: PlayerProfileService,
     public dialog: MatDialog
@@ -43,12 +48,13 @@ export class PlayerProfileComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.isLogged = this.playerProfileService.getUser() ? true : false;
+    this.user = this.authService.getUserLogged;
+    this.isLogged$ = this.authService.userLoggedSubject$;
 
     this.playerService.getPlayer(this.id)
       .subscribe(async (val: IPlayer) => {
         this.player = val;
-        this.ifCreator = this.isLogged ? await this.playerProfileService.checkIfCreator(this.player) : null;
+        this.ifCreator = this.user ? await this.playerProfileService.checkIfCreator(this.player) : null;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.dataSource = val.team;
         this.items = this.playerService.getTournamentsAttended(val);

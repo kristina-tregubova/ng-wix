@@ -13,6 +13,8 @@ import { AuthService } from 'src/app/core/auth.service';
 export class TournoCardComponent implements OnInit, OnDestroy {
 
   @Input() item: ITourno;
+
+  user: IUser | null = this.authService.getUserLogged;
   isFavorite: boolean;
   isLogged$: Observable<IUser | null>;
 
@@ -22,10 +24,11 @@ export class TournoCardComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.tournoCardService.getUser();
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.showFavorites();
+    if (this.user) {
+      this.showFavorites();
+    }
   }
 
   showFavorites() {

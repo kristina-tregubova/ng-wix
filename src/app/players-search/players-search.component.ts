@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayersSearchService } from './players-search.service';
-import { Observable, of } from 'rxjs';
-import { IPlayer } from '../core/models/IPlayer';
+import { Observable} from 'rxjs';
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
 
@@ -24,7 +23,7 @@ export class PlayersSearchComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
-    this.playersService.getUser();
+    this.authService.getUserLogged;
 
     this.playersService.searchPlayers().subscribe((val) => this.items = val);
     this.isLoading$ = this.playersService.loading$;

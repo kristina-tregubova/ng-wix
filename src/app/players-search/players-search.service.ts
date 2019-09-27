@@ -15,7 +15,9 @@ export class PlayersSearchService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) { }
+  ) { 
+    this.user = this.authService.getUserLogged;
+  }
 
   user: IUser;
   initialItems: any[];
@@ -29,15 +31,6 @@ export class PlayersSearchService {
   private _loading = new BehaviorSubject(false);
   loading$ = this._loading.asObservable();
 
-  getUser() {
-    this.authService.userLoggedSubject$.subscribe((u) => {
-      if (u) {
-        this.user = u;
-      }
-    });
-    return this.user;
-  }
-
   searchPlayers() {
 
     this.startLoading();
@@ -50,6 +43,9 @@ export class PlayersSearchService {
           const id = a.payload.doc.id;
           return { id, ...data };
         });
+      }),
+      tap((res) => {
+        this.initialItems = res;
       }),
       tap(() => this.stopLoading()),
     );
@@ -123,67 +119,7 @@ export class PlayersSearchService {
     return this.items;
 
   }
-
-  // searchByName() {
-
-  //   this.startLoading();
-
-  //   let name;
-  //   this.searchSubject$.subscribe(val => name = val.toLowerCase());
-
-  //   let resultItemArr;
-  //   this.initialItems$.subscribe((itemArr: IPlayer[]) => {
-  //     const result = itemArr.filter((item: IPlayer) => item.name.toLowerCase().includes(name));
-  //     resultItemArr = result;
-  //   });
-  //   this.items$.next(resultItemArr);
-  //   this.stopLoading();
-  // }
-
-  // filterPlayersByGame() {
-
-  //   this.startLoading();
-
-  //   let game;
-  //   this.gameSubject$.subscribe(val => game = val);
-
-  //   let resultItemArr;
-  //   this.initialItems$.subscribe((itemArr: IPlayer[]) => {
-  //     itemArr = itemArr.filter((item: IPlayer) => {
-  //       if (game) {
-  //         return item.game === game;
-  //       } else {
-  //         return item.game;
-  //       }
-  //     });
-  //     resultItemArr = itemArr;
-  //   });
-  //   this.items$.next(resultItemArr);
-  //   this.stopLoading();
-  // }
-
-  // filterPlayersByCountry() {
-
-  //   this.startLoading();
-
-  //   let country;
-  //   this.countrySubject$.subscribe(val => country = val);
-
-  //   let resultItemArr;
-  //   this.initialItems$.subscribe((itemArr: IPlayer[]) => {
-  //     itemArr = itemArr.filter((item: IPlayer) => {
-  //       if (country) {
-  //         return item.country === country;
-  //       } else {
-  //         return item.country;
-  //       }
-  //     });
-  //     resultItemArr = itemArr;
-  //   });
-
-  //   this.items$.next(resultItemArr);
-  //   this.stopLoading();
-  // }
+  
 
   startLoading() {
     this._loading.next(true);

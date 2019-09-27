@@ -2,12 +2,12 @@
 
 input {
   display: inline-block;
-  background-color: $wix-color;
-  border: $wix-primary solid 1px;
+  background-color: $wix-light-foreground;
+  border: none;
   border-radius: 5px;
   min-width: 170px;
   max-width: 250px;
-  color: $wix-foreground;
+  color: $wix-color;
 
   &:disabled {
     background-color: transparent;

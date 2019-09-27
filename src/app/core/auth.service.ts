@@ -43,13 +43,16 @@ export class AuthService {
 
     });
 
+    this.userLoggedSubject$.subscribe((u) => this.user = u)
+
+  }
+
+  get getUserLogged() {
+    return this.user;
   }
 
 
   get isUserLogged() {
-    this.userLoggedSubject$.subscribe((user) => {
-      this.user = user;
-    });
     return (this.user == null ? false : true);
   }
 

@@ -8,6 +8,8 @@ import { TournoService } from '../shared/tourno.service';
 import { TournoProfileService } from './tourno-profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.component'
+import { IUser } from '../core/models/IUser';
+import { AuthService } from '../core/auth.service';
 
 
 @Component({
@@ -16,7 +18,8 @@ import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.compon
   styleUrls: ['./tourno-profile.component.scss']
 })
 export class TournoProfileComponent implements OnInit {
-  isLogged: boolean;
+  user: IUser | null
+  isLogged$: Observable<IUser | null>;
 
   id: string;
   tourno: ITourno;
@@ -32,6 +35,7 @@ export class TournoProfileComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
+    private authService: AuthService,
     private tournoService: TournoService,
     private tournoProfileService: TournoProfileService,
     public dialog: MatDialog
@@ -40,17 +44,19 @@ export class TournoProfileComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.isLogged = this.tournoProfileService.getUser() ? true : false;
+    this.user = this.authService.getUserLogged;
+    this.isLogged$ = this.authService.userLoggedSubject$;
 
     this.tournoService.getTourno(this.id)
       .subscribe(async (val: ITourno) => {
         this.tourno = val;
-        this.ifCreator = this.isLogged ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
+        this.ifCreator = this.user ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
         this.rounds = val.rounds;
       });
   }
+  
 
   handleEnableBracketEditing() {
     this.isBracketEditingDisabled = !this.isBracketEditingDisabled;

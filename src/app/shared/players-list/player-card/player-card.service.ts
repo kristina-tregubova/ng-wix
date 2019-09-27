@@ -15,7 +15,9 @@ export class PlayerCardService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) { }
+  ) { 
+    this.user = this.authService.getUserLogged;
+  }
 
 
   defineIfFavorite(itemId) {
@@ -32,15 +34,5 @@ export class PlayerCardService {
     this.afs.collection('users').doc(this.userId).update({
       favoritePlayers: firebase.firestore.FieldValue.arrayRemove(itemId)
     })
-  }
-
-  getUser(): IUser {
-    this.authService.userLoggedSubject$.subscribe((u) => {
-      if (u) {
-        this.user = u;
-        this.userId = u.uid;
-      }
-    });
-    return this.user;
   }
 }

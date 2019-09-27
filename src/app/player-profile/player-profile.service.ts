@@ -11,20 +11,13 @@ export class PlayerProfileService {
 
   constructor(
     private authService: AuthService
-  ) { }
-
-  getUser() {
-    this.authService.userLoggedSubject$.subscribe((u) => {
-      if (u) {
-        this.user = u;
-      }
-    });
-    return this.user;
+  ) { 
+    // this.user = this.authService.getUserLogged;
   }
 
   async checkIfCreator(tourno) {
     let creatorId;
-    const currentId = this.user.uid;
+    const currentId = this.authService.getUserLogged.uid;
 
     await tourno.userCreated.get()
       .then((doc) => {

@@ -7,7 +7,7 @@
 
   <nav mat-tab-nav-bar class="site-nav-no-min" >
 
-    <a mat-tab-link *ngIf="user" [routerLink]="['/creation']" routerLinkActive #rla1="routerLinkActive"
+    <a mat-tab-link *ngIf="this.isLogged$ | async" [routerLink]="['/creation']" routerLinkActive #rla1="routerLinkActive"
       [active]="rla1.isActive"> Create new
     </a>
 
@@ -19,7 +19,7 @@
       Players
     </a>
 
-    <a mat-tab-link *ngIf="!user" [routerLink]="['/auth']" routerLinkActive #rla4="routerLinkActive"
+    <a mat-tab-link *ngIf="!this.isLogged$ | async" [routerLink]="['/auth']" routerLinkActive #rla4="routerLinkActive"
       [active]="rla4.isActive"> Sign In
     </a>
 
@@ -33,7 +33,7 @@
 
     <mat-menu #menu="matMenu">
 
-      <a mat-menu-item [routerLink]="['/creation']" *ngIf="user">
+      <a mat-menu-item [routerLink]="['/creation']" *ngIf="this.isLogged$ | async">
         Create new</a>
 
       <a mat-menu-item [routerLink]="['/tournos-search']">
@@ -44,15 +44,15 @@
 
       <mat-divider></mat-divider>
 
-      <a mat-menu-item [routerLink]="['/auth']" *ngIf="!user">
+      <a mat-menu-item [routerLink]="['/auth']" *ngIf="!this.isLogged$ | async">
         Sign in</a>
 
-      <a mat-menu-item [routerLink]="['/settings']" *ngIf="user">
+      <a mat-menu-item [routerLink]="['/settings']" *ngIf="this.isLogged$ | async">
         Profile Settings</a>
 
-      <mat-divider *ngIf="user"></mat-divider>
+      <mat-divider *ngIf="this.isLogged$ | async"></mat-divider>
 
-      <button mat-menu-item (click)=tryLogout() *ngIf="user">
+      <button mat-menu-item (click)=tryLogout() *ngIf="this.isLogged$ | async">
         Log out</button>
 
     </mat-menu>
