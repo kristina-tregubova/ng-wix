@@ -1,5 +1,5 @@
-import { IUser } from './IUser';
 import { DocumentReference } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 
 export interface ITourno {
     'id'?: string;
@@ -10,8 +10,8 @@ export interface ITourno {
     'country': string;
     'participants': number;
     'playerType': string;
-    'endDate': string;
-    'startDate': string;
+    'endDate': firebase.firestore.Timestamp;
+    'startDate': firebase.firestore.Timestamp;
     'entryFee': string;
     'prize': string;
     'description': string;

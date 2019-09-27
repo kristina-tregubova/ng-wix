@@ -11,9 +11,7 @@ export class TournoProfileService {
 
   constructor(
     private authService: AuthService
-  ) {
-    // this.user = this.authService.getUserLogged;
-   }
+  ) {}
 
   async checkIfCreator(tourno) {
     let creatorId;

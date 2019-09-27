@@ -45,11 +45,11 @@ export class TournoService {
     let updateInfo = {};
     updateInfo['' + field] = tourno[field];
 
-    this.afs.collection('tournaments').doc(tournoId).update({
+    this.afs.collection('tournaments').doc(tournoId).update(
       
-      field: tourno[field] 
+      updateInfo
     
-    }).then(() => {
+    ).then(() => {
       console.log('Document successfully updated!');
     }).catch((error) => {
       console.error('Error updating document: ', error);

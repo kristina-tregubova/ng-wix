@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../shared/delete-popup/delete-popup.component'
 import { IUser } from '../core/models/IUser';
 import { AuthService } from '../core/auth.service';
+import * as moment from 'moment'
 
 
 @Component({
@@ -31,6 +32,14 @@ export class TournoProfileComponent implements OnInit {
 
   ifCreator: boolean | null;
   isBracketEditingDisabled = true;
+
+  isNameEditingDisabled = true;
+
+  isStartDateEditingDisabled = true;
+  isEndDateEditingDisabled = true;
+  isPrizeEditingDisabled = true;
+  isEntryFeeEditingDisabled = true;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -54,8 +63,10 @@ export class TournoProfileComponent implements OnInit {
         this.items$ = this.tournoService.getRelatedPlayers(val);
         this.rounds = val.rounds;
       });
+
+      
   }
-  
+
 
   handleEnableBracketEditing() {
     this.isBracketEditingDisabled = !this.isBracketEditingDisabled;
@@ -69,6 +80,53 @@ export class TournoProfileComponent implements OnInit {
     this.isBracketEditingDisabled = true;
     this.tournoService.updateRounds(this.tourno, this.id);
   }
+
+
+  handleEnableEditing(type) {
+    switch (type) {
+      case 'name':
+        this.isNameEditingDisabled = !this.isNameEditingDisabled;
+        break;
+      case 'startDate':
+        this.isStartDateEditingDisabled = !this.isStartDateEditingDisabled;
+        break;
+      case 'endDate':
+        this.isEndDateEditingDisabled = !this.isEndDateEditingDisabled;
+        break;
+      case 'entryFee':
+        this.isEntryFeeEditingDisabled = !this.isEntryFeeEditingDisabled;
+        break;
+      case 'prize':
+        this.isPrizeEditingDisabled = !this.isPrizeEditingDisabled;
+        break;
+    }
+  }
+
+  handleSubmitEditing(type) {
+    switch (type) {
+      case 'name':
+        this.isNameEditingDisabled = true;
+        this.tournoService.updateField(this.tourno, this.id, 'name');
+        break;
+      case 'startDate':
+        this.isStartDateEditingDisabled = true;
+        this.tournoService.updateField(this.tourno, this.id, 'startDate');
+        break;
+      case 'endDate':
+        this.isEndDateEditingDisabled = true;
+        this.tournoService.updateField(this.tourno, this.id, 'endDate');
+        break;
+      case 'entryFee':
+        this.isEntryFeeEditingDisabled = true;
+        this.tournoService.updateField(this.tourno, this.id, 'entryFee');
+        break;
+      case 'prize':
+        this.isPrizeEditingDisabled = true;
+        this.tournoService.updateField(this.tourno, this.id, 'prize');
+        break;
+    }
+  }
+
 
   handleOpenDeletePopup() {
     this.dialog.open(DeletePopupComponent, {
