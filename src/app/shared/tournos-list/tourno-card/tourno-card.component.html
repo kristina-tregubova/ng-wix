@@ -18,7 +18,7 @@
       </li>
       <li class="grid-card__info-end-date">
         <mat-icon>calendar_today</mat-icon>
-        <span>{{item?.endDate}} </span>
+        <span>{{item?.endDate.toDate() | date: mediumDate}} </span>
       </li>
     </ul>
   </mat-card-content>
