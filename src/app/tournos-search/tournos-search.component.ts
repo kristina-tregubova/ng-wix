@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
 import { Observable } from 'rxjs';
 import { AuthService } from '../core/auth.service';
@@ -12,6 +12,8 @@ import { IUser } from '../core/models/IUser';
 })
 export class TournoSearchComponent implements OnInit {
 
+  isPageLoaded: boolean;
+
   items: any[];
   isLoading$: Observable<boolean>;
   isLogged$: Observable<IUser>;
@@ -24,6 +26,7 @@ export class TournoSearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.isLogged$ = this.authService.userLoggedSubject$;
 
     this.tournosService.searchTournaments().subscribe((val) => this.items = val);

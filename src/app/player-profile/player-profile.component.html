@@ -14,7 +14,7 @@
     <h2 class="player-profile__header-title" *ngIf="isNameEditingDisabled">
       {{player?.name}}
     </h2>
-    <input class="player-profile__header-title" [(ngModel)]="player.name" *ngIf="!isNameEditingDisabled" max="50">
+    <input class="player-profile__header-title" [(ngModel)]="player.name" *ngIf="!isNameEditingDisabled" max="30">
 
     <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('name')"
       *ngIf="isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">

@@ -5,7 +5,7 @@
             <h1 class="promo__title title">
                 Be a winner. With WiX
             </h1>
-            <a mat-raised-button class="promo__btn btn highlighted-btn" href="./app/auth/auth.html">
+            <a mat-raised-button class="promo__btn btn highlighted-btn" [routerLink]="['/auth']">
                 Create your first tournament
             </a>
             <i class="go-further-icon material-icons">
@@ -50,10 +50,10 @@
             </h2>
             <ul class="community__btns">
                 <li><a mat-stroked-button class="btn"
-                        href="./app/tournos-search/tournos-search.html">Search tournaments</a>
+                        [routerLink]="['/tournos-search']">Search tournaments</a>
                 </li>
                 <li><a mat-stroked-button class="btn"
-                        href="./app/players-search/players-search.html">Search players</a>
+                    [routerLink]="['/players-search']">Search players</a>
                 </li>
             </ul>
         </div>
@@ -66,7 +66,7 @@
         <h3 class="registration__sub-title">
             Sign in in minutes and start right away
         </h3>
-        <a mat-raised-button class="registration__btn highlighted-btn btn" href="./app/auth/auth.html">Sign
+        <a mat-raised-button class="registration__btn highlighted-btn btn" [routerLink]="['/auth']">Sign
             in</a>
 
     </section>

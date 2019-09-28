@@ -1,6 +1,7 @@
 <div class="page-container">
   <app-header></app-header>
   <main class="main">
+    <div *ngIf="isPageLoading" class="cover-spin"></div>
     <router-outlet></router-outlet>
   </main>
   <app-footer></app-footer>
