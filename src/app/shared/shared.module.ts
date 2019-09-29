@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AddPlayerComponent } from './add-player/add-player.component';
 import { TournosListComponent } from './tournos-list/tournos-list.component';
@@ -12,6 +13,7 @@ import { AddFromListComponent } from './add-player/add-from-list/add-from-list.c
 import { ErrorAreaComponent } from './error-area/error-area.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
+import { CurrentPlayersComponent } from './add-player/current-players/current-players.component';
 
 import {
   MatButtonModule,
@@ -34,9 +36,6 @@ import {
   MatStepperModule,
 
 } from '@angular/material';
-import { CurrentPlayersComponent } from './add-player/current-players/current-players.component';
-
-
 
 
 @NgModule({
@@ -57,6 +56,7 @@ import { CurrentPlayersComponent } from './add-player/current-players/current-pl
   imports: [
     AppRoutingModule,
     CommonModule,
+    FormsModule,
     MatButtonModule,
     MatInputModule,
     MatIconModule,

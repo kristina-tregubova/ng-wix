@@ -48,6 +48,10 @@
 
 <div class="players-list" role="table">
 
-  <app-player-card *ngFor="let item of items" [item]="item"></app-player-card>
+  <app-player-card *ngFor="let item of items | slice: 0:showEnd" [item]="item"></app-player-card>
+
+  <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()" *ngIf="items && ifShowMoreBtn">
+    <mat-icon>add</mat-icon>
+  </button>
 
 </div>

@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
 
@@ -10,7 +10,7 @@ import { IUser } from '../core/models/IUser';
   templateUrl: './tournos-search.component.html',
   styleUrls: ['./tournos-search.component.scss']
 })
-export class TournoSearchComponent implements OnInit {
+export class TournoSearchComponent implements OnInit, OnDestroy {
 
   isPageLoaded: boolean;
 
@@ -19,6 +19,8 @@ export class TournoSearchComponent implements OnInit {
   isLogged$: Observable<IUser>;
 
   searchInput = document.getElementById('tournos-search-input');
+
+  private searchSubscription: Subscription;
 
   constructor(
     private tournoSearchService: TournosSearchService,
@@ -29,7 +31,7 @@ export class TournoSearchComponent implements OnInit {
 
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.tournoSearchService.searchTournaments().subscribe((val) => this.items = val);
+    this.searchSubscription = this.tournoSearchService.searchTournaments().subscribe((val) => this.items = val);
     this.isLoading$ = this.tournoSearchService.loading$;
   }
 
@@ -56,6 +58,10 @@ export class TournoSearchComponent implements OnInit {
   tryFilterByFavorite($event) {
     this.tournoSearchService.myFavoritesSubject$.next($event);
     this.items = this.tournoSearchService.getFilteredItems();
+  }
+
+  ngOnDestroy() {
+    this.searchSubscription.unsubscribe();
   }
 
 }

@@ -4,6 +4,12 @@
     grid-gap: 20px;
     align-items: stretch;
     padding: 0;
+    margin-bottom: 5%;
+  }
+
+  .tournos-list + div {
+    display: grid;
+    justify-content: center;
     margin-bottom: 10%;
   }
   

@@ -1,4 +1,10 @@
 <div class="tournos-list">
-  <app-tourno-card *ngFor="let item of items" [item]="item"></app-tourno-card>
-  <!-- <div class='no-tourno' *ngIf="!(isLoading  items)">No tournaments found</div> -->
+  <app-tourno-card *ngFor="let item of items | slice: 0:showEnd" [item]="item"></app-tourno-card>
+</div>
+
+<div>
+  <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()"
+    *ngIf="items && ifShowMoreBtn">
+    <mat-icon>add</mat-icon>
+  </button>
 </div>

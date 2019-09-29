@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PlayersSearchService } from './players-search.service';
-import { Observable} from 'rxjs';
+import { Observable, Subscription} from 'rxjs';
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
 
@@ -9,11 +9,12 @@ import { IUser } from '../core/models/IUser';
   templateUrl: './players-search.component.html',
   styleUrls: ['./players-search.component.scss']
 })
-export class PlayersSearchComponent implements OnInit {
+export class PlayersSearchComponent implements OnInit, OnDestroy {
 
   items: any[];
   isLoading$: Observable<boolean>;
   isLogged$: Observable<IUser>;
+  private searchSubscription: Subscription;
 
   constructor(
     private playersSearchService: PlayersSearchService,
@@ -24,7 +25,7 @@ export class PlayersSearchComponent implements OnInit {
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.playersSearchService.searchPlayers().subscribe((val) => this.items = val);
+    this.searchSubscription = this.playersSearchService.searchPlayers().subscribe((val) => this.items = val);
     this.isLoading$ = this.playersSearchService.loading$;
   }
 
@@ -51,6 +52,10 @@ export class PlayersSearchComponent implements OnInit {
   tryFilterByFavorite($event) {
     this.playersSearchService.myFavoritesSubject$.next($event);
     this.items = this.playersSearchService.getFilteredItems();
+  }
+
+  ngOnDestroy() {
+    this.searchSubscription.unsubscribe();
   }
 
 }

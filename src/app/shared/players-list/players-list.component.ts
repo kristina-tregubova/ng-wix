@@ -17,16 +17,17 @@ export class PlayersListComponent implements OnInit {
 
   order: boolean = false;
 
+  showEnd: number = 1;
+  ifShowMoreBtn = true;
+
   constructor(
     private playersSearchService: PlayersSearchService,
     private playerService: PlayerService
   ) { }
 
   ngOnInit() {
-    // this.handleSorting(null, 'name', 'letters');
   }
 
-  
 
   handleSorting($event, field: string, sortType: string) {
 
@@ -39,16 +40,27 @@ export class PlayersListComponent implements OnInit {
     }
 
     this.items.sort((a: IPlayer, b: IPlayer) => {
-        if (sortType === 'letters') {
-          console.log('tack');
-          return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
-        } else if (sortType === 'numbers') {
-          console.log('tick');
-          return (this.order) ? +a[field] - +b[field] : +b[field] - +a[field];
-        }
-      });
+      if (sortType === 'letters') {
+        console.log('tack');
+        return (this.order) ? a[field].localeCompare(b[field]) : b[field].localeCompare(a[field]);
+      } else if (sortType === 'numbers') {
+        console.log('tick');
+        return (this.order) ? +a[field] - +b[field] : +b[field] - +a[field];
+      }
+    });
 
     this.playersSearchService.stopLoading();
+  }
+
+  handleShowMore() {
+
+    if (this.showEnd < this.items.length) {
+      this.ifShowMoreBtn = true;
+      this.showEnd += 2;
+      if (this.showEnd >= this.items.length) {
+        this.ifShowMoreBtn = false;
+      }
+    }
   }
 
 }

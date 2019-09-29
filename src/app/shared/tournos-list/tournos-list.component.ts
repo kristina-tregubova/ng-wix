@@ -11,10 +11,24 @@ export class TournosListComponent implements OnInit {
   @Input() items: any[];
   @Input() isLoading$: Observable<boolean>;
 
+  showEnd: number = 1;
+  ifShowMoreBtn = true;
+
   constructor() { }
 
   ngOnInit() {
 
+  }
+
+  handleShowMore() {
+
+    if (this.showEnd < this.items.length) {
+      this.ifShowMoreBtn = true;
+      this.showEnd += 1;
+      if (this.showEnd >= this.items.length) {
+        this.ifShowMoreBtn = false;
+      }
+    }
   }
 
 }
