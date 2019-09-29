@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable, BehaviorSubject, combineLatest, of } from 'rxjs';
-import { switchMap, tap, map, debounceTime, toArray, take, last, first } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
 import { IPlayer } from '../core/models/IPlayer';
-import { delay } from 'q';
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
 
@@ -15,7 +14,7 @@ export class PlayersSearchService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) { 
+  ) {
     // this.user = this.authService.getUserLogged;
   }
 
@@ -51,7 +50,6 @@ export class PlayersSearchService {
       }),
       tap(() => this.stopLoading()),
     );
-    result.subscribe((val) => this.initialItems = val);
     this.initialItems = this.items;
 
     return result;
@@ -148,7 +146,7 @@ export class PlayersSearchService {
       });
     }
   }
-  
+
 
   startLoading() {
     this._loading.next(true);

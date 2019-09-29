@@ -70,6 +70,7 @@
 
             <app-tournos-list [items]="items" [isLoading$]="isLoading$"></app-tournos-list>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
+            <div class='no-tourno' *ngIf="!items && (isLoading$ | async) == false">No tournaments found</div>
 
         </section>
     </div>

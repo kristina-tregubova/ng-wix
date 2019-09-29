@@ -16,7 +16,7 @@ export class PlayersSearchComponent implements OnInit {
   isLogged$: Observable<IUser>;
 
   constructor(
-    private playerSearchService: PlayersSearchService,
+    private playersSearchService: PlayersSearchService,
     private authService: AuthService,
   ) { }
 
@@ -24,33 +24,33 @@ export class PlayersSearchComponent implements OnInit {
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.playerSearchService.searchPlayers().subscribe((val) => this.items = val);
-    this.isLoading$ = this.playerSearchService.loading$;
+    this.playersSearchService.searchPlayers().subscribe((val) => this.items = val);
+    this.isLoading$ = this.playersSearchService.loading$;
   }
 
   trySearchByName($event) {
-    this.playerSearchService.searchSubject$.next($event);
-    this.items = this.playerSearchService.getFilteredItems();
+    this.playersSearchService.searchSubject$.next($event);
+    this.items = this.playersSearchService.getFilteredItems();
   }
 
   tryFilterByGame($event) {
-    this.playerSearchService.gameSubject$.next($event);
-    this.items = this.playerSearchService.getFilteredItems();
+    this.playersSearchService.gameSubject$.next($event);
+    this.items = this.playersSearchService.getFilteredItems();
   }
 
   tryFilterByCountry($event) {
-    this.playerSearchService.countrySubject$.next($event);
-    this.items = this.playerSearchService.getFilteredItems();
+    this.playersSearchService.countrySubject$.next($event);
+    this.items = this.playersSearchService.getFilteredItems();
   }
 
   tryFilterByMine($event) {
-    this.playerSearchService.myPlayersSubject$.next($event);
-    this.items = this.playerSearchService.getFilteredItems();
+    this.playersSearchService.myPlayersSubject$.next($event);
+    this.items = this.playersSearchService.getFilteredItems();
   }
 
   tryFilterByFavorite($event) {
-    this.playerSearchService.myFavoritesSubject$.next($event);
-    this.items = this.playerSearchService.getFilteredItems();
+    this.playersSearchService.myFavoritesSubject$.next($event);
+    this.items = this.playersSearchService.getFilteredItems();
   }
 
 }

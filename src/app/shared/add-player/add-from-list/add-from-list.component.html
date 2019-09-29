@@ -11,17 +11,16 @@
 
   <section class="players-search-result">
 
-    <div class="players-list" role="table" *ngIf="searchedPlayers">
+    <div class="players-list" role="table">
 
       <div class="row" *ngFor="let player of searchedPlayers">
 
-        <app-player-card [showBtns]="false"></app-player-card>
+        <app-player-card [item]="player" [showBtns]="false"></app-player-card>
 
-        <button class="add-to-list-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-          <i class="material-icons">
-            add
-          </i>
+        <button mat-icon-button aria-label="Add player" сlass="add-to-list-btn btn">
+            <mat-icon>add</mat-icon>
         </button>
+
       </div>
     </div>
   </section>

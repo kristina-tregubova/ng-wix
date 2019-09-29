@@ -125,13 +125,10 @@ input {
   padding: 0 4% 3% 4%;
 }
 
-.tourno-profile__desscription {
-  margin: 0;
-}
-
 .tourno-profile__settings-content .row {
   display: grid;
-  grid-template-columns: 15% 75% 10%;
+  grid-template-columns: 15% 80% 5%;
+  align-items: center;
   grid-row-gap: 8px;
   grid-area: content;
 }
@@ -229,7 +226,7 @@ input {
   }
 
   .tourno-profile__settings-content .row {
-    grid-template-columns: 90% 10%;
+    grid-template-columns: 95% 5%;
     grid-template-areas: 
     "label label"
     "field btn";
@@ -250,6 +247,10 @@ input {
     width: 100%;
     margin-left: 0;
     margin-top: 5%;
+  }
+
+  .tourno-profile__description {
+    margin: 12% 0 3%;
   }
 }
 
