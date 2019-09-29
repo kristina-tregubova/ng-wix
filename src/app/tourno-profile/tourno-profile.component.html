@@ -33,7 +33,7 @@
           <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
         </button>
       </div>
-      
+
       <p class="tourno-profile__dates">
         {{tourno?.startDate | timestampToIso | date: mediumDate }} -
         {{tourno?.endDate | timestampToIso | date: mediumDate}}
@@ -167,87 +167,95 @@
                 Edit tournament info
               </h3>
               <div class="tourno-profile__settings-content">
+                <div class="row">
+                  <label for="start-date"> Start date: </label>
 
-                <label for="start-date"> Start date: </label>
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="startDate" placeholder="Start date"
+                      [ngModel]="tourno.startDate|timestampToIso" (ngModelChange)="tourno.startDate=$event" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                    <mat-datepicker #startDate [disabled]="isStartDateEditingDisabled ? true : null"></mat-datepicker>
+                  </mat-form-field>
 
-                <mat-form-field>
-                  <input matInput [matDatepicker]="startDate" placeholder="Start date"
-                    [ngModel]="tourno.startDate|timestampToIso" (ngModelChange)="tourno.startDate=$event" disabled>
-                  <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                  <mat-datepicker #startDate [disabled]="isStartDateEditingDisabled ? true : null"></mat-datepicker>
-                </mat-form-field>
+                  <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
+                    (click)="handleEnableEditing('startDate')" *ngIf="isStartDateEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon>edit</mat-icon>
+                  </button>
 
-                <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
-                  (click)="handleEnableEditing('startDate')" *ngIf="isStartDateEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon>edit</mat-icon>
-                </button>
+                  <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
+                    (click)="handleSubmitEditing('startDate')" *ngIf="!isStartDateEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
+                  </button>
+                </div>
 
-                <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
-                  (click)="handleSubmitEditing('startDate')" *ngIf="!isStartDateEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
-                </button>
+                <div class="row">
+                  <label for="end-date"> End date: </label>
 
-                <label for="end-date"> End date: </label>
+                  <mat-form-field>
+                    <input matInput [matDatepicker]="endDate" placeholder="End date"
+                      [ngModel]="tourno.endDate|timestampToIso" (ngModelChange)="tourno.endDate=$event" disabled>
+                    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                    <mat-datepicker #endDate [disabled]="isEndDateEditingDisabled ? true : null"></mat-datepicker>
+                  </mat-form-field>
 
-                <mat-form-field>
-                  <input matInput [matDatepicker]="endDate" placeholder="End date"
-                    [ngModel]="tourno.endDate|timestampToIso" (ngModelChange)="tourno.endDate=$event" disabled>
-                  <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                  <mat-datepicker #endDate [disabled]="isEndDateEditingDisabled ? true : null"></mat-datepicker>
-                </mat-form-field>
+                  <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
+                    (click)="handleEnableEditing('endDate')" *ngIf="isEndDateEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon>edit</mat-icon>
+                  </button>
 
-                <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
-                  (click)="handleEnableEditing('endDate')" *ngIf="isEndDateEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon>edit</mat-icon>
-                </button>
+                  <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
+                    (click)="handleSubmitEditing('endDate')" *ngIf="!isEndDateEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
+                  </button>
+                </div>
 
-                <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
-                  (click)="handleSubmitEditing('endDate')" *ngIf="!isEndDateEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
-                </button>
+                <div class="row">
+                  <label> Entry Fee: </label>
 
-                <label> Entry Fee: </label>
+                  <mat-form-field class="form-input">
+                    <input matInput [(ngModel)]="tourno.entryFee" max="20"
+                      [disabled]="isEntryFeeEditingDisabled ? true : null">
+                    <mat-icon matSuffix>money</mat-icon>
+                  </mat-form-field>
 
-                <mat-form-field class="form-input">
-                  <input matInput [(ngModel)]="tourno.entryFee" max="20"
-                    [disabled]="isEntryFeeEditingDisabled ? true : null">
-                  <mat-icon matSuffix>money</mat-icon>
-                </mat-form-field>
+                  <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
+                    (click)="handleEnableEditing('entryFee')" *ngIf="isEntryFeeEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon>edit</mat-icon>
+                  </button>
 
-                <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
-                  (click)="handleEnableEditing('entryFee')" *ngIf="isEntryFeeEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon>edit</mat-icon>
-                </button>
+                  <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
+                    (click)="handleSubmitEditing('entryFee')" *ngIf="!isEntryFeeEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
+                  </button>
+                </div>
 
-                <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
-                  (click)="handleSubmitEditing('entryFee')" *ngIf="!isEntryFeeEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
-                </button>
+                <div class="row">
+                  <label> Prize: </label>
 
-                <label> Prize: </label>
+                  <mat-form-field class="form-input">
+                    <input matInput [(ngModel)]="tourno.prize" max="50"
+                      [disabled]="isPrizeEditingDisabled ? true : null">
+                    <mat-icon matSuffix>stars</mat-icon>
+                  </mat-form-field>
 
-                <mat-form-field class="form-input">
-                  <input matInput [(ngModel)]="tourno.prize" max="50" [disabled]="isPrizeEditingDisabled ? true : null">
-                  <mat-icon matSuffix>stars</mat-icon>
-                </mat-form-field>
+                  <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
+                    (click)="handleEnableEditing('prize')" *ngIf="isPrizeEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon>edit</mat-icon>
+                  </button>
 
-                <button mat-icon-button aria-label="Edit profile" сlass="edit-btn"
-                  (click)="handleEnableEditing('prize')" *ngIf="isPrizeEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon>edit</mat-icon>
-                </button>
-
-                <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
-                  (click)="handleSubmitEditing('prize')" *ngIf="!isPrizeEditingDisabled && ifCreator"
-                  [ngStyle]="{'vertical-align': 'text-bottom'}">
-                  <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
-                </button>
+                  <button mat-icon-button aria-label="Submit editing" сlass="submit-btn"
+                    (click)="handleSubmitEditing('prize')" *ngIf="!isPrizeEditingDisabled && ifCreator"
+                    [ngStyle]="{'vertical-align': 'text-bottom'}">
+                    <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
+                  </button>
+                </div>
 
               </div>
             </div>

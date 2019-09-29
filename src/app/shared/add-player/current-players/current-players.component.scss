@@ -3,39 +3,27 @@
 }
 
 .current-players .row {
+  position: relative;
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 90% 10%;
   align-items: center;
-  grid-column-gap: 2%;
   grid-row-gap: 2%;
   margin-bottom: 3%;
 }
 
-.row {
-  position: relative;
-}
-
-.delete-player-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
+// .delete-player-btn {
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+// }
 
 .grid-card:hover {
   transform: none;
 }
 
-.grid-card__actions button {
-  display: none;
-}
-
 @media screen and (max-width: 500px) {
-  .current-players .row {
-    grid-template-columns: 100%;
-    margin-bottom: 5%;
-  }
 
-  .row {
-    position: relative;
+  .current-players .row {
+    margin-bottom: 5%;
   }
 }

@@ -1,12 +1,11 @@
-<div class="added-players players-list">
+<div class="current-players players-list">
     <div class="row" *ngFor="let currentPlayer of currentPlayers$ | async">
 
-        <app-player-card [item]="item"></app-player-card>
+        <app-player-card [item]="currentPlayer" [showBtns]="false"></app-player-card>
 
-        <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-            <i class="material-icons">
-                clear
-            </i>
+        <button mat-icon-button aria-label="Remove player" сlass="delete-player-btn btn icon-btn_delete">
+            <mat-icon>clear</mat-icon>
         </button>
+
     </div>
 </div>

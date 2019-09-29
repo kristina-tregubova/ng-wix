@@ -3,7 +3,7 @@
   font-weight: bold;
   text-align: center;
   font-size: 1.2em;
-  margin: 4% 0 3%;
+  margin: 6% 0 6%;
 }
 
 .add-player-mode-switcher label {
@@ -17,6 +17,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  .seed-randomly-checkbox,
+  .add-player-mode-switcher {
+    margin: 16% 0 16%;
+  }
+  
   .tourno-creation__submit-btn {
     width: 100%;
     margin-left: 0;
@@ -24,6 +29,7 @@
 }
 
 @media screen and (max-width: 500px) {
+
   .add-to-list-btn {
     position: absolute;
     top: 10px;

@@ -40,7 +40,7 @@ input {
 .tourno-profile__header > .container-center {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: baseline;
 }
 
@@ -50,7 +50,7 @@ input {
   font-size: 2.2rem;
   font-weight: 600;
   margin-right: 10px;
-  margin-bottom: 12%;
+  margin-bottom: 35%;
 }
 
 .tourno-profile__dates {
@@ -129,7 +129,7 @@ input {
   margin: 0;
 }
 
-.tourno-profile__settings-content {
+.tourno-profile__settings-content .row {
   display: grid;
   grid-template-columns: 15% 75% 10%;
   grid-row-gap: 8px;
@@ -228,8 +228,21 @@ input {
     margin-bottom: 6%;
   }
 
-  .tourno-profile__settings-content {
-    grid-template-columns: 1fr;
+  .tourno-profile__settings-content .row {
+    grid-template-columns: 90% 10%;
+    grid-template-areas: 
+    "label label"
+    "field btn";
+  }
+
+  .tourno-profile__settings-content .row label {
+    grid-area: label;
+  }
+  .tourno-profile__settings-content .row mat-from-field {
+    grid-area: field;
+  }
+  .tourno-profile__settings-content .row button {
+    grid-area: btn;
   }
 
   .delete-tourno-btn,

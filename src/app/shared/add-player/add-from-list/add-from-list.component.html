@@ -1,11 +1,13 @@
 <div class="add-from-list">
-  <div class="search-field">
+  <form class="search-form">
+    <div class="search-field">
       <mat-form-field class="form-input">
-          <input matInpu (keyup)="trySearchByName($event.target.value)">
-          <mat-icon matSuffix>search</mat-icon>
-          <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
+        <input matInput (keyup)="trySearchByName($event.target.value)">
+        <mat-icon matSuffix>search</mat-icon>
+        <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
       </mat-form-field>
-  </div>
+    </div>
+  </form>
 
   <section class="players-search-result">
 
@@ -13,18 +15,7 @@
 
       <div class="row" *ngFor="let player of searchedPlayers">
 
-        <app-player-card></app-player-card>
-
-        <button class="add-to-list-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-          <i class="material-icons">
-            add
-          </i>
-        </button>
-      </div>
-
-      <div class="row">
-
-        <app-player-card></app-player-card>
+        <app-player-card [showBtns]="false"></app-player-card>
 
         <button class="add-to-list-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
           <i class="material-icons">

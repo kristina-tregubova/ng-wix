@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IUser } from 'src/app/core/models/IUser';
 import { PlayerCardService } from './player-card.service';
 import { AuthService } from 'src/app/core/auth.service';
+import { IPlayer } from 'src/app/core/models/IPlayer';
 
 @Component({
   selector: 'app-player-card',
@@ -12,7 +13,9 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class PlayerCardComponent implements OnInit, OnDestroy {
 
-  @Input() item;
+  @Input() item: IPlayer;
+  @Input() showBtns: boolean = true;
+  
   points: number;
   games: number;
   wins: number;
