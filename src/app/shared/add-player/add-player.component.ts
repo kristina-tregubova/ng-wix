@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
+import { PlayersSearchService } from 'src/app/players-search/players-search.service';
 
 @Component({
   selector: 'app-add-player',
@@ -9,9 +10,10 @@ import { IPlayer } from 'src/app/core/models/IPlayer';
 })
 export class AddPlayerComponent implements OnInit {
 
-  @Input() items$: Observable<IPlayer[]>;
+  @Input() items$: Observable<IPlayer[]>; // current players
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
   }

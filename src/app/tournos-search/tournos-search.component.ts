@@ -21,7 +21,7 @@ export class TournoSearchComponent implements OnInit {
   searchInput = document.getElementById('tournos-search-input');
 
   constructor(
-    private tournosService: TournosSearchService,
+    private tournoSearchService: TournosSearchService,
     private authService: AuthService,
   ) { }
 
@@ -29,33 +29,33 @@ export class TournoSearchComponent implements OnInit {
 
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.tournosService.searchTournaments().subscribe((val) => this.items = val);
-    this.isLoading$ = this.tournosService.loading$;
+    this.tournoSearchService.searchTournaments().subscribe((val) => this.items = val);
+    this.isLoading$ = this.tournoSearchService.loading$;
   }
 
   trySearchByName($event) {
-    this.tournosService.searchSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.tournoSearchService.searchSubject$.next($event);
+    this.items = this.tournoSearchService.getFilteredItems();
   }
 
   tryFilterByGame($event) {
-    this.tournosService.gameSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.tournoSearchService.gameSubject$.next($event);
+    this.items = this.tournoSearchService.getFilteredItems();
   }
 
   tryFilterByStatus($event) {
-    this.tournosService.statusSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.tournoSearchService.statusSubject$.next($event);
+    this.items = this.tournoSearchService.getFilteredItems();
   }
 
   tryFilterByMine($event) {
-    this.tournosService.myTournamentsSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.tournoSearchService.myTournamentsSubject$.next($event);
+    this.items = this.tournoSearchService.getFilteredItems();
   }
 
   tryFilterByFavorite($event) {
-    this.tournosService.myFavoritesSubject$.next($event);
-    this.items = this.tournosService.getFilteredItems();
+    this.tournoSearchService.myFavoritesSubject$.next($event);
+    this.items = this.tournoSearchService.getFilteredItems();
   }
 
 }

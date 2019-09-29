@@ -26,6 +26,7 @@ export class PlayersSearchService {
   countrySubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   gameSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
   searchSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
+  myPlayersSubject$: BehaviorSubject<boolean | null> = new BehaviorSubject(false);
   myFavoritesSubject$: BehaviorSubject<boolean | null> = new BehaviorSubject(false);
 
   private _loading = new BehaviorSubject(false);
@@ -46,6 +47,7 @@ export class PlayersSearchService {
       }),
       tap((res) => {
         this.initialItems = res;
+        this.getCreatorIds();
       }),
       tap(() => this.stopLoading()),
     );
@@ -62,6 +64,7 @@ export class PlayersSearchService {
     let name: string;
     let game: string;
     let country: string;
+    let showOnlyMine: boolean;
     let showFavorite: boolean;
 
     this.searchSubject$.subscribe(val => {
@@ -77,6 +80,11 @@ export class PlayersSearchService {
     this.countrySubject$.subscribe(val => {
       if (val) {
         country = val;
+      }
+    });
+    this.myPlayersSubject$.subscribe(val => {
+      if (val) {
+        showOnlyMine = val;
       }
     });
     this.myFavoritesSubject$.subscribe(val => {
@@ -108,6 +116,14 @@ export class PlayersSearchService {
         }
       })
       .filter((item: IPlayer) => {
+        if (showOnlyMine) {
+          return item.userCreatedId === this.authService.getUserLogged.uid;
+
+        } else {
+          return item;
+        }
+      })
+      .filter((item: IPlayer) => {
         if (showFavorite) {
           return this.authService.getUserLogged.favoritePlayers.includes(item.id);
         } else {
@@ -118,6 +134,19 @@ export class PlayersSearchService {
     this.stopLoading();
     return this.items;
 
+  }
+
+  async getCreatorIds() {
+    if (this.initialItems) {
+      await this.initialItems.forEach((item: IPlayer) => {
+        item.userCreated.get()
+          .then((doc) => {
+            if (doc.exists) {
+              item['userCreatedId'] = doc.id;
+            }
+          });
+      });
+    }
   }
   
 

@@ -15,7 +15,11 @@
 
 
             <div class="search-form__checkboxes">
-                <mat-checkbox (change)="tryFilterByFavorite($event.checked)" [disabled]="!(isLogged$ | async)">Favourites</mat-checkbox>
+                <mat-checkbox (change)="tryFilterByMine($event.checked)" [disabled]="!(isLogged$ | async)">Only mine
+                </mat-checkbox>
+
+                <mat-checkbox (change)="tryFilterByFavorite($event.checked)" [disabled]="!(isLogged$ | async)">
+                    Favourites</mat-checkbox>
             </div>
 
             <div class="search-form__selectors">
@@ -74,7 +78,7 @@
                 Players list
             </h2>
 
-            <app-players-list [items]="items" ></app-players-list>
+            <app-players-list [items]="items"></app-players-list>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
             <div class='no-player' *ngIf="!items && (isLoading$ | async) == false">No players found</div>
 

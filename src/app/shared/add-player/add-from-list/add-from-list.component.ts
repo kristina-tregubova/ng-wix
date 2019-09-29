@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayersSearchService } from 'src/app/players-search/players-search.service';
+import { IPlayer } from 'src/app/core/models/IPlayer';
 
 @Component({
   selector: 'app-add-from-list',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFromListComponent implements OnInit {
 
-  constructor() { }
+  searchedPlayers: Array<IPlayer>;
+
+  constructor(
+    private playersSearchService: PlayersSearchService,
+  ) { }
 
   ngOnInit() {
+    this.playersSearchService.searchPlayers().subscribe((val: Array<IPlayer>) => this.searchedPlayers = val);
+  }
+
+  trySearchByName($event) {
+    this.playersSearchService.searchSubject$.next($event);
+    this.searchedPlayers = this.playersSearchService.getFilteredItems();
   }
 
 }

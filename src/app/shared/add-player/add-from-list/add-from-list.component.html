@@ -1,7 +1,7 @@
 <div class="add-from-list">
   <div class="search-field">
       <mat-form-field class="form-input">
-          <input matInput>
+          <input matInpu (keyup)="trySearchByName($event.target.value)">
           <mat-icon matSuffix>search</mat-icon>
           <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
       </mat-form-field>
@@ -9,9 +9,9 @@
 
   <section class="players-search-result">
 
-    <div class="players-list" role="table" *ngIf="players$">
+    <div class="players-list" role="table" *ngIf="searchedPlayers">
 
-      <div class="row" *ngFor="let player of players$ | async">
+      <div class="row" *ngFor="let player of searchedPlayers">
 
         <app-player-card></app-player-card>
 

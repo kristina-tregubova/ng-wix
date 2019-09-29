@@ -8,6 +8,7 @@ export interface IPlayer {
     'game': string;
     'country': string;
     'userCreated': DocumentReference;
+    'userCreatedId'?: string;
     'relatedTournaments': Map<any, any>[];
     'team': [] | null;
     'points': number;

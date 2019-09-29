@@ -43,6 +43,11 @@ export class PlayersSearchComponent implements OnInit {
     this.items = this.playersService.getFilteredItems();
   }
 
+  tryFilterByMine($event) {
+    this.playersService.myPlayersSubject$.next($event);
+    this.items = this.playersService.getFilteredItems();
+  }
+
   tryFilterByFavorite($event) {
     this.playersService.myFavoritesSubject$.next($event);
     this.items = this.playersService.getFilteredItems();

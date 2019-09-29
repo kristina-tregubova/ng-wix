@@ -9,7 +9,7 @@ import { IPlayer } from 'src/app/core/models/IPlayer';
 })
 export class CurrentPlayersComponent implements OnInit {
 
-  @Input() items$: Observable<IPlayer[]>;
+  @Input() currentPlayers$: Observable<IPlayer[]>;
 
   constructor() { }
 
