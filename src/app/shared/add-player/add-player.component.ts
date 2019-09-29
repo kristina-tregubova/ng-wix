@@ -11,11 +11,16 @@ import { PlayersSearchService } from 'src/app/players-search/players-search.serv
 export class AddPlayerComponent implements OnInit {
 
   @Input() items$: Observable<IPlayer[]>; // current players
+  isNew = false;
 
   constructor(
   ) { }
 
   ngOnInit() {
+  }
+
+  handleChangeView() {
+    this.isNew = !this.isNew;
   }
 
 }
