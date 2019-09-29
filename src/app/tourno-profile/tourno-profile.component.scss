@@ -160,17 +160,15 @@ input {
     flex-direction: column;
   }
 
-  .tourno-profile__header h2 {
+  .tourno-profile__header-title {
     font-size: 2rem;
     line-height: 3rem;
-    margin-left: 25%;
     margin-bottom: 0%;
   }
 
   .tourno-profile__dates {
     font-size: 1em;
     font-weight: bold;
-    margin-left: 25%;
     margin-bottom: 15%;
   }
 
@@ -208,11 +206,9 @@ input {
 }
 
 @media screen and (max-width: 560px) {
-  .tourno-profile__header h2 {
+  .tourno-profile__header-title {
     font-size: 1.8rem;
     line-height: 3rem;
-    margin-left: 2%;
-    padding-top: 10vh;
     margin-top: 0;
   }
 

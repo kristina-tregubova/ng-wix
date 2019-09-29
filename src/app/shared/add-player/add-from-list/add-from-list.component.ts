@@ -16,7 +16,9 @@ export class AddFromListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.playersSearchService.searchPlayers().subscribe((val: Array<IPlayer>) => this.searchedPlayers = val);
+    // this.playersSearchService.searchPlayers().subscribe((val: Array<IPlayer>) => this.searchedPlayers = val);
+    // this.playersSearchService.myPlayersSubject$.next(true);
+    // this.searchedPlayers = this.playersSearchService.getFilteredItems();
   }
 
   trySearchByName($event) {

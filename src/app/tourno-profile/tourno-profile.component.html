@@ -17,24 +17,26 @@
         <img src=".././assets/images/avatars/avatar.svg" alt="pic">
         <p class="tourno-profile__userpic-change" (click)="handleAddingPhoto()" *ngIf="ifCreator">Change</p>
       </div> -->
+      <div>
+        <h2 class="tourno-profile__header-title" *ngIf="isNameEditingDisabled">
+          {{tourno?.name}}
+        </h2>
+        <input class="tourno-profile__header-title" [(ngModel)]="tourno.name" *ngIf="!isNameEditingDisabled" max="30">
 
-      <h2 class="tourno-profile__header-title" *ngIf="isNameEditingDisabled">
-        {{tourno?.name}}
-      </h2>
-      <input class="tourno-profile__header-title" [(ngModel)]="tourno.name" *ngIf="!isNameEditingDisabled" max="30">
+        <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('name')"
+          *ngIf="isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+          <mat-icon>edit</mat-icon>
+        </button>
 
-      <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('name')"
-        *ngIf="isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
-        <mat-icon>edit</mat-icon>
-      </button>
-
-      <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing('name')"
-        *ngIf="!isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
-        <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
-      </button>
-
+        <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing('name')"
+          *ngIf="!isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+          <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
+        </button>
+      </div>
+      
       <p class="tourno-profile__dates">
-        {{tourno?.startDate | timestampToIso | date: mediumDate }} - {{tourno?.endDate | timestampToIso | date: mediumDate}}
+        {{tourno?.startDate | timestampToIso | date: mediumDate }} -
+        {{tourno?.endDate | timestampToIso | date: mediumDate}}
       </p>
 
     </div>
@@ -169,13 +171,8 @@
                 <label for="start-date"> Start date: </label>
 
                 <mat-form-field>
-                  <input 
-                    matInput 
-                    [matDatepicker]="startDate" 
-                    placeholder="Start date" 
-                    [ngModel]="tourno.startDate|timestampToIso" 
-                    (ngModelChange)="tourno.startDate=$event"
-                    disabled>
+                  <input matInput [matDatepicker]="startDate" placeholder="Start date"
+                    [ngModel]="tourno.startDate|timestampToIso" (ngModelChange)="tourno.startDate=$event" disabled>
                   <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
                   <mat-datepicker #startDate [disabled]="isStartDateEditingDisabled ? true : null"></mat-datepicker>
                 </mat-form-field>
@@ -195,13 +192,8 @@
                 <label for="end-date"> End date: </label>
 
                 <mat-form-field>
-                  <input 
-                    matInput 
-                    [matDatepicker]="endDate" 
-                    placeholder="End date" 
-                    [ngModel]="tourno.endDate|timestampToIso" 
-                    (ngModelChange)="tourno.endDate=$event"
-                    disabled>
+                  <input matInput [matDatepicker]="endDate" placeholder="End date"
+                    [ngModel]="tourno.endDate|timestampToIso" (ngModelChange)="tourno.endDate=$event" disabled>
                   <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
                   <mat-datepicker #endDate [disabled]="isEndDateEditingDisabled ? true : null"></mat-datepicker>
                 </mat-form-field>
@@ -221,10 +213,7 @@
                 <label> Entry Fee: </label>
 
                 <mat-form-field class="form-input">
-                  <input 
-                    matInput 
-                    [(ngModel)]="tourno.entryFee" 
-                    max="20" 
+                  <input matInput [(ngModel)]="tourno.entryFee" max="20"
                     [disabled]="isEntryFeeEditingDisabled ? true : null">
                   <mat-icon matSuffix>money</mat-icon>
                 </mat-form-field>
@@ -244,11 +233,7 @@
                 <label> Prize: </label>
 
                 <mat-form-field class="form-input">
-                  <input 
-                    matInput 
-                    [(ngModel)]="tourno.prize" 
-                    max="50" 
-                    [disabled]="isPrizeEditingDisabled ? true : null">
+                  <input matInput [(ngModel)]="tourno.prize" max="50" [disabled]="isPrizeEditingDisabled ? true : null">
                   <mat-icon matSuffix>stars</mat-icon>
                 </mat-form-field>
 

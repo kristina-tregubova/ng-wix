@@ -16,7 +16,7 @@ export class PlayersSearchComponent implements OnInit {
   isLogged$: Observable<IUser>;
 
   constructor(
-    private playersService: PlayersSearchService,
+    private playerSearchService: PlayersSearchService,
     private authService: AuthService,
   ) { }
 
@@ -24,33 +24,33 @@ export class PlayersSearchComponent implements OnInit {
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.playersService.searchPlayers().subscribe((val) => this.items = val);
-    this.isLoading$ = this.playersService.loading$;
+    this.playerSearchService.searchPlayers().subscribe((val) => this.items = val);
+    this.isLoading$ = this.playerSearchService.loading$;
   }
 
   trySearchByName($event) {
-    this.playersService.searchSubject$.next($event);
-    this.items = this.playersService.getFilteredItems();
+    this.playerSearchService.searchSubject$.next($event);
+    this.items = this.playerSearchService.getFilteredItems();
   }
 
   tryFilterByGame($event) {
-    this.playersService.gameSubject$.next($event);
-    this.items = this.playersService.getFilteredItems();
+    this.playerSearchService.gameSubject$.next($event);
+    this.items = this.playerSearchService.getFilteredItems();
   }
 
   tryFilterByCountry($event) {
-    this.playersService.countrySubject$.next($event);
-    this.items = this.playersService.getFilteredItems();
+    this.playerSearchService.countrySubject$.next($event);
+    this.items = this.playerSearchService.getFilteredItems();
   }
 
   tryFilterByMine($event) {
-    this.playersService.myPlayersSubject$.next($event);
-    this.items = this.playersService.getFilteredItems();
+    this.playerSearchService.myPlayersSubject$.next($event);
+    this.items = this.playerSearchService.getFilteredItems();
   }
 
   tryFilterByFavorite($event) {
-    this.playersService.myFavoritesSubject$.next($event);
-    this.items = this.playersService.getFilteredItems();
+    this.playerSearchService.myFavoritesSubject$.next($event);
+    this.items = this.playerSearchService.getFilteredItems();
   }
 
 }

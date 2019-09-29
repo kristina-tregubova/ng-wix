@@ -27,7 +27,8 @@ export class TournoCreationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.createNewTournoDoc();
+    this.createForm();
   }
 
   createForm() {

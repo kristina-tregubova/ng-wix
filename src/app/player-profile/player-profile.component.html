@@ -10,21 +10,23 @@
       <img src={{player?.logoRef}} alt="userpic">
       <p class="player-profile__userpic-change" (click)="handleOpenFileUploadPopup()" *ngIf="ifCreator">Change</p>
     </div>
+    <div>
+      <h2 class="player-profile__header-title" *ngIf="isNameEditingDisabled">
+        {{player?.name}}
+      </h2>
+      <input class="player-profile__header-title" [(ngModel)]="player.name" *ngIf="!isNameEditingDisabled" max="30">
 
-    <h2 class="player-profile__header-title" *ngIf="isNameEditingDisabled">
-      {{player?.name}}
-    </h2>
-    <input class="player-profile__header-title" [(ngModel)]="player.name" *ngIf="!isNameEditingDisabled" max="30">
+      <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('name')"
+        *ngIf="isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+        <mat-icon>edit</mat-icon>
+      </button>
 
-    <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('name')"
-      *ngIf="isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
-      <mat-icon>edit</mat-icon>
-    </button>
+      <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing('name')"
+        *ngIf="!isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
+        <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
+      </button>
+    </div>
 
-    <button mat-icon-button aria-label="Submit editing" сlass="submit-btn" (click)="handleSubmitEditing('name')"
-      *ngIf="!isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">
-      <mat-icon color="primary" [ngStyle]="{'font-size': '30px'}">done</mat-icon>
-    </button>
 
   </div>
 </div>
@@ -153,7 +155,8 @@
           Once you delete a player, there is no going back. Please be certain.
         </p>
 
-        <button mat-raised-button color="warn" class="delete-player-btn btn hightlighted-btn btn_delete" (click)="handleOpenDeletePopup()">
+        <button mat-raised-button color="warn" class="delete-player-btn btn hightlighted-btn btn_delete"
+          (click)="handleOpenDeletePopup()">
           Delete this tournament
         </button>
       </div>
