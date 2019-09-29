@@ -18,20 +18,12 @@
 
 
 
-  <div class="added-players players-list">
-    <div class="row" *ngFor="let item of items$ | async">
+  <!-- Current players -->
+  <app-current-players [items$]='items$'>
+  </app-current-players>
 
-      <app-player-card [item]="item"></app-player-card>
 
-      <button class="delete-player-btn btn icon-btn_delete btn_round material-icons mdc-icon-button">
-        <i class="material-icons">
-          clear
-        </i>
-      </button>
-    </div>
-
-  </div>
-
+  <!-- Add more section -->
   <h4 class="tourno-creation__step-subtitle">
     Add more players
   </h4>
@@ -51,5 +43,5 @@
   <app-add-from-list></app-add-from-list>
 
   <app-add-new></app-add-new>
-  
+
 </div>

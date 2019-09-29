@@ -19,7 +19,10 @@
 
               <label> Name: </label>
               <mat-form-field class="form-input">
-                <input matInput formControlName="name">
+                <input 
+                matInput 
+                formControlName="name"
+                (change)="createNewTournoDoc()">
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
 
@@ -94,7 +97,7 @@
           </section>
 
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperNext type="button">Next</button>
+            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges()">Next</button>
           </div>
         </mat-step>
 
@@ -137,8 +140,8 @@
             </div>
           </section>
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperPrevious type="button">Back</button>
-            <button class="btn" mat-stroked-button matStepperNext type="button">Next</button>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges()">Back</button>
+            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges()">Next</button>
           </div>
         </mat-step>
 
@@ -155,9 +158,9 @@
 
           </section>
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperPrevious type="button">Back</button>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges()">Back</button>
             <button class="btn highlighted-btn" mat-raised-button matStepperNext type="submit" name="submit"
-              class="tourno-creation__submit-btn btn highlighted-btn">
+              class="tourno-creation__submit-btn btn highlighted-btn" (click)="saveTournament()">
               Create a
               tournament
             </button>

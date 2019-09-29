@@ -34,6 +34,7 @@ import {
   MatStepperModule,
 
 } from '@angular/material';
+import { CurrentPlayersComponent } from './add-player/current-players/current-players.component';
 
 
 
@@ -50,6 +51,7 @@ import {
     ErrorAreaComponent,
     LoadingSpinnerComponent,
     TimestampToIsoPipe,
+    CurrentPlayersComponent,
 
   ],
   imports: [
