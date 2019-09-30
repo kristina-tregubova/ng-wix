@@ -46,7 +46,7 @@ export class CreateNewPlayerPopupComponent implements OnInit {
       'userCreated': this.authService.getUserLoggedRef,
     }
 
-    this.createNewPlayerPopupService.updateDefaultTourno(this.ref, data)
+    this.createNewPlayerPopupService.updateDefaultPlayer(this.ref, data)
       .then(() => {
         console.log('successfully added player')
       })
@@ -54,7 +54,9 @@ export class CreateNewPlayerPopupComponent implements OnInit {
         console.error(err);
       })
 
+
       this.returnNewPlayer(this.ref);
+      this.createNewPlayerPopupService.updateUserInfo(this.ref);
   }
 
   async returnNewPlayer(ref) {

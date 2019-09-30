@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from 'src/app/core/auth.service';
+import * as firebase from 'firebase'
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,7 @@ export class CreateNewPlayerPopupService {
 
   constructor(
     private afs: AngularFirestore,
+    private authService: AuthService
   ) { }
 
   async createDefaultPlayer() {
@@ -36,8 +39,14 @@ export class CreateNewPlayerPopupService {
     return defaultTournoRef;
   }
 
-  updateDefaultTourno(ref, data) {
+  updateDefaultPlayer(ref, data) {
     return ref.update(data);
+  }
+
+  updateUserInfo(ref) {
+    this.authService.getUserLoggedRef.update({
+      'createdPlayers': firebase.firestore.FieldValue.arrayUnion(ref)
+    })
   }
 
   deleteNewPlayer(ref) {

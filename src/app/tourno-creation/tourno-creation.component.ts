@@ -71,7 +71,7 @@ export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
   saveFormChanges(numberRef) {
     const data = this.formGroup.get('formArray').get([numberRef]).value;
     data['id'] = this.ref.id;
-    
+
     this.tournoCreationService.updateDefaultTourno(this.ref, data);
   }
 
@@ -81,9 +81,14 @@ export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
       return;
     }
 
+    // save last part
     this.saveFormChanges(numberRef);
+    // this.
+
+    this.tournoCreationService.updateUserInfo(this.ref);
 
     // some tourno/rounds building methods
+
     // get tourno id
     // navigate to tourno profile with id
   }
@@ -94,15 +99,15 @@ export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
   }
 
   cancelTournoCreation() {
-    this.ref.delete().then(() => {
-      console.log('Document successfully deleted!');
-    }).catch((error) => {
-      console.error('Error removing document: ', error);
-    });
+    this.tournoCreationService.deleteTourno(this.ref);
   }
 
   canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
-    return window.confirm('Discard changes?');
+    let res = window.confirm('Discard changes?');
+    if (res) {
+      this.cancelTournoCreation();
+    }
+    return res;
   }
 
 }

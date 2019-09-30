@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ITourno } from '../core/models/ITourno';
+import { AuthService } from '../core/auth.service';
+import * as firebase from 'firebase'
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +30,7 @@ export class TournoCreationService {
 
   constructor(
     private afs: AngularFirestore,
+    private authService: AuthService
   ) { }
 
   async createDefaultTourno() {
@@ -42,5 +45,19 @@ export class TournoCreationService {
 
   updateDefaultTourno(ref, data) {
     return ref.update(data);
+  }
+
+  updateUserInfo(ref) {
+    this.authService.getUserLoggedRef.update({
+      'createdTournos': firebase.firestore.FieldValue.arrayUnion(ref)
+    })
+  }
+
+  deleteTourno(ref) {
+    ref.delete().then(() => {
+      console.log('Document successfully deleted!');
+    }).catch((error) => {
+      console.error('Error removing document: ', error);
+    });
   }
 }
