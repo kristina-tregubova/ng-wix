@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 
@@ -10,10 +10,15 @@ import { IPlayer } from 'src/app/core/models/IPlayer';
 export class CurrentPlayersComponent implements OnInit {
 
   @Input() currentPlayers$: Observable<IPlayer[]>;
+  @Output() removeChosenPlayer: EventEmitter<IPlayer> = new EventEmitter<IPlayer>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleRemoveChosenPlayers(player) {
+    this.removeChosenPlayer.emit(player);
   }
 
 }

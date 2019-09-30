@@ -19,16 +19,14 @@
 
               <label> Name: </label>
               <mat-form-field class="form-input">
-                <input 
-                matInput 
-                formControlName="name">
+                <input matInput formControlName="name">
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
 
               <label> Tournament type: </label>
-              <mat-radio-group  formControlName="tournamentType">
-                <mat-radio-button value="single-elim">Single-elimination tournament</mat-radio-button>
-                <mat-radio-button value="double-elim">Double-elimination tournament</mat-radio-button>
+              <mat-radio-group formControlName="tournamentType">
+                <mat-radio-button value="single-elimination">Single-elimination tournament</mat-radio-button>
+                <mat-radio-button value="double-elimination">Double-elimination tournament</mat-radio-button>
               </mat-radio-group>
 
 
@@ -96,7 +94,8 @@
           </section>
 
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges(0)">Next</button>
+            <button class="btn" mat-stroked-button matStepperNext type="button"
+              (click)="saveFormChanges(0)">Next</button>
           </div>
         </mat-step>
 
@@ -139,8 +138,10 @@
             </div>
           </section>
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges(1)">Back</button>
-            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges(1)">Next</button>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button"
+              (click)="saveFormChanges(1)">Back</button>
+            <button class="btn" mat-stroked-button matStepperNext type="button"
+              (click)="saveFormChanges(1)">Next</button>
           </div>
         </mat-step>
 
@@ -153,13 +154,42 @@
               Add players to the tournament
             </h3>
 
-            <app-add-player></app-add-player>
+            <h4>
+              Choose number of participants in the tournament
+            </h4>
+
+            <label>Participants number </label>
+
+            <mat-form-field>
+              <mat-select formControlName="participants">
+
+                <mat-option value="4">
+                  4
+                </mat-option>
+                <mat-option value="8">
+                  8
+                </mat-option>
+                <mat-option value="16">
+                  16
+                </mat-option>
+                <mat-option value="32">
+                  32
+                </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+            <app-add-player
+              [participants]="formGroup.get('formArray').get([2]).value">
+            </app-add-player>
 
           </section>
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges(2)">Back</button>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button"
+              (click)="saveFormChanges(2)">Back</button>
             <button class="btn highlighted-btn" mat-raised-button matStepperNext type="submit" name="submit"
-              class="tourno-creation__submit-btn btn highlighted-btn" (click)="saveTournament(2)" [disabled]="formGroup.invalid">
+              class="tourno-creation__submit-btn btn highlighted-btn" (click)="saveTournament(2)"
+              [disabled]="formGroup.invalid">
               Create a
               tournament
             </button>

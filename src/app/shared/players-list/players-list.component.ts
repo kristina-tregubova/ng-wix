@@ -17,7 +17,7 @@ export class PlayersListComponent implements OnInit {
 
   order: boolean = false;
 
-  showEnd: number = 2;
+  showEnd: number = 10;
   ifShowMoreBtn = true;
 
   constructor(

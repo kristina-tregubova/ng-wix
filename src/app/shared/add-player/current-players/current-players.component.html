@@ -3,7 +3,7 @@
 
         <app-player-card [item]="currentPlayer" [showBtns]="false"></app-player-card>
 
-        <button mat-icon-button aria-label="Remove player" сlass="delete-player-btn btn">
+        <button mat-icon-button aria-label="Remove player" сlass="delete-player-btn btn" (click)="handleRemoveChosenPlayers(currentPlayer)">
             <mat-icon>clear</mat-icon>
         </button>
 

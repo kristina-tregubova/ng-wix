@@ -55,7 +55,7 @@ export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
           prize: ['', Validators.maxLength(30)],
         }),
         this.formBuilder.group({
-          relatedPlayers: ['', Validators.required]
+          participants: ['', Validators.required]
         }),
       ])
     });

@@ -11,7 +11,7 @@ export class TournosListComponent implements OnInit {
   @Input() items: any[];
   @Input() isLoading$: Observable<boolean>;
 
-  showEnd: number = 1;
+  showEnd: number = 6;
   ifShowMoreBtn = true;
 
   constructor() { }

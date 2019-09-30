@@ -19,7 +19,9 @@
 
 
   <!-- Current players -->
-  <app-current-players [currentPlayers$]='items$'>
+  <app-current-players 
+    [currentPlayers$]='items$ ? items$ : chosenPlayers$'
+    (removeChosenPlayer)="handleRemovePlayerFromList($event)">
   </app-current-players>
 
 
@@ -40,8 +42,8 @@
     <label>Add new</label>
   </div>
 
-  <app-add-from-list *ngIf="!isNew"></app-add-from-list>
+  <app-add-from-list *ngIf="!showAddNew" (newChosenPlayer)="handleAddPlayerToList($event)"></app-add-from-list>
 
-  <app-add-new *ngIf="isNew"></app-add-new>
+  <app-add-new *ngIf="showAddNew"></app-add-new>
 
 </div>
