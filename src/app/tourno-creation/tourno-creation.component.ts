@@ -9,7 +9,7 @@ import { DocumentReference } from '@angular/fire/firestore';
   templateUrl: './tourno-creation.component.html',
   styleUrls: ['./tourno-creation.component.scss'],
   providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {showError: true}
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true }
   }]
 })
 export class TournoCreationComponent implements OnInit {
@@ -27,52 +27,58 @@ export class TournoCreationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.createNewTournoDoc();
     this.createForm();
+    this.createNewTournoDoc().then(ref => {
+      this.ref = ref;
+      console.log(ref);
+      this.bindFormToDoc();
+    });
   }
 
   createForm() {
     this.formGroup = this.formBuilder.group({
       formArray: this.formBuilder.array([
         this.formBuilder.group({
-          name: ['', Validators.required],
+          name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
           tournamentType: [''],
           country: ['', Validators.required],
           game: ['', Validators.required],
           playerType: [''],
-          description: [''],
+          description: ['', Validators.maxLength(200)],
         }),
         this.formBuilder.group({
           startDate: ['', Validators.required],
           endDate: ['', Validators.required],
-          entryFee: [''],
-          prize: [''],
+          entryFee: ['', Validators.maxLength(30)],
+          prize: ['', Validators.maxLength(30)],
         }),
         this.formBuilder.group({
           relatedPlayers: ['', Validators.required]
         }),
       ])
     });
+  }
 
+  createNewTournoDoc() {
+    return this.tournoCreationService.createDefaultTourno();
+  }
+
+  bindFormToDoc() {
     this.formGroup.patchValue(this.ref);
   }
 
-  async createNewTournoDoc() {
-    this.ref = await this.tournoCreationService.createDefaultTourno();
-  }
-
-  saveFormChanges() {
-    const data = this.formGroup.value;
+  saveFormChanges(numberRef) {
+    const data = this.formGroup.get('formArray').get([numberRef]).value;
     this.tournoCreationService.updateDefaultTourno(this.ref, data);
   }
 
-  saveTournament() {
+  saveTournament(numberRef) {
     if (this.formGroup.status != 'VALID') {
       console.log('form is not valid, cannot save data');
       return;
     }
 
-    this.saveFormChanges();
+    this.saveFormChanges(numberRef);
 
     // some tourno/rounds building methods
     // get tourno id
@@ -85,7 +91,11 @@ export class TournoCreationComponent implements OnInit {
   }
 
   cancelTournoCreation() {
-    // delete created tourno by ref in db
+    this.ref.delete().then(() => {
+      console.log('Document successfully deleted!');
+    }).catch((error) => {
+      console.error('Error removing document: ', error);
+    });
   }
 
 }

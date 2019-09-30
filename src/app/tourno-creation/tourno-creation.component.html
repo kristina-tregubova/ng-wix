@@ -26,8 +26,8 @@
               </mat-form-field>
 
               <label> Tournament type: </label>
-              <mat-radio-group formControlName="tournamentType">
-                <mat-radio-button value="single-elim" checked>Single-elimination tournament</mat-radio-button>
+              <mat-radio-group  formControlName="tournamentType">
+                <mat-radio-button value="single-elim">Single-elimination tournament</mat-radio-button>
                 <mat-radio-button value="double-elim">Double-elimination tournament</mat-radio-button>
               </mat-radio-group>
 
@@ -83,7 +83,7 @@
 
               <label> Player type: </label>
               <mat-radio-group formControlName="playerType">
-                <mat-radio-button value="single" checked>Single</mat-radio-button>
+                <mat-radio-button value="single">Single</mat-radio-button>
                 <mat-radio-button value="team">Team</mat-radio-button>
               </mat-radio-group>
 
@@ -96,7 +96,7 @@
           </section>
 
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges()">Next</button>
+            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges(0)">Next</button>
           </div>
         </mat-step>
 
@@ -139,8 +139,8 @@
             </div>
           </section>
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges()">Back</button>
-            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges()">Next</button>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges(1)">Back</button>
+            <button class="btn" mat-stroked-button matStepperNext type="button" (click)="saveFormChanges(1)">Next</button>
           </div>
         </mat-step>
 
@@ -157,9 +157,9 @@
 
           </section>
           <div class="stepper-navigation-btns">
-            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges()">Back</button>
+            <button class="btn" mat-stroked-button matStepperPrevious type="button" (click)="saveFormChanges(2)">Back</button>
             <button class="btn highlighted-btn" mat-raised-button matStepperNext type="submit" name="submit"
-              class="tourno-creation__submit-btn btn highlighted-btn" (click)="saveTournament()">
+              class="tourno-creation__submit-btn btn highlighted-btn" (click)="saveTournament(2)" [disabled]="formGroup.invalid">
               Create a
               tournament
             </button>
