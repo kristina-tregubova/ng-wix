@@ -11,10 +11,11 @@ export class AddPlayerComponent implements OnInit {
 
   @Input() items$: Observable<IPlayer[]> | null = null; // current players
   @Input() participants: string;
+
   chosenPlayers$: BehaviorSubject<IPlayer[]> = new BehaviorSubject([]);
+  newArray: IPlayer[];
 
   searchedPlayers: Array<IPlayer>;
-  readySearchedPlayers: Array<IPlayer>;
 
   showAddNew = false;
 
@@ -22,6 +23,9 @@ export class AddPlayerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.chosenPlayers$.subscribe(val => {
+      this.newArray = [...val];
+    });
   }
 
   handleChangeView() {
@@ -29,32 +33,17 @@ export class AddPlayerComponent implements OnInit {
   }
 
   handleAddPlayerToList(player) {
-    let newArray;
-
-    this.chosenPlayers$.subscribe(val => {
-
-      newArray = [...val];
-      newArray.push(player);
-
-    });
-
-    this.chosenPlayers$.next(newArray);
+    this.newArray.push(player);
+    this.chosenPlayers$.next(this.newArray);
   }
 
   handleRemovePlayerFromList(player) {
 
-    let newArray;
-
-    this.chosenPlayers$.subscribe(val => {
-
-      const index = val.indexOf(player);
-      if (index > -1) {
-        val.splice(index, 1);
-        newArray = [...val];
-      }
-    });
-
-    this.chosenPlayers$.next(newArray);
+    let index = this.newArray.indexOf(player);
+    if (index > -1) {
+      this.newArray.splice(index, 1);
+    }
+    this.chosenPlayers$.next(this.newArray);
   }
 
   // setSearchedPlayers(val) {
