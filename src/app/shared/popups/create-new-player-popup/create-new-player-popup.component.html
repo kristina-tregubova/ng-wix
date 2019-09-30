@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Create new player</h1>
+
+<mat-divider></mat-divider>
+
+<div mat-dialog-content>
+    <p>Give some information about player</p>
+    <p>* logo and team members can be specified later in the profile</p>
+
+    <div class='inputs'>
+        <label> Name: </label>
+        <mat-form-field>
+            <input matInput [(ngModel)]="name">
+        </mat-form-field>
+        <label> Player type: </label>
+        <mat-radio-group [(ngModel)]="playerType">
+            <mat-radio-button value="single">Single</mat-radio-button>
+            <mat-radio-button value="team">Team</mat-radio-button>
+        </mat-radio-group>
+    </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<div mat-dialog-actions>
+    <button mat-stroked-button (click)="cancelCreateNewPlayer()" class="btn">Cancel</button>
+    <button mat-stroked-button (click)="handleSavePlayerToDb()" [mat-dialog-close]="player" class="btn">Create player</button>
+</div>

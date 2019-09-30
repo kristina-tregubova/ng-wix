@@ -27,7 +27,7 @@ import { PlayerProfileComponent } from './player-profile/player-profile.componen
 import { SuccessPopupComponent } from './shared/popups/success-popup/success-popup.component';
 import { DeletePopupComponent } from './shared/popups/delete-popup/delete-popup.component';
 import { FileUploadPopupComponent } from './shared/popups/file-upload-popup/file-upload-popup.component';
-
+import { CreateNewPlayerPopupComponent } from './shared/popups/create-new-player-popup/create-new-player-popup.component';
 
 
 @NgModule({
@@ -46,6 +46,7 @@ import { FileUploadPopupComponent } from './shared/popups/file-upload-popup/file
     FileUploadPopupComponent,
     SuccessPopupComponent,
     DeletePopupComponent,
+    CreateNewPlayerPopupComponent,
 
   ],
   imports: [
@@ -66,7 +67,8 @@ import { FileUploadPopupComponent } from './shared/popups/file-upload-popup/file
   entryComponents: [
     SuccessPopupComponent,
     DeletePopupComponent,
-    FileUploadPopupComponent
+    FileUploadPopupComponent,
+    CreateNewPlayerPopupComponent
   ]
   
 })

@@ -137,12 +137,14 @@ export class PlayersSearchService {
   async getCreatorIds() {
     if (this.initialItems) {
       await this.initialItems.forEach((item: IPlayer) => {
-        item.userCreated.get()
-          .then((doc) => {
-            if (doc.exists) {
-              item['userCreatedId'] = doc.id;
-            }
-          });
+        if (item.userCreated) {
+          item.userCreated.get()
+            .then((doc) => {
+              if (doc.exists) {
+                item['userCreatedId'] = doc.id;
+              }
+            });
+        }
       });
     }
   }

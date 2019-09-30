@@ -14,7 +14,7 @@ export class TournosSearchService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) { 
+  ) {
     // this.user = this.authService.getUserLogged;
   }
 
@@ -140,12 +140,14 @@ export class TournosSearchService {
   async getCreatorIds() {
     if (this.initialItems) {
       await this.initialItems.forEach((item: ITourno) => {
-        item.userCreated.get()
-          .then((doc) => {
-            if (doc.exists) {
-              item['userCreatedId'] = doc.id;
-            }
-          });
+        if (item.userCreated) {
+          item.userCreated.get()
+            .then((doc) => {
+              if (doc.exists) {
+                item['userCreatedId'] = doc.id;
+              }
+            });
+        }
       });
     }
   }

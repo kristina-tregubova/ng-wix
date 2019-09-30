@@ -11,6 +11,7 @@ export class AddPlayerComponent implements OnInit {
 
   @Input() items$: Observable<IPlayer[]> | null = null; // current players
   @Input() participants: string;
+  @Input() tournoInfo: IPlayer;
 
   chosenPlayers$: BehaviorSubject<IPlayer[]> = new BehaviorSubject([]);
   newArray: IPlayer[];

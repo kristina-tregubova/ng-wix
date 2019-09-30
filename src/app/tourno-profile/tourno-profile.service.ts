@@ -11,19 +11,22 @@ export class TournoProfileService {
 
   constructor(
     private authService: AuthService
-  ) {}
+  ) { }
 
   async checkIfCreator(tourno) {
+
     let creatorId;
     const currentId = this.authService.getUserLogged.uid;
 
-    await tourno.userCreated.get()
-      .then((doc) => {
-        if (doc.exists) {
-          creatorId = doc.id;
-        }
-      });
-
+    if (tourno.userCreated) {
+      await tourno.userCreated.get()
+        .then((doc) => {
+          if (doc.exists) {
+            creatorId = doc.id;
+          }
+        });
+    }
+    
     return (currentId === creatorId ? true : false);
 
   }

@@ -32,7 +32,6 @@ export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
     this.createForm();
     this.createNewTournoDoc().then(ref => {
       this.ref = ref;
-      console.log(ref);
       this.bindFormToDoc();
     });
   }

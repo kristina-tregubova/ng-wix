@@ -34,22 +34,22 @@
               <mat-form-field>
                 <mat-select formControlName="country">
 
-                  <mat-option value="rus">
+                  <mat-option value="russia">
                     Russia
                   </mat-option>
-                  <mat-option value="ua">
+                  <mat-option value="usa">
                     USA
                   </mat-option>
-                  <mat-option value="de">
+                  <mat-option value="germany">
                     Germany
                   </mat-option>
-                  <mat-option value="en">
+                  <mat-option value="england">
                     England
                   </mat-option>
-                  <mat-option value="fr">
+                  <mat-option value="france">
                     France
                   </mat-option>
-                  <mat-option value="ukr">
+                  <mat-option value="ukraine">
                     Ukraine
                   </mat-option>
 
@@ -180,7 +180,8 @@
             </mat-form-field>
 
             <app-add-player
-              [participants]="formGroup.get('formArray').get([2]).value">
+              [participants]="formGroup.get('formArray').get([2]).value"
+              [tournoInfo]="formGroup.get('formArray').get([0]).value">
             </app-add-player>
 
           </section>

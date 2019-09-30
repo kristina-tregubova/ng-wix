@@ -44,6 +44,6 @@
 
   <app-add-from-list *ngIf="!showAddNew" (newChosenPlayer)="handleAddPlayerToList($event)"></app-add-from-list>
 
-  <app-add-new *ngIf="showAddNew"></app-add-new>
+  <app-add-new *ngIf="showAddNew" (newChosenPlayer)="handleAddPlayerToList($event)" [tournoInfo]="tournoInfo"></app-add-new>
 
 </div>

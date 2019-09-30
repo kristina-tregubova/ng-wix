@@ -1,0 +1,21 @@
+h1 {
+    margin-bottom: 1rem;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+}
+
+.mat-dialog-content {
+    padding: 15px 24px;
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+button {
+    height: 32px;
+    font-size: 12px;
+}

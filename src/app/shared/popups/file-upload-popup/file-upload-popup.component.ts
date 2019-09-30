@@ -1,9 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { DeletePopupComponent } from '../delete-popup/delete-popup.component';
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import * as firebase from 'firebase';
-import { AngularFirestore, Reference } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-file-upload-popup',
@@ -18,7 +17,7 @@ export class FileUploadPopupComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<DeletePopupComponent>,
+    public dialogRef: MatDialogRef<FileUploadPopupComponent>,
     private afs: AngularFirestore
   ) { }
 

@@ -1,33 +1,17 @@
 .add-new {
+  display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-top: 5%;
 }
 
 .add-player-btn {
-  margin: 2% auto 0 auto;
+  margin: 5% 0;
 }
 
-.add-player {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr 2fr;
-  grid-column-gap: 1%;
-  margin-bottom: 2%;
-  align-items: baseline;
-}
-
-.add-player label {
-  justify-self: center;
-}
-
-input[type="file"].mdc-text-field__input {
-  padding-left: 10px;
-  padding-right: 0;
+.add-new-player-btn {
+  align-self: center;
 }
 
 @media screen and (max-width: 600px) {
-  .add-player {
-    grid-template-columns: 1fr 2fr;
-    grid-row-gap: 8px;
-    margin-bottom: 0;
-  }
 }
