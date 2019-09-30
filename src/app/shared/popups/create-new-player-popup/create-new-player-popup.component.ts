@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { CreateNewPlayerPopupService } from './create-new-player-popup.service';
 import { IPlayer } from 'src/app/core/models/IPlayer';
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-create-new-player-popup',
@@ -17,13 +18,12 @@ export class CreateNewPlayerPopupComponent implements OnInit {
   name: string;
   playerType: string;
 
-  player: IPlayer;
-
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<CreateNewPlayerPopupComponent>,
     private afs: AngularFirestore,
     private createNewPlayerPopupService: CreateNewPlayerPopupService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -36,12 +36,13 @@ export class CreateNewPlayerPopupComponent implements OnInit {
     return this.createNewPlayerPopupService.createDefaultPlayer();
   }
 
-  handleSavePlayerToDb() {
+  async handleSavePlayerToDb() {
     const data = {
       'name': this.name,
       'playerType': this.playerType,
       'country': this.data.country,
-      'game': this.data.game
+      'game': this.data.game,
+      'userCreated': this.authService.getUserLoggedRef,
     }
     console.log(data)
 
@@ -53,18 +54,20 @@ export class CreateNewPlayerPopupComponent implements OnInit {
         console.error(err);
       })
 
-    this.returnNewPlayer(this.ref);
-
-    this.dialogRef.close();
+      this.returnNewPlayer(this.ref);
   }
 
-  returnNewPlayer(ref) {
-    ref.get()
+  async returnNewPlayer(ref) {
+
+    await ref.get()
       .then((doc) => {
         if (doc.exists) {
-          this.player = doc;
+          return doc.data();
         }
-      });
+      })
+      .then((doc) => {
+        this.dialogRef.close(doc);
+      })
   }
 
   cancelCreateNewPlayer() {

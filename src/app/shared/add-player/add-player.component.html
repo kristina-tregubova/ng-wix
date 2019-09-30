@@ -42,8 +42,8 @@
     <label>Add new</label>
   </div>
 
-  <app-add-from-list *ngIf="!showAddNew" (newChosenPlayer)="handleAddPlayerToList($event)"></app-add-from-list>
+  <app-add-from-list [style.display]="showAddNew ? 'none' : 'block'" (newChosenPlayer)="handleAddPlayerToList($event)"></app-add-from-list>
 
-  <app-add-new *ngIf="showAddNew" (newChosenPlayer)="handleAddPlayerToList($event)" [tournoInfo]="tournoInfo"></app-add-new>
+  <app-add-new [style.display]="showAddNew ? 'block' : 'none'" (newChosenPlayer)="handleAddPlayerToList($event)" [tournoInfo]="tournoInfo"></app-add-new>
 
 </div>

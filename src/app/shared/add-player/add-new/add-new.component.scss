@@ -5,11 +5,16 @@
   margin-top: 5%;
 }
 
-.add-player-btn {
-  margin: 5% 0;
+.add-new .row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 95% 5%;
+  align-items: center;
+  margin-bottom: 3%;
 }
 
-.add-new-player-btn {
+.add-player-btn {
+  margin: 5% 0;
   align-self: center;
 }
 

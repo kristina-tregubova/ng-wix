@@ -32,8 +32,9 @@ export class AddNewComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed' + result);
-      this.createdPlayers.push(result);
+      if (result) {
+        this.createdPlayers.push(result);
+      }
     });
 
   }

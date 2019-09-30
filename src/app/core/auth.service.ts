@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
 
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { share, mergeMap } from 'rxjs/operators';
@@ -49,6 +49,10 @@ export class AuthService {
 
   get getUserLogged() {
     return this.user;
+  }
+
+  get getUserLoggedRef(): DocumentReference {
+    return this.afs.doc('users/' + this.user.uid).ref;
   }
 
 
