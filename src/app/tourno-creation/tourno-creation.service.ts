@@ -24,7 +24,6 @@ export class TournoCreationService {
     relatedPlayers: null,
     rounds: [],
     userCreated: null,
-    userCreatedId: null,
   };
 
   constructor(

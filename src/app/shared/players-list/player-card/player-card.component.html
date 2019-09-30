@@ -5,7 +5,8 @@
   </div>
 
   <p class="grid-card__title" role="cell">
-    <i class="material-icons" title="Team">group</i>
+    <i class="material-icons" title="Team" *ngIf="item?.playerType === 'team'">group</i>
+    <i class="material-icons" title="Single" *ngIf="item?.playerType === 'single'">person</i>
     {{item?.name | titlecase}}
   </p>
 

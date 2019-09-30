@@ -138,7 +138,7 @@
 
         <mat-tab label="Comments">
 
-          <section class="tourno-profile__comments">
+          <section class="tourno-profile__comments" *ngIf="false">
 
             <h3 class="tourno-profile__title">
               Leave a comment
@@ -260,7 +260,7 @@
               </div>
             </div>
 
-            <div class="tourno-profile__settings-step">
+            <div class="tourno-profile__settings-step" *ngIf="false">
               <h3 class="tourno-profile__title">
                 Players management
               </h3>
@@ -268,6 +268,7 @@
               <app-add-player [items$]="items$"></app-add-player>
 
             </div>
+
             <div class="tourno-profile__settings-step">
               <h3 class="tourno-profile__title">
                 Delete tournament

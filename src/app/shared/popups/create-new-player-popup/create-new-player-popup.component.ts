@@ -38,13 +38,13 @@ export class CreateNewPlayerPopupComponent implements OnInit {
 
   async handleSavePlayerToDb() {
     const data = {
+      'id': this.ref.id,
       'name': this.name,
       'playerType': this.playerType,
       'country': this.data.country,
       'game': this.data.game,
       'userCreated': this.authService.getUserLoggedRef,
     }
-    console.log(data)
 
     this.createNewPlayerPopupService.updateDefaultTourno(this.ref, data)
       .then(() => {

@@ -70,6 +70,8 @@ export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
 
   saveFormChanges(numberRef) {
     const data = this.formGroup.get('formArray').get([numberRef]).value;
+    data['id'] = this.ref.id;
+    
     this.tournoCreationService.updateDefaultTourno(this.ref, data);
   }
 
