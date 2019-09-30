@@ -3,6 +3,8 @@ import { Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/fo
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { TournoCreationService } from './tourno-creation.service';
 import { DocumentReference } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { CanComponentDeactivate } from '../core/deactivate-guard.service';
 
 @Component({
   selector: 'app-tourno-creation',
@@ -12,7 +14,7 @@ import { DocumentReference } from '@angular/fire/firestore';
     provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true }
   }]
 })
-export class TournoCreationComponent implements OnInit {
+export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
 
   ref: DocumentReference;
 
@@ -96,6 +98,10 @@ export class TournoCreationComponent implements OnInit {
     }).catch((error) => {
       console.error('Error removing document: ', error);
     });
+  }
+
+  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+    return window.confirm('Discard changes?');
   }
 
 }

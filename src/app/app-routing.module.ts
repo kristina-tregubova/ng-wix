@@ -12,6 +12,7 @@ import { TournoSearchComponent } from './tournos-search/tournos-search.component
 import { PlayersSearchComponent } from './players-search/players-search.component';
 import { PlayerProfileComponent } from './player-profile/player-profile.component';
 import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
+import { CanDeactivateGuard } from './core/deactivate-guard.service';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
   {
     path: 'creation',
     component: TournoCreationComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canDeactivate: [CanDeactivateGuard]
   },
   {
     path: 'tournos-search',
