@@ -3,10 +3,9 @@ import { Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/fo
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { TournoCreationService } from './tourno-creation.service';
 import { DocumentReference } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { CanComponentDeactivate } from '../core/deactivate-guard.service';
-import { IPlayer } from '../core/models/IPlayer';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
+import { IRound } from './IRound';
 
 @Component({
   selector: 'app-tourno-creation',
@@ -16,7 +15,8 @@ import { Router } from '@angular/router';
     provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true }
   }]
 })
-export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
+export class TournoCreationComponent implements OnInit {
+  // CanComponentDeactivate
 
   ref: DocumentReference;
 
@@ -77,10 +77,13 @@ export class TournoCreationComponent implements OnInit, CanComponentDeactivate {
     })
   }
 
-  updateRounds(val: IPlayer[]) {
+  updateRounds(rounds: IRound[]) {
+
     this.ref.update({
-      'rounds': val
+      'rounds': rounds.map((obj)=> {return Object.assign({}, obj)})
     })
+
+
   }
 
   saveFormChanges(numberRef) {

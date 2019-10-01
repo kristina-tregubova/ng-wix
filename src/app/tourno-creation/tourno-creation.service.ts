@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ITourno } from '../core/models/ITourno';
 import { AuthService } from '../core/auth.service';
 import * as firebase from 'firebase'
+import { IGame, IRound } from './IRound';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class TournoCreationService {
     description: null,
     relatedPlayers: null,
     rounds: [],
-    userCreated: null,
+    userCreated: this.authService.getUserLoggedRef,
   };
 
   constructor(
@@ -54,20 +55,82 @@ export class TournoCreationService {
   }
 
   generateBracket(participantsNumber, chosenPlayers) {
+
+    let numberOfRounds = this.defineRoundsNumber(participantsNumber);
+    let numberOfGames = this.defineGamesNumber(participantsNumber);
+
     let rounds = [];
 
-    // for (let i=0; i < )
+    for (let i = 0; i < numberOfRounds; i++) {
+      if (numberOfGames > 1) {
+        let round = this.createRound(numberOfGames);
+        rounds.push(round);
+
+        numberOfGames = numberOfGames / 2;
+      } else if (numberOfGames === 1) {
+        let round = this.createRound(1);
+        rounds.push(round);
+      }
+    }
+
     return rounds;
+  }
+
+  // createFirstRound(chosenPlayers) {
+  //   let round;
+
+  //   for (let i = 0; i < numberOfGames; i++) {
+  //     let games = [];
+  //     let game: IGame = this.createGame();
+
+  //     games.push(game);
+  //   }
+  // }
+
+  createRound(numberOfGames) {
+    let round = new Map();
+    let games = [];
+
+    for (let i = 0; i < numberOfGames; i++) {
+      let game: IGame = this.createGame();
+      games.push(game);
+    }
+
+    round.set('games', games)
+    return round;
+
+  }
+
+  createGame() {
+    let player1 = new Map;
+    player1.set('id', null);
+    player1.set('points', null);
+
+    let player2 = new Map;
+    player2.set('id', null);
+    player2.set('points', null);
+
+    let game: IGame = {
+      'player1': player1,
+      'player2': player2,
+      'nextPlayer': null
+    }
+
+    return game;
   }
 
   defineRoundsNumber(num) {
     let k = 0;
     do {
       k++;
-      num = num/2 
+      num = num / 2
     } while (num !== 1)
 
     return k;
+  }
+
+  defineGamesNumber(num) {
+    return num / 2;
   }
 
   deleteTourno(ref) {

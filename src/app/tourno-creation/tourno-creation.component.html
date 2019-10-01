@@ -182,7 +182,7 @@
             <app-add-player
               [participants]="formGroup.get('formArray').get([2]).value"
               [tournoInfo]="formGroup.get('formArray').get([0]).value"
-              (chosenPlayers$)="updateRelatedPlayers($event)">
+              (relatedPlayers)="updateRelatedPlayers($event)">
             </app-add-player>
 
           </section>
