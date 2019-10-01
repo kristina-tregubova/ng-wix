@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { ITourno } from '../core/models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../core/auth.service';
+import { ParserService } from './parser.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class TournoService {
 
   constructor(
     private afs: AngularFirestore,
-    private authService: AuthService
+    private authService: AuthService,
+    private parser: ParserService
   ) { }
 
   getTourno(id: string) {
@@ -38,7 +40,7 @@ export class TournoService {
   }
 
   getRounds(tourno: ITourno) {
-    return of(tourno.rounds);
+    return of(this.parser.parseFrom(tourno.rounds));
   }
 
   updateField(tourno: ITourno, tournoId: string, field: string) {
@@ -46,9 +48,7 @@ export class TournoService {
     updateInfo['' + field] = tourno[field];
 
     this.afs.collection('tournaments').doc(tournoId).update(
-      
       updateInfo
-    
     ).then(() => {
       console.log('Document successfully updated!');
     }).catch((error) => {
@@ -57,10 +57,10 @@ export class TournoService {
   }
 
   updateRounds(tourno: ITourno, id?: string) {
+    let parsedRounds = this.parser.parseTo(tourno.rounds)
+
     this.afs.collection('tournaments').doc(id).update({ 
-      
-      'rounds': tourno.rounds 
-    
+      'rounds': parsedRounds
     }).then(() => {
       console.log('Document successfully updated!');
     }).catch((error) => {

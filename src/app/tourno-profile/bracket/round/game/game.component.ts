@@ -1,26 +1,26 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnChanges {
 
   @Input() game: Map<string, Map<string, any>>;
   @Input() isEditingDisabled: boolean;
   firstName: string;
   secondName: string;
-  // firstPoints: string = this.game['player1']['points'];
+
 
   isFirstWinner: boolean;
   isSecondWinner: boolean;
 
   constructor() { }
 
-  ngOnInit() {
-    this.getNames();
-    this.defineIfWinner();
+  ngOnChanges() {
+      this.getNames();
+      this.defineIfWinner();
   }
 
   getNames() {

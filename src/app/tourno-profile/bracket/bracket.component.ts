@@ -1,12 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input, DoCheck } from '@angular/core';
+import { IRound } from 'src/app/tourno-creation/IRound';
+import { ParserService } from 'src/app/shared/parser.service';
 
 @Component({
   selector: 'app-bracket',
   templateUrl: './bracket.component.html',
   styleUrls: ['./bracket.component.scss']
 })
-export class BracketComponent implements OnInit {
+export class BracketComponent implements DoCheck {
 
   @Input() rounds: [];
   @Input() isEditingDisabled: boolean;
@@ -14,7 +15,7 @@ export class BracketComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngDoCheck() {
 
   }
 

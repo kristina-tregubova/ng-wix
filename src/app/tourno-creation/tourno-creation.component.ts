@@ -25,6 +25,8 @@ export class TournoCreationComponent implements OnInit {
   /** Returns a FormArray with the name 'formArray'. */
   get formArray(): AbstractControl | null { return this.formGroup.get('formArray'); }
 
+  ifRandom: boolean;
+
   constructor(
     private formBuilder: FormBuilder,
     private tournoCreationService: TournoCreationService,
@@ -71,20 +73,13 @@ export class TournoCreationComponent implements OnInit {
     this.formGroup.patchValue(this.ref);
   }
 
-  updateRelatedPlayers(val: DocumentReference[]) {
-    this.ref.update({
-      'relatedPlayers': val
-    })
+  async handleSeedPlayers(ifRandom) {
+    return await this.tournoCreationService.seedPlayers(ifRandom, this.ref)
   }
 
-  updateRounds(rounds: IRound[]) {
-
-    this.ref.update({
-      'rounds': rounds.map((obj)=> {return Object.assign({}, obj)})
-    })
-
-
-  }
+ handleUpdateRelatedPlayers(val) {
+   this.tournoCreationService.updateRelatedPlayers(val, this.ref);
+ }
 
   saveFormChanges(numberRef) {
     const data = this.formGroup.get('formArray').get([numberRef]).value;
@@ -94,7 +89,7 @@ export class TournoCreationComponent implements OnInit {
   }
 
 
-  async checkBeforeSaveTournament(numberRef) {
+  async checkBeforeSaveTournament(numberRef, ifRandom) {
 
     if (this.formGroup.status != 'VALID') {
       console.log('form is not valid, cannot save data');
@@ -102,19 +97,14 @@ export class TournoCreationComponent implements OnInit {
     }
 
     let participantsNumber = await this.formGroup.get('formArray').get([2]).get('participants').value;
-    let chosenPlayers = await this.ref.get().then((doc) => {
-      if (doc.exists) {
-        return doc.data().relatedPlayers;
-      }
-    })
-    console.log(participantsNumber)
-    console.log(chosenPlayers.length)
+    let chosenPlayers = await this.handleSeedPlayers(ifRandom);
+
 
     if (+participantsNumber === +chosenPlayers.length) {
-      this.saveTournament(numberRef, participantsNumber, chosenPlayers)
+      this.saveTournament(numberRef, participantsNumber, chosenPlayers);
     } else {
       console.log('Chosen number players and participants number do not correspond. Add or remove some');
-    };
+    }
 
   }
 
@@ -126,7 +116,7 @@ export class TournoCreationComponent implements OnInit {
 
     // tourno/rounds building methods
     let rounds = this.tournoCreationService.generateBracket(participantsNumber, chosenPlayers);
-    this.updateRounds(rounds);
+    this.tournoCreationService.updateRounds(rounds, this.ref);
 
     this.router.navigate(['/tourno-profile/' + this.ref.id])
   }

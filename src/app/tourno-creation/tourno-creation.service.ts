@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { ITourno } from '../core/models/ITourno';
 import { AuthService } from '../core/auth.service';
 import * as firebase from 'firebase'
 import { IGame, IRound } from './IRound';
+import { ParserService } from '../shared/parser.service';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,8 @@ export class TournoCreationService {
 
   constructor(
     private afs: AngularFirestore,
-    private authService: AuthService
+    private authService: AuthService,
+    private parser: ParserService
   ) { }
 
   async createDefaultTourno() {
@@ -53,6 +55,37 @@ export class TournoCreationService {
       'createdTournos': firebase.firestore.FieldValue.arrayUnion(ref)
     })
   }
+
+  updateRelatedPlayers(val: DocumentReference[], ref) {
+    ref.update({
+      'relatedPlayers': val
+    })
+  }
+
+  updateRounds(rounds: IRound[], ref) {
+
+    let parsedArr = this.parser.parseTo(rounds);
+
+    ref.update({
+      'rounds': parsedArr
+    })
+
+  }
+
+  async seedPlayers(ifRandom, ref) {
+    let playersArr = await ref.get().then((doc) => {
+      if (doc.exists) {
+        return doc.data().relatedPlayers;
+      }
+    });
+
+    if (ifRandom) {
+      this.shuffleArray(playersArr);
+    }
+
+    return playersArr;
+  }
+
 
   generateBracket(participantsNumber, chosenPlayers) {
 
@@ -139,5 +172,13 @@ export class TournoCreationService {
     }).catch((error) => {
       console.error('Error removing document: ', error);
     });
+  }
+
+  shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 }
