@@ -4,7 +4,7 @@
 
 <div>
   <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()"
-    *ngIf="items && ifShowMoreBtn">
+    *ngIf="items && items.length > 0 && ifShowMoreBtn">
     <mat-icon>add</mat-icon>
   </button>
 </div>

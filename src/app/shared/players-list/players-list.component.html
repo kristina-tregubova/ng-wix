@@ -50,7 +50,7 @@
 
   <app-player-card *ngFor="let item of items | slice: 0:showEnd" [item]="item"></app-player-card>
 
-  <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()" *ngIf="items && ifShowMoreBtn">
+  <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()" *ngIf="items && items.length > 0 && ifShowMoreBtn">
     <mat-icon>add</mat-icon>
   </button>
 

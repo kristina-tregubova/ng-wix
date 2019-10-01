@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../core/auth.service';

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   templateUrl: './tournos-list.component.html',
   styleUrls: ['./tournos-list.component.scss']
 })
-export class TournosListComponent implements OnInit {
+export class TournosListComponent implements OnInit, OnChanges {
 
   @Input() items: any[];
   @Input() isLoading$: Observable<boolean>;
@@ -18,6 +18,12 @@ export class TournosListComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  ngOnChanges() {
+    if (this.items) {
+      this.showEnd > this.items.length ? this.ifShowMoreBtn = false : null
+    }
   }
 
   handleShowMore() {

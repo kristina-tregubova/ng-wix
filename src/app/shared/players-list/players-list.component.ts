@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { map, tap, last } from 'rxjs/operators';
@@ -10,7 +10,7 @@ import { PlayerService } from '../player.service';
   templateUrl: './players-list.component.html',
   styleUrls: ['./players-list.component.scss']
 })
-export class PlayersListComponent implements OnInit {
+export class PlayersListComponent implements OnInit, OnChanges {
 
   @Input() items: IPlayer[];
   @Input() isLoading$: Observable<boolean>;
@@ -50,6 +50,13 @@ export class PlayersListComponent implements OnInit {
     });
 
     this.playersSearchService.stopLoading();
+  }
+
+
+  ngOnChanges() {
+    if (this.items) {
+      this.showEnd > this.items.length ? this.ifShowMoreBtn = false : null
+    }
   }
 
   handleShowMore() {

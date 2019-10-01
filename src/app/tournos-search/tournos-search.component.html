@@ -71,7 +71,7 @@
             </h2>
 
             <app-tournos-list [items]="items" [isLoading$]="isLoading$"></app-tournos-list>
-            <div class='no-tourno' *ngIf="items.length === 0  && (isLoading$ | async) == false">
+            <div class='no-tourno' *ngIf="items && items.length === 0  && (isLoading$ | async) == false">
                 No tournaments found <span>😥</span>
             </div>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
