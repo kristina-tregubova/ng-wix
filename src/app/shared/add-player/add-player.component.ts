@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 
@@ -13,10 +13,10 @@ export class AddPlayerComponent implements OnInit {
   @Input() participants: string;
   @Input() tournoInfo: IPlayer;
 
-  chosenPlayers$: BehaviorSubject<IPlayer[]> = new BehaviorSubject([]);
+  @Output() chosenPlayers$: BehaviorSubject<IPlayer[]> = new BehaviorSubject([]);
   newArray: IPlayer[];
 
-  searchedPlayers: Array<IPlayer>;
+  // searchedPlayers: Array<IPlayer>;
 
   showAddNew = false;
 

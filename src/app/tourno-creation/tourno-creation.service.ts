@@ -53,6 +53,23 @@ export class TournoCreationService {
     })
   }
 
+  generateBracket(participantsNumber, chosenPlayers) {
+    let rounds = [];
+
+    // for (let i=0; i < )
+    return rounds;
+  }
+
+  defineRoundsNumber(num) {
+    let k = 0;
+    do {
+      k++;
+      num = num/2 
+    } while (num !== 1)
+
+    return k;
+  }
+
   deleteTourno(ref) {
     ref.delete().then(() => {
       console.log('Document successfully deleted!');

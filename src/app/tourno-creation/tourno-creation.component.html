@@ -182,7 +182,7 @@
             <app-add-player
               [participants]="formGroup.get('formArray').get([2]).value"
               [tournoInfo]="formGroup.get('formArray').get([0]).value"
-              >
+              (chosenPlayers$)="updateRelatedPlayers($event)">
             </app-add-player>
 
           </section>
@@ -190,7 +190,7 @@
             <button class="btn" mat-stroked-button matStepperPrevious type="button"
               (click)="saveFormChanges(2)">Back</button>
             <button class="btn highlighted-btn" mat-raised-button matStepperNext type="submit" name="submit"
-              class="tourno-creation__submit-btn btn highlighted-btn" (click)="saveTournament(2)"
+              class="tourno-creation__submit-btn btn highlighted-btn" (click)="checkBeforeSaveTournament(2)"
               [disabled]="formGroup.invalid">
               Create a
               tournament
