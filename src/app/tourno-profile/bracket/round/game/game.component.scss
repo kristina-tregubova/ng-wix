@@ -15,6 +15,7 @@
     height: 3rem;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
     border-bottom: thin solid $wix-color;
+    cursor: default;
 
     .name {
       margin: 0 1.25rem;
@@ -35,6 +36,7 @@
       background-color: $wix-foreground;
       border-radius: 5px;
       border: none;
+      cursor: text;
 
       &:disabled {
         background-color: transparent;

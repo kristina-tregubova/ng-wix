@@ -7,6 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop'
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
@@ -60,7 +61,8 @@ import { CreateNewPlayerPopupComponent } from './shared/popups/create-new-player
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     CoreModule,
     SharedModule,
-    TournoProfileModule
+    TournoProfileModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent],

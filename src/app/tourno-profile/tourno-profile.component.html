@@ -108,11 +108,11 @@
 
         </mat-tab>
 
-        <mat-tab label="Bracket">
+        <mat-tab label="Bracket" >
 
           <section class="tourno-profile__bracket">
 
-            <app-bracket [rounds]="rounds" [isEditingDisabled]="isBracketEditingDisabled">
+            <app-bracket [rounds]="rounds" [isEditingDisabled]="isBracketEditingDisabled" cdkDrag>
             </app-bracket>
 
             <div class="edit-mode-btns" *ngIf="ifCreator">

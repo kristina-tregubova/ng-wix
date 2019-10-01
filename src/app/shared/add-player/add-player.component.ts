@@ -3,6 +3,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { DocumentReference, AngularFirestore } from '@angular/fire/firestore';
 
+
 @Component({
   selector: 'app-add-player',
   templateUrl: './add-player.component.html',
@@ -77,11 +78,5 @@ export class AddPlayerComponent implements OnInit {
 
     this.chosenPlayers$.next(this.newArray);
   }
-
-  // setSearchedPlayers(val) {
-  //   this.searchedPlayers = [...val];
-  //   console.log(this.searchedPlayers)
-  // }
-
 
 }
