@@ -48,8 +48,9 @@ export class PlayersSearchService {
         this.initialItems = res;
         this.getCreatorIds();
       }),
-      tap(() => this.stopLoading()),
     );
+
+    this.stopLoading()
     this.initialItems = this.items;
 
     return result;

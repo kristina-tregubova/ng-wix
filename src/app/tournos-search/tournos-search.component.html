@@ -15,9 +15,11 @@
             </div>
 
             <div class="search-form__checkboxes">
-                <mat-checkbox (change)="tryFilterByMine($event.checked)" [disabled]="!(isLogged$ | async)">Only mine</mat-checkbox>
-            
-                <mat-checkbox (change)="tryFilterByFavorite($event.checked)" [disabled]="!(isLogged$ | async)">Favourites</mat-checkbox>
+                <mat-checkbox (change)="tryFilterByMine($event.checked)" [disabled]="!(isLogged$ | async)">Only mine
+                </mat-checkbox>
+
+                <mat-checkbox (change)="tryFilterByFavorite($event.checked)" [disabled]="!(isLogged$ | async)">
+                    Favourites</mat-checkbox>
             </div>
 
 
@@ -69,8 +71,10 @@
             </h2>
 
             <app-tournos-list [items]="items" [isLoading$]="isLoading$"></app-tournos-list>
+            <div class='no-tourno' *ngIf="items.length === 0  && (isLoading$ | async) == false">
+                No tournaments found <span>😥</span>
+            </div>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>
-            <div class='no-tourno' *ngIf="!items && (isLoading$ | async) == false">No tournaments found</div>
 
         </section>
     </div>
