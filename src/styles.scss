@@ -376,7 +376,11 @@ body {
 .mat-card > .mat-card-actions:last-child {
   margin-bottom: unset;
 }
+.mat-card-image {
+  height: 190px;
+}
 
+// chart
 .chart {
   color: #fff;
   // @include mdc-data-table-fill-color(rgb(97, 103, 110));
