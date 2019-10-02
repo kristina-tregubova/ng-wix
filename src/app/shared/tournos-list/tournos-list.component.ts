@@ -22,13 +22,13 @@ export class TournosListComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.items) {
-      this.showEnd > this.items.length ? this.ifShowMoreBtn = false : null
+      this.ifShowMoreBtn = (this.showEnd >= this.items.length) ?  false : null
     }
   }
 
   handleShowMore() {
 
-    if (this.showEnd < this.items.length) {
+    if (this.showEnd <= this.items.length) {
       this.ifShowMoreBtn = true;
       this.showEnd += 1;
       if (this.showEnd >= this.items.length) {

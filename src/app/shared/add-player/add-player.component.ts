@@ -66,15 +66,13 @@ export class AddPlayerComponent implements OnInit {
       this.newArray.splice(index, 1);
     }
 
-    this.getPlayerRef(player).then((ref) => {
-      let index = this.newRefArray.indexOf(ref);
-      if (index > -1) {
-        this.newArray.splice(index, 1);
-      }
-      return this.newRefArray;
-    })
-      .then((arr) => {
-        this.relatedPlayers.emit(arr);
+    this.getPlayerRef(player)
+      .then((ref) => {
+        this.newRefArray = this.newRefArray.filter((val) => {
+          return val.id !== ref.id
+        })
+
+        this.relatedPlayers.emit(this.newRefArray);
       })
 
     this.chosenPlayers$.next(this.newArray);

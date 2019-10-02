@@ -13,15 +13,23 @@
 
     <div class="players-list" role="table">
 
-      <div class="row" *ngFor="let player of searchedPlayers">
+      <div class="row" *ngFor="let player of searchedPlayers  | slice: 0:showEnd">
 
         <app-player-card [item]="player" [showBtns]="false"></app-player-card>
 
-        <button mat-icon-button aria-label="Add player" сlass="add-to-list-btn btn" (click)="handleAddChosenPlayers(player)" >
-            <mat-icon>add</mat-icon>
+        <button mat-icon-button aria-label="Add player" сlass="add-to-list-btn btn"
+          (click)="handleAddChosenPlayers(player)">
+          <mat-icon>add</mat-icon>
         </button>
 
       </div>
+
+      <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()"
+        *ngIf="searchedPlayers && searchedPlayers.length > 0 && ifShowMoreBtn">
+        <mat-icon>add</mat-icon>
+      </button>
+
     </div>
+
   </section>
 </div>

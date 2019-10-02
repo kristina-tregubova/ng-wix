@@ -27,14 +27,16 @@ export class PlayerService {
   getTournamentsAttended(player): ITourno[] {
     const items: Array<ITourno> = [];
 
-    for (const tourno of player.relatedTournaments) {
-      tourno.tournament.get().then((doc) => {
-        if (doc.exists) {
-          const data = doc.data();
-          const id = doc.id;
-          items.push({ id, ...data });
-        }
-      });
+    if (player.relatedTournaments) {
+      for (const tourno of player.relatedTournaments) {
+        tourno.tournament.get().then((doc) => {
+          if (doc.exists) {
+            const data = doc.data();
+            const id = doc.id;
+            items.push({ id, ...data });
+          }
+        });
+      }
     }
     return items;
   }

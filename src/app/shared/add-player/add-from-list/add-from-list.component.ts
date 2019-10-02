@@ -16,6 +16,9 @@ export class AddFromListComponent implements OnInit {
 
   isLoading$: Observable<boolean>;
 
+  showEnd: number = 10;
+  ifShowMoreBtn = true;
+
 
   constructor(
     private playersSearchService: PlayersSearchService,
@@ -30,11 +33,6 @@ export class AddFromListComponent implements OnInit {
 
   }
 
-  // ngDoCheck() {
-  //   if (this.searchedPlayers) {
-  //     this.searchedPlayers = this.playersSearchService.getFilteredItems();
-  //   }
-  // }
 
   trySearchByName($event) {
     this.playersSearchService.searchSubject$.next($event);
@@ -43,6 +41,17 @@ export class AddFromListComponent implements OnInit {
 
   handleAddChosenPlayers(player) {
     this.newChosenPlayer.emit(player);
+  }
+
+  handleShowMore() {
+
+    if (this.showEnd <= this.searchedPlayers.length) {
+      this.ifShowMoreBtn = true;
+      this.showEnd += 2;
+      if (this.showEnd >= this.searchedPlayers.length) {
+        this.ifShowMoreBtn = false;
+      }
+    }
   }
 
 }

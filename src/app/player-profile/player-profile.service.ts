@@ -12,9 +12,7 @@ export class PlayerProfileService {
 
   constructor(
     private authService: AuthService
-  ) {
-    // this.user = this.authService.getUserLogged;
-  }
+  ) {}
 
   async checkIfCreator(player) {
     let creatorId;
