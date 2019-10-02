@@ -6,6 +6,7 @@ import { DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { IRound } from './IRound';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tourno-creation',
@@ -26,6 +27,7 @@ export class TournoCreationComponent implements OnInit {
   get formArray(): AbstractControl | null { return this.formGroup.get('formArray'); }
 
   ifRandom: boolean;
+  ifDelete: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -114,6 +116,9 @@ export class TournoCreationComponent implements OnInit {
   }
 
   saveTournament(numberRef, participantsNumber, chosenPlayers) {
+
+    this.ifDelete = false;
+
     // save last part
     this.saveFormChanges(numberRef);
 
@@ -126,16 +131,25 @@ export class TournoCreationComponent implements OnInit {
     this.router.navigate(['/tourno-profile/' + this.ref.id])
   }
 
-  // cancelTournoCreation() {
-  //   this.tournoCreationService.deleteTourno(this.ref);
-  // }
+  cancelTournoCreation() {
+    this.tournoCreationService.deleteTourno(this.ref);
+  }
 
-  // canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
-  //   let res = window.confirm('Discard changes?');
-  //   if (res) {
-  //     this.cancelTournoCreation();
-  //   }
-  //   return res;
-  // }
+  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+
+    let canQuit = true;
+
+    if (this.ifDelete) {
+      this.ifDelete = window.confirm('Discard changes?')
+      canQuit = this.ifDelete
+    };
+
+    if (this.ifDelete) {
+      this.cancelTournoCreation();
+      canQuit = true;
+    }
+
+    return canQuit;
+  }
 
 }
