@@ -96,7 +96,7 @@ export class TournoCreationService {
 
     for (let i = 0; i < numberOfRounds; i++) {
       if (numberOfGames > 1) {
-        let round = this.createRound(numberOfGames);
+        let round = i === 0 ? this.createRoundWithPlayers(numberOfGames, chosenPlayers) : this.createRound(numberOfGames);
         rounds.push(round);
 
         numberOfGames = numberOfGames / 2;
@@ -109,16 +109,17 @@ export class TournoCreationService {
     return rounds;
   }
 
-  // createFirstRound(chosenPlayers) {
-  //   let round;
+  createRoundWithPlayers(numberOfGames, roundCandidates) {
+    let round;
+    let n: number = 1;
 
-  //   for (let i = 0; i < numberOfGames; i++) {
-  //     let games = [];
-  //     let game: IGame = this.createGame();
+    for (let i = 0; i < numberOfGames; i++, n++) {
+      let games = [];
+      let game: IGame = this.createGameWithPlayers(roundCandidates[i+n], roundCandidates[i+n+1]);
 
-  //     games.push(game);
-  //   }
-  // }
+      games.push(game);
+    }
+  }
 
   createRound(numberOfGames) {
     let round = new Map();
@@ -132,6 +133,23 @@ export class TournoCreationService {
     round.set('games', games)
     return round;
 
+  }
+
+  createGameWithPlayers(p1, p2) {
+    let player1 = new Map;
+    player1.set('id', p1);
+    player1.set('points', null);
+
+    let player2 = new Map;
+    player2.set('id', p2);
+    player2.set('points', null);
+
+    let game: IGame = {
+      'player1': player1,
+      'player2': player2,
+    }
+
+    return game;
   }
 
   createGame() {

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IRound } from 'src/app/tourno-creation/IRound';
 
 @Component({
   selector: 'app-round',
@@ -16,6 +15,6 @@ export class RoundComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      this.games = this.round.get('games')
+      this.games = this.round.get('games');
   }
 }
