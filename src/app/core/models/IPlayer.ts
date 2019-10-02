@@ -10,7 +10,7 @@ export interface IPlayer {
     'userCreated': DocumentReference;
     'userCreatedId'?: string;
     'relatedTournaments': Map<any, any>[];
-    'team': [] | null;
+    'team': any[] | null;
     'points': number;
     'wins': number;
     'games': number;

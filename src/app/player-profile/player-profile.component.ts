@@ -31,7 +31,7 @@ export class PlayerProfileComponent implements OnInit {
 
   items: ITourno[];
 
-  dataSource: [] | null;
+  dataSource: any[] | null;
   displayedColumns = ['name', 'role'];
 
   ifCreator: boolean | null;
@@ -88,6 +88,7 @@ export class PlayerProfileComponent implements OnInit {
 
   handleAddTeamMember() {
     this.playerService.addTeamMember(this.player, this.id);
+    console.log('tick')
   }
 
   handleOpenDeletePopup() {

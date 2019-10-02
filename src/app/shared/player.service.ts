@@ -9,7 +9,7 @@ import { IPlayer } from '../core/models/IPlayer';
 })
 export class PlayerService {
 
-  emptyTeamMember: {} = { name: '', role: '' };
+  emptyTeamMember = { name: '', role: '' };
 
 
   constructor(
@@ -42,10 +42,12 @@ export class PlayerService {
   }
 
   addTeamMember(player: IPlayer, playerId: string) {
+    let teamArr = player.team;
+    teamArr.push(this.emptyTeamMember)
 
     this.afs.collection('players').doc(playerId).update({
 
-      'team': firebase.firestore.FieldValue.arrayUnion(this.emptyTeamMember)
+      'team': teamArr
 
     }).then(() => {
       console.log('Document successfully updated!');
