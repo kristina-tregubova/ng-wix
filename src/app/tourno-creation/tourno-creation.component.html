@@ -161,7 +161,7 @@
             <label>Participants number </label>
 
             <mat-form-field>
-              <mat-select formControlName="participants" [(ngModel)]="ifRandom">
+              <mat-select formControlName="participants">
 
                 <mat-option value="4">
                   4
@@ -182,7 +182,8 @@
             <app-add-player
               [participants]="formGroup.get('formArray').get([2]).value"
               [tournoInfo]="formGroup.get('formArray').get([0]).value"
-              (relatedPlayers)="handleUpdateRelatedPlayers($event)">
+              (relatedPlayers)="handleUpdateRelatedPlayers($event)"
+              (ifRandom)="setIfRandom($event)">
             </app-add-player>
 
           </section>

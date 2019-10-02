@@ -9,12 +9,12 @@ import { IPlayer } from '../core/models/IPlayer';
 })
 export class PlayerService {
 
-  emptyTeamMember: {} = {name: '', role: ''};
-  
+  emptyTeamMember: {} = { name: '', role: '' };
+
 
   constructor(
     private afs: AngularFirestore,
-  ) {}
+  ) { }
 
   getPlayer(id: string) {
     return this.afs.collection('players').doc(id).valueChanges();
@@ -41,16 +41,16 @@ export class PlayerService {
 
   addTeamMember(player: IPlayer, playerId: string) {
 
-    this.afs.collection('players').doc(playerId).update({ 
+    this.afs.collection('players').doc(playerId).update({
 
       'team': firebase.firestore.FieldValue.arrayUnion(this.emptyTeamMember)
-    
+
     }).then(() => {
       console.log('Document successfully updated!');
     }).catch((error) => {
       console.error('Error updating document: ', error);
     });
-    
+
   }
 
   updateField(player: IPlayer, playerId: string, field: string) {
@@ -60,8 +60,8 @@ export class PlayerService {
     this.afs.collection('players').doc(playerId).update(
 
       updateInfo
-      
-      ).then(() => {
+
+    ).then(() => {
       console.log('Document successfully updated!');
     }).catch((error) => {
       console.error('Error updating document: ', error);

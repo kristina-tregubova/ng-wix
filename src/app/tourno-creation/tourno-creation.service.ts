@@ -4,7 +4,7 @@ import { ITourno } from '../core/models/ITourno';
 import { AuthService } from '../core/auth.service';
 import * as firebase from 'firebase'
 import { IGame, IRound } from './IRound';
-import { ParserService } from '../shared/parser.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,6 @@ export class TournoCreationService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-    private parser: ParserService
   ) { }
 
   async createDefaultTourno() {
@@ -64,15 +63,14 @@ export class TournoCreationService {
 
   updateRounds(rounds: IRound[], ref) {
 
-    let parsedArr = this.parser.parseTo(rounds);
-
     ref.update({
-      'rounds': parsedArr
+      'rounds': rounds
     })
 
   }
 
   async seedPlayers(ifRandom, ref) {
+
     let playersArr = await ref.get().then((doc) => {
       if (doc.exists) {
         return doc.data().relatedPlayers;
@@ -88,6 +86,8 @@ export class TournoCreationService {
 
 
   generateBracket(participantsNumber, chosenPlayers) {
+  
+    console.log(chosenPlayers)
 
     let numberOfRounds = this.defineRoundsNumber(participantsNumber);
     let numberOfGames = this.defineGamesNumber(participantsNumber);
@@ -95,12 +95,22 @@ export class TournoCreationService {
     let rounds = [];
 
     for (let i = 0; i < numberOfRounds; i++) {
+
       if (numberOfGames > 1) {
-        let round = i === 0 ? this.createRoundWithPlayers(numberOfGames, chosenPlayers) : this.createRound(numberOfGames);
+        let round;
+
+        if (i === 0) {
+          round = this.createRoundWithPlayers(numberOfGames, chosenPlayers)
+        } else {
+          round = this.createRound(numberOfGames)
+        };
+        console.log(round)
         rounds.push(round);
 
         numberOfGames = numberOfGames / 2;
+
       } else if (numberOfGames === 1) {
+
         let round = this.createRound(1);
         rounds.push(round);
       }
@@ -110,61 +120,58 @@ export class TournoCreationService {
   }
 
   createRoundWithPlayers(numberOfGames, roundCandidates) {
-    let round;
-    let n: number = 1;
+    let round = {
+      games: []
+    };
 
-    for (let i = 0; i < numberOfGames; i++, n++) {
-      let games = [];
-      let game: IGame = this.createGameWithPlayers(roundCandidates[i+n], roundCandidates[i+n+1]);
-
-      games.push(game);
+    for (let i = 0; i < numberOfGames; i++) {
+      let game: IGame = this.createGameWithPlayers(roundCandidates[i + i], roundCandidates[i + i + 1]);
+      round.games.push(game);
     }
+
+    return round;
   }
 
   createRound(numberOfGames) {
-    let round = new Map();
-    let games = [];
+    let round = {
+      games: []
+    };
 
     for (let i = 0; i < numberOfGames; i++) {
       let game: IGame = this.createGame();
-      games.push(game);
+      round.games.push(game);
     }
 
-    round.set('games', games)
     return round;
 
   }
 
   createGameWithPlayers(p1, p2) {
-    let player1 = new Map;
-    player1.set('id', p1);
-    player1.set('points', null);
-
-    let player2 = new Map;
-    player2.set('id', p2);
-    player2.set('points', null);
-
     let game: IGame = {
-      'player1': player1,
-      'player2': player2,
+      'player1': {
+        id: p1.id,
+        points: null
+      },
+      'player2': {
+        id: p2.id,
+        points: null
+      },
     }
 
     return game;
   }
 
   createGame() {
-    let player1 = new Map;
-    player1.set('id', null);
-    player1.set('points', null);
-
-    let player2 = new Map;
-    player2.set('id', null);
-    player2.set('points', null);
 
     let game: IGame = {
-      'player1': player1,
-      'player2': player2,
-      'nextPlayer': null
+      'player1': {
+        id: null,
+        points: null
+      },
+      'player2': {
+        id: null,
+        points: null
+      },
     }
 
     return game;

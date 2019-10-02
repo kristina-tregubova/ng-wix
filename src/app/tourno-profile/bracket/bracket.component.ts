@@ -1,13 +1,11 @@
-import { Component, OnInit, Input, DoCheck } from '@angular/core';
-import { IRound } from 'src/app/tourno-creation/IRound';
-import { ParserService } from 'src/app/shared/parser.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bracket',
   templateUrl: './bracket.component.html',
   styleUrls: ['./bracket.component.scss']
 })
-export class BracketComponent implements DoCheck {
+export class BracketComponent {
 
   @Input() rounds: [];
   @Input() isEditingDisabled: boolean;
@@ -15,9 +13,6 @@ export class BracketComponent implements DoCheck {
 
   constructor() { }
 
-  ngDoCheck() {
-
-  }
 
   defineRoundType(i) {
     let index = i + 1;

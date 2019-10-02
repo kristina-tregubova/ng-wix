@@ -88,6 +88,10 @@ export class TournoCreationComponent implements OnInit {
     this.tournoCreationService.updateDefaultTourno(this.ref, data);
   }
 
+  setIfRandom(val) {
+    this.ifRandom = val;
+  }
+Ï
 
   async checkBeforeSaveTournament(numberRef, ifRandom) {
 
@@ -98,6 +102,7 @@ export class TournoCreationComponent implements OnInit {
 
     let participantsNumber = await this.formGroup.get('formArray').get([2]).get('participants').value;
     let chosenPlayers = await this.handleSeedPlayers(ifRandom);
+    console.log(chosenPlayers)
 
 
     if (+participantsNumber === +chosenPlayers.length) {

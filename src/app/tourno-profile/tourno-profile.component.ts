@@ -10,7 +10,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../shared/popups/delete-popup/delete-popup.component'
 import { IUser } from '../core/models/IUser';
 import { AuthService } from '../core/auth.service';
-import { ParserService } from '../shared/parser.service';
 
 
 @Component({
@@ -48,7 +47,6 @@ export class TournoProfileComponent implements OnInit {
     private tournoService: TournoService,
     private tournoProfileService: TournoProfileService,
     public dialog: MatDialog,
-    private parser: ParserService
   ) {
   }
 
@@ -62,9 +60,8 @@ export class TournoProfileComponent implements OnInit {
         this.ifCreator = this.authService.getUserLogged ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
-        this.rounds = this.parser.parseFrom(val.rounds);
+        this.rounds = val.rounds;
       });
-
   }
 
 
@@ -78,6 +75,7 @@ export class TournoProfileComponent implements OnInit {
 
   handleSubmitBracketEditing() {
     this.isBracketEditingDisabled = true;
+    console.log(this.tourno)
     this.tournoService.updateRounds(this.tourno, this.id);
   }
 

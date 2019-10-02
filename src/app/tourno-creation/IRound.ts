@@ -3,6 +3,12 @@ export interface IRound {
 }
 
 export interface IGame {
-    'player1': Map<string, string|null>;
-    'player2': Map<string, string|null>;
+    player1: {
+        id,
+        points
+    };
+    player2: {
+        id,
+        points
+    };
 }

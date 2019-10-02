@@ -35,8 +35,8 @@
       </div>
 
       <p class="tourno-profile__dates">
-        {{tourno?.startDate | timestampToIso | date: mediumDate }} -
-        {{tourno?.endDate | timestampToIso | date: mediumDate}}
+        {{tourno?.startDate | timestampToIso | date:'mediumDate' }} -
+        {{tourno?.endDate | timestampToIso | date:'mediumDate'}}
       </p>
 
     </div>
