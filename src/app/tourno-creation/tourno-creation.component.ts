@@ -102,7 +102,6 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
 
     let participantsNumber = await this.formGroup.get('formArray').get([2]).get('participants').value;
     let chosenPlayers = await this.handleSeedPlayers(ifRandom);
-    console.log(chosenPlayers)
 
 
     if (+participantsNumber === +chosenPlayers.length) {
@@ -121,6 +120,7 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
     this.saveFormChanges(numberRef);
 
     this.tournoCreationService.updateUserInfo(this.ref);
+    this.tournoCreationService.updateTournoInfoForPlayers(chosenPlayers, this.ref);
 
     // tourno/rounds building methods
     let rounds = this.tournoCreationService.generateBracket(participantsNumber, chosenPlayers);

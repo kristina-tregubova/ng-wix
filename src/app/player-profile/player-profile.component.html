@@ -127,7 +127,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
       </table>
-      <div class='no-team' *ngIf="!dataSource">No team members were specified.
+      <div class='no-team' *ngIf="dataSource?.length === 0">No team members were specified.
       </div>
 
       <button mat-mini-fab aria-label="Add new team member" color="primary" class="add-new-player-btn"

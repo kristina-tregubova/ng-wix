@@ -4,6 +4,7 @@ import { ITourno } from '../core/models/ITourno';
 import { AuthService } from '../core/auth.service';
 import * as firebase from 'firebase';
 import { IGame, IRound } from '../core/models/IRound';
+import { PlayerService } from '../shared/player.service';
 
 
 @Injectable({
@@ -33,6 +34,7 @@ export class TournoCreationService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
+    private playerService: PlayerService
   ) { }
 
   async createDefaultTourno() {
@@ -53,6 +55,21 @@ export class TournoCreationService {
     this.authService.getUserLoggedRef.update({
       createdTournos: firebase.firestore.FieldValue.arrayUnion(ref)
     });
+  }
+
+  updateTournoInfoForPlayers(relatedPlayers: DocumentReference[], ref) {
+
+    const newTournoField = { 
+      isWinner: false, 
+      pointsGained: 0, 
+      tournament: ref 
+    }
+
+    for (let playerRef of relatedPlayers) {
+      playerRef.update({
+        'relatedTournaments': firebase.firestore.FieldValue.arrayUnion(newTournoField)
+      })
+    }
   }
 
   updateRelatedPlayers(val: DocumentReference[], ref) {
