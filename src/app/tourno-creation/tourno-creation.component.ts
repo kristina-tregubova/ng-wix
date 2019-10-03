@@ -4,8 +4,6 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { TournoCreationService } from './tourno-creation.service';
 import { DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import * as firebase from 'firebase';
-import { IRound } from './IRound';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -141,7 +139,7 @@ export class TournoCreationComponent implements OnInit {
 
     if (this.ifDelete) {
       this.ifDelete = window.confirm('Discard changes?')
-      canQuit = this.ifDelete
+      canQuit = this.ifDelete;
     };
 
     if (this.ifDelete) {

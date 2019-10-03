@@ -15,7 +15,7 @@ export class BracketComponent {
 
 
   defineRoundType(i) {
-    let index = i + 1;
+    const index = i + 1;
 
     if (this.rounds.length === index) {
       this.roundType = 'finals';

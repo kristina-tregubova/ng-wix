@@ -1,17 +1,20 @@
-import { Component, OnChanges, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, DoCheck } from '@angular/core';
 import { PlayerService } from 'src/app/shared/player.service';
 import { IPlayer } from 'src/app/core/models/IPlayer';
-import { IGame } from 'src/app/tourno-creation/IRound';
+import { IGame } from 'src/app/core/models/IRound';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
-export class GameComponent implements OnInit, OnChanges {
+export class GameComponent implements OnInit, DoCheck {
 
   @Input() game: IGame;
   @Input() isEditingDisabled: boolean;
+
+  firstId: string;
+  secondId: string;
   firstName: string;
   secondName: string;
 
@@ -26,32 +29,45 @@ export class GameComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
-    if (this.game.player1.id) {
-      this.playerService.getPlayer(this.game.player1.id).subscribe((res: IPlayer) => {
+    this.firstId = this.game.player1.id;
+    this.secondId = this.game.player2.id;
+
+    if (this.firstId) {
+      this.playerService.getPlayer(this.firstId).subscribe((res: IPlayer) => {
         this.firstName = res.name;
       });
     }
-    if (this.game.player2.id) {
-      this.playerService.getPlayer(this.game.player2.id).subscribe((res: IPlayer) => {
+    if (this.secondId) {
+      this.playerService.getPlayer(this.secondId).subscribe((res: IPlayer) => {
         this.secondName = res.name;
       });
     }
   }
 
-  ngOnChanges() {
+  ngDoCheck() {
     this.defineIfWinner();
   }
 
   defineIfWinner() {
-    let res = +this.game.player1.points - +this.game.player2.points;
+    const res = (+this.game.player1.points - +this.game.player2.points) > 0;
 
-    if (res > 0) {
-      this.isFirstWinner = true;
-      this.isSecondWinner = false;
-    } else if (res < 0) {
-      this.isFirstWinner = false;
-      this.isSecondWinner = true;
+    if (this.ifNotEmpty(this.firstName) && this.ifNotEmpty(this.secondName) && this.ifNotEmpty(this.game.player1.points) && this.ifNotEmpty(this.game.player2.points)) {
+
+      if (res) {
+        this.isFirstWinner = true;
+        this.isSecondWinner = false;
+        this.game.gameWinner = this.firstId;
+      } else {
+        this.isFirstWinner = false;
+        this.isSecondWinner = true;
+        this.game.gameWinner = this.secondId;
+
+      }
     }
+  }
+
+  ifNotEmpty(val) {
+    return (val === null || val === undefined) ? false : true;
   }
 
 }

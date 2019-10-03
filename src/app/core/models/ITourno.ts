@@ -1,5 +1,6 @@
 import { DocumentReference } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
+import { IRound } from './IRound';
 
 export interface ITourno {
     'id'?: string;
@@ -16,7 +17,7 @@ export interface ITourno {
     'prize': string;
     'description': string;
     'relatedPlayers': Map<any, any>[];
-    'rounds': [];
+    'rounds': IRound[];
     'userCreated': DocumentReference;
     'userCreatedId'?: string;
 }

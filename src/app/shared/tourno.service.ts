@@ -39,7 +39,7 @@ export class TournoService {
   }
 
   updateField(tourno: ITourno, tournoId: string, field: string) {
-    let updateInfo = {};
+    const updateInfo = {};
     updateInfo['' + field] = tourno[field];
 
     this.afs.collection('tournaments').doc(tournoId).update(
@@ -52,15 +52,16 @@ export class TournoService {
   }
 
   updateRounds(tourno: ITourno, id?: string) {
-    
-    this.afs.collection('tournaments').doc(id).update({ 
-      'rounds': tourno.rounds
+
+    this.afs.collection('tournaments').doc(id).update({
+      rounds: tourno.rounds
     }).then(() => {
       console.log('Document successfully updated!');
     }).catch((error) => {
       console.error('Error updating document: ', error);
     });
   }
+
 
   deleteTourno(tournoId) {
     this.afs.collection('tournaments').doc(tournoId).delete().then(() => {

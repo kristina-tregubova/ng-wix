@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../shared/popups/delete-popup/delete-popup.component'
 import { IUser } from '../core/models/IUser';
 import { AuthService } from '../core/auth.service';
+import { IRound } from '../core/models/IRound';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class TournoProfileComponent implements OnInit {
   backgroundImg: any;
   game: string;
   items$: Observable<IPlayer[]>;
-  rounds: [];
+  rounds: IRound[];
 
   ifCreator: boolean | null;
   isBracketEditingDisabled = true;
@@ -75,10 +76,10 @@ export class TournoProfileComponent implements OnInit {
 
   handleSubmitBracketEditing() {
     this.isBracketEditingDisabled = true;
-    console.log(this.tourno)
+    this.tourno.rounds = this.tournoProfileService.updateRoundsInfo(this.tourno.rounds);
+    console.log(this.tourno.rounds);
     this.tournoService.updateRounds(this.tourno, this.id);
   }
-
 
   handleEnableEditing(type) {
     switch (type) {

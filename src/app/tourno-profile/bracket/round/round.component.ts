@@ -1,12 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { IRound } from 'src/app/tourno-creation/IRound';
+import { Component, Input, OnChanges } from '@angular/core';
+import { IRound } from 'src/app/core/models/IRound';
+import { DocumentReference } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-round',
   templateUrl: './round.component.html',
   styleUrls: ['./round.component.scss']
 })
-export class RoundComponent implements OnInit {
+export class RoundComponent implements OnChanges {
 
   @Input() round: IRound;
   @Input() roundType: string;
@@ -14,8 +15,20 @@ export class RoundComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-      
+  ngOnChanges() {
+      console.log(this.round)
+      this.defineNextRoundCandidates(this.round);
+  }
+
+  defineNextRoundCandidates(round: IRound): void {
+
+    const newNextRoundCandidates: string[]  = [];
+
+    for (const game of round.games) {
+      newNextRoundCandidates.push(game.gameWinner);
+    }
+
+    round.nextRoundCandidates = newNextRoundCandidates;
   }
 
 }

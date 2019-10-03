@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { ITourno } from '../core/models/ITourno';
 import { AuthService } from '../core/auth.service';
-import * as firebase from 'firebase'
-import { IGame, IRound } from './IRound';
+import * as firebase from 'firebase';
+import { IGame, IRound } from '../core/models/IRound';
 
 
 @Injectable({
@@ -40,7 +40,7 @@ export class TournoCreationService {
     const defaultTournoRef = this.afs.collection('tournaments').add(this.defaultTourno)
       .then((docRef) => {
         return docRef;
-      })
+      });
 
     return defaultTournoRef;
   }
@@ -51,27 +51,27 @@ export class TournoCreationService {
 
   updateUserInfo(ref) {
     this.authService.getUserLoggedRef.update({
-      'createdTournos': firebase.firestore.FieldValue.arrayUnion(ref)
-    })
+      createdTournos: firebase.firestore.FieldValue.arrayUnion(ref)
+    });
   }
 
   updateRelatedPlayers(val: DocumentReference[], ref) {
     ref.update({
-      'relatedPlayers': val
-    })
+      relatedPlayers: val
+    });
   }
 
   updateRounds(rounds: IRound[], ref) {
 
     ref.update({
-      'rounds': rounds
-    })
+      rounds
+    });
 
   }
 
   async seedPlayers(ifRandom, ref) {
 
-    let playersArr = await ref.get().then((doc) => {
+    const playersArr = await ref.get().then((doc) => {
       if (doc.exists) {
         return doc.data().relatedPlayers;
       }
@@ -86,13 +86,11 @@ export class TournoCreationService {
 
 
   generateBracket(participantsNumber, chosenPlayers) {
-  
-    console.log(chosenPlayers)
 
     let numberOfRounds = this.defineRoundsNumber(participantsNumber);
     let numberOfGames = this.defineGamesNumber(participantsNumber);
 
-    let rounds = [];
+    const rounds = [];
 
     for (let i = 0; i < numberOfRounds; i++) {
 
@@ -100,18 +98,18 @@ export class TournoCreationService {
         let round;
 
         if (i === 0) {
-          round = this.createRoundWithPlayers(numberOfGames, chosenPlayers)
+          round = this.createRoundWithPlayers(numberOfGames, chosenPlayers);
         } else {
-          round = this.createRound(numberOfGames)
-        };
-        console.log(round)
+          round = this.createRound(numberOfGames);
+        }
+
         rounds.push(round);
 
         numberOfGames = numberOfGames / 2;
 
       } else if (numberOfGames === 1) {
 
-        let round = this.createRound(1);
+        const round = this.createRound(1);
         rounds.push(round);
       }
     }
@@ -120,12 +118,13 @@ export class TournoCreationService {
   }
 
   createRoundWithPlayers(numberOfGames, roundCandidates) {
-    let round = {
-      games: []
+    const round: IRound = {
+      games: [],
+      nextRoundCandidates: [],
     };
 
     for (let i = 0; i < numberOfGames; i++) {
-      let game: IGame = this.createGameWithPlayers(roundCandidates[i + i], roundCandidates[i + i + 1]);
+      const game: IGame = this.createGameWithPlayers(roundCandidates[i + i], roundCandidates[i + i + 1]);
       round.games.push(game);
     }
 
@@ -133,12 +132,13 @@ export class TournoCreationService {
   }
 
   createRound(numberOfGames) {
-    let round = {
-      games: []
+    const round: IRound = {
+      games: [],
+      nextRoundCandidates: []
     };
 
     for (let i = 0; i < numberOfGames; i++) {
-      let game: IGame = this.createGame();
+      const game: IGame = this.createGame();
       round.games.push(game);
     }
 
@@ -147,32 +147,34 @@ export class TournoCreationService {
   }
 
   createGameWithPlayers(p1, p2) {
-    let game: IGame = {
-      'player1': {
+    const game: IGame = {
+      player1: {
         id: p1.id,
         points: null
       },
-      'player2': {
+      player2: {
         id: p2.id,
         points: null
       },
-    }
+      gameWinner: null
+    };
 
     return game;
   }
 
   createGame() {
 
-    let game: IGame = {
-      'player1': {
+    const game: IGame = {
+      player1: {
         id: null,
         points: null
       },
-      'player2': {
+      player2: {
         id: null,
         points: null
       },
-    }
+      gameWinner: null
+    };
 
     return game;
   }
@@ -181,8 +183,8 @@ export class TournoCreationService {
     let k = 0;
     do {
       k++;
-      num = num / 2
-    } while (num !== 1)
+      num = num / 2;
+    } while (num !== 1);
 
     return k;
   }
@@ -199,6 +201,7 @@ export class TournoCreationService {
     });
   }
 
+  // Fisher-Yates shuffle
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
