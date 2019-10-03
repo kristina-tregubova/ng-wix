@@ -1,8 +1,8 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ITourno } from '../core/models/ITourno';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { IPlayer } from '../core/models/IPlayer';
 import { TournoService } from '../shared/tourno.service';
 import { TournoProfileService } from './tourno-profile.service';
@@ -18,7 +18,7 @@ import { IRound } from '../core/models/IRound';
   templateUrl: './tourno-profile.component.html',
   styleUrls: ['./tourno-profile.component.scss']
 })
-export class TournoProfileComponent implements OnInit {
+export class TournoProfileComponent implements OnInit, OnDestroy {
 
   isLogged$: Observable<IUser | null>;
 
@@ -40,6 +40,7 @@ export class TournoProfileComponent implements OnInit {
   isPrizeEditingDisabled = true;
   isEntryFeeEditingDisabled = true;
 
+  sub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,7 +56,7 @@ export class TournoProfileComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.tournoService.getTourno(this.id)
+    this.sub = this.tournoService.getTourno(this.id)
       .subscribe(async (val: ITourno) => {
         this.tourno = val;
         this.ifCreator = this.authService.getUserLogged ? await this.tournoProfileService.checkIfCreator(this.tourno) : null;
@@ -134,5 +135,9 @@ export class TournoProfileComponent implements OnInit {
         itemId: this.id
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

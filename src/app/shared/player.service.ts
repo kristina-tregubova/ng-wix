@@ -20,6 +20,32 @@ export class PlayerService {
     return this.afs.collection('players').doc(id).valueChanges();
   }
 
+  getPlayerGames(relatedTournaments) {
+    return relatedTournaments.length;
+  }
+
+  getPlayerWins(relatedTournaments) {
+    let wins = 0;
+
+    for (let tourno of relatedTournaments) {
+      if (tourno.isWinner) {
+        wins++;
+      }
+    }
+
+    return wins;
+  }
+
+  getPlayerPoints(relatedTournaments) {
+    let points = 0;
+
+    for (let tourno of relatedTournaments) {
+      points += +tourno.pointsGained;
+    }
+
+    return points;
+  }
+
   getPlayerLogo(ref) {
     return firebase.storage().refFromURL(ref);
   }
@@ -72,6 +98,23 @@ export class PlayerService {
     });
   }
 
+  updatePlayerInfo(player) {
+
+    if (player.relatedTournaments.length !== 0) {
+      const games = this.getPlayerGames(player.relatedTournaments);
+      const wins = this.getPlayerWins(player.relatedTournaments);
+      const points = this.getPlayerPoints(player.relatedTournaments);
+
+      this.afs.collection('players').doc(player.id).update({
+        games,
+        wins,
+        points
+      })
+    }
+
+
+  }
+
   deletePlayer(playerId: string) {
     this.afs.collection('players').doc(playerId).delete().then(() => {
       console.log('Document successfully deleted!');
@@ -79,4 +122,5 @@ export class PlayerService {
       console.error('Error removing document: ', error);
     });
   }
+
 }

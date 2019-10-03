@@ -35,6 +35,8 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
     if (this.authService.isUserLogged) {
       this.showFavorites();
     }
+
+    this.playerService.updatePlayerInfo(this.item);
   }
 
   showFavorites() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ITourno } from '../core/models/ITourno';
@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../shared/popups/delete-popup/delete-popup.component'
 import { AuthService } from '../core/auth.service';
 import { IUser } from '../core/models/IUser';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { FileUploadPopupComponent } from '../shared/popups/file-upload-popup/file-upload-popup.component';
 
 
@@ -18,7 +18,7 @@ import { FileUploadPopupComponent } from '../shared/popups/file-upload-popup/fil
   templateUrl: './player-profile.component.html',
   styleUrls: ['./player-profile.component.scss']
 })
-export class PlayerProfileComponent implements OnInit {
+export class PlayerProfileComponent implements OnInit, OnDestroy {
 
   isLogged$: Observable<IUser | null>;
 
@@ -38,6 +38,8 @@ export class PlayerProfileComponent implements OnInit {
   isNameEditingDisabled = true;
   isTeamEditingDisabled = true;
 
+  sub: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
@@ -52,13 +54,14 @@ export class PlayerProfileComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.isLogged$ = this.authService.userLoggedSubject$;
 
-    this.playerService.getPlayer(this.id)
+    this.sub = this.playerService.getPlayer(this.id)
       .subscribe(async (val: IPlayer) => {
         this.player = val;
         this.ifCreator = this.authService.getUserLogged ? await this.playerProfileService.checkIfCreator(this.player) : null;
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.dataSource = val.team;
         this.items = this.playerService.getTournamentsAttended(val);
+        this.playerService.updatePlayerInfo(val);
       });
   }
 
@@ -109,6 +112,10 @@ export class PlayerProfileComponent implements OnInit {
         Id: this.id
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }
