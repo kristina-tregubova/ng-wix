@@ -46,6 +46,16 @@
     .game.odd {
       margin-bottom: 0;
     }
+    .winner {
+      position: relative;
+    }
+    .winner::before {
+      content: "🏅";
+      top: 8px;
+      right: 8px;
+      position: absolute;
+      font-size: 22px;
+    }
   }
 }
 
