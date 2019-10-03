@@ -11,7 +11,6 @@ export interface IPlayer {
     'userCreatedId'?: string;
     'relatedTournaments': Map<any, any>[];
     'team': any[] | null;
-    'points': number;
     'wins': number;
     'games': number;
     'logoRef': DocumentReference | string;

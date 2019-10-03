@@ -18,7 +18,6 @@ export class CreateNewPlayerPopupService {
     userCreated: null,
     relatedTournaments: [],
     team: [],
-    points: 0,
     wins: 0,
     games: 0,
     logoRef: './assets/images/avatars/avatar.svg',

@@ -36,16 +36,6 @@ export class PlayerService {
     return wins;
   }
 
-  getPlayerPoints(relatedTournaments) {
-    let points = 0;
-
-    for (let tourno of relatedTournaments) {
-      points += +tourno.pointsGained;
-    }
-
-    return points;
-  }
-
   getPlayerLogo(ref) {
     return firebase.storage().refFromURL(ref);
   }
@@ -103,12 +93,10 @@ export class PlayerService {
     if (player.relatedTournaments.length !== 0) {
       const games = this.getPlayerGames(player.relatedTournaments);
       const wins = this.getPlayerWins(player.relatedTournaments);
-      const points = this.getPlayerPoints(player.relatedTournaments);
 
       this.afs.collection('players').doc(player.id).update({
         games,
         wins,
-        points
       })
     }
 

@@ -16,7 +16,6 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
   @Input() item: IPlayer;
   @Input() showBtns: boolean = true;
   
-  points: number;
   games: number;
   wins: number;
 
