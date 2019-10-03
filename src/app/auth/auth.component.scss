@@ -13,20 +13,20 @@
 }
 
 .mat-tab-group {
-  min-height: 850px;
+  margin-top: 10%;
+  min-height: 700px;
 }
 
 .title {
-  margin: 8% 0;
+  margin: 8% 0 12%;
 }
-
 
 .login-form__social-buttons {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 5%;
 }
 
 .social-button {
@@ -129,7 +129,7 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 750px) {
   .social-button {
     font-size: 1rem;
     text-align: center;
@@ -143,6 +143,7 @@
 }
 
 @media screen and (max-width: 670px) {
+
   .login-form__tab .title {
     font-size: 1.7rem;
   }
@@ -153,5 +154,9 @@
   .container-center {
     width: 90vw;
     max-width: 90vw;
+  }
+
+  .login-form__social-buttons {
+    margin-bottom: 10%;
   }
 }

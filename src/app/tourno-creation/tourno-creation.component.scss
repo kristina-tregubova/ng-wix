@@ -1,80 +1,82 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 .container-center {
-    width: 90%;
-    max-width: 1200px;
-    margin-bottom: 5%;
-  }
+  width: 90%;
+  max-width: 1200px;
+  margin-bottom: 5%;
+}
 
-  ::ng-deep .mat-stepper-vertical {
-    background-color: $wix-background !important;
-  }
-  
-  .tourno-creation__step {
-    padding: 0 10% 3% 5%;
-    margin-bottom: 5%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "content";
-    background-color: $wix-dark-background;
-  }
-  
-  .tourno-creation__step-title {
-    grid-area: header;
-    border-bottom: 1px solid $light-dividers;
-  }
-  
-  .tourno-creation__step-subtitle {
-    margin-bottom: 0;
-  }
-  
-  .tourno-creation__step-description {
-    font-size: 0.95em;
-    font-style: oblique;
-  }
-  
-  .tourno-creation__step {
-    margin-top: 3%;
-  }
+::ng-deep .mat-stepper-vertical {
+  background-color: $wix-background !important;
+}
 
+.tourno-creation__step {
+  padding: 0 10% 3% 5%;
+  margin-bottom: 5%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "content";
+  background-color: $wix-dark-background;
+}
+
+.tourno-creation__step-title {
+  grid-area: header;
+  border-bottom: 1px solid $light-dividers;
+}
+
+.tourno-creation__step-subtitle {
+  margin-bottom: 0;
+}
+
+.tourno-creation__step-description {
+  font-size: 0.95em;
+  font-style: oblique;
+}
+
+.tourno-creation__step {
+  margin-top: 3%;
+}
+
+.tourno-creation__step-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-row-gap: 12px;
+  grid-area: content;
+}
+
+.stepper-navigation-btns button {
+  margin-right: 3%;
+}
+
+.seed-randomly-checkbox label {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.tourno-creation__step-content_add-player {
+  grid-template-columns: 1fr;
+}
+
+.tourno-creation__submit-btn {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 600px) {
   .tourno-creation__step-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-row-gap: 8px;
-    grid-area: content;
+    grid-template-columns: 1fr;
+    grid-row-gap: 18px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .tourno-creation__step-content {
+    grid-row-gap: 25px;
   }
 
-  .stepper-navigation-btns button {
-    margin-right: 3%;
-  }
-  
-  .seed-randomly-checkbox label {
-    font-size: 1.2em;
-    font-weight: bold;
-  }
-  
-  .tourno-creation__step-content_add-player {
-    grid-template-columns: 1fr;
-  }
-  
   .tourno-creation__submit-btn {
-    margin-left: auto;
+    margin-top: 7%;
   }
-  
-  @media screen and (max-width: 600px) {
-    .tourno-creation__step-content {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  @media screen and (max-width: 450px) {
-    .tourno-creation__step-content {
-      grid-row-gap: 15px;
-    }
-  
-    .tourno-creation__submit-btn {
-      margin-top: 7%;
-    }
-  }
+
+}

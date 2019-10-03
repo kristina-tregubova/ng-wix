@@ -16,7 +16,7 @@ export interface ITourno {
     'entryFee': string;
     'prize': string;
     'description': string;
-    'relatedPlayers': Map<any, any>[];
+    'relatedPlayers': DocumentReference[];
     'rounds': IRound[];
     'userCreated': DocumentReference;
     'userCreatedId'?: string;

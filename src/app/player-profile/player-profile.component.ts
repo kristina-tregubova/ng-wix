@@ -88,7 +88,6 @@ export class PlayerProfileComponent implements OnInit {
 
   handleAddTeamMember() {
     this.playerService.addTeamMember(this.player, this.id);
-    console.log('tick')
   }
 
   handleOpenDeletePopup() {
@@ -96,17 +95,18 @@ export class PlayerProfileComponent implements OnInit {
       width: '450px',
       data: {
         collectionName: 'players',
-        item: this.id
+        itemId: this.id
       }
     });
   }
 
   handleOpenFileUploadPopup() {
+    console.log(this.id)
     this.dialog.open(FileUploadPopupComponent, {
       width: '450px',
       data: {
         storageName: 'players-logos/',
-        playerId: this.id
+        Id: this.id
       }
     });
   }

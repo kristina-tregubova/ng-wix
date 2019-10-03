@@ -16,7 +16,7 @@ export class CreateNewPlayerPopupComponent implements OnInit {
   ref: DocumentReference;
 
   name: string;
-  playerType: string;
+  country: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -40,8 +40,8 @@ export class CreateNewPlayerPopupComponent implements OnInit {
     const data = {
       'id': this.ref.id,
       'name': this.name,
-      'playerType': this.playerType,
-      'country': this.data.country,
+      'playerType': this.data.playerType,
+      'country': this.country,
       'game': this.data.game,
       'userCreated': this.authService.getUserLoggedRef,
     }

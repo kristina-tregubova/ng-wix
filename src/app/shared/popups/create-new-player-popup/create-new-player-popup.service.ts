@@ -17,7 +17,7 @@ export class CreateNewPlayerPopupService {
     country: null,
     userCreated: null,
     relatedTournaments: null,
-    team: null,
+    team: [],
     points: 0,
     wins: 0,
     games: 0,

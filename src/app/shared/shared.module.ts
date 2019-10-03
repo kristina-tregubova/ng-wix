@@ -14,6 +14,7 @@ import { ErrorAreaComponent } from './error-area/error-area.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
 import { CurrentPlayersComponent } from './add-player/current-players/current-players.component';
+import { NullToDashPipe } from './pipes/null-to-dash.pipe';
 
 import {
   MatButtonModule,
@@ -51,6 +52,7 @@ import {
     LoadingSpinnerComponent,
     TimestampToIsoPipe,
     CurrentPlayersComponent,
+    NullToDashPipe,
 
   ],
   imports: [
@@ -108,6 +110,7 @@ import {
     ErrorAreaComponent,
     LoadingSpinnerComponent,
     TimestampToIsoPipe,
+    NullToDashPipe
 
   ]
 })

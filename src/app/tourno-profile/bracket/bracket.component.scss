@@ -6,7 +6,7 @@
   justify-content: center;
   position: relative;
   white-space: nowrap;
-  margin: 5% 0 10%;
+  margin: 5% 0 7%;
   cursor: move;
 }
 
@@ -24,14 +24,13 @@
     .game {
       margin-bottom: 9rem;
     }
-
     .game:first-of-type {
       margin-top: 6rem;
     }
   }
 
   //only in case quarterfinals are preceeding
-  &.quarterfinals > &.semifinals {
+  &.quarterfinals ~ &.semifinals {
     .game.even {
       margin-bottom: 24rem;
     }

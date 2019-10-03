@@ -399,3 +399,22 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+// stepper
+@media screen and (max-width: 450px) {
+
+  // adjust mat-stepper for small screens
+  .mat-vertical-content-container {
+    margin-left: 0 !important;
+  }
+  .mat-vertical-content {
+    padding: 0 !important;
+  }
+  .mat-vertical-stepper-header {
+    padding-left: 0 !important;
+  }
+
+  .mat-stepper-vertical-line::before {
+    content: none !important;
+  }
+}

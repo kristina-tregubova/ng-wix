@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TournoService } from '../../tourno.service';
@@ -10,7 +10,7 @@ import { PlayerService } from '../../player.service';
   templateUrl: './delete-popup.component.html',
   styleUrls: ['./delete-popup.component.scss']
 })
-export class DeletePopupComponent  {
+export class DeletePopupComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -24,15 +24,16 @@ export class DeletePopupComponent  {
     switch (this.data.collectionName) {
       case 'tournaments':
         this.tournoService.deleteTourno(this.data.itemId);
+        this.dialogRef.close();
+        this.router.navigate(['/tournos-search']);
         break;
 
       case 'players':
         this.playerService.deletePlayer(this.data.itemId);
+        this.dialogRef.close();
+        this.router.navigate(['/players-search']);
         break;
     }
-
-    this.dialogRef.close();
-    this.router.navigate(['/tournos-search']);
   }
 
   handleClosingPopup() {

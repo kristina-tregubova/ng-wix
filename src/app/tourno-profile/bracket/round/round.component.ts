@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, DoCheck } from '@angular/core';
 import { IRound } from 'src/app/core/models/IRound';
 import { DocumentReference } from '@angular/fire/firestore';
 
@@ -7,7 +7,7 @@ import { DocumentReference } from '@angular/fire/firestore';
   templateUrl: './round.component.html',
   styleUrls: ['./round.component.scss']
 })
-export class RoundComponent implements OnChanges {
+export class RoundComponent implements DoCheck {
 
   @Input() round: IRound;
   @Input() roundType: string;
@@ -15,7 +15,7 @@ export class RoundComponent implements OnChanges {
 
   constructor() { }
 
-  ngOnChanges() {
+  ngDoCheck() {
       this.defineNextRoundCandidates(this.round);
   }
 

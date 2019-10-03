@@ -14,6 +14,14 @@
   transform: none;
 }
 
+.no-player {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 10%;
+}
+
 @media screen and (max-width: 500px) {
 
   .current-players .row {

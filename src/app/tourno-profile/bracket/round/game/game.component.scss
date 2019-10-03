@@ -10,8 +10,8 @@
     color: #fff;
     border-left: 0.25rem solid $wix-color;
     background: $wix-light-foreground;
-    width: 20vw;
-    max-width: 240px;
+    // width: 20vw;
+    // max-width: 240px;
     height: 3rem;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
     border-bottom: thin solid $wix-color;
@@ -64,11 +64,11 @@
     justify-content: space-around;
 
     .participant {
-      width: 100%;
+      min-width: 160px;
       border-bottom: none !important;
     }
-    .participant:not(:first-child) {
-      margin-left: 2%;
+    .participant:first-child {
+      margin-right: 5%;
     }
   }
 }

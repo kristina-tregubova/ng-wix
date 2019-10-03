@@ -21,7 +21,7 @@
         <h2 class="tourno-profile__header-title" *ngIf="isNameEditingDisabled">
           {{tourno?.name}}
         </h2>
-        <input class="tourno-profile__header-title" [(ngModel)]="tourno.name" *ngIf="!isNameEditingDisabled" max="30">
+        <input class="tourno-profile__header-title" [(ngModel)]="tourno.name" *ngIf="!isNameEditingDisabled" min="3" max="30">
 
         <button mat-icon-button aria-label="Edit profile" сlass="edit-btn" (click)="handleEnableEditing('name')"
           *ngIf="isNameEditingDisabled && ifCreator" [ngStyle]="{'vertical-align': 'text-bottom'}">

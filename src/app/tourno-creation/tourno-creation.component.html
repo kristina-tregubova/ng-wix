@@ -26,7 +26,7 @@
               <label> Tournament type: </label>
               <mat-radio-group formControlName="tournamentType">
                 <mat-radio-button value="single-elimination">Single-elimination tournament</mat-radio-button>
-                <mat-radio-button value="double-elimination">Double-elimination tournament</mat-radio-button>
+                <mat-radio-button value="double-elimination" [disabled]="true">Double-elimination tournament</mat-radio-button>
               </mat-radio-group>
 
 
@@ -101,7 +101,7 @@
 
 
         <mat-step formGroupName="1" [stepControl]="formArray?.get([1])" errorMessage="Fill out all required fields">
-          <ng-template matStepLabel>Fill out tournament's orga information</ng-template>
+          <ng-template matStepLabel>Fill out tournament's org information</ng-template>
 
           <section class="tourno-creation__step">
             <h3 class="tourno-creation__step-title">
@@ -112,27 +112,27 @@
               <label for="start-date"> Start date: </label>
               <mat-form-field>
                 <input matInput [matDatepicker]="startDate" placeholder="Start date" formControlName="startDate"
-                  required>
+                [disabled]="true">
                 <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
-                <mat-datepicker #startDate></mat-datepicker>
+                <mat-datepicker #startDate [disabled]='false'></mat-datepicker>
               </mat-form-field>
 
               <label for="end-date"> End date: </label>
               <mat-form-field>
-                <input matInput [matDatepicker]="endDate" placeholder="End date" formControlName="endDate" required>
+                <input matInput [matDatepicker]="endDate" placeholder="End date" formControlName="endDate" [disabled]="true">
                 <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
-                <mat-datepicker #endDate></mat-datepicker>
+                <mat-datepicker #endDate [disabled]='false'></mat-datepicker>
               </mat-form-field>
 
               <label> Entry Fee: </label>
               <mat-form-field class="form-input">
-                <input matInput formControlName="entryFee" required>
+                <input matInput formControlName="entryFee">
                 <mat-icon matSuffix>money</mat-icon>
               </mat-form-field>
 
               <label> Prize: </label>
               <mat-form-field class="form-input">
-                <input matInput formControlName="prize" required>
+                <input matInput formControlName="prize">
                 <mat-icon matSuffix>stars</mat-icon>
               </mat-form-field>
             </div>

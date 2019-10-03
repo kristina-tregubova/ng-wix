@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Validators, FormGroup, FormBuilder, AbstractControl } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { TournoCreationService } from './tourno-creation.service';
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
     provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true }
   }]
 })
-export class TournoCreationComponent implements OnInit {
+export class TournoCreationComponent implements OnInit, OnDestroy {
   // CanComponentDeactivate
 
   ref: DocumentReference;
@@ -147,7 +147,15 @@ export class TournoCreationComponent implements OnInit {
       canQuit = true;
     }
 
+    console.log(canQuit)
+
     return canQuit;
+  }
+
+  ngOnDestroy() {
+    if (this.ifDelete) {
+      this.cancelTournoCreation();
+    }
   }
 
 }

@@ -1,11 +1,13 @@
 <div class="current-players players-list">
-    <div class="row" *ngFor="let currentPlayer of currentPlayers$ | async">
+    <div class="row" *ngFor="let currentPlayer of currentPlayers$ | async as currentPlayers">
 
         <app-player-card [item]="currentPlayer" [showBtns]="false"></app-player-card>
 
         <button mat-icon-button aria-label="Remove player" сlass="delete-player-btn btn" (click)="handleRemoveChosenPlayers(currentPlayer)">
             <mat-icon>clear</mat-icon>
         </button>
+
+        <div class='no-player' *ngIf="currentPlayers.length === 0">No players have been specified yet</div>
 
     </div>
 </div>

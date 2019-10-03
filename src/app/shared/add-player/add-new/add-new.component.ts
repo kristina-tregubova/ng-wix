@@ -27,7 +27,7 @@ export class AddNewComponent implements OnInit {
       width: '450px',
       data: {
         'game': this.tournoInfo.game,
-        'country': this.tournoInfo.country
+        'playerType': this.tournoInfo.playerType
       }
     });
 

@@ -5,7 +5,7 @@ input {
   background-color: $wix-light-foreground;
   border: none;
   border-radius: 5px;
-  min-width: 170px;
+  min-width: 150px;
   max-width: 250px;
   color: $wix-color;
 
@@ -187,5 +187,9 @@ input {
     grid-template-columns: 5% 90%;
     grid-column-gap: 5%;
     margin-bottom: 7%;
+  }
+
+  .player-profile__details input {
+    min-width: 40px;
   }
 }

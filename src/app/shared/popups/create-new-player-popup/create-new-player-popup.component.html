@@ -11,11 +11,31 @@
         <mat-form-field>
             <input matInput [(ngModel)]="name">
         </mat-form-field>
-        <label> Player type: </label>
-        <mat-radio-group [(ngModel)]="playerType">
-            <mat-radio-button value="single">Single</mat-radio-button>
-            <mat-radio-button value="team">Team</mat-radio-button>
-        </mat-radio-group>
+        <label>Country</label>
+        <mat-form-field>
+            <mat-select [(ngModel)]="country">
+
+                <mat-option value="russia">
+                    Russia
+                </mat-option>
+                <mat-option value="usa">
+                    USA
+                </mat-option>
+                <mat-option value="germany">
+                    Germany
+                </mat-option>
+                <mat-option value="england">
+                    England
+                </mat-option>
+                <mat-option value="france">
+                    France
+                </mat-option>
+                <mat-option value="ukraine">
+                    Ukraine
+                </mat-option>
+
+            </mat-select>
+        </mat-form-field>
     </div>
 </div>
 
