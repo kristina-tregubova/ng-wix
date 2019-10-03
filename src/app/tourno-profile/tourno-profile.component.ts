@@ -77,7 +77,6 @@ export class TournoProfileComponent implements OnInit {
   handleSubmitBracketEditing() {
     this.isBracketEditingDisabled = true;
     this.tourno.rounds = this.tournoProfileService.updateRoundsInfo(this.tourno.rounds);
-    console.log(this.tourno.rounds);
     this.tournoService.updateRounds(this.tourno, this.id);
   }
 

@@ -16,7 +16,6 @@ export class RoundComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-      console.log(this.round)
       this.defineNextRoundCandidates(this.round);
   }
 
