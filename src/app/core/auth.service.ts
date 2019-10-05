@@ -129,18 +129,23 @@ export class AuthService {
 
   signup(value) {
     if (!this.isUserLogged) {
-      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+
+      const res = firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
         .then((credential) => {
           this.updateUserData(credential.user);
+          this.messageSource$.next(null);
+          return true;
         })
         .catch((err) => {
           console.log(err);
           this.messageSource$.next(err);
+          return false
         });
-      this.messageSource$.next(null);
-      return true;
+        
+      return res;
     } else {
       this.messageSource$.next('You are already signed in. Log out first and try again');
+      return false;
     }
   }
 

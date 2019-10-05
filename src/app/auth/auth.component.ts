@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -13,7 +13,7 @@ import { SuccessPopupComponent } from '../shared/popups/success-popup/success-po
 })
 export class AuthComponent {
 
-  successMessage: string = '';
+  resultMessage: string;
 
   constructor(
     public authService: AuthService,
@@ -33,6 +33,13 @@ export class AuthComponent {
     email: new FormControl(''),
     password: new FormControl('')
   });
+
+  // ngOnInit() {
+  //   this.authService.errorMessage$.subscribe((res) => {
+  //     this.resultMessage = res;
+  //     console.log(res)
+  //   })
+  // }
 
   async trySignup(value) {
     const result = await this.authService.signup(value);
