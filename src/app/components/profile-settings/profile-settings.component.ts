@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth.service';
+import { MatDialog } from '@angular/material';
+import { DeletePopupComponent } from 'src/app/shared/popups/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-profile-settings',
@@ -13,7 +15,8 @@ export class ProfileSettingsComponent implements OnInit {
   ifHidePassChange: boolean
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    public dialog: MatDialog
   ) {
     this.myForm = new FormGroup({
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -36,6 +39,16 @@ export class ProfileSettingsComponent implements OnInit {
 
   handleUpdatePassword() {
     this.auth.updatePassword(this.myForm.get('password').value);
+  }
+
+  handleOpenDeletePopup() {
+    this.dialog.open(DeletePopupComponent, {
+      width: '450px',
+      data: {
+        collectionName: 'users',
+        itemId: null
+      }
+    });
   }
 }
 

@@ -1,9 +1,9 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 .container-center {
-    width: 90%;
-    max-width: 960px;
-    margin-bottom: 5%;
+  width: 90%;
+  max-width: 960px;
+  margin-bottom: 5%;
 }
 
 .form-input input,
@@ -12,74 +12,81 @@
 }
 
 .profile-settings__step {
-    margin-top: 50px;
-    padding: 0 10% 10% 5%;
-    margin-bottom: 80px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
+  margin-top: 50px;
+  padding: 0 10% 10% 5%;
+  margin-bottom: 80px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
     "header"
     "content";
-    grid-column-gap: 10%;
-    grid-row-gap: 4%;
-    background-color: $wix-dark-background;
+  grid-column-gap: 10%;
+  grid-row-gap: 4%;
+  background-color: $wix-dark-background;
 }
 
 .profile-settings__step-title {
-    grid-area: header;
-    border-bottom: 1px solid $light-dividers;
+  grid-area: header;
+  border-bottom: 1px solid $light-dividers;
 }
 
 .profile-settings__step-content {
-    display: grid;
-    grid-template-areas: 1fr 2fr;
-    grid-row-gap: 8px;
-    grid-area: content;
+  display: grid;
+  grid-template-areas: 1fr 2fr;
+  grid-row-gap: 8px;
+  grid-area: content;
 }
 
-
 .profile-settings__submit-btn {
-    width: 40%;
-    margin-left: 60%;
-    margin-top: 3%;
+  width: 40%;
+  margin-left: 60%;
+  margin-top: 3%;
 }
 
 .warning {
-    display: block;
-    width: 99.9%;
-    height: 60px;
-    color: $wix-primary;
+  display: block;
+  width: 99.9%;
+  height: 60px;
+  color: $wix-primary;
+}
+
+.delete-user-btn {
+  margin-top: 4%;
+  width: 40%;
+  margin-left: auto;
 }
 
 @media screen and (max-width: 600px) {
+  .profile-settings__step {
+    padding: 0 10% 28% 5%;
+  }
 
-    .profile-settings__step {
-        padding: 0 10% 28% 5%;
-    }
+  .profile-settings__step-content {
+    grid-template-columns: 1fr;
+  }
 
-    .profile-settings__step-content {
-        grid-template-columns: 1fr;
-    }
+  .profile-settings__submit-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 7%;
+  }
 
-    .profile-settings__submit-btn {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 7%;
-    }
+  .warning {
+    margin-bottom: 7%;
+  }
 
-    .warning {
-        margin-bottom: 7%;
-    }
+  .delete-user-btn {
+    margin-top: 10%;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 450px) {
+  .profile-settings__step-content {
+    grid-row-gap: 15px;
+  }
 
-    .profile-settings__step-content {
-        grid-row-gap: 15px;
-    }
-
-    .profile-settings__submit-btn {
-        margin-top: 7%;
-    }
-
+  .profile-settings__submit-btn {
+    margin-top: 7%;
+  }
 }

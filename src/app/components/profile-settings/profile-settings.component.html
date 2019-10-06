@@ -10,12 +10,7 @@
 
                     <label for="new-pass1">New password:</label>
                     <mat-form-field class="form-input">
-                        <input 
-                            type="password"
-                            matInput 
-                            placeholder="Password" 
-                            formControlName="password"
-                            required>
+                        <input type="password" matInput placeholder="Password" formControlName="password" required>
                         <mat-icon matSuffix>vpn_key</mat-icon>
                         <mat-error *ngIf="myForm.get('password').hasError('minlength')">
                             Password must contain at least 8 characters
@@ -24,11 +19,7 @@
 
                     <label for="new-pass2">Repeat new password:</label>
                     <mat-form-field class="form-input">
-                        <input
-                            type="password"
-                            matInput 
-                            placeholder="Password again"
-                            formControlName="confirmPassword">
+                        <input type="password" matInput placeholder="Password again" formControlName="confirmPassword">
                         <mat-icon matSuffix>vpn_key</mat-icon>
                         <mat-error>
                             Passwords do not match
@@ -40,12 +31,8 @@
                     You are logged in via social media. Changing password is not supported in this case.
                 </div>
 
-                <button 
-                    mat-raised-button 
-                    type="submit" 
-                    name="submit"
-                    class="profile-settings__submit-btn btn highlighted-btn"
-                    (click)="handleUpdatePassword()"
+                <button mat-raised-button type="submit" name="submit"
+                    class="profile-settings__submit-btn btn highlighted-btn" (click)="handleUpdatePassword()"
                     [disabled]="ifHidePassChange">
                     Submit changes
                 </button>
@@ -73,5 +60,20 @@
                 </button>
             </div>
         </form>
+        <section class="profile-settings">
+            <div class="profile-settings__step">
+                <h2 class="title">
+                    Delete account
+                </h2>
+                <p class="profile-settings__description">
+                    Once you delete your account, there is no going back. Please be certain.
+                </p>
+
+                <button mat-raised-button color="warn" class="delete-user-btn btn hightlighted-btn btn_delete"
+                    (click)="handleOpenDeletePopup()">
+                    Delete my account
+                </button>
+            </div>
+        </section>
     </div>
 </div>

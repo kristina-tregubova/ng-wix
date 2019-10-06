@@ -187,4 +187,22 @@ export class AuthService {
     return (firebase.auth().currentUser.providerData[0].providerId === 'facebook.com' ||
     firebase.auth().currentUser.providerData[0].providerId === 'google.com') ? true : false;
   }
+
+  deleteUser(user) {
+    this.afs.doc('users/' + user.uid).delete().then(() => {
+      console.log('Account is deleted from the database')
+    })
+    .catch((err) => {
+      console.log('Could not delete user from database')
+      console.error(err)
+    });
+    user.delete().then(() => {
+      console.log('Account successfully deleted');
+    })
+    .catch((err) => {
+      console.log('Some problem occured, try again later');
+      console.error(err);
+    })
+    
+  }
 }

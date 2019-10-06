@@ -4,6 +4,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TournoService } from '../../services/tourno.service';
 import { PlayerService } from '../../services/player.service';
+import * as firebase from 'firebase'
+import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-success-popup',
@@ -17,7 +19,8 @@ export class DeletePopupComponent {
     public dialogRef: MatDialogRef<DeletePopupComponent>,
     private router: Router,
     private tournoService: TournoService,
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    private auth: AuthService
   ) { }
 
   handleDeletion() {
@@ -33,6 +36,10 @@ export class DeletePopupComponent {
         this.dialogRef.close();
         this.router.navigate(['/players-search']);
         break;
+      case 'users':
+        this.auth.deleteUser(firebase.auth().currentUser);
+        this.dialogRef.close();
+        this.router.navigate(['/main']);
     }
   }
 
