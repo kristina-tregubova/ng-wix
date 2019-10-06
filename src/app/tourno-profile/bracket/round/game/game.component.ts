@@ -2,6 +2,7 @@ import { Component, Input, OnInit, DoCheck } from '@angular/core';
 import { PlayerService } from 'src/app/shared/player.service';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { IGame } from 'src/app/core/models/IRound';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -12,6 +13,9 @@ export class GameComponent implements OnInit, DoCheck {
 
   @Input() game: IGame;
   @Input() isEditingDisabled: boolean;
+  @Input() last: boolean;
+
+  tournoId: string;
 
   firstId: string;
   secondId: string;
@@ -24,10 +28,13 @@ export class GameComponent implements OnInit, DoCheck {
 
 
   constructor(
+    private route: ActivatedRoute,
     private playerService: PlayerService
   ) { }
 
   ngOnInit() {
+
+    this.tournoId = this.route.snapshot.paramMap.get('id');
 
     this.firstId = this.game.player1.id;
     this.secondId = this.game.player2.id;
@@ -42,6 +49,8 @@ export class GameComponent implements OnInit, DoCheck {
         this.secondName = res.name;
       });
     }
+
+    console.log(this.last)
   }
 
   ngDoCheck() {
@@ -57,12 +66,19 @@ export class GameComponent implements OnInit, DoCheck {
         this.isFirstWinner = true;
         this.isSecondWinner = false;
         this.game.gameWinner = this.firstId;
+        // this.setTournoWinner();
       } else {
         this.isFirstWinner = false;
         this.isSecondWinner = true;
         this.game.gameWinner = this.secondId;
-
+        // this.setTournoWinner();
       }
+    }
+  }
+
+  setTournoWinner() {
+    if (this.last) {
+      this.playerService.updateTournoWinner(this.game.gameWinner, this.tournoId);
     }
   }
 

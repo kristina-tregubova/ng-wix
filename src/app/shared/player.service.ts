@@ -99,8 +99,24 @@ export class PlayerService {
         wins,
       })
     }
+  }
 
+  updateTournoWinner(playerId, tournoId) {
+    let relatedTournos;
 
+    this.afs.collection('players').doc(playerId).valueChanges().subscribe((val) => {
+      relatedTournos = val;
+    });
+
+    relatedTournos.map((el) => {
+      if (el.tournament.id === tournoId) {
+        el.isWinner = true;
+      };
+    });
+
+    this.afs.collection('players').doc(playerId).update({
+      relatedTournaments: relatedTournos
+    });
   }
 
   deletePlayer(playerId: string) {

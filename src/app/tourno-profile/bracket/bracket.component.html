@@ -1,11 +1,12 @@
 <div class="bracket" *ngIf="rounds">
   <app-round 
-    *ngFor="let round of rounds; let i = index;" 
+    *ngFor="let round of rounds; let i = index; let last = last" 
     [round]='round' 
     [isEditingDisabled]='isEditingDisabled'
     [roundType]="roundType" 
     class="round"
     [ngClass]="defineRoundType(i)"
+    [last]="last"
     >
   </app-round>
 </div>

@@ -12,6 +12,7 @@ export class RoundComponent implements DoCheck {
   @Input() round: IRound;
   @Input() roundType: string;
   @Input() isEditingDisabled: boolean;
+  @Input() last: boolean;
 
   constructor() { }
 
