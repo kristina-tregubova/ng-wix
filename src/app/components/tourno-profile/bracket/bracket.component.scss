@@ -24,17 +24,17 @@
     .game {
       margin-bottom: 9rem;
     }
-    .game:first-of-type {
-      margin-top: 6rem;
-    }
+    // .game:first-of-type {
+    //   // margin-top: 6rem;
+    // }
   }
 
-  //only in case quarterfinals are preceeding
-  &.quarterfinals ~ &.semifinals {
-    .game.even {
-      margin-bottom: 24rem;
-    }
-  }
+  //only in case quarterfinals are preceeding --> Will implement later
+  // &.quarterfinals ~ &.semifinals {
+  //   .game.even {
+  //     margin-bottom: 24rem;
+  //   }
+  // }
 
   &.semifinals {
     .game.even {
@@ -52,7 +52,7 @@
     .winner::before {
       content: "🏅";
       top: 8px;
-      right: 8px;
+      right: 35px;
       position: absolute;
       font-size: 22px;
     }

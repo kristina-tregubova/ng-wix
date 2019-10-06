@@ -46,6 +46,8 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
   gameWinner: string;
   gameLoser: string;
 
+  ifFinished = false;
+
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
@@ -68,6 +70,7 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
         this.rounds = val.rounds;
+        this.ifFinished = val.status === 'completed' ? true : false;
       });
   }
 
@@ -83,9 +86,16 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
   handleSubmitBracketEditing() {
     this.isBracketEditingDisabled = true;
     this.tourno.rounds = this.tournoProfileService.updateRoundsInfo(this.tourno.rounds);
+    this.tournoService.updateTournoStatus(this.id, 'in progress');
     this.playerService.updateTournoWinner(this.gameWinner, this.id);
     this.playerService.updateTournoLoser(this.gameLoser, this.id);
     this.tournoService.updateRounds(this.tourno, this.id);
+  }
+
+  handleFinishTournament() {
+    this.handleSubmitBracketEditing();
+    this.tournoService.updateTournoStatus(this.id, 'completed');
+    this.ifFinished = true;
   }
 
   handleEnableEditing(type) {

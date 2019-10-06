@@ -120,18 +120,33 @@
             </app-bracket>
 
             <div class="edit-mode-btns" *ngIf="ifCreator">
-              <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn"
-                *ngIf="isBracketEditingDisabled" (click)="handleEnableBracketEditing()">
+              <button 
+                mat-raised-button 
+                type="submit" 
+                name="submit" 
+                class="btn highlighted-btn"
+                *ngIf="isBracketEditingDisabled" 
+                (click)="handleEnableBracketEditing()">
                 Add scores
               </button>
 
-              <button mat-stroked-button class="btn" *ngIf="!isBracketEditingDisabled"
-                (click)="handleCancelBracketEditing()">
-                Cancel
+              <button 
+                mat-stroked-button 
+                class="btn" 
+                *ngIf="!isBracketEditingDisabled"
+                (click)="handleFinishTournament()"
+                [disabled]="ifFinished">
+                Finish tournament
               </button>
 
-              <button mat-raised-button type="submit" name="submit" class="btn highlighted-btn"
-                *ngIf="!isBracketEditingDisabled" (click)="handleSubmitBracketEditing()">
+              <button 
+                mat-raised-button 
+                type="submit" 
+                name="submit" 
+                class="btn highlighted-btn"
+                *ngIf="!isBracketEditingDisabled"
+                [disabled]="ifFinished" 
+                (click)="handleSubmitBracketEditing()">
                 Save changes
               </button>
             </div>

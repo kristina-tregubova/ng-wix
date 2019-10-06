@@ -51,6 +51,17 @@ export class TournoService {
     });
   }
 
+  updateTournoStatus(tournoId: string, status: string) {
+
+    this.afs.collection('tournaments').doc(tournoId).update({
+      status: status
+    }).then(() => {
+      console.log('Status successfully updated!');
+    }).catch((error) => {
+      console.error('Error updating status: ', error);
+    });
+  }
+
   updateRounds(tourno: ITourno, id?: string) {
 
     this.afs.collection('tournaments').doc(id).update({
