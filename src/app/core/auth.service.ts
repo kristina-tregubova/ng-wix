@@ -117,10 +117,10 @@ export class AuthService {
     const data: IUser = {
       uid: user.uid,
       email: user.email,
-      // favoritePlayers: user.favoritePlayers,
-      // favoriteTournos: user.favoriteTournos,
-      // createdTournaments: user.createdTournaments,
-      // createdPlayers: user.createdPlayers,
+      favoritePlayers: [],
+      favoriteTournos: [],
+      createdTournaments: [],
+      createdPlayers: []
     };
 
     return userRef.set(data, { merge: true });
@@ -174,4 +174,17 @@ export class AuthService {
       });
   }
 
+  updatePassword(pass) {
+    console.log(firebase.auth().currentUser);
+    firebase.auth().currentUser.updatePassword(pass).then(function() {
+      console.log('Update successful.')
+    }).catch(function(error) {
+      console.log('An error happened. Try again later.');
+    });
+  }
+
+  checkIfSocial() {
+    return (firebase.auth().currentUser.providerData[0].providerId === 'facebook.com' ||
+    firebase.auth().currentUser.providerData[0].providerId === 'google.com') ? true : false;
+  }
 }

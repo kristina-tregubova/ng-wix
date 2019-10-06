@@ -1,90 +1,52 @@
 <div class="regular-wrapper">
     <div class="container-center">
-        <h2 class="main-title">
-            Profile settings
-        </h2>
-        <form class="profile-settings profile-settings__personal-info">
-            <div class="profile-settings__step">
-                <h3 class="profile-settings__step-title">
-                    Personal information
-                </h3>
-                <div class="profile-settings__step-content">
 
-                    <label>Userame:</label>
-                    <mat-form-field class="form-input">
-                        <input matInput placeholder="Username">
-                        <mat-icon matSuffix>person</mat-icon>
-                    </mat-form-field>
-
-                    <label for="email-input">Email:</label>
-                    <mat-form-field class="form-input">
-                        <input matInput placeholder="E-mail">
-                        <mat-icon matSuffix>mail</mat-icon>
-                    </mat-form-field>
-
-                    <label for="country-selector"> Country: </label>
-                    <mat-form-field>
-                        <mat-select placeholder="Country">
-                            <mat-option value="rus">
-                                Russia
-                            </mat-option>
-                            <mat-option value="ua">
-                                USA
-                            </mat-option>
-                            <mat-option value="de">
-                                Germany
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-
-                    <label for="add-avatar"> Change avatar: </label>
-                    <mat-form-field class="form-input">
-                        <input matInput placeholder="E-mail">
-                    </mat-form-field>
-                </div>
-
-                <button mat-raised-button type="submit" name="submit"
-                    class="profile-settings__submit-btn btn highlighted-btn">
-                    Submit changes
-                </button>
-            </div>
-        </form>
-
-        <form class="profile-settings profile-settings__password-management">
+        <form class="profile-settings profile-settings__password-management" [formGroup]="myForm">
             <div class="profile-settings__step">
                 <h3 class="profile-settings__step-title">
                     Password management
                 </h3>
                 <div class="profile-settings__step-content">
 
-                    <label for="fake-pass" style="display: none;">Password</label>
-                    <div class="form-input mdc-text-field mdc-text-field--with-leading-icon" style="display: none;">
-                        <i class="material-icons mdc-text-field__icon">vpn_key</i>
-                        <input type="password" class="mdc-text-field__input" id="fake-pass">
-                        <div class="mdc-line-ripple"></div>
-                    </div>
-
-                    <label for="old-pass">Old password:</label>
-                    <mat-form-field class="form-input">
-                        <input matInput placeholder="Old password">
-                        <mat-icon matSuffix>vpn_key</mat-icon>
-                    </mat-form-field>
-
                     <label for="new-pass1">New password:</label>
                     <mat-form-field class="form-input">
-                        <input matInput placeholder="Password">
+                        <input 
+                            type="password"
+                            matInput 
+                            placeholder="Password" 
+                            formControlName="password"
+                            required>
                         <mat-icon matSuffix>vpn_key</mat-icon>
+                        <mat-error *ngIf="myForm.get('password').hasError('minlength')">
+                            Password must contain at least 8 characters
+                        </mat-error>
                     </mat-form-field>
 
                     <label for="new-pass2">Repeat new password:</label>
                     <mat-form-field class="form-input">
-                        <input matInput placeholder="Password again">
+                        <input
+                            type="password"
+                            matInput 
+                            placeholder="Password again"
+                            formControlName="confirmPassword">
                         <mat-icon matSuffix>vpn_key</mat-icon>
+                        <mat-error>
+                            Passwords do not match
+                        </mat-error>
                     </mat-form-field>
                 </div>
 
-                <button mat-raised-button type="submit" name="submit"
-                    class="profile-settings__submit-btn btn highlighted-btn">
+                <div class="warning" *ngIf="ifHidePassChange">
+                    You are logged in via social media. Changing password is not supported in this case.
+                </div>
+
+                <button 
+                    mat-raised-button 
+                    type="submit" 
+                    name="submit"
+                    class="profile-settings__submit-btn btn highlighted-btn"
+                    (click)="handleUpdatePassword()"
+                    [disabled]="ifHidePassChange">
                     Submit changes
                 </button>
             </div>
@@ -97,7 +59,7 @@
                     Homepage options
                 </h3>
 
-                <div class="profile-settings__step-content profile-settings__step-content_add-player">
+                <div class="profile-settings__step-content">
 
                     <label for="homepage-checkboxes"> After login I want to see: </label>
                     <mat-radio-group class="homepage-checkboxes">

@@ -77,6 +77,7 @@
             <mat-form-field class="form-input">
               <input matInput type="email" placeholder="Insert your e-mail address" formControlName="email" required>
               <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="signupForm.controls.email.invalid">{{getEmailErrorMessage()}}</mat-error>
             </mat-form-field>
 
             <!-- //field to avoid autocomplete -->
@@ -88,12 +89,13 @@
             <mat-form-field class="form-input">
               <input matInput type="password" placeholder="Password" formControlName="password" required>
               <mat-icon matSuffix>vpn_key</mat-icon>
-              
+              <mat-error *ngIf="signupForm.controls.password.invalid">{{getPasswordErrorMessage()}}</mat-error>
             </mat-form-field>
 
             <mat-form-field class="form-input">
-              <input matInput type="password" placeholder="Password again" formControlName="password" required>
+              <input matInput type="password" placeholder="Password again" formControlName="confirmPassword" required>
               <mat-icon matSuffix>vpn_key</mat-icon>
+              <mat-error>Passwords do not match</mat-error>
             </mat-form-field>
 
             <app-error-area></app-error-area>

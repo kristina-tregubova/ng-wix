@@ -12,14 +12,15 @@
 }
 
 .profile-settings__step {
-    padding: 0 10% 8% 5%;
-    margin-bottom: 5%;
+    margin-top: 50px;
+    padding: 0 10% 10% 5%;
+    margin-bottom: 80px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "header"
     "content";
-    grid-column-gap: 3%;
+    grid-column-gap: 10%;
     grid-row-gap: 4%;
     background-color: $wix-dark-background;
 }
@@ -31,19 +32,11 @@
 
 .profile-settings__step-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 1fr 2fr;
     grid-row-gap: 8px;
     grid-area: content;
 }
 
-input[type="file"].mdc-text-field__input {
-    padding-left: 10px;
-    padding-right: 0;
-}
-
-.add-player-btn {
-    margin: 2% auto 0 auto;
-}
 
 .profile-settings__submit-btn {
     width: 40%;
@@ -51,7 +44,18 @@ input[type="file"].mdc-text-field__input {
     margin-top: 3%;
 }
 
+.warning {
+    display: block;
+    width: 99.9%;
+    height: 60px;
+    color: $wix-primary;
+}
+
 @media screen and (max-width: 600px) {
+
+    .profile-settings__step {
+        padding: 0 10% 28% 5%;
+    }
 
     .profile-settings__step-content {
         grid-template-columns: 1fr;
@@ -60,7 +64,11 @@ input[type="file"].mdc-text-field__input {
     .profile-settings__submit-btn {
         width: 100%;
         margin-left: 0;
-        margin-top: 5%;
+        margin-top: 7%;
+    }
+
+    .warning {
+        margin-bottom: 7%;
     }
 }
 

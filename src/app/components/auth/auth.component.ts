@@ -14,32 +14,27 @@ import { SuccessPopupComponent } from '../../shared/popups/success-popup/success
 export class AuthComponent {
 
   resultMessage: string;
+  signupForm: FormGroup;
+  loginForm: FormGroup
 
   constructor(
     public authService: AuthService,
     private router: Router,
     private fb: FormBuilder,
     public dialog: MatDialog
-  ) { }
+  ) { 
 
-  signupForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    country: new FormControl('', Validators.required)
-  });
+  this.signupForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    confirmPassword: new FormControl('')
+  }, this.passwordMatchValidator);
 
-  loginForm = new FormGroup({
+  this.loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
   });
-
-  // ngOnInit() {
-  //   this.authService.errorMessage$.subscribe((res) => {
-  //     this.resultMessage = res;
-  //     console.log(res)
-  //   })
-  // }
+}
 
   async trySignup(value) {
     const result = await this.authService.signup(value);
@@ -62,6 +57,30 @@ export class AuthComponent {
 
   openSuccessDialog() {
     this.dialog.open(SuccessPopupComponent, { width: '450px' });
+  }
+
+  passwordMatchValidator(g: FormGroup) {
+    if (g.get('password').value !== g.get('confirmPassword').value) {
+      g.get('confirmPassword').setErrors({
+        mismatch: true
+      });
+      return { 'mismatch': true }
+    }
+  }
+
+  getEmailErrorMessage() {
+    if (this.signupForm.controls.email.hasError('email')) {
+      return ('Your email does not seem to be valid')
+    } else if (this.signupForm.controls.email.hasError('required')) {
+      return ('Your must enter an email');
+    }
+  }
+  getPasswordErrorMessage() {
+    if(this.signupForm.controls.password.hasError('required')) {
+     return ('You must enter a password');
+    } else if (this.signupForm.controls.password.hasError('minlength')) {
+      return ('Your password must contain at least 8 characters');
+    } 
   }
 
 }

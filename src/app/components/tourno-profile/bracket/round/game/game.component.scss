@@ -65,11 +65,26 @@
     justify-content: space-around;
 
     .participant {
-      min-width: 160px;
       border-bottom: none !important;
     }
     .participant:first-child {
       margin-right: 5%;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    .participants {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      .participant {
+        border-bottom: none !important;
+      }
+      .participant:first-child {
+        margin-right: 0;
+        margin-bottom: 5%;
+      }
     }
   }
 }
