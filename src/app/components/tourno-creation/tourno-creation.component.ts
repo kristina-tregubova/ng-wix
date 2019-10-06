@@ -46,10 +46,10 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
       formArray: this.formBuilder.array([
         this.formBuilder.group({
           name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-          tournamentType: [''],
+          tournamentType: ['', Validators.required],
           country: ['', Validators.required],
           game: ['', Validators.required],
-          playerType: [''],
+          playerType: ['', Validators.required],
           description: ['', Validators.maxLength(200)],
         }),
         this.formBuilder.group({

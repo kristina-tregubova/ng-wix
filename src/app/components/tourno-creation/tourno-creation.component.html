@@ -21,6 +21,9 @@
               <mat-form-field class="form-input">
                 <input matInput formControlName="name">
                 <mat-icon matSuffix>person</mat-icon>
+                <mat-error>
+                    Set tournament name (min 3, max 30)
+                </mat-error>
               </mat-form-field>
 
               <label> Tournament type: </label>
@@ -54,6 +57,9 @@
                   </mat-option>
 
                 </mat-select>
+                <mat-error>
+                    Select country
+                </mat-error>
               </mat-form-field>
 
               <label> Game: </label>
@@ -70,8 +76,10 @@
                   <mat-option value="dota2">DOTA 2</mat-option>
                   <mat-option value="fifa">FIFA</mat-option>
                   <mat-option value="pubg">PUBG</mat-option>
-                  <mat-option value="other">Other</mat-option>
                 </mat-select>
+                <mat-error>
+                    Select game
+                </mat-error>
               </mat-form-field>
               <mat-form-field class="form-input other-chosen-input-field">
                 <input matInput>
@@ -115,6 +123,9 @@
                 [disabled]="true">
                 <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
                 <mat-datepicker #startDate [disabled]='false'></mat-datepicker>
+                <mat-error>
+                    Choose tournament start date
+                </mat-error>
               </mat-form-field>
 
               <label for="end-date"> End date: </label>
@@ -122,6 +133,9 @@
                 <input matInput [matDatepicker]="endDate" placeholder="End date" formControlName="endDate" [disabled]="true">
                 <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
                 <mat-datepicker #endDate [disabled]='false'></mat-datepicker>
+                <mat-error>
+                    Choose tournament end date
+                </mat-error>
               </mat-form-field>
 
               <label> Entry Fee: </label>
@@ -177,6 +191,9 @@
                 </mat-option>
 
               </mat-select>
+              <mat-error>
+                  Choose number of participants
+              </mat-error>
             </mat-form-field>
 
             <app-add-player
