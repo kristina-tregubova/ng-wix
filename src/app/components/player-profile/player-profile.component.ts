@@ -109,7 +109,7 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
       width: '450px',
       data: {
         storageName: 'players-logos/',
-        Id: this.id
+        playerId: this.id
       }
     });
   }

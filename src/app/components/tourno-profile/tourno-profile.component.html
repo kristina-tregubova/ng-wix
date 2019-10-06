@@ -126,7 +126,8 @@
                 name="submit" 
                 class="btn highlighted-btn"
                 *ngIf="isBracketEditingDisabled" 
-                (click)="handleEnableBracketEditing()">
+                (click)="handleEnableBracketEditing()"
+                [disabled]="ifFinished">
                 Add scores
               </button>
 

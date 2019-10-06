@@ -41,6 +41,7 @@ export class FileUploadPopupComponent implements OnInit {
         return snapshot.ref.getDownloadURL();
       })
       .then((downloadURL) => {
+        console.log(downloadURL)
         this.afs.collection('players').doc(this.data.playerId).update({ 'logoRef': downloadURL });
         console.log('File was successfully uploaded');
       })
