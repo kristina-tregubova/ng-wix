@@ -11,20 +11,20 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
 
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { TournoProfileModule } from './tourno-profile/tourno-profile.module';
+import { TournoProfileModule } from './components/tourno-profile/tourno-profile.module';
 
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LandingComponent } from './landing/landing.component';
-import { ErrorComponent } from './error/error.component';
-import { AuthComponent } from './auth/auth.component';
-import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
-import { TournoCreationComponent } from './tourno-creation/tourno-creation.component';
-import { TournoSearchComponent } from './tournos-search/tournos-search.component';
-import { PlayersSearchComponent } from './players-search/players-search.component';
-import { PlayerProfileComponent } from './player-profile/player-profile.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { ErrorComponent } from './components/error/error.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
+import { TournoCreationComponent } from './components/tourno-creation/tourno-creation.component';
+import { TournoSearchComponent } from './components/tournos-search/tournos-search.component';
+import { PlayersSearchComponent } from './components/players-search/players-search.component';
+import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
 import { SuccessPopupComponent } from './shared/popups/success-popup/success-popup.component';
 import { DeletePopupComponent } from './shared/popups/delete-popup/delete-popup.component';
 import { FileUploadPopupComponent } from './shared/popups/file-upload-popup/file-upload-popup.component';

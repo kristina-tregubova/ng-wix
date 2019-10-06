@@ -1,9 +1,8 @@
-import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { CreateNewPlayerPopupService } from './create-new-player-popup.service';
-import { IPlayer } from 'src/app/core/models/IPlayer';
 import { AuthService } from 'src/app/core/auth.service';
 
 @Component({

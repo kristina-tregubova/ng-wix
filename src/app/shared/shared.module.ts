@@ -3,18 +3,19 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 
-import { AddPlayerComponent } from './add-player/add-player.component';
-import { TournosListComponent } from './tournos-list/tournos-list.component';
-import { PlayersListComponent } from './players-list/players-list.component';
-import { TournoCardComponent } from './tournos-list/tourno-card/tourno-card.component';
-import { PlayerCardComponent } from './players-list/player-card/player-card.component';
-import { AddNewComponent } from './add-player/add-new/add-new.component';
-import { AddFromListComponent } from './add-player/add-from-list/add-from-list.component';
-import { ErrorAreaComponent } from './error-area/error-area.component';
+import { AddPlayerComponent } from './components/add-player/add-player.component';
+import { TournosListComponent } from './components/tournos-list/tournos-list.component';
+import { PlayersListComponent } from './components/players-list/players-list.component';
+import { TournoCardComponent } from './components/tournos-list/tourno-card/tourno-card.component';
+import { PlayerCardComponent } from './components/players-list/player-card/player-card.component';
+import { AddNewComponent } from './components/add-player/add-new/add-new.component';
+import { AddFromListComponent } from './components/add-player/add-from-list/add-from-list.component';
+import { ErrorAreaComponent } from './components/error-area/error-area.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
-import { CurrentPlayersComponent } from './add-player/current-players/current-players.component';
+import { CurrentPlayersComponent } from './components/add-player/current-players/current-players.component';
 import { NullToDashPipe } from './pipes/null-to-dash.pipe';
+import { GlobalSpinnerComponent } from './global-spinner/global-spinner.component';
 
 import {
   MatButtonModule,
@@ -53,6 +54,7 @@ import {
     TimestampToIsoPipe,
     CurrentPlayersComponent,
     NullToDashPipe,
+    GlobalSpinnerComponent,
 
   ],
   imports: [
@@ -76,7 +78,7 @@ import {
     MatDividerModule,
     MatTableModule,
     MatDialogModule,
-    MatStepperModule,
+    MatStepperModule
 
   ],
   exports: [
@@ -110,7 +112,8 @@ import {
     ErrorAreaComponent,
     LoadingSpinnerComponent,
     TimestampToIsoPipe,
-    NullToDashPipe
+    NullToDashPipe,
+    GlobalSpinnerComponent
 
   ]
 })

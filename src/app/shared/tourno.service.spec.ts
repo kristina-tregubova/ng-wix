@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TournoService } from './tourno.service';
+import { TournoService } from './services/tourno.service';
 
 describe('TournoService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

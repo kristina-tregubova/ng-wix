@@ -3,15 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './core/auth.guard';
 
-import { LandingComponent } from './landing/landing.component';
-import { ErrorComponent } from './error/error.component';
-import { AuthComponent } from './auth/auth.component';
-import { ProfileSettingsComponent } from './profile-settings/profile-settings.component';
-import { TournoCreationComponent } from './tourno-creation/tourno-creation.component';
-import { TournoSearchComponent } from './tournos-search/tournos-search.component';
-import { PlayersSearchComponent } from './players-search/players-search.component';
-import { PlayerProfileComponent } from './player-profile/player-profile.component';
-import { TournoProfileComponent } from './tourno-profile/tourno-profile.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { ErrorComponent } from './components/error/error.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
+import { TournoCreationComponent } from './components/tourno-creation/tourno-creation.component';
+import { TournoSearchComponent } from './components/tournos-search/tournos-search.component';
+import { PlayersSearchComponent } from './components/players-search/players-search.component';
+import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
+import { TournoProfileComponent } from './components/tourno-profile/tourno-profile.component';
 import { CanDeactivateGuard } from './core/deactivate-guard.service';
 
 
