@@ -11,6 +11,7 @@ import { DeletePopupComponent } from '../shared/popups/delete-popup/delete-popup
 import { IUser } from '../core/models/IUser';
 import { AuthService } from '../core/auth.service';
 import { IRound } from '../core/models/IRound';
+import { PlayerService } from '../shared/player.service';
 
 
 @Component({
@@ -42,12 +43,16 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
 
   sub: Subscription;
 
+  gameWinner: string;
+  gameLoser: string;
+
   constructor(
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private authService: AuthService,
     private tournoService: TournoService,
     private tournoProfileService: TournoProfileService,
+    private playerService: PlayerService,
     public dialog: MatDialog,
   ) {
   }
@@ -78,6 +83,8 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
   handleSubmitBracketEditing() {
     this.isBracketEditingDisabled = true;
     this.tourno.rounds = this.tournoProfileService.updateRoundsInfo(this.tourno.rounds);
+    this.playerService.updateTournoWinner(this.gameWinner, this.id);
+    this.playerService.updateTournoLoser(this.gameLoser, this.id);
     this.tournoService.updateRounds(this.tourno, this.id);
   }
 
@@ -135,6 +142,11 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
         itemId: this.id
       }
     });
+  }
+
+  setWinner($event) {
+    this.gameWinner = $event.winner;
+    this.gameLoser = $event.loser;
   }
 
   ngOnDestroy() {

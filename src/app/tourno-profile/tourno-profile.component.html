@@ -112,7 +112,11 @@
 
           <section class="tourno-profile__bracket">
 
-            <app-bracket [rounds]="rounds" [isEditingDisabled]="isBracketEditingDisabled" cdkDrag>
+            <app-bracket 
+              [rounds]="rounds" 
+              [isEditingDisabled]="isBracketEditingDisabled" 
+              (TournoWinnerEmitter)="setWinner($event)"
+              cdkDrag>
             </app-bracket>
 
             <div class="edit-mode-btns" *ngIf="ifCreator">

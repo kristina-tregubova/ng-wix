@@ -1,4 +1,4 @@
-import { DocumentReference } from '@angular/fire/firestore';
+
 export interface IRound {
     games: IGame[];
     nextRoundCandidates: string[];

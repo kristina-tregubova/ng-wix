@@ -10,6 +10,7 @@
     class="game"
     [ngClass]="{ odd: odd, even: even }"
     [last]="last"
+    (TournoWinnerEmitter)="TournoWinnerEmitter.emit($event)"
   >
   </app-game>
 </section>

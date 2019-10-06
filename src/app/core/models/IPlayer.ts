@@ -1,4 +1,3 @@
-import { IUser } from './IUser';
 import { DocumentReference } from '@angular/fire/firestore';
 
 export interface IPlayer {
@@ -9,7 +8,7 @@ export interface IPlayer {
     'country': string;
     'userCreated': DocumentReference;
     'userCreatedId'?: string;
-    'relatedTournaments': Map<any, any>[];
+    'relatedTournaments': {'tournament': DocumentReference, 'points': string, 'isWinner': boolean}[];
     'team': any[] | null;
     'wins': number;
     'games': number;

@@ -4,6 +4,7 @@ import { ITourno } from '../core/models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { IPlayer } from '../core/models/IPlayer';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -101,22 +102,39 @@ export class PlayerService {
     }
   }
 
-  updateTournoWinner(playerId, tournoId) {
-    let relatedTournos;
+  updateTournoWinner(winnerId, tournoId) {
 
-    this.afs.collection('players').doc(playerId).valueChanges().subscribe((val) => {
-      relatedTournos = val;
+    this.afs.collection('players').doc(winnerId).valueChanges().subscribe((val: IPlayer) => {
+
+      val.relatedTournaments.map((el) => {
+
+        if (el.tournament.id === tournoId) {
+          el.isWinner = true;
+        };
+        return el;
+      });
+
+      this.afs.collection('players').doc(winnerId).update({
+        relatedTournaments: val.relatedTournaments
+      });
+    });
+  }
+
+  updateTournoLoser(loserId, tournoId) {
+
+    this.afs.collection('players').doc(loserId).valueChanges().subscribe((val: IPlayer) => {
+
+      val.relatedTournaments.map((el) => {
+        if (el.tournament.id === tournoId) {
+          el.isWinner = false;
+        };
+        return el;
+      })
+      this.afs.collection('players').doc(loserId).update({
+        relatedTournaments: val.relatedTournaments
+      });
     });
 
-    relatedTournos.map((el) => {
-      if (el.tournament.id === tournoId) {
-        el.isWinner = true;
-      };
-    });
-
-    this.afs.collection('players').doc(playerId).update({
-      relatedTournaments: relatedTournos
-    });
   }
 
   deletePlayer(playerId: string) {

@@ -7,6 +7,7 @@
     class="round"
     [ngClass]="defineRoundType(i)"
     [last]="last"
+    (TournoWinnerEmitter)="TournoWinnerEmitter.emit($event)"
     >
   </app-round>
 </div>

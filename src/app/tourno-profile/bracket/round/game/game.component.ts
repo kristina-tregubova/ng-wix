@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, DoCheck } from '@angular/core';
+import { Component, Input, OnInit, DoCheck, Output, EventEmitter } from '@angular/core';
 import { PlayerService } from 'src/app/shared/player.service';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { IGame } from 'src/app/core/models/IRound';
@@ -7,7 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.scss']
+  styleUrls: ['./game.component.scss'],
+
 })
 export class GameComponent implements OnInit, DoCheck {
 
@@ -25,7 +26,7 @@ export class GameComponent implements OnInit, DoCheck {
 
   isFirstWinner: boolean;
   isSecondWinner: boolean;
-
+  @Output() TournoWinnerEmitter: EventEmitter<{}> = new EventEmitter();
 
   constructor(
     private route: ActivatedRoute,
@@ -66,19 +67,13 @@ export class GameComponent implements OnInit, DoCheck {
         this.isFirstWinner = true;
         this.isSecondWinner = false;
         this.game.gameWinner = this.firstId;
-        // this.setTournoWinner();
+        this.TournoWinnerEmitter.emit({winner: this.firstId, loser: this.secondId});
       } else {
         this.isFirstWinner = false;
         this.isSecondWinner = true;
         this.game.gameWinner = this.secondId;
-        // this.setTournoWinner();
+        this.TournoWinnerEmitter.emit({winner: this.secondId, loser: this.firstId});
       }
-    }
-  }
-
-  setTournoWinner() {
-    if (this.last) {
-      this.playerService.updateTournoWinner(this.game.gameWinner, this.tournoId);
     }
   }
 

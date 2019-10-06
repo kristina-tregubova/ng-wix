@@ -1,4 +1,4 @@
-import { Component, Input, DoCheck } from '@angular/core';
+import { Component, Input, DoCheck, Output, EventEmitter } from '@angular/core';
 import { IRound } from 'src/app/core/models/IRound';
 import { DocumentReference } from '@angular/fire/firestore';
 
@@ -13,6 +13,7 @@ export class RoundComponent implements DoCheck {
   @Input() roundType: string;
   @Input() isEditingDisabled: boolean;
   @Input() last: boolean;
+  @Output() TournoWinnerEmitter: EventEmitter<{}> = new EventEmitter();
 
   constructor() { }
 

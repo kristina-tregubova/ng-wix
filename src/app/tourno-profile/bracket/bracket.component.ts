@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-bracket',
@@ -10,6 +10,7 @@ export class BracketComponent {
   @Input() rounds: [];
   @Input() isEditingDisabled: boolean;
   roundType: string;
+  @Output() TournoWinnerEmitter: EventEmitter<{}> = new EventEmitter();
 
   constructor() { }
 
