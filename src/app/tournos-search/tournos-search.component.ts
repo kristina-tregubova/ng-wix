@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck, ChangeDetectionStrategy } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../core/auth.service';
@@ -8,7 +8,8 @@ import { IUser } from '../core/models/IUser';
 @Component({
   selector: 'app-tournos-search',
   templateUrl: './tournos-search.component.html',
-  styleUrls: ['./tournos-search.component.scss']
+  styleUrls: ['./tournos-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TournoSearchComponent implements OnInit, OnDestroy {
 
@@ -28,9 +29,7 @@ export class TournoSearchComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-
     this.isLogged$ = this.authService.userLoggedSubject$;
-
     this.searchSubscription = this.tournoSearchService.searchTournaments().subscribe((val) => this.items = val);
     this.isLoading$ = this.tournoSearchService.loading$;
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { TournoCardService } from './tourno-card.service';
 import { ITourno } from 'src/app/core/models/ITourno';
 import { Observable } from 'rxjs';
@@ -8,9 +8,10 @@ import { AuthService } from 'src/app/core/auth.service';
 @Component({
   selector: 'app-tourno-card',
   templateUrl: './tourno-card.component.html',
-  styleUrls: ['./tourno-card.component.scss']
+  styleUrls: ['./tourno-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TournoCardComponent implements OnInit, OnDestroy {
+export class TournoCardComponent implements OnInit {
 
   @Input() item: ITourno;
 
@@ -43,10 +44,6 @@ export class TournoCardComponent implements OnInit, OnDestroy {
       this.tournoCardService.addToFavorite(this.item.id);
     }
     console.log(this.isFavorite);
-  }
-
-  ngOnDestroy() {
-
   }
 
 

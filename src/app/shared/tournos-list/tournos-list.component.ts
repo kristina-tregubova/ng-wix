@@ -1,12 +1,13 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tournos-list',
   templateUrl: './tournos-list.component.html',
-  styleUrls: ['./tournos-list.component.scss']
+  styleUrls: ['./tournos-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TournosListComponent implements OnInit, OnChanges {
+export class TournosListComponent implements OnChanges {
 
   @Input() items: any[];
   @Input() isLoading$: Observable<boolean>;
@@ -16,13 +17,9 @@ export class TournosListComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnInit() {
-
-  }
-
   ngOnChanges() {
     if (this.items) {
-      this.ifShowMoreBtn = (this.showEnd >= this.items.length) ?  false : null
+      this.ifShowMoreBtn = (this.showEnd >= this.items.length) ?  false : true
     }
   }
 
@@ -30,7 +27,7 @@ export class TournosListComponent implements OnInit, OnChanges {
 
     if (this.showEnd <= this.items.length) {
       this.ifShowMoreBtn = true;
-      this.showEnd += 1;
+      this.showEnd += 3;
       if (this.showEnd >= this.items.length) {
         this.ifShowMoreBtn = false;
       }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { PlayersSearchService } from './players-search.service';
 import { Observable, Subscription} from 'rxjs';
 import { AuthService } from '../core/auth.service';
@@ -7,7 +7,8 @@ import { IUser } from '../core/models/IUser';
 @Component({
   selector: 'app-players-search',
   templateUrl: './players-search.component.html',
-  styleUrls: ['./players-search.component.scss']
+  styleUrls: ['./players-search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayersSearchComponent implements OnInit, OnDestroy {
 

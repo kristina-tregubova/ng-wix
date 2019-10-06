@@ -16,7 +16,7 @@ import { FileUploadPopupComponent } from '../shared/popups/file-upload-popup/fil
 @Component({
   selector: 'app-player-profile',
   templateUrl: './player-profile.component.html',
-  styleUrls: ['./player-profile.component.scss']
+  styleUrls: ['./player-profile.component.scss'],
 })
 export class PlayerProfileComponent implements OnInit, OnDestroy {
 

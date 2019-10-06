@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { PlayerService } from '../../player.service';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/core/models/IUser';
@@ -9,9 +9,10 @@ import { IPlayer } from 'src/app/core/models/IPlayer';
 @Component({
   selector: 'app-player-card',
   templateUrl: './player-card.component.html',
-  styleUrls: ['./player-card.component.scss']
+  styleUrls: ['./player-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlayerCardComponent implements OnInit, OnDestroy {
+export class PlayerCardComponent implements OnInit {
 
   @Input() item: IPlayer;
   @Input() showBtns: boolean = true;
@@ -50,10 +51,6 @@ export class PlayerCardComponent implements OnInit, OnDestroy {
       this.isFavorite = true;
       this.playerCardService.addToFavorite(this.item.id);
     }
-  }
-
-  ngOnDestroy() {
-
   }
 
 }

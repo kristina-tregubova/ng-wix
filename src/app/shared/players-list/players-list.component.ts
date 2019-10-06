@@ -1,16 +1,15 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IPlayer } from 'src/app/core/models/IPlayer';
-import { map, tap, last } from 'rxjs/operators';
 import { PlayersSearchService } from 'src/app/players-search/players-search.service';
-import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-players-list',
   templateUrl: './players-list.component.html',
-  styleUrls: ['./players-list.component.scss']
+  styleUrls: ['./players-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PlayersListComponent implements OnInit, OnChanges {
+export class PlayersListComponent implements OnChanges {
 
   @Input() items: IPlayer[];
   @Input() isLoading$: Observable<boolean>;
@@ -21,13 +20,8 @@ export class PlayersListComponent implements OnInit, OnChanges {
   ifShowMoreBtn = true;
 
   constructor(
-    private playersSearchService: PlayersSearchService,
-    private playerService: PlayerService
+    private playersSearchService: PlayersSearchService
   ) { }
-
-  ngOnInit() {
-  }
-
 
   handleSorting($event, field: string, sortType: string) {
 
@@ -55,7 +49,7 @@ export class PlayersListComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.items) {
-      this.ifShowMoreBtn = (this.showEnd >= this.items.length) ?  false : null
+      this.ifShowMoreBtn = (this.showEnd >= this.items.length) ?  false : true
     }
   }
 
@@ -63,7 +57,7 @@ export class PlayersListComponent implements OnInit, OnChanges {
 
     if (this.showEnd <= this.items.length) {
       this.ifShowMoreBtn = true;
-      this.showEnd += 2;
+      this.showEnd += 5;
       if (this.showEnd >= this.items.length) {
         this.ifShowMoreBtn = false;
       }
