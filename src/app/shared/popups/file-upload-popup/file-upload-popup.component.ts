@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import * as firebase from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -18,7 +18,8 @@ export class FileUploadPopupComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<FileUploadPopupComponent>,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -43,10 +44,15 @@ export class FileUploadPopupComponent implements OnInit {
       .then((downloadURL) => {
         console.log(downloadURL)
         this.afs.collection('players').doc(this.data.playerId).update({ 'logoRef': downloadURL });
-        console.log('File was successfully uploaded');
+        this.snackBar.open('Logo was successfully uploaded! 👍', '', {
+          duration: 3000
+        });
       })
       .catch((err) => {
-        console.log(err)
+        this.snackBar.open('Error occured while uploading logo. Try again later 👻', '', {
+          duration: 3000
+        });
+        console.error(err)
       });
 
     this.dialogRef.close();

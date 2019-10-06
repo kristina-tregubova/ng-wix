@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { ITourno } from '../../core/models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../../core/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 
 @Injectable({
@@ -13,6 +14,7 @@ export class TournoService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
+    private snackBar: MatSnackBar
   ) { }
 
   getTourno(id: string) {
@@ -67,8 +69,14 @@ export class TournoService {
     this.afs.collection('tournaments').doc(id).update({
       rounds: tourno.rounds
     }).then(() => {
+      this.snackBar.open('Points were successfully updated! 👍', '', {
+        duration: 3000
+      });
       console.log('Document successfully updated!');
     }).catch((error) => {
+      this.snackBar.open('Error occured while save game results. Try again later 👻', '', {
+        duration: 3000
+      });
       console.error('Error updating document: ', error);
     });
   }
@@ -76,8 +84,14 @@ export class TournoService {
 
   deleteTourno(tournoId) {
     this.afs.collection('tournaments').doc(tournoId).delete().then(() => {
+      this.snackBar.open('Tournament was successfully deleted! 👍', '', {
+        duration: 3000
+      });
       console.log('Document successfully deleted!');
     }).catch((error) => {
+      this.snackBar.open('Error occured while deleting this tournament. Try again later 👻', '', {
+        duration: 3000
+      });
       console.error('Error removing document: ', error);
     });
   }

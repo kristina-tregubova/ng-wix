@@ -5,6 +5,7 @@ import { AuthService } from '../../core/auth.service';
 import * as firebase from 'firebase';
 import { IGame, IRound } from '../../core/models/IRound';
 import { PlayerService } from '../../shared/services/player.service';
+import { MatSnackBar } from '@angular/material';
 
 
 @Injectable({
@@ -34,7 +35,8 @@ export class TournoCreationService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-    private playerService: PlayerService
+    private playerService: PlayerService,
+    private snackBar: MatSnackBar
   ) { }
 
   async createDefaultTourno() {
@@ -80,10 +82,11 @@ export class TournoCreationService {
 
   updateRounds(rounds: IRound[], ref) {
 
-    ref.update({
+    const res =ref.update({
       rounds
     });
 
+    return res;
   }
 
   async seedPlayers(ifRandom, ref) {
@@ -212,9 +215,14 @@ export class TournoCreationService {
 
   deleteTourno(ref) {
     ref.delete().then(() => {
-      console.log('Document successfully deleted!');
+      this.snackBar.open('Tournament was successfully deleted! 👍', '', {
+        duration: 3000
+      });
     }).catch((error) => {
-      console.error('Error removing document: ', error);
+      this.snackBar.open('Error occured while deleting this tournament. Try again later 👻', '', {
+        duration: 3000
+      });
+      console.error(error)
     });
   }
 

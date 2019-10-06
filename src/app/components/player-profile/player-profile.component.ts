@@ -11,6 +11,7 @@ import { AuthService } from '../../core/auth.service';
 import { IUser } from '../../core/models/IUser';
 import { Observable, Subscription } from 'rxjs';
 import { FileUploadPopupComponent } from '../../shared/popups/file-upload-popup/file-upload-popup.component';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -46,7 +47,8 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private playerService: PlayerService,
     private playerProfileService: PlayerProfileService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {
   }
 
@@ -61,7 +63,6 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.dataSource = val.team;
         this.items = this.playerService.getTournamentsAttended(val);
-        // this.playerService.updatePlayerInfo(val);
       });
   }
 

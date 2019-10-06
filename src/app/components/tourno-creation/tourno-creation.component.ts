@@ -5,6 +5,7 @@ import { TournoCreationService } from './tourno-creation.service';
 import { DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-tourno-creation',
@@ -30,7 +31,8 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private tournoCreationService: TournoCreationService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -107,7 +109,9 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
     if (+participantsNumber === +chosenPlayers.length) {
       this.saveTournament(numberRef, participantsNumber, chosenPlayers);
     } else {
-      console.log('Chosen number players and participants number do not correspond. Add or remove some');
+      this.snackBar.open('Chosen number players and participants number do not correspond. Add or remove some 🏃', '', {
+        duration: 3000
+      });
     }
 
   }
@@ -124,7 +128,17 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
 
     // tourno/rounds building methods
     let rounds = this.tournoCreationService.generateBracket(participantsNumber, chosenPlayers);
-    this.tournoCreationService.updateRounds(rounds, this.ref);
+    this.tournoCreationService.updateRounds(rounds, this.ref)
+      .then(() => {
+        this.snackBar.open('Tournament was successfully created! 👍', '', {
+          duration: 3000
+        });
+      }).catch((error) => {
+        this.snackBar.open('Error occured while creating a tournament. Try again later 👻', '', {
+          duration: 3000
+        });
+        console.error(error)
+      });
 
     this.router.navigate(['/tourno-profile/' + this.ref.id])
   }

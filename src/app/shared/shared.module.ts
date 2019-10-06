@@ -36,6 +36,7 @@ import {
   MatTableModule,
   MatDialogModule,
   MatStepperModule,
+  MatSnackBarModule
 
 } from '@angular/material';
 
@@ -78,7 +79,8 @@ import {
     MatDividerModule,
     MatTableModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSnackBarModule
 
   ],
   exports: [
@@ -101,6 +103,7 @@ import {
     MatTableModule,
     MatDialogModule,
     MatStepperModule,
+    MatSnackBarModule,
 
     AddPlayerComponent,
     AddNewComponent,

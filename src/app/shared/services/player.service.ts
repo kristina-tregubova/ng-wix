@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import { ITourno } from '../../core/models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { IPlayer } from '../../core/models/IPlayer';
+import { MatSnackBar } from '@angular/material';
 
 
 @Injectable({
@@ -15,6 +16,7 @@ export class PlayerService {
 
   constructor(
     private afs: AngularFirestore,
+    private snackBar: MatSnackBar
   ) { }
 
   getPlayer(id: string) {
@@ -67,9 +69,14 @@ export class PlayerService {
       'team': teamArr
 
     }).then(() => {
-      console.log('Document successfully updated!');
+      this.snackBar.open('Team member was successfully added! 👍', '', {
+        duration: 3000
+      });
     }).catch((error) => {
-      console.error('Error updating document: ', error);
+      this.snackBar.open('Error occured while adding team member. Try again later. 👻', '', {
+        duration: 3000
+      });
+      console.error(error)
     });
 
   }
@@ -139,8 +146,14 @@ export class PlayerService {
 
   deletePlayer(playerId: string) {
     this.afs.collection('players').doc(playerId).delete().then(() => {
+      this.snackBar.open('Player was successfully deleted! 👍', '', {
+        duration: 3000
+      });
       console.log('Document successfully deleted!');
     }).catch((error) => {
+      this.snackBar.open('Error occured while deleting this player. Try again later 👻', '', {
+        duration: 3000
+      });
       console.error('Error removing document: ', error);
     });
   }

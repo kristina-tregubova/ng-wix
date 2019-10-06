@@ -10,6 +10,7 @@ import { share, mergeMap } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 
 import { IUser } from './models/IUser';
+import { MatSnackBar } from '@angular/material';
 
 
 @Injectable({
@@ -27,7 +28,8 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {
 
     this.userLoggedSubject$ = new BehaviorSubject(null);
@@ -177,9 +179,14 @@ export class AuthService {
   updatePassword(pass) {
     console.log(firebase.auth().currentUser);
     firebase.auth().currentUser.updatePassword(pass).then(function() {
-      console.log('Update successful.')
+      this.snackBar.open('Password was successfully changed! 👍', '', {
+        duration: 3000
+      });
     }).catch(function(error) {
-      console.log('An error happened. Try again later.');
+      console.error(error)
+      this.snackBar.open('Error occured while changing your password. Try again later 👻', '', {
+        duration: 3000
+      });
     });
   }
 
@@ -197,10 +204,14 @@ export class AuthService {
       console.error(err)
     });
     user.delete().then(() => {
-      console.log('Account successfully deleted');
+      this.snackBar.open('Account was successfully deleted! 👍', '', {
+        duration: 3000
+      });
     })
     .catch((err) => {
-      console.log('Some problem occured, try again later');
+      this.snackBar.open('Error occured while deleting your account. Try again later 👻', '', {
+        duration: 3000
+      });
       console.error(err);
     })
     

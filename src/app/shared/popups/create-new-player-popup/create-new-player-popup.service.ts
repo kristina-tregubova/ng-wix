@@ -3,6 +3,7 @@ import { IPlayer } from 'src/app/core/models/IPlayer';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/core/auth.service';
 import * as firebase from 'firebase'
+import { MatSnackBar } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,8 @@ export class CreateNewPlayerPopupService {
 
   constructor(
     private afs: AngularFirestore,
-    private authService: AuthService
+    private authService: AuthService,
+    private snackBar: MatSnackBar
   ) { }
 
   async createDefaultPlayer() {
@@ -39,7 +41,17 @@ export class CreateNewPlayerPopupService {
   }
 
   updateDefaultPlayer(ref, data) {
-    return ref.update(data);
+    return ref.update(data).then(() => {
+      this.snackBar.open('Player was successfully created! 👍', '', {
+        duration: 3000
+      });
+    })
+    .catch((err) => {
+      this.snackBar.open('Error occured while creating a player. Try again later 👻', '', {
+        duration: 3000
+      });
+      console.error(err);
+    });
   }
 
   updateUserInfo(ref) {
