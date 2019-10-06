@@ -12,7 +12,7 @@ export class GlobalSpinnerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // setTimeout(() => (this.visible = false), 3500);
+    setTimeout(() => (this.visible = false), 3000);
   }
 
 }

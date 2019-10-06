@@ -15,8 +15,7 @@ app-footer {
     position:fixed;
     width:100%;
     left:0;right:0;top:0;bottom:0;
-    background-color: $wix-background;
-    opacity: 0.6;
+    background-color: #1a1a1ab9;
     z-index:9998;
     display: block;
 }
@@ -35,7 +34,7 @@ app-footer {
     content:'';
     display:block;
     position:absolute;
-    left:48%;
+    left:45%;
     top:40%;
     width:60px;
     height:60px;
@@ -46,5 +45,4 @@ app-footer {
     border-radius: 50%;
     -webkit-animation: spin .8s linear infinite;
     animation: spin .8s linear infinite;
-    opacity: 1;
 }
