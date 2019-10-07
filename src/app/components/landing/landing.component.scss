@@ -1,4 +1,4 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 //GENERAL-main
 
@@ -17,7 +17,7 @@
 
 .parallax-wrapper {
   position: relative;
-  background-image: url("/assets/images/tennis-court-bg.jpg");
+  background-image: url("/assets/images/first-bg.jpg");
   height: 100vh;
   width: 100vw;
 
@@ -71,6 +71,9 @@ section,
   background-color: #fff;
   color: $wix-dark-color;
   border-top: 8px solid $wix-primary;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
 }
 
 .features__title {
@@ -138,10 +141,13 @@ section,
 }
 
 .community {
-  background-image: url("/assets/images/running-people-bg.jpg");
+  background-image: url("/assets/images/second-bg.jpg");
   background-size: cover;
   align-items: stretch !important;
   border-top: 8px solid $wix-primary;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
 }
 
 .community.parallax-wrapper {
@@ -149,13 +155,8 @@ section,
 }
 
 .community-shadow {
-  background-image: linear-gradient(
-    50deg,
-    $wix-background 0%,
-    #24292fda 60%,
-    #24292f63 100%
-  );
-  padding: 10% 50% 15% 8%;
+  background-image: linear-gradient(50deg, #24292fda 20%, #24292f63 100%);
+  padding: 10% 40% 15% 8%;
   text-align: left;
 }
 
@@ -175,22 +176,15 @@ section,
   color: $wix-dark-color;
   align-items: stretch !important;
   border-top: 8px solid $wix-primary;
-  padding: 8% 10% 10% 55%;
+  padding: 0 15%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
 }
 
-.registration::before {
-  content: "";
-  display: block;
-  position: absolute;
-
-  top: 20%;
-  left: 0;
-  width: 70%;
-  height: 70%;
-
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-image: url("/assets/images/icon-images-yellow/027-medal-2.svg");
+.yellow-container{
+  padding: 10%;
+  background-color: $wix-primary;
 }
 
 .registration__title,
@@ -205,6 +199,7 @@ section,
 .popular-games {
   border-top: 8px solid $wix-primary;
   border-bottom: 8px solid $wix-primary;
+  height: 85vh;
 }
 
 @media screen and (max-width: 1200px) {
@@ -221,16 +216,6 @@ section,
     width: 15vw;
     height: 15vh;
     left: 18%;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .registration {
-    padding: 8% 15% 10% 55%;
-  }
-
-  .registration::before {
-    left: 20%;
   }
 }
 
@@ -266,6 +251,11 @@ section,
 }
 
 @media screen and (max-width: 500px) {
+
+  .features {
+    height: unset;
+  }
+
   .features__list {
     font-size: 1.3em;
     line-height: 2em;
@@ -291,18 +281,15 @@ section,
   }
 
   .registration {
-    padding: 55% 5% 10% 5%;
-  }
-
-  .registration::before {
-    width: 55%;
-    height: 55%;
-    top: 1%;
-    left: 0;
+    padding: 10% 5%;
   }
 
   .registration__title {
     margin: 0;
+  }
+
+  .community-shadow {
+    padding: 20% 10% 25% 8%;
   }
 
   .popular-games {

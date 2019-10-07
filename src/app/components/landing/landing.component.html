@@ -49,26 +49,25 @@
                 Join our community and explore new every day
             </h2>
             <ul class="community__btns">
-                <li><a mat-stroked-button class="btn"
-                        [routerLink]="['/tournos-search']">Search tournaments</a>
+                <li><a mat-stroked-button class="btn" [routerLink]="['/tournos-search']">Search tournaments</a>
                 </li>
-                <li><a mat-stroked-button class="btn"
-                    [routerLink]="['/players-search']">Search players</a>
+                <li><a mat-stroked-button class="btn" [routerLink]="['/players-search']">Search players</a>
                 </li>
             </ul>
         </div>
     </section>
 
     <section class="registration">
-        <h2 class="registration__title title">
-            Free and fully yours to try
-        </h2>
-        <h3 class="registration__sub-title">
-            Sign in in minutes and start right away
-        </h3>
-        <a mat-raised-button class="registration__btn highlighted-btn btn" [routerLink]="['/auth']">Sign
-            in</a>
-
+        <div class="yellow-container">
+            <h2 class="registration__title title">
+                Free and fully yours to try
+            </h2>
+            <h3 class="registration__sub-title">
+                Sign in in minutes and start right away
+            </h3>
+            <a mat-stroked-button class="registration__btn btn" [routerLink]="['/auth']">Sign
+                in</a>
+        </div>
     </section>
 
     <section class="popular-games">
