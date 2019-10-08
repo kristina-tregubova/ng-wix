@@ -156,7 +156,7 @@ section,
 
 .community-shadow {
   background-image: linear-gradient(50deg, #24292fda 20%, #24292f63 100%);
-  padding: 10% 40% 15% 8%;
+  padding: 10% 50% 15% 8%;
   text-align: left;
 }
 
@@ -176,7 +176,7 @@ section,
   color: $wix-dark-color;
   align-items: stretch !important;
   border-top: 8px solid $wix-primary;
-  padding: 0 15%;
+  padding: 0 22%;
   height: 85vh;
   display: flex;
   justify-content: center;
@@ -194,6 +194,7 @@ section,
 
 .registration__btn {
   width: 100%;
+  margin-top: 30px;
 }
 
 .popular-games {
