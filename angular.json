@@ -130,5 +130,8 @@
       }
     }
   },
-  "defaultProject": "ng-wix"
+  "defaultProject": "ng-wix",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }
