@@ -4,14 +4,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ITourno } from '../../core/models/ITourno';
 import { Observable, of, Subscription } from 'rxjs';
 import { IPlayer } from '../../core/models/IPlayer';
-import { TournoService } from '../../shared/services/tourno.service';
+import { TournoService } from '../../services/tourno.service';
 import { TournoProfileService } from './tourno-profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../../shared/popups/delete-popup/delete-popup.component'
 import { IUser } from '../../core/models/IUser';
 import { AuthService } from '../../core/auth.service';
 import { IRound } from '../../core/models/IRound';
-import { PlayerService } from '../../shared/services/player.service';
+import { PlayerService } from '../../services/player.service';
 
 
 @Component({

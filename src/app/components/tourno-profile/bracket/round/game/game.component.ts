@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, DoCheck, Output, EventEmitter } from '@angular/core';
-import { PlayerService } from 'src/app/shared/services/player.service';
+import { PlayerService } from 'src/app/services/player.service';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { IGame } from 'src/app/core/models/IRound';
 import { ActivatedRoute } from '@angular/router';

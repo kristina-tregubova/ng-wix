@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlayerService } from '../../../services/player.service';
+import { PlayerService } from '../../../../services/player.service';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/core/models/IUser';
 import { PlayerCardService } from './player-card.service';

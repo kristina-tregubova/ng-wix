@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ITourno } from '../../core/models/ITourno';
 import { IPlayer } from '../../core/models/IPlayer';
-import { PlayerService } from '../../shared/services/player.service';
+import { PlayerService } from '../../services/player.service';
 import { PlayerProfileService } from './player-profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletePopupComponent } from '../../shared/popups/delete-popup/delete-popup.component'

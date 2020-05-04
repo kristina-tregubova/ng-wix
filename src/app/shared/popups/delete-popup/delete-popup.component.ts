@@ -2,8 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { TournoService } from '../../services/tourno.service';
-import { PlayerService } from '../../services/player.service';
+import { TournoService } from '../../../services/tourno.service';
+import { PlayerService } from '../../../services/player.service';
 import * as firebase from 'firebase'
 import { AuthService } from 'src/app/core/auth.service';
 
