@@ -1,6 +1,5 @@
 import { Component, Input, DoCheck, Output, EventEmitter } from '@angular/core';
 import { IRound } from 'src/app/core/models/IRound';
-import { DocumentReference } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-round',
@@ -13,17 +12,16 @@ export class RoundComponent implements DoCheck {
   @Input() roundType: string;
   @Input() isEditingDisabled: boolean;
   @Input() last: boolean;
+
   @Output() TournoWinnerEmitter: EventEmitter<{}> = new EventEmitter();
 
-  constructor() { }
-
   ngDoCheck() {
-      this.defineNextRoundCandidates(this.round);
+    this.defineNextRoundCandidates(this.round);
   }
 
-  defineNextRoundCandidates(round: IRound): void {
+  public defineNextRoundCandidates(round: IRound): void {
 
-    const newNextRoundCandidates: string[]  = [];
+    const newNextRoundCandidates: string[] = [];
 
     for (const game of round.games) {
       newNextRoundCandidates.push(game.gameWinner);

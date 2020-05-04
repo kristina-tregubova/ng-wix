@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { IGame, IRound } from '../../core/models/IRound';
 import { PlayerService } from '../../core/services/player.service';
 import { MatSnackBar } from '@angular/material';
+import { IPlayer } from 'src/app/core/models/IPlayer';
 
 
 @Injectable({
@@ -39,32 +40,27 @@ export class TournoCreationService {
     private snackBar: MatSnackBar
   ) { }
 
-  async createDefaultTourno() {
-
-    const defaultTournoRef = this.afs.collection('tournaments').add(this.defaultTourno)
-      .then((docRef) => {
-        return docRef;
-      });
-
-    return defaultTournoRef;
+  public async createDefaultTourno(): Promise<DocumentReference> {
+    const docRef = await this.afs.collection('tournaments').add(this.defaultTourno);
+    return docRef;
   }
 
-  updateDefaultTourno(ref, data) {
+  public updateDefaultTourno(ref: DocumentReference, data: ITourno) {
     return ref.update(data);
   }
 
-  updateUserInfo(ref) {
+  public updateUserInfo(ref: DocumentReference): void {
     this.authService.getUserLoggedRef.update({
       createdTournos: firebase.firestore.FieldValue.arrayUnion(ref)
     });
   }
 
-  updateTournoInfoForPlayers(relatedPlayers: DocumentReference[], ref) {
+  public updateTournoInfoForPlayers(relatedPlayers: DocumentReference[], ref: DocumentReference): void {
 
-    const newTournoField = { 
-      isWinner: false, 
-      pointsGained: 0, 
-      tournament: ref 
+    const newTournoField = {
+      isWinner: false,
+      pointsGained: 0,
+      tournament: ref
     }
 
     for (let playerRef of relatedPlayers) {
@@ -74,24 +70,21 @@ export class TournoCreationService {
     }
   }
 
-  updateRelatedPlayers(val: DocumentReference[], ref) {
+  public updateRelatedPlayers(val: DocumentReference[], ref: DocumentReference): void {
     ref.update({
       relatedPlayers: val
     });
   }
 
-  updateRounds(rounds: IRound[], ref) {
-
-    const res =ref.update({
+  public updateRounds(rounds: IRound[], ref: DocumentReference): Promise<void> {
+    return ref.update({
       rounds
     });
-
-    return res;
   }
 
-  async seedPlayers(ifRandom, ref) {
+  public async seedPlayers(ifRandom: boolean, ref: DocumentReference): Promise<DocumentReference[]> {
 
-    const playersArr = await ref.get().then((doc) => {
+    const playersArr: DocumentReference[] = await ref.get().then((doc) => {
       if (doc.exists) {
         return doc.data().relatedPlayers;
       }
@@ -105,39 +98,36 @@ export class TournoCreationService {
   }
 
 
-  generateBracket(participantsNumber, chosenPlayers) {
+  public generateBracket(participantsNumber: number, chosenPlayers: DocumentReference[]): IRound[] {
 
     let numberOfRounds = this.defineRoundsNumber(participantsNumber);
     let numberOfGames = this.defineGamesNumber(participantsNumber);
 
-    const rounds = [];
+    const rounds: IRound[] = [];
 
     for (let i = 0; i < numberOfRounds; i++) {
+      let round: IRound;
 
       if (numberOfGames > 1) {
-        let round;
 
-        if (i === 0) {
-          round = this.createRoundWithPlayers(numberOfGames, chosenPlayers);
-        } else {
-          round = this.createRound(numberOfGames);
-        }
-
-        rounds.push(round);
+        i === 0
+          ? round = this.createRoundWithPlayers(numberOfGames, chosenPlayers)
+          : round = this.createRound(numberOfGames);
 
         numberOfGames = numberOfGames / 2;
 
       } else if (numberOfGames === 1) {
-
-        const round = this.createRound(1);
-        rounds.push(round);
+        round = this.createRound(1);
       }
+
+      rounds.push(round);
     }
 
     return rounds;
   }
 
-  createRoundWithPlayers(numberOfGames, roundCandidates) {
+  // subject to refactoring
+  private createRoundWithPlayers(numberOfGames: number, roundCandidates: DocumentReference[]): IRound {
     const round: IRound = {
       games: [],
       nextRoundCandidates: [],
@@ -151,7 +141,7 @@ export class TournoCreationService {
     return round;
   }
 
-  createRound(numberOfGames) {
+  private createRound(numberOfGames: number): IRound {
     const round: IRound = {
       games: [],
       nextRoundCandidates: []
@@ -166,7 +156,8 @@ export class TournoCreationService {
 
   }
 
-  createGameWithPlayers(p1, p2) {
+  // subject to refactoring
+  private createGameWithPlayers(p1: DocumentReference, p2: DocumentReference): IGame {
     const game: IGame = {
       player1: {
         id: p1.id,
@@ -182,7 +173,7 @@ export class TournoCreationService {
     return game;
   }
 
-  createGame() {
+  private createGame(): IGame {
 
     const game: IGame = {
       player1: {
@@ -199,7 +190,7 @@ export class TournoCreationService {
     return game;
   }
 
-  defineRoundsNumber(num) {
+  private defineRoundsNumber(num: number): number {
     let k = 0;
     do {
       k++;
@@ -209,11 +200,11 @@ export class TournoCreationService {
     return k;
   }
 
-  defineGamesNumber(num) {
+  private defineGamesNumber(num: number): number {
     return num / 2;
   }
 
-  deleteTourno(ref) {
+  public deleteTourno(ref: DocumentReference): void {
     ref.delete().then(() => {
       this.snackBar.open('Tournament was successfully deleted! 👍', '', {
         duration: 3000
@@ -227,7 +218,7 @@ export class TournoCreationService {
   }
 
   // Fisher-Yates shuffle
-  shuffleArray(array) {
+  shuffleArray(array: DocumentReference[]): DocumentReference[] {
     for (let i = array.length - 1; i > 0; i--) {
       let j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];

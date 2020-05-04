@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, DoCheck, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../../core/services/auth.service';
@@ -19,7 +19,7 @@ export class TournoSearchComponent implements OnInit, OnDestroy {
   isLoading$: Observable<boolean>;
   isLogged$: Observable<IUser>;
 
-  searchInput = document.getElementById('tournos-search-input');
+  @ViewChild("tournoSearchInput", { static: false }) private searchInput: ElementRef;
 
   private searchSubscription: Subscription;
 
@@ -34,28 +34,28 @@ export class TournoSearchComponent implements OnInit, OnDestroy {
     this.isLoading$ = this.tournoSearchService.loading$;
   }
 
-  trySearchByName($event) {
-    this.tournoSearchService.searchSubject$.next($event);
+  public trySearchByName(value: string): void {
+    this.tournoSearchService.searchSubject$.next(value);
     this.items = this.tournoSearchService.getFilteredItems();
   }
 
-  tryFilterByGame($event) {
-    this.tournoSearchService.gameSubject$.next($event);
+  public tryFilterByGame(value: string): void {
+    this.tournoSearchService.gameSubject$.next(value);
     this.items = this.tournoSearchService.getFilteredItems();
   }
 
-  tryFilterByStatus($event) {
-    this.tournoSearchService.statusSubject$.next($event);
+  public tryFilterByStatus(value: string): void {
+    this.tournoSearchService.statusSubject$.next(value);
     this.items = this.tournoSearchService.getFilteredItems();
   }
 
-  tryFilterByMine($event) {
-    this.tournoSearchService.myTournamentsSubject$.next($event);
+  public tryFilterByMine(value: boolean): void {
+    this.tournoSearchService.myTournamentsSubject$.next(value);
     this.items = this.tournoSearchService.getFilteredItems();
   }
 
-  tryFilterByFavorite($event) {
-    this.tournoSearchService.myFavoritesSubject$.next($event);
+  public tryFilterByFavorite(value: boolean): void {
+    this.tournoSearchService.myFavoritesSubject$.next(value);
     this.items = this.tournoSearchService.getFilteredItems();
   }
 

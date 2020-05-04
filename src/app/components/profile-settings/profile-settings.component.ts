@@ -9,6 +9,7 @@ import { DeletePopupComponent } from 'src/app/shared/components/popups/delete-po
   templateUrl: './profile-settings.component.html',
   styleUrls: ['./profile-settings.component.scss']
 })
+
 export class ProfileSettingsComponent implements OnInit {
 
   myForm: FormGroup
@@ -28,7 +29,7 @@ export class ProfileSettingsComponent implements OnInit {
     this.ifHidePassChange = this.auth.checkIfSocial();
   }
 
-  passwordMatchValidator(g: FormGroup) {
+  private passwordMatchValidator(g: FormGroup): Object {
     if (g.get('password').value !== g.get('confirmPassword').value) {
       g.get('confirmPassword').setErrors({
         mismatch: true
@@ -37,11 +38,11 @@ export class ProfileSettingsComponent implements OnInit {
     }
   }
 
-  handleUpdatePassword() {
+  public handleUpdatePassword(): void {
     this.auth.updatePassword(this.myForm.get('password').value);
   }
 
-  handleOpenDeletePopup() {
+  public handleOpenDeletePopup(): void {
     this.dialog.open(DeletePopupComponent, {
       width: '450px',
       data: {

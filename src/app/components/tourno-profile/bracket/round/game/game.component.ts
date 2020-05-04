@@ -12,10 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameComponent implements OnInit, DoCheck {
 
-  @Input() game: IGame;
-  @Input() isEditingDisabled: boolean;
-  @Input() last: boolean;
-
   tournoId: string;
 
   firstId: string;
@@ -26,6 +22,11 @@ export class GameComponent implements OnInit, DoCheck {
 
   isFirstWinner: boolean;
   isSecondWinner: boolean;
+
+  @Input() game: IGame;
+  @Input() isEditingDisabled: boolean;
+  @Input() last: boolean;
+
   @Output() TournoWinnerEmitter: EventEmitter<{}> = new EventEmitter();
 
   constructor(
@@ -33,6 +34,7 @@ export class GameComponent implements OnInit, DoCheck {
     private playerService: PlayerService
   ) { }
 
+  // subject to refactoring
   ngOnInit() {
 
     this.tournoId = this.route.snapshot.paramMap.get('id');
@@ -58,7 +60,7 @@ export class GameComponent implements OnInit, DoCheck {
     this.defineIfWinner();
   }
 
-  defineIfWinner() {
+  public defineIfWinner(): void {
     const res = (+this.game.player1.points - +this.game.player2.points) > 0;
 
     if (this.ifNotEmpty(this.firstName) && this.ifNotEmpty(this.secondName) && this.ifNotEmpty(this.game.player1.points) && this.ifNotEmpty(this.game.player2.points)) {
@@ -67,18 +69,18 @@ export class GameComponent implements OnInit, DoCheck {
         this.isFirstWinner = true;
         this.isSecondWinner = false;
         this.game.gameWinner = this.firstId;
-        this.TournoWinnerEmitter.emit({winner: this.firstId, loser: this.secondId});
+        this.TournoWinnerEmitter.emit({ winner: this.firstId, loser: this.secondId });
       } else {
         this.isFirstWinner = false;
         this.isSecondWinner = true;
         this.game.gameWinner = this.secondId;
-        this.TournoWinnerEmitter.emit({winner: this.secondId, loser: this.firstId});
+        this.TournoWinnerEmitter.emit({ winner: this.secondId, loser: this.firstId });
       }
     }
   }
 
-  ifNotEmpty(val) {
-    return (val === null || val === undefined) ? false : true;
+  private ifNotEmpty(val: string): boolean {
+    return !(val === null || val === undefined);
   }
 
 }

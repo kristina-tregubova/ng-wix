@@ -7,26 +7,25 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 })
 export class BracketComponent {
 
+  roundType: string;
+
   @Input() rounds: [];
   @Input() isEditingDisabled: boolean;
-  roundType: string;
+
   @Output() TournoWinnerEmitter: EventEmitter<{}> = new EventEmitter();
 
-  constructor() { }
-
-
-  defineRoundType(i) {
+  public defineRoundType(i: number): string {
     const index = i + 1;
 
-    if (this.rounds.length === index) {
-      this.roundType = 'finals';
-    } else if ((this.rounds.length - 1) === index) {
-      this.roundType = 'semifinals';
-    } else if ((this.rounds.length - 2) === index) {
-      this.roundType = 'quarterfinals';
-    } else if ((this.rounds.length > 3) && index) {
-      this.roundType = 'rounds';
-    }
+    this.rounds.length === index
+      ? this.roundType = 'finals'
+      : this.rounds.length - 1 === index
+        ? this.roundType = 'semifinals'
+        : this.rounds.length - 2 === index
+          ? this.roundType = 'quarterfinals'
+          : this.rounds.length > 3 && index
+            ? this.roundType = 'rounds'
+            : null
 
     return this.roundType;
   }

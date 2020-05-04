@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
-import { tap, map, take } from 'rxjs/operators';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { tap, map } from 'rxjs/operators';
 
 import { AuthService } from './services/auth.service';
 

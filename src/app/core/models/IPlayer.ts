@@ -8,9 +8,15 @@ export interface IPlayer {
     'country': string;
     'userCreated': DocumentReference;
     'userCreatedId'?: string;
-    'relatedTournaments': {'tournament': DocumentReference, 'points': string, 'isWinner': boolean}[];
+    'relatedTournaments': IRelatedTournament[];
     'team': any[] | null;
     'wins': number;
     'games': number;
     'logoRef': DocumentReference | string;
+}
+
+export interface IRelatedTournament {
+    'tournament': DocumentReference,
+    'points': string,
+    'isWinner': boolean
 }

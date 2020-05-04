@@ -66,7 +66,7 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
       });
   }
 
-  handleEnableEditing(type) {
+  public handleEnableEditing(type: string): void {
     switch (type) {
       case 'name':
         this.isNameEditingDisabled = !this.isNameEditingDisabled;
@@ -77,7 +77,7 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleSubmitEditing(type) {
+  public handleSubmitEditing(type: string): void {
     switch (type) {
       case 'name':
         this.isNameEditingDisabled = true;
@@ -90,11 +90,11 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleAddTeamMember() {
+  public handleAddTeamMember(): void {
     this.playerService.addTeamMember(this.player, this.id);
   }
 
-  handleOpenDeletePopup() {
+  public handleOpenDeletePopup(): void {
     this.dialog.open(DeletePopupComponent, {
       width: '450px',
       data: {
@@ -104,8 +104,7 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  handleOpenFileUploadPopup() {
-    console.log(this.id)
+  public handleOpenFileUploadPopup(): void {
     this.dialog.open(FileUploadPopupComponent, {
       width: '450px',
       data: {
@@ -118,5 +117,4 @@ export class PlayerProfileComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
 }

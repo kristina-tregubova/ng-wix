@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 import { ITourno } from '../models/ITourno';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { IPlayer } from '../models/IPlayer';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
+import { IPlayer, IRelatedTournament } from '../models/IPlayer';
 import { MatSnackBar } from '@angular/material';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -13,21 +14,21 @@ export class PlayerService {
 
   emptyTeamMember = { name: '', role: '' };
 
-
   constructor(
     private afs: AngularFirestore,
     private snackBar: MatSnackBar
   ) { }
 
-  getPlayer(id: string) {
+  // ??
+  public getPlayer(id: string): Observable<any> {
     return this.afs.collection('players').doc(id).valueChanges();
   }
 
-  getPlayerGames(relatedTournaments) {
+  public getPlayerGames(relatedTournaments: IRelatedTournament[]): number {
     return relatedTournaments.length;
   }
 
-  getPlayerWins(relatedTournaments) {
+  public getPlayerWins(relatedTournaments: IRelatedTournament[]): number {
     let wins = 0;
 
     for (let tourno of relatedTournaments) {
@@ -39,11 +40,12 @@ export class PlayerService {
     return wins;
   }
 
-  getPlayerLogo(ref) {
+  public getPlayerLogo(ref: string): firebase.storage.Reference {
     return firebase.storage().refFromURL(ref);
   }
 
-  getTournamentsAttended(player): ITourno[] {
+  // subject to refactoring --> check arg type, causes errors
+  public getTournamentsAttended(player): ITourno[] {
     const items: Array<ITourno> = [];
 
     if (player.relatedTournaments) {
@@ -60,7 +62,7 @@ export class PlayerService {
     return items;
   }
 
-  addTeamMember(player: IPlayer, playerId: string) {
+  public addTeamMember(player: IPlayer, playerId: string): void {
     let teamArr = player.team;
     teamArr.push(this.emptyTeamMember)
 
@@ -81,7 +83,7 @@ export class PlayerService {
 
   }
 
-  updateField(player: IPlayer, playerId: string, field: string) {
+  public updateField(player: IPlayer, playerId: string, field: string): void {
     let updateInfo = {};
     updateInfo['' + field] = player[field];
 
@@ -96,7 +98,7 @@ export class PlayerService {
     });
   }
 
-  updatePlayerInfo(player) {
+  public updatePlayerInfo(player: IPlayer): void {
 
     if (player.relatedTournaments.length !== 0) {
       const games = this.getPlayerGames(player.relatedTournaments);
@@ -109,7 +111,7 @@ export class PlayerService {
     }
   }
 
-  updateTournoWinner(winnerId, tournoId) {
+  public updateTournoWinner(winnerId: string, tournoId: string): void {
 
     this.afs.collection('players').doc(winnerId).valueChanges().subscribe((val: IPlayer) => {
 
@@ -127,7 +129,7 @@ export class PlayerService {
     });
   }
 
-  updateTournoLoser(loserId, tournoId) {
+  public updateTournoLoser(loserId: string, tournoId: string): void {
 
     this.afs.collection('players').doc(loserId).valueChanges().subscribe((val: IPlayer) => {
 
@@ -144,7 +146,7 @@ export class PlayerService {
 
   }
 
-  deletePlayer(playerId: string) {
+  public deletePlayer(playerId: string): void {
     this.afs.collection('players').doc(playerId).delete().then(() => {
       this.snackBar.open('Player was successfully deleted! 👍', '', {
         duration: 3000

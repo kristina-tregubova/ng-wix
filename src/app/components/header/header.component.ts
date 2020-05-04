@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
-import { Router } from '@angular/router';
 import { IUser } from '../../core/models/IUser';
 import { Observable } from 'rxjs';
 
@@ -21,8 +20,8 @@ export class HeaderComponent implements OnInit {
     this.isLogged$ = this.authService.userLoggedSubject$;
   }
 
-  async tryLogout() {
-    await this.authService.logout();
+  public tryLogout(): void {
+    this.authService.logout();
   }
 
 

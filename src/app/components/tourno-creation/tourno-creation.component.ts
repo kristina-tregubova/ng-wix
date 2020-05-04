@@ -6,6 +6,7 @@ import { DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
+import { IPlayer } from 'src/app/core/models/IPlayer';
 
 @Component({
   selector: 'app-tourno-creation',
@@ -15,14 +16,15 @@ import { MatSnackBar } from '@angular/material';
     provide: STEPPER_GLOBAL_OPTIONS, useValue: { showError: true }
   }]
 })
+
 export class TournoCreationComponent implements OnInit, OnDestroy {
-  // CanComponentDeactivate
+  // subject to refactor: CanComponentDeactivate?
 
   ref: DocumentReference;
 
   isLinear = true;
   formGroup: FormGroup;
-  /** Returns a FormArray with the name 'formArray'. */
+  // Returns a FormArray with the name 'formArray'
   get formArray(): AbstractControl | null { return this.formGroup.get('formArray'); }
 
   ifRandom: boolean;
@@ -43,7 +45,7 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
     });
   }
 
-  createForm() {
+  private createForm(): void {
     this.formGroup = this.formBuilder.group({
       formArray: this.formBuilder.array([
         this.formBuilder.group({
@@ -67,35 +69,34 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
     });
   }
 
-  createNewTournoDoc() {
+  private createNewTournoDoc(): Promise<DocumentReference> {
     return this.tournoCreationService.createDefaultTourno();
   }
 
-  bindFormToDoc() {
+  private bindFormToDoc(): void {
     this.formGroup.patchValue(this.ref);
   }
 
-  async handleSeedPlayers(ifRandom) {
+  public async handleSeedPlayers(ifRandom: boolean): Promise<DocumentReference[]> {
     return await this.tournoCreationService.seedPlayers(ifRandom, this.ref)
   }
 
- handleUpdateRelatedPlayers(val) {
-   this.tournoCreationService.updateRelatedPlayers(val, this.ref);
- }
+  public handleUpdateRelatedPlayers(val: DocumentReference[]): void {
+    this.tournoCreationService.updateRelatedPlayers(val, this.ref);
+  }
 
-  saveFormChanges(numberRef) {
+  public saveFormChanges(numberRef: number): void {
     const data = this.formGroup.get('formArray').get([numberRef]).value;
     data['id'] = this.ref.id;
 
     this.tournoCreationService.updateDefaultTourno(this.ref, data);
   }
 
-  setIfRandom(val) {
+  public setIfRandom(val: boolean): void {
     this.ifRandom = val;
   }
-Ï
 
-  async checkBeforeSaveTournament(numberRef, ifRandom) {
+  public async checkBeforeSaveTournament(numberRef: number, ifRandom: boolean): Promise<void> {
 
     if (this.formGroup.status != 'VALID') {
       console.log('form is not valid, cannot save data');
@@ -116,7 +117,7 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
 
   }
 
-  saveTournament(numberRef, participantsNumber, chosenPlayers) {
+  private saveTournament(numberRef: number, participantsNumber: number, chosenPlayers: DocumentReference[]): void {
 
     this.ifDelete = false;
 
@@ -143,11 +144,11 @@ export class TournoCreationComponent implements OnInit, OnDestroy {
     this.router.navigate(['/tourno-profile/' + this.ref.id])
   }
 
-  cancelTournoCreation() {
+  private cancelTournoCreation(): void {
     this.tournoCreationService.deleteTourno(this.ref);
   }
 
-  canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
+  protected canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
 
     let canQuit = true;
 

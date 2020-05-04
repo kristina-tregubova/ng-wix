@@ -76,7 +76,7 @@
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
-    "no-inputs-metadata-property": true,
+    "no-inputs-metadata-property": true,    
     "no-output-native": true,
     "no-output-on-prefix": true,
     "no-output-rename": true,
@@ -88,5 +88,9 @@
   },
   "rulesDirectory": [
     "codelyzer"
-  ]
+  ],
+  "rxjs-no-ignored-subscription": true,
+  "rxjs-no-ignored-subscribe": true,
+  "rxjs-no-ignored-observable": true,
+  "rxjs-prefer-async-pipe": true
 }

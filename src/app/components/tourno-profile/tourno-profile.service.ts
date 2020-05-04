@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
-import { DocumentReference } from '@angular/fire/firestore';
 import { IRound } from '../../core/models/IRound';
+import { ITourno } from 'src/app/core/models/ITourno';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +15,9 @@ export class TournoProfileService {
     private authService: AuthService
   ) { }
 
-  async checkIfCreator(tourno) {
+  public async checkIfCreator(tourno: ITourno): Promise<boolean> {
 
-    let creatorId;
+    let creatorId: string;
     const currentId = this.authService.getUserLogged.uid;
 
     if (tourno.userCreated) {
@@ -28,10 +28,10 @@ export class TournoProfileService {
           }
         });
     }
-    return (currentId === creatorId ? true : false);
+    return currentId === creatorId;
   }
 
-  updateRoundsInfo(rounds: IRound[]): IRound[] {
+  public updateRoundsInfo(rounds: IRound[]): IRound[] {
 
     for (let i = 0; i < (rounds.length - 1); i++) {
       const nextRoundCandidates = rounds[i].nextRoundCandidates;
@@ -41,7 +41,7 @@ export class TournoProfileService {
     return rounds;
   }
 
-  updateRoundWithPlayers(round: IRound, nextRoundCandidates: string[]): IRound {
+  public updateRoundWithPlayers(round: IRound, nextRoundCandidates: string[]): IRound {
 
     for (let i = 0; i < round.games.length; i++) {
       round.games[i].player1.id = nextRoundCandidates[i + i];

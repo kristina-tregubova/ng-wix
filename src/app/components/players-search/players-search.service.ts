@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { IPlayer } from '../../core/models/IPlayer';
 import { AuthService } from '../../core/services/auth.service';
@@ -9,17 +9,16 @@ import { IUser } from '../../core/models/IUser';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PlayersSearchService {
 
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) {
-    // this.user = this.authService.getUserLogged;
-  }
+  ) { }
 
   user: IUser;
-  initialItems: any[];
+  initialItems: IPlayer[];
   items: IPlayer[];
 
   countrySubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
@@ -31,11 +30,11 @@ export class PlayersSearchService {
   private _loading = new BehaviorSubject(false);
   loading$ = this._loading.asObservable();
 
-  searchPlayers() {
+  public searchPlayers(): Observable<IPlayer[]> {
 
     this.startLoading();
 
-    const result = this.afs.collection('players').snapshotChanges().pipe(
+    const result: Observable<IPlayer[]> = this.afs.collection('players').snapshotChanges().pipe(
 
       map(actions => {
         return actions.map(a => {
@@ -44,7 +43,7 @@ export class PlayersSearchService {
           return { id, ...data };
         });
       }),
-      tap((res) => {
+      tap((res: IPlayer[]) => {
         this.initialItems = res;
         this.getCreatorIds();
       }),
@@ -56,7 +55,8 @@ export class PlayersSearchService {
     return result;
   }
 
-  getFilteredItems() {
+  // subject to refactoring
+  public getFilteredItems(): IPlayer[] {
 
     this.startLoading();
 
@@ -135,9 +135,9 @@ export class PlayersSearchService {
 
   }
 
-  async getCreatorIds() {
+  public getCreatorIds(): void {
     if (this.initialItems) {
-      await this.initialItems.forEach((item: IPlayer) => {
+      this.initialItems.forEach((item: IPlayer) => {
         if (item.userCreated) {
           item.userCreated.get()
             .then((doc) => {
@@ -151,11 +151,11 @@ export class PlayersSearchService {
   }
 
 
-  startLoading() {
+  public startLoading(): void {
     this._loading.next(true);
   }
 
-  stopLoading() {
+  public stopLoading(): void {
     this._loading.next(false);
   }
 }

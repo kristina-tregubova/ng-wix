@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
-import { PlayerCardService } from '../../shared/components/players-list/player-card/player-card.service';
+import { IPlayer } from 'src/app/core/models/IPlayer';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PlayerProfileService {
 
   user: IUser;
@@ -14,8 +15,9 @@ export class PlayerProfileService {
     private authService: AuthService
   ) {}
 
-  async checkIfCreator(player) {
-    let creatorId;
+  public async checkIfCreator(player: IPlayer): Promise<boolean> {
+    
+    let creatorId: string;
     const currentId = this.authService.getUserLogged.uid;
 
     if (player.userCreated) {
@@ -27,7 +29,7 @@ export class PlayerProfileService {
         });
     }
 
-    return (currentId === creatorId ? true : false);
+    return currentId === creatorId;
 
   }
 }

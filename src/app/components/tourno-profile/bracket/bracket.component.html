@@ -1,13 +1,16 @@
-<div class="bracket" *ngIf="rounds">
-  <app-round 
-    *ngFor="let round of rounds; let i = index; let last = last" 
-    [round]='round' 
+<div
+  class="bracket"
+  *ngIf="rounds"
+>
+  <app-round
+    *ngFor="let round of rounds; let i = index; let last = last"
+    [round]='round'
     [isEditingDisabled]='isEditingDisabled'
-    [roundType]="roundType" 
+    [roundType]="roundType"
     class="round"
     [ngClass]="defineRoundType(i)"
     [last]="last"
     (TournoWinnerEmitter)="TournoWinnerEmitter.emit($event)"
-    >
+  >
   </app-round>
 </div>

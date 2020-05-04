@@ -22,7 +22,7 @@ export class FooterComponent implements OnInit {
     this.isLogged$ = this.authService.userLoggedSubject$;
   }
 
-  async tryLogout() {
-    await this.authService.logout();
+  public tryLogout(): void {
+    this.authService.logout();
   }
 }

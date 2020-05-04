@@ -8,24 +8,37 @@
         <form class="search-form">
             <div class="search-form__search search-field">
                 <mat-form-field class="form-input">
-                    <input matInput (keyup)="trySearchByName($event.target.value)" id="tournos-search-input">
+                    <input
+                        matInput
+                        #tournoSearchInput
+                        (keyup)="trySearchByName($event.target.value)"
+                    >
                     <mat-icon matSuffix>search</mat-icon>
                     <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
                 </mat-form-field>
             </div>
 
             <div class="search-form__checkboxes">
-                <mat-checkbox (change)="tryFilterByMine($event.checked)" [disabled]="!(isLogged$ | async)">Only mine
+                <mat-checkbox
+                    (change)="tryFilterByMine($event.checked)"
+                    [disabled]="!(isLogged$ | async)"
+                >Only mine
                 </mat-checkbox>
 
-                <mat-checkbox (change)="tryFilterByFavorite($event.checked)" [disabled]="!(isLogged$ | async)">
+                <mat-checkbox
+                    (change)="tryFilterByFavorite($event.checked)"
+                    [disabled]="!(isLogged$ | async)"
+                >
                     Favourites</mat-checkbox>
             </div>
 
 
             <div class="search-form__selectors">
 
-                <mat-form-field class="search-field" floatLabel="never">
+                <mat-form-field
+                    class="search-field"
+                    floatLabel="never"
+                >
                     <mat-label>Game:</mat-label>
                     <mat-select (selectionChange)="tryFilterByGame($event.value)">
                         <mat-option value="">All</mat-option>
@@ -43,7 +56,10 @@
                     </mat-select>
                 </mat-form-field>
 
-                <mat-form-field class="search-field" floatLabel="never">
+                <mat-form-field
+                    class="search-field"
+                    floatLabel="never"
+                >
                     <mat-label>Status:</mat-label>
                     <mat-select (selectionChange)="tryFilterByStatus($event.value)">
                         <mat-option value="">
@@ -69,8 +85,14 @@
                 Tournaments list
             </h2>
 
-            <app-tournos-list [items]="items" [isLoading$]="isLoading$"></app-tournos-list>
-            <div class='no-tourno' *ngIf="items && items.length === 0  && (isLoading$ | async) == false">
+            <app-tournos-list
+                [items]="items"
+                [isLoading$]="isLoading$"
+            ></app-tournos-list>
+            <div
+                class='no-tourno'
+                *ngIf="items && items.length === 0  && (isLoading$ | async) == false"
+            >
                 No tournaments found <span>😥</span>
             </div>
             <app-loading-spinner *ngIf="isLoading$ | async"> </app-loading-spinner>

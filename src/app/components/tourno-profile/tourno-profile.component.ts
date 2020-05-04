@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, SafeStyle } from '@angular/platform-browser';
 import { ITourno } from '../../core/models/ITourno';
 import { Observable, of, Subscription } from 'rxjs';
 import { IPlayer } from '../../core/models/IPlayer';
@@ -19,6 +19,7 @@ import { PlayerService } from '../../core/services/player.service';
   templateUrl: './tourno-profile.component.html',
   styleUrls: ['./tourno-profile.component.scss']
 })
+
 export class TournoProfileComponent implements OnInit, OnDestroy {
 
   isLogged$: Observable<IUser | null>;
@@ -26,7 +27,7 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
   id: string;
   tourno: ITourno;
 
-  backgroundImg: any;
+  backgroundImg: SafeStyle;
   game: string;
   items$: Observable<IPlayer[]>;
   rounds: IRound[];
@@ -56,8 +57,7 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
     private tournoProfileService: TournoProfileService,
     private playerService: PlayerService,
     public dialog: MatDialog,
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -70,20 +70,20 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
         this.backgroundImg = this.sanitizer.bypassSecurityTrustStyle(`url(./assets/images/games-wp/${val.game}.jpg)`);
         this.items$ = this.tournoService.getRelatedPlayers(val);
         this.rounds = val.rounds;
-        this.ifFinished = val.status === 'completed' ? true : false;
+        this.ifFinished = val.status === 'completed';
       });
   }
 
 
-  handleEnableBracketEditing() {
+  public handleEnableBracketEditing(): void {
     this.isBracketEditingDisabled = !this.isBracketEditingDisabled;
   }
 
-  handleCancelBracketEditing() {
+  public handleCancelBracketEditing(): void {
     this.isBracketEditingDisabled = true;
   }
 
-  handleSubmitBracketEditing() {
+  public handleSubmitBracketEditing(): void {
     this.isBracketEditingDisabled = true;
     this.tourno.rounds = this.tournoProfileService.updateRoundsInfo(this.tourno.rounds);
     this.tournoService.updateTournoStatus(this.id, 'in progress');
@@ -92,13 +92,14 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
     this.tournoService.updateRounds(this.tourno, this.id);
   }
 
-  handleFinishTournament() {
+ public handleFinishTournament(): void {
     this.handleSubmitBracketEditing();
     this.tournoService.updateTournoStatus(this.id, 'completed');
     this.ifFinished = true;
   }
 
-  handleEnableEditing(type) {
+  // enum for type --> subject to refactoring
+  public handleEnableEditing(type: string): void {
     switch (type) {
       case 'name':
         this.isNameEditingDisabled = !this.isNameEditingDisabled;
@@ -118,7 +119,7 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleSubmitEditing(type) {
+  public handleSubmitEditing(type: string): void {
     switch (type) {
       case 'name':
         this.isNameEditingDisabled = true;
@@ -144,7 +145,7 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
   }
 
 
-  handleOpenDeletePopup() {
+  public handleOpenDeletePopup(): void {
     this.dialog.open(DeletePopupComponent, {
       width: '450px',
       data: {
@@ -154,9 +155,10 @@ export class TournoProfileComponent implements OnInit, OnDestroy {
     });
   }
 
-  setWinner($event) {
-    this.gameWinner = $event.winner;
-    this.gameLoser = $event.loser;
+  // subject to refactoring --> create interface
+  public setWinner(value: {winner: string, loser: string}): void {
+    this.gameWinner = value.winner;
+    this.gameLoser = value.loser;
   }
 
   ngOnDestroy() {

@@ -1,7 +1,7 @@
-import { Injectable, OnInit, OnChanges } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
-import { switchMap, tap, map, filter, last, debounceTime } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
 import { ITourno } from '../../core/models/ITourno';
 import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
@@ -14,12 +14,10 @@ export class TournosSearchService {
   constructor(
     private afs: AngularFirestore,
     private authService: AuthService,
-  ) {
-    // this.user = this.authService.getUserLogged;
-  }
+  ) { }
 
   user: IUser;
-  initialItems: any[];
+  initialItems: ITourno[];
   items: ITourno[];
 
   statusSubject$: BehaviorSubject<string | null> = new BehaviorSubject(null);
@@ -32,7 +30,7 @@ export class TournosSearchService {
   loading$ = this._loading.asObservable();
 
 
-  searchTournaments() {
+  public searchTournaments(): Observable<ITourno[]> {
 
     this.startLoading();
 
@@ -45,7 +43,7 @@ export class TournosSearchService {
           return { id, ...data };
         });
       }),
-      tap((res) => {
+      tap((res: ITourno[]) => {
         this.initialItems = res;
         this.getCreatorIds();
       }),
@@ -57,7 +55,8 @@ export class TournosSearchService {
 
   }
 
-  getFilteredItems() {
+  // subject to refactoring
+  public getFilteredItems(): ITourno[] {
 
     this.startLoading();
 
@@ -137,9 +136,9 @@ export class TournosSearchService {
 
   }
 
-  async getCreatorIds() {
+  public getCreatorIds(): void {
     if (this.initialItems) {
-      await this.initialItems.forEach((item: ITourno) => {
+      this.initialItems.forEach((item: ITourno) => {
         if (item.userCreated) {
           item.userCreated.get()
             .then((doc) => {
@@ -152,11 +151,11 @@ export class TournosSearchService {
     }
   }
 
-  startLoading() {
+  private startLoading(): void {
     this._loading.next(true);
   }
 
-  stopLoading() {
+  private stopLoading(): void {
     this._loading.next(false);
   }
 }

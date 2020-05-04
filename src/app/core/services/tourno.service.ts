@@ -4,11 +4,13 @@ import { ITourno } from '../models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { MatSnackBar } from '@angular/material';
+import { IPlayer } from '../models/IPlayer';
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class TournoService {
 
   constructor(
@@ -17,12 +19,14 @@ export class TournoService {
     private snackBar: MatSnackBar
   ) { }
 
-  getTourno(id: string) {
+  // ??
+  public getTourno(id: string): Observable<any> {
     return this.afs.collection('tournaments').doc(id).valueChanges();
   }
 
-  getRelatedPlayers(tourno) {
-    let items;
+  // subject to refactoring --> check arg type, causes errors
+  public getRelatedPlayers(tourno): Observable<IPlayer[]> {
+    let items: IPlayer[];
 
     if (tourno.relatedPlayers) {
       items = [];
@@ -40,7 +44,7 @@ export class TournoService {
     }
   }
 
-  updateField(tourno: ITourno, tournoId: string, field: string) {
+  public updateField(tourno: ITourno, tournoId: string, field: string): void {
     const updateInfo = {};
     updateInfo['' + field] = tourno[field];
 
@@ -53,7 +57,7 @@ export class TournoService {
     });
   }
 
-  updateTournoStatus(tournoId: string, status: string) {
+  public updateTournoStatus(tournoId: string, status: string): void {
 
     this.afs.collection('tournaments').doc(tournoId).update({
       status: status
@@ -64,7 +68,7 @@ export class TournoService {
     });
   }
 
-  updateRounds(tourno: ITourno, id?: string) {
+  public updateRounds(tourno: ITourno, id?: string): void {
 
     this.afs.collection('tournaments').doc(id).update({
       rounds: tourno.rounds
@@ -82,7 +86,7 @@ export class TournoService {
   }
 
 
-  deleteTourno(tournoId) {
+  public deleteTourno(tournoId: string): void {
     this.afs.collection('tournaments').doc(tournoId).delete().then(() => {
       this.snackBar.open('Tournament was successfully deleted! 👍', '', {
         duration: 3000
