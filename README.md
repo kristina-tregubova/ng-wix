@@ -1,19 +1,21 @@
 # NgWix - Tournament games application
 
-https://ng-wix.web.app
+WiX is a tournament games application, which was implemented as a personal project to learn Angular, Typescript and Firebase.
+This was designed as a platform, where local sports teams and communities can generate tournament brackets, keep track of games results, check profiles of other users' games and profiles.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.1.
- 
- 
- 
+You are welcome to check it out at https://ng-wix.web.app
+
+### Stack used:
+
+- Angular 8.3.1 + TypeScript
+- Angular Firestore + Firebase Storage
+- Angular Material + SCSS + HTML5
+
 ________________________________________________
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-________________________________________________
-
 
 ## Build (!)
 
@@ -23,16 +25,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ________________________________________________
 
+## Info
 
-## Stack
-
-- Angular 8.3.1 + TypeScript
-- Angular Firestore + Firebase Storage
-- Angular Material + SCSS + HTML5
-
-
-________________________________________________
-
-## Further help
-
-Contact: Kristina.Tikhonova@t-systems.com
+Contact me: Christine.Tikhonowa@gmail.com
