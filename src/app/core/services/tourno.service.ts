@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ITourno } from '../core/models/ITourno';
+import { ITourno } from '../models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AuthService } from '../core/auth.service';
+import { AuthService } from './auth.service';
 import { MatSnackBar } from '@angular/material';
 
 

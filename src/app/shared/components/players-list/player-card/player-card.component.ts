@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PlayerService } from '../../../../services/player.service';
+import { PlayerService } from '../../../../core/services/player.service';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/core/models/IUser';
 import { PlayerCardService } from './player-card.service';
-import { AuthService } from 'src/app/core/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 
 @Component({

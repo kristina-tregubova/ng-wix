@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AuthService } from 'src/app/core/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import * as firebase from 'firebase'
 import { MatSnackBar } from '@angular/material';
 

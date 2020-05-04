@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
 import { PlayerCardService } from '../../shared/components/players-list/player-card/player-card.service';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { IPlayer } from 'src/app/core/models/IPlayer';
-import { CreateNewPlayerPopupComponent } from '../../../popups/create-new-player-popup/create-new-player-popup.component';
+import { CreateNewPlayerPopupComponent } from '../../popups/create-new-player-popup/create-new-player-popup.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

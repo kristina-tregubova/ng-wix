@@ -9,7 +9,7 @@ import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { share, mergeMap } from 'rxjs/operators';
 import { switchMap } from 'rxjs/operators';
 
-import { IUser } from './models/IUser';
+import { IUser } from '../models/IUser';
 import { MatSnackBar } from '@angular/material';
 
 

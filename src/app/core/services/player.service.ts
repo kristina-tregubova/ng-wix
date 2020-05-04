@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-import { ITourno } from '../core/models/ITourno';
+import { ITourno } from '../models/ITourno';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { IPlayer } from '../core/models/IPlayer';
+import { IPlayer } from '../models/IPlayer';
 import { MatSnackBar } from '@angular/material';
 
 

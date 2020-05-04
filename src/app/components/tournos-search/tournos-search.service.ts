@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject, combineLatest } from 'rxjs';
 import { switchMap, tap, map, filter, last, debounceTime } from 'rxjs/operators';
 import { ITourno } from '../../core/models/ITourno';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
 
 @Injectable({

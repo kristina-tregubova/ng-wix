@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { AuthService } from 'src/app/core/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { MatDialog } from '@angular/material';
-import { DeletePopupComponent } from 'src/app/shared/popups/delete-popup/delete-popup.component';
+import { DeletePopupComponent } from 'src/app/shared/components/popups/delete-popup/delete-popup.component';
 
 @Component({
   selector: 'app-profile-settings',

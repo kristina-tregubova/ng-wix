@@ -11,11 +11,11 @@ import { PlayerCardComponent } from './components/players-list/player-card/playe
 import { AddNewComponent } from './components/add-player/add-new/add-new.component';
 import { AddFromListComponent } from './components/add-player/add-from-list/add-from-list.component';
 import { ErrorAreaComponent } from './components/error-area/error-area.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { TimestampToIsoPipe } from './pipes/date-to-iso.pipe';
 import { CurrentPlayersComponent } from './components/add-player/current-players/current-players.component';
 import { NullToDashPipe } from './pipes/null-to-dash.pipe';
-import { GlobalSpinnerComponent } from './global-spinner/global-spinner.component';
+import { GlobalSpinnerComponent } from './components/global-spinner/global-spinner.component';
 
 import {
   MatButtonModule,

@@ -3,7 +3,7 @@ import { TournoCardService } from './tourno-card.service';
 import { ITourno } from 'src/app/core/models/ITourno';
 import { Observable } from 'rxjs';
 import { IUser } from 'src/app/core/models/IUser';
-import { AuthService } from 'src/app/core/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-tourno-card',

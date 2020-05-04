@@ -3,14 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ITourno } from '../../core/models/ITourno';
 import { IPlayer } from '../../core/models/IPlayer';
-import { PlayerService } from '../../services/player.service';
+import { PlayerService } from '../../core/services/player.service';
 import { PlayerProfileService } from './player-profile.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DeletePopupComponent } from '../../shared/popups/delete-popup/delete-popup.component'
-import { AuthService } from '../../core/auth.service';
+import { DeletePopupComponent } from '../../shared/components/popups/delete-popup/delete-popup.component'
+import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
 import { Observable, Subscription } from 'rxjs';
-import { FileUploadPopupComponent } from '../../shared/popups/file-upload-popup/file-upload-popup.component';
+import { FileUploadPopupComponent } from '../../shared/components/popups/file-upload-popup/file-upload-popup.component';
 import { MatSnackBar } from '@angular/material';
 
 

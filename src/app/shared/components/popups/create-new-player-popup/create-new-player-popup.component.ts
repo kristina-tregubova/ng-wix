@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { CreateNewPlayerPopupService } from './create-new-player-popup.service';
-import { AuthService } from 'src/app/core/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-create-new-player-popup',

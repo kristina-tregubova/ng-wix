@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, DoCheck, ChangeDetectionStrategy } from '@angular/core';
 import { TournosSearchService } from './tournos-search.service';
 import { Observable, Subscription } from 'rxjs';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
 
 

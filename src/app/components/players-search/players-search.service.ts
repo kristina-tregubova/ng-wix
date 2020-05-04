@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { IPlayer } from '../../core/models/IPlayer';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { IUser } from '../../core/models/IUser';
 
 @Injectable({

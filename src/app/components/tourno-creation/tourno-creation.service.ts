@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { ITourno } from '../../core/models/ITourno';
-import { AuthService } from '../../core/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import * as firebase from 'firebase';
 import { IGame, IRound } from '../../core/models/IRound';
-import { PlayerService } from '../../services/player.service';
+import { PlayerService } from '../../core/services/player.service';
 import { MatSnackBar } from '@angular/material';
 
 

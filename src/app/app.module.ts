@@ -25,10 +25,10 @@ import { TournoCreationComponent } from './components/tourno-creation/tourno-cre
 import { TournoSearchComponent } from './components/tournos-search/tournos-search.component';
 import { PlayersSearchComponent } from './components/players-search/players-search.component';
 import { PlayerProfileComponent } from './components/player-profile/player-profile.component';
-import { SuccessPopupComponent } from './shared/popups/success-popup/success-popup.component';
-import { DeletePopupComponent } from './shared/popups/delete-popup/delete-popup.component';
-import { FileUploadPopupComponent } from './shared/popups/file-upload-popup/file-upload-popup.component';
-import { CreateNewPlayerPopupComponent } from './shared/popups/create-new-player-popup/create-new-player-popup.component';
+import { SuccessPopupComponent } from './shared/components/popups/success-popup/success-popup.component';
+import { DeletePopupComponent } from './shared/components/popups/delete-popup/delete-popup.component';
+import { FileUploadPopupComponent } from './shared/components/popups/file-upload-popup/file-upload-popup.component';
+import { CreateNewPlayerPopupComponent } from './shared/components/popups/create-new-player-popup/create-new-player-popup.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 
