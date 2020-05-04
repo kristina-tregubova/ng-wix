@@ -57,8 +57,7 @@ const routes: Routes = [
     component: TournoProfileComponent
   },
 
-
-  //______________
+  // 404 page
   {
     path: "**",
     component: ErrorComponent
