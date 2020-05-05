@@ -1,19 +1,37 @@
 <div class="add-new">
 
 
-  <button mat-raised-button class="add-player-btn btn highlighted-btn" (click)="handleOpenCreateNewPopup()">
+  <button
+    mat-raised-button
+    class="add-player-btn btn highlighted-btn"
+    (click)="handleOpenCreateNewPopup()"
+  >
     Create new player
   </button>
 
 
-  <div class="players-list" role="table" *ngIf="createdPlayers">
+  <div
+    class="players-list"
+    role="table"
+    *ngIf="createdPlayers"
+  >
 
-    <div class="row" *ngFor="let player of createdPlayers">
+    <div
+      class="row"
+      *ngFor="let player of createdPlayers"
+    >
 
-      <app-player-card [item]="player" [showBtns]="false"></app-player-card>
+      <app-player-card
+        [item]="player"
+        [showBtns]="false"
+      ></app-player-card>
 
-      <button mat-icon-button aria-label="Add player" сlass="add-to-list-btn btn"
-        (click)="handleAddChosenPlayers(player)">
+      <button
+        mat-icon-button
+        aria-label="Add player"
+        сlass="add-to-list-btn btn"
+        (click)="handleAddChosenPlayers(player)"
+      >
         <mat-icon>add</mat-icon>
       </button>
 

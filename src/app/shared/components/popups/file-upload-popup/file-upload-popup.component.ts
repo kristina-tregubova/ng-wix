@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import * as firebase from 'firebase';
@@ -9,10 +9,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
   templateUrl: './file-upload-popup.component.html',
   styleUrls: ['./file-upload-popup.component.scss']
 })
-export class FileUploadPopupComponent implements OnInit {
+export class FileUploadPopupComponent {
 
   isCompleted = false;
-  storageRef: any;
+  storageRef: firebase.storage.Reference;
   file: any;
 
   constructor(
@@ -22,10 +22,8 @@ export class FileUploadPopupComponent implements OnInit {
     private snackBar: MatSnackBar
   ) { }
 
-  ngOnInit() {
-  }
-
-  handleUploadFile(e) {
+  // subject to refactoring --> unclear type
+  public handleUploadFile(e: any): void {
     // Get file
     this.file = e.target.files[0];
 
@@ -35,7 +33,7 @@ export class FileUploadPopupComponent implements OnInit {
 
   }
 
-  handleSaveFile() {
+  public handleSaveFile(): void {
     // Upload file
     let task = this.storageRef.put(this.file)
       .then((snapshot) => {

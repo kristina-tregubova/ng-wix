@@ -1,10 +1,16 @@
-<div class="sorting-header" role="header">
+<div
+  class="sorting-header"
+  role="header"
+>
 
   <div class="sorting-header__userpic">
   </div>
 
   <div class="sorting-header__title">
-    <button class="sortable" (click)="handleSorting($event, 'name', 'letters')">Name
+    <button
+      class="sortable"
+      (click)="handleSorting($event, 'name', 'letters')"
+    >Name
     </button>
   </div>
 
@@ -19,32 +25,57 @@
   </div>
 
   <div class="sorting-header__games">
-    <button class="sortable" (click)="handleSorting($event, 'games', 'numbers')">Games
+    <button
+      class="sortable"
+      (click)="handleSorting($event, 'games', 'numbers')"
+    >Games
     </button>
   </div>
 
   <div class="sorting-header__games-won">
-    <button class="sortable" (click)="handleSorting($event, 'wins', 'numbers')">Wins
+    <button
+      class="sortable"
+      (click)="handleSorting($event, 'wins', 'numbers')"
+    >Wins
     </button>
   </div>
 
 
   <div class="sorting-header__buttons">
-    <i class="up material-icons" [style.color]="order ? 'yellow' : 'white'">
+    <i
+      class="up material-icons"
+      [style.color]="order ? 'yellow' : 'white'"
+    >
       arrow_drop_up
     </i>
-    <i class="down material-icons" [style.color]="order ? 'white' : 'yellow'">
+    <i
+      class="down material-icons"
+      [style.color]="order ? 'white' : 'yellow'"
+    >
       arrow_drop_down
     </i>
   </div>
 
 </div>
 
-<div class="players-list" role="table">
+<div
+  class="players-list"
+  role="table"
+>
 
-  <app-player-card *ngFor="let item of items | slice: 0:showEnd" [item]="item"></app-player-card>
+  <app-player-card
+    *ngFor="let item of items | slice: 0:showEnd"
+    [item]="item"
+  ></app-player-card>
 
-  <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()" *ngIf="items && items.length > 0 && ifShowMoreBtn">
+  <button
+    mat-mini-fab
+    aria-label="show more"
+    color="primary"
+    class="show-more-btn"
+    (click)="handleShowMore()"
+    *ngIf="items && items.length > 0 && ifShowMoreBtn"
+  >
     <mat-icon>add</mat-icon>
   </button>
 

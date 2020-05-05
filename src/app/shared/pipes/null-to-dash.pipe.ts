@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NullToDashPipe implements PipeTransform {
 
-  transform(value: any, ...args: any[]): any {
-      return (value == null) ? '-' : value;
-    }
+  transform(value: string | null): string {
+    return (value == null) ? '-' : value;
+  }
 
 }

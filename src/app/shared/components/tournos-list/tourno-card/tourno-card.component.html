@@ -1,6 +1,10 @@
 <mat-card class="grid-card tournos-list__card">
 
-  <img mat-card-image src="./assets/images/games-wp/{{item?.game}}.jpg" alt="Game background picture">
+  <img
+    mat-card-image
+    src="./assets/images/games-wp/{{item?.game}}.jpg"
+    alt="Game background picture"
+  >
 
   <mat-card-title class="grid-card__title">
     {{item?.name | titlecase}}
@@ -25,11 +29,23 @@
 
   <mat-card-actions class="grid-card__actions">
 
-    <a mat-stroked-button class="btn" [routerLink]="['/tourno-profile', item.id]">View
+    <a
+      mat-stroked-button
+      class="btn"
+      [routerLink]="['/tourno-profile', item.id]"
+    >View
       Details</a>
 
-    <button mat-icon-button aria-label="Add to favorite" *ngIf="isLogged$ | async" (click)="handleFavorite()">
-      <mat-icon *ngIf="isFavorite" color="primary">favorite</mat-icon>
+    <button
+      mat-icon-button
+      aria-label="Add to favorite"
+      *ngIf="isLogged$ | async"
+      (click)="handleFavorite()"
+    >
+      <mat-icon
+        *ngIf="isFavorite"
+        color="primary"
+      >favorite</mat-icon>
       <mat-icon *ngIf="!isFavorite">favorite</mat-icon>
     </button>
   </mat-card-actions>

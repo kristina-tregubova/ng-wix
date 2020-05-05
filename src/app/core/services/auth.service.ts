@@ -197,7 +197,7 @@ export class AuthService {
   }
 
   // sunject to refactoring --> unclear type
-  public deleteUser(user: DocumentReference & IUser): void {
+  public deleteUser(user: DocumentReference & IUser | firebase.User): void {
     this.afs.doc('users/' + user.uid).delete().then(() => {
       console.log('Account is deleted from the database')
     })

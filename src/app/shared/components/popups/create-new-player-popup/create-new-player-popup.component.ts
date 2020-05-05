@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { CreateNewPlayerPopupService } from './create-new-player-popup.service';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { IPlayer } from 'src/app/core/models/IPlayer';
 
 @Component({
   selector: 'app-create-new-player-popup',
@@ -31,34 +32,39 @@ export class CreateNewPlayerPopupComponent implements OnInit {
     })
   }
 
-  createNewPlayerDoc() {
+  public createNewPlayerDoc(): Promise<DocumentReference> {
     return this.createNewPlayerPopupService.createDefaultPlayer();
   }
 
-  async handleSavePlayerToDb() {
-    const data = {
+  // subject to refactoring
+  public async handleSavePlayerToDb(): Promise<void> {
+
+    const data: IPlayer = {
       'id': this.ref.id,
       'name': this.name,
       'playerType': this.data.playerType,
       'country': this.country,
       'game': this.data.game,
       'userCreated': this.authService.getUserLoggedRef,
+      'wins': null,
+      'games': null,
+      'relatedTournaments': null,
+      'team': null
     }
 
     this.createNewPlayerPopupService.updateDefaultPlayer(this.ref, data)
       .then(() => {
         console.log('successfully added player')
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         console.error(err);
       })
 
-
-      this.returnNewPlayer(this.ref);
-      this.createNewPlayerPopupService.updateUserInfo(this.ref);
+    this.returnNewPlayer(this.ref);
+    this.createNewPlayerPopupService.updateUserInfo(this.ref);
   }
 
-  async returnNewPlayer(ref) {
+  private async returnNewPlayer(ref: DocumentReference): Promise<void> {
 
     await ref.get()
       .then((doc) => {
@@ -71,7 +77,7 @@ export class CreateNewPlayerPopupComponent implements OnInit {
       })
   }
 
-  cancelCreateNewPlayer() {
+  public cancelCreateNewPlayer(): void {
     this.createNewPlayerPopupService.deleteNewPlayer(this.ref);
     this.dialogRef.close();
   }

@@ -2,7 +2,10 @@
   <form class="search-form">
     <div class="search-field">
       <mat-form-field class="form-input">
-        <input matInput (keyup)="trySearchByName($event.target.value)">
+        <input
+          matInput
+          (keyup)="trySearchByName($event.target.value)"
+        >
         <mat-icon matSuffix>search</mat-icon>
         <mat-hint align="start"><strong>Start typing tournament name</strong> </mat-hint>
       </mat-form-field>
@@ -11,21 +14,40 @@
 
   <section class="players-search-result">
 
-    <div class="players-list" role="table">
+    <div
+      class="players-list"
+      role="table"
+    >
 
-      <div class="row" *ngFor="let player of searchedPlayers  | slice: 0:showEnd">
+      <div
+        class="row"
+        *ngFor="let player of searchedPlayers  | slice: 0:showEnd"
+      >
 
-        <app-player-card [item]="player" [showBtns]="false"></app-player-card>
+        <app-player-card
+          [item]="player"
+          [showBtns]="false"
+        ></app-player-card>
 
-        <button mat-icon-button aria-label="Add player" сlass="add-to-list-btn btn"
-          (click)="handleAddChosenPlayers(player)">
+        <button
+          mat-icon-button
+          aria-label="Add player"
+          сlass="add-to-list-btn btn"
+          (click)="handleAddChosenPlayers(player)"
+        >
           <mat-icon>add</mat-icon>
         </button>
 
       </div>
 
-      <button mat-mini-fab aria-label="show more" color="primary" class="show-more-btn" (click)="handleShowMore()"
-        *ngIf="searchedPlayers && searchedPlayers.length > 0 && ifShowMoreBtn">
+      <button
+        mat-mini-fab
+        aria-label="show more"
+        color="primary"
+        class="show-more-btn"
+        (click)="handleShowMore()"
+        *ngIf="searchedPlayers && searchedPlayers.length > 0 && ifShowMoreBtn"
+      >
         <mat-icon>add</mat-icon>
       </button>
 

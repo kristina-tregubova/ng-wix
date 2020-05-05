@@ -11,19 +11,17 @@ import { DocumentReference, AngularFirestore } from '@angular/fire/firestore';
 })
 export class AddPlayerComponent implements OnInit {
 
+  chosenPlayers$: BehaviorSubject<IPlayer[]> = new BehaviorSubject([]);
+  newArray: IPlayer[];
+  newRefArray: DocumentReference[] = [];
+  showAddNew = false;
+
   @Input() items$: Observable<IPlayer[]> | null = null; // current players
   @Input() participants: string;
   @Input() tournoInfo: IPlayer;
+
   @Output() ifRandom: EventEmitter<DocumentReference[]> = new EventEmitter();
-
-  chosenPlayers$: BehaviorSubject<IPlayer[]> = new BehaviorSubject([]);
-  newArray: IPlayer[];
   @Output() relatedPlayers: EventEmitter<DocumentReference[]> = new EventEmitter();
-  newRefArray: DocumentReference[] = [];
-
-  // searchedPlayers: Array<IPlayer>;
-
-  showAddNew = false;
 
   constructor(
     private afs: AngularFirestore
@@ -35,15 +33,15 @@ export class AddPlayerComponent implements OnInit {
     });
   }
 
-  handleChangeView() {
+  public handleChangeView(): void {
     this.showAddNew = !this.showAddNew;
   }
 
-  async getPlayerRef(player) {
-    return await this.afs.doc('players/' + player.id).ref
+  private async getPlayerRef(player: IPlayer): Promise<DocumentReference> {
+    return this.afs.doc('players/' + player.id).ref
   }
 
-  handleAddPlayerToList(player: IPlayer) {
+  public handleAddPlayerToList(player: IPlayer): void {
     this.newArray.push(player);
 
     this.getPlayerRef(player)
@@ -59,7 +57,7 @@ export class AddPlayerComponent implements OnInit {
 
   }
 
-  handleRemovePlayerFromList(player) {
+  public handleRemovePlayerFromList(player: IPlayer): void {
 
     let index = this.newArray.indexOf(player);
     if (index > -1) {

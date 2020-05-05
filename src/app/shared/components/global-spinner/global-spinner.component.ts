@@ -9,8 +9,6 @@ export class GlobalSpinnerComponent implements OnInit {
 
   visible = true;
 
-  constructor() { }
-
   ngOnInit() {
     setTimeout(() => (this.visible = false), 3000);
   }

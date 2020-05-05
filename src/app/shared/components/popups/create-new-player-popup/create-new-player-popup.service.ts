@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IPlayer } from 'src/app/core/models/IPlayer';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/core/services/auth.service';
 import * as firebase from 'firebase'
 import { MatSnackBar } from '@angular/material';
@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CreateNewPlayerPopupService {
 
+  // subject to refactoring
   defaultPlayer: IPlayer = {
     id: null,
     name: null,
@@ -30,7 +31,7 @@ export class CreateNewPlayerPopupService {
     private snackBar: MatSnackBar
   ) { }
 
-  async createDefaultPlayer() {
+  public async createDefaultPlayer(): Promise<DocumentReference> {
 
     const defaultTournoRef = this.afs.collection('players').add(this.defaultPlayer)
       .then((docRef) => {
@@ -40,27 +41,28 @@ export class CreateNewPlayerPopupService {
     return defaultTournoRef;
   }
 
-  updateDefaultPlayer(ref, data) {
-    return ref.update(data).then(() => {
+  public async updateDefaultPlayer(ref: DocumentReference, data: IPlayer) {
+    try {
+      await ref.update(data);
       this.snackBar.open('Player was successfully created! 👍', '', {
         duration: 3000
       });
-    })
-    .catch((err) => {
+    }
+    catch (err) {
       this.snackBar.open('Error occured while creating a player. Try again later 👻', '', {
         duration: 3000
       });
       console.error(err);
-    });
+    }
   }
 
-  updateUserInfo(ref) {
+  public updateUserInfo(ref: DocumentReference): void {
     this.authService.getUserLoggedRef.update({
       'createdPlayers': firebase.firestore.FieldValue.arrayUnion(ref)
     })
   }
 
-  deleteNewPlayer(ref) {
+  public deleteNewPlayer(ref: DocumentReference): Promise<void> {
     return ref.delete();
   }
 }

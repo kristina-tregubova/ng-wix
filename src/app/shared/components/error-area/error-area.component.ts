@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class ErrorAreaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.auth.errorMessage$.subscribe((errorMessage) =>  {
+    this.auth.errorMessage$.subscribe((errorMessage) => {
       this.errorMessage = errorMessage;
     });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,4 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 export class AppComponent {
   title = 'ng-wix';
   isLoading = true;
-
-  constructor() {
-  }
-
 }

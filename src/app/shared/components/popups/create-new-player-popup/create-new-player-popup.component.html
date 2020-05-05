@@ -9,7 +9,10 @@
     <div class='inputs'>
         <label> Name: </label>
         <mat-form-field>
-            <input matInput [(ngModel)]="name">
+            <input
+                matInput
+                [(ngModel)]="name"
+            >
         </mat-form-field>
         <label>Country</label>
         <mat-form-field>
@@ -42,6 +45,14 @@
 <mat-divider></mat-divider>
 
 <div mat-dialog-actions>
-    <button mat-stroked-button (click)="cancelCreateNewPlayer()" class="btn">Cancel</button>
-    <button mat-stroked-button (click)="handleSavePlayerToDb()" class="btn">Create player</button>
+    <button
+        mat-stroked-button
+        (click)="cancelCreateNewPlayer()"
+        class="btn"
+    >Cancel</button>
+    <button
+        mat-stroked-button
+        (click)="handleSavePlayerToDb()"
+        class="btn"
+    >Create player</button>
 </div>

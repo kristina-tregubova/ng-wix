@@ -1,23 +1,49 @@
-<div class="grid-card players-list__card" role="row">
+<div
+  class="grid-card players-list__card"
+  role="row"
+>
 
-  <div class="players-info players-info__userpic" role="cell">
-    <img src={{item?.logoRef}} alt="userpic">
+  <div
+    class="players-info players-info__userpic"
+    role="cell"
+  >
+    <img
+      src={{item?.logoRef}}
+      alt="userpic"
+    >
   </div>
 
-  <p class="grid-card__title" role="cell">
-    <i class="material-icons" title="Team" *ngIf="item?.playerType === 'team'">group</i>
-    <i class="material-icons" title="Single" *ngIf="item?.playerType === 'single'">person</i>
+  <p
+    class="grid-card__title"
+    role="cell"
+  >
+    <i
+      class="material-icons"
+      title="Team"
+      *ngIf="item?.playerType === 'team'"
+    >group</i>
+    <i
+      class="material-icons"
+      title="Single"
+      *ngIf="item?.playerType === 'single'"
+    >person</i>
     {{item?.name | titlecase}}
   </p>
 
   <div class="grid-card__info">
-    <div class="players-info players-info__game" role="cell">
+    <div
+      class="players-info players-info__game"
+      role="cell"
+    >
       <mat-icon class="card-icon">casino</mat-icon>
       <span> {{item?.game | titlecase}}</span>
     </div>
   </div>
   <div class="grid-card__info">
-    <div class="players-info players-info__country" role="cell">
+    <div
+      class="players-info players-info__country"
+      role="cell"
+    >
       <mat-icon class="card-icon">public</mat-icon>
       <span>
         {{item?.country | titlecase}}
@@ -26,7 +52,10 @@
   </div>
 
   <div class="grid-card__info">
-    <div class="players-info players-info__games" role="cell">
+    <div
+      class="players-info players-info__games"
+      role="cell"
+    >
       <mat-icon class="card-icon">sports_handball</mat-icon>
       <span>
         {{item?.games}}
@@ -34,7 +63,10 @@
     </div>
   </div>
   <div class="grid-card__info">
-    <div class="players-info players-info__games-won" role="cell">
+    <div
+      class="players-info players-info__games-won"
+      role="cell"
+    >
       <mat-icon class="card-icon">emoji_events</mat-icon>
       <span>
         {{item?.wins}}
@@ -42,17 +74,30 @@
     </div>
   </div>
 
-  <div class="grid-card__actions" *ngIf="showBtns">
+  <div
+    class="grid-card__actions"
+    *ngIf="showBtns"
+  >
 
     <div>
 
-      <button mat-icon-button aria-label="Add to favorite"
-        [style.visibility]="(isLogged$ | async) ? 'visible' : 'hidden'" (click)="handleFavorite()">
-        <mat-icon *ngIf="isFavorite" color="primary">favorite</mat-icon>
+      <button
+        mat-icon-button
+        aria-label="Add to favorite"
+        [style.visibility]="(isLogged$ | async) ? 'visible' : 'hidden'"
+        (click)="handleFavorite()"
+      >
+        <mat-icon
+          *ngIf="isFavorite"
+          color="primary"
+        >favorite</mat-icon>
         <mat-icon *ngIf="!isFavorite">favorite</mat-icon>
       </button>
 
-      <a class="icon-toggle-button" [routerLink]="['/player-profile', item.id]">
+      <a
+        class="icon-toggle-button"
+        [routerLink]="['/player-profile', item.id]"
+      >
         <i class="material-icons">
           chevron_right
         </i>

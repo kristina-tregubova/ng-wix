@@ -12,10 +12,10 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class TournoCardComponent implements OnInit {
 
-  @Input() item: ITourno;
-
   isFavorite: boolean;
   isLogged$: Observable<IUser | null>;
+
+  @Input() item: ITourno;
 
   constructor(
     private tournoCardService: TournoCardService,
@@ -30,20 +30,15 @@ export class TournoCardComponent implements OnInit {
     }
   }
 
-  showFavorites() {
-    this.isFavorite = this.tournoCardService.defineIfFavorite(this.item.id) ? true : false;
+  private showFavorites(): void {
+    this.isFavorite = this.tournoCardService.defineIfFavorite(this.item.id);
   }
 
-  handleFavorite() {
-    if (this.isFavorite) {
-      this.isFavorite = false;
-      this.tournoCardService.removeFromFavorite(this.item.id);
-    } else {
-      this.isFavorite = true;
-      this.tournoCardService.addToFavorite(this.item.id);
-    }
-    console.log(this.isFavorite);
+  public handleFavorite(): void {
+    this.isFavorite
+      ? this.tournoCardService.removeFromFavorite(this.item.id)
+      : this.tournoCardService.addToFavorite(this.item.id);
+
+    this.isFavorite = !this.isFavorite
   }
-
-
 }

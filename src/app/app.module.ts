@@ -29,8 +29,7 @@ import { SuccessPopupComponent } from './shared/components/popups/success-popup/
 import { DeletePopupComponent } from './shared/components/popups/delete-popup/delete-popup.component';
 import { FileUploadPopupComponent } from './shared/components/popups/file-upload-popup/file-upload-popup.component';
 import { CreateNewPlayerPopupComponent } from './shared/components/popups/create-new-player-popup/create-new-player-popup.component';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
-import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
+
 
 
 @NgModule({
@@ -64,9 +63,7 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
     CoreModule,
     SharedModule,
     TournoProfileModule,
-    DragDropModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot(),
-    AkitaNgRouterStoreModule.forRoot()
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent],
@@ -76,6 +73,6 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
     FileUploadPopupComponent,
     CreateNewPlayerPopupComponent
   ]
-  
+
 })
 export class AppModule { }

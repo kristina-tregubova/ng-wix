@@ -1,27 +1,27 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
 import { IPlayer } from 'src/app/core/models/IPlayer';
 import { CreateNewPlayerPopupComponent } from '../../popups/create-new-player-popup/create-new-player-popup.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-new',
   templateUrl: './add-new.component.html',
   styleUrls: ['./add-new.component.scss']
 })
-export class AddNewComponent implements OnInit {
+export class AddNewComponent implements OnDestroy {
 
   createdPlayers: IPlayer[] = [];
-  @Output() newChosenPlayer: EventEmitter<IPlayer> = new EventEmitter<IPlayer>();
+  sub: Subscription;
+
   @Input() tournoInfo: IPlayer;
+  @Output() newChosenPlayer: EventEmitter<IPlayer> = new EventEmitter<IPlayer>();
 
   constructor(
     public dialog: MatDialog
   ) { }
 
-  ngOnInit() {
-  }
-
-  handleOpenCreateNewPopup() {
+  public handleOpenCreateNewPopup(): void {
 
     let dialogRef = this.dialog.open(CreateNewPlayerPopupComponent, {
       width: '450px',
@@ -31,7 +31,7 @@ export class AddNewComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    this.sub = dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.createdPlayers.push(result);
       }
@@ -39,8 +39,12 @@ export class AddNewComponent implements OnInit {
 
   }
 
-  handleAddChosenPlayers(player) {
+  public handleAddChosenPlayers(player: IPlayer): void {
     this.newChosenPlayer.emit(player);
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }

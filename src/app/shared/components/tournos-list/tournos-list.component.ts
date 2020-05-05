@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ITourno } from 'src/app/core/models/ITourno';
 
 @Component({
   selector: 'app-tournos-list',
@@ -8,21 +9,19 @@ import { Observable } from 'rxjs';
 })
 export class TournosListComponent implements OnChanges {
 
-  @Input() items: any[];
+  @Input() items: ITourno[];
   @Input() isLoading$: Observable<boolean>;
 
   showEnd: number = 6;
   ifShowMoreBtn = true;
 
-  constructor() { }
-
   ngOnChanges() {
     if (this.items) {
-      this.ifShowMoreBtn = (this.showEnd >= this.items.length) ?  false : true
+      this.ifShowMoreBtn = !(this.showEnd >= this.items.length);
     }
   }
 
-  handleShowMore() {
+  public handleShowMore(): void {
 
     if (this.showEnd <= this.items.length) {
       this.ifShowMoreBtn = true;

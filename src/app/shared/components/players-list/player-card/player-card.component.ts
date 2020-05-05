@@ -13,14 +13,14 @@ import { IPlayer } from 'src/app/core/models/IPlayer';
 })
 export class PlayerCardComponent implements OnInit {
 
-  @Input() item: IPlayer;
-  @Input() showBtns: boolean = true;
-  
   games: number;
   wins: number;
 
   isFavorite: boolean;
   isLogged$: Observable<IUser | null>;
+
+  @Input() item: IPlayer;
+  @Input() showBtns: boolean = true;
 
   constructor(
     private playerService: PlayerService,
@@ -30,7 +30,7 @@ export class PlayerCardComponent implements OnInit {
 
   ngOnInit() {
     this.isLogged$ = this.authService.userLoggedSubject$;
-    
+
     if (this.authService.isUserLogged) {
       this.showFavorites();
     }
@@ -38,18 +38,17 @@ export class PlayerCardComponent implements OnInit {
     this.playerService.updatePlayerInfo(this.item);
   }
 
-  showFavorites() {
-    this.isFavorite = this.playerCardService.defineIfFavorite(this.item.id) ? true : false;
+  private showFavorites(): void {
+    this.isFavorite = this.playerCardService.defineIfFavorite(this.item.id);
   }
 
-  handleFavorite() {
-    if (this.isFavorite) {
-      this.isFavorite = false;
-      this.playerCardService.removeFromFavorite(this.item.id);
-    } else {
-      this.isFavorite = true;
-      this.playerCardService.addToFavorite(this.item.id);
-    }
+  public handleFavorite(): void {
+
+    this.isFavorite
+      ? this.playerCardService.removeFromFavorite(this.item.id)
+      : this.playerCardService.addToFavorite(this.item.id);
+
+    this.isFavorite = !this.isFavorite;
   }
 
 }

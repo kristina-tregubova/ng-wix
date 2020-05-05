@@ -9,10 +9,10 @@ export interface IPlayer {
     'userCreated': DocumentReference;
     'userCreatedId'?: string;
     'relatedTournaments': IRelatedTournament[];
-    'team': any[] | null;
+    'team': any[];
     'wins': number;
     'games': number;
-    'logoRef': DocumentReference | string;
+    'logoRef'?: DocumentReference | string;
 }
 
 export interface IRelatedTournament {

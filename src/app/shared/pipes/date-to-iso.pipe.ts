@@ -5,12 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TimestampToIsoPipe implements PipeTransform {
 
-  transform(value): string {
-    if (value && typeof value.toDate !== 'undefined') {
+  transform(value: firebase.firestore.Timestamp | string): string {
+    if (typeof value === 'object') {
       let newValue = value.toDate().toISOString();
       return newValue;
-      
     }
-    return value;
+    if (typeof value === 'string') {
+      return value;
+    }
   }
 }

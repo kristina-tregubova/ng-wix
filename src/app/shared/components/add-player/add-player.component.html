@@ -20,7 +20,8 @@
   <!-- Current players -->
   <app-current-players
     [currentPlayers$]='items$ ? items$ : chosenPlayers$'
-    (removeChosenPlayer)="handleRemovePlayerFromList($event)">
+    (removeChosenPlayer)="handleRemovePlayerFromList($event)"
+  >
   </app-current-players>
 
 
@@ -41,8 +42,15 @@
     <label>Add new</label>
   </div>
 
-  <app-add-from-list [style.display]="showAddNew ? 'none' : 'block'" (newChosenPlayer)="handleAddPlayerToList($event)"></app-add-from-list>
+  <app-add-from-list
+    [style.display]="showAddNew ? 'none' : 'block'"
+    (newChosenPlayer)="handleAddPlayerToList($event)"
+  ></app-add-from-list>
 
-  <app-add-new [style.display]="showAddNew ? 'block' : 'none'" (newChosenPlayer)="handleAddPlayerToList($event)" [tournoInfo]="tournoInfo"></app-add-new>
+  <app-add-new
+    [style.display]="showAddNew ? 'block' : 'none'"
+    (newChosenPlayer)="handleAddPlayerToList($event)"
+    [tournoInfo]="tournoInfo"
+  ></app-add-new>
 
 </div>

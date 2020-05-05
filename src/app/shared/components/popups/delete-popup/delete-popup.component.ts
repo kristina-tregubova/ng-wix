@@ -23,7 +23,7 @@ export class DeletePopupComponent {
     private auth: AuthService
   ) { }
 
-  handleDeletion() {
+  public handleDeletion(): void {
     switch (this.data.collectionName) {
       case 'tournaments':
         this.tournoService.deleteTourno(this.data.itemId);
@@ -43,7 +43,7 @@ export class DeletePopupComponent {
     }
   }
 
-  handleClosingPopup() {
+  public handleClosingPopup(): void {
     this.dialogRef.close();
   }
 
